@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA57D90020DBEE74000FA5DA /* Base58.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA57D8FF20DBEE74000FA5DA /* Base58.swift */; };
+		AA57D92E20DBFED2000FA5DA /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA57D92D20DBFED2000FA5DA /* CryptoSwift.framework */; };
+		AA57D92F20DBFF0B000FA5DA /* CryptoSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA57D92D20DBFED2000FA5DA /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AA811D8920D284B100F7CFBA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA811D8820D284B100F7CFBA /* SettingsViewController.swift */; };
+		AA811D8B20D2ABBC00F7CFBA /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA811D8A20D2ABBC00F7CFBA /* constants.swift */; };
+		AA97BFD320D255960092050E /* WelcomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA97BFD220D255960092050E /* WelcomViewController.swift */; };
+		AA97BFD720D257400092050E /* SetupEncryptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA97BFD620D257400092050E /* SetupEncryptionViewController.swift */; };
+		AA97BFD920D25C930092050E /* SetupScanQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA97BFD820D25C930092050E /* SetupScanQRViewController.swift */; };
+		AA97BFDB20D2694C0092050E /* SetupTransferNotificationTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA97BFDA20D2694C0092050E /* SetupTransferNotificationTokenViewController.swift */; };
+		AAF7B46920DAFD8A008237EA /* CryptoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF7B46820DAFD8A008237EA /* CryptoHelper.swift */; };
+		BE31BFC820C44A8D008F79C6 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE31BFC720C44A8D008F79C6 /* NotificationTableViewCell.swift */; };
+		BE92215020C49B9B00F8EB93 /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92214F20C49B9B00F8EB93 /* NotificationTableViewController.swift */; };
+		BE92215420C49C6F00F8EB93 /* BisqNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92215320C49C6F00F8EB93 /* BisqNotification.swift */; };
+		BE92215620C4AC0700F8EB93 /* NotificationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92215520C4AC0700F8EB93 /* NotificationDetailViewController.swift */; };
+		BEFB45EA20C34BC10052C91A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB45E920C34BC10052C91A /* AppDelegate.swift */; };
+		BEFB45EF20C34BC10052C91A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEFB45ED20C34BC10052C91A /* Main.storyboard */; };
+		BEFB45F120C34BC10052C91A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEFB45F020C34BC10052C91A /* Assets.xcassets */; };
+		BEFB45F420C34BC10052C91A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEFB45F220C34BC10052C91A /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AAF7B46620DAF7DA008237EA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AA57D92F20DBFF0B000FA5DA /* CryptoSwift.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AA57D8FF20DBEE74000FA5DA /* Base58.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base58.swift; sourceTree = "<group>"; };
+		AA57D92D20DBFED2000FA5DA /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = "<group>"; };
+		AA811D8820D284B100F7CFBA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		AA811D8A20D2ABBC00F7CFBA /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
+		AA97BFD220D255960092050E /* WelcomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomViewController.swift; sourceTree = "<group>"; };
+		AA97BFD620D257400092050E /* SetupEncryptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupEncryptionViewController.swift; sourceTree = "<group>"; };
+		AA97BFD820D25C930092050E /* SetupScanQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupScanQRViewController.swift; sourceTree = "<group>"; };
+		AA97BFDA20D2694C0092050E /* SetupTransferNotificationTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupTransferNotificationTokenViewController.swift; sourceTree = "<group>"; };
+		AAF7B46820DAFD8A008237EA /* CryptoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoHelper.swift; sourceTree = "<group>"; };
+		BE31BFC720C44A8D008F79C6 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		BE92214F20C49B9B00F8EB93 /* NotificationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewController.swift; sourceTree = "<group>"; };
+		BE92215320C49C6F00F8EB93 /* BisqNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BisqNotification.swift; sourceTree = "<group>"; };
+		BE92215520C4AC0700F8EB93 /* NotificationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDetailViewController.swift; sourceTree = "<group>"; };
+		BEFB45E620C34BC10052C91A /* bisqremote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bisqremote.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEFB45E920C34BC10052C91A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BEFB45EE20C34BC10052C91A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BEFB45F020C34BC10052C91A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BEFB45F320C34BC10052C91A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BEFB45F520C34BC10052C91A /* Ibisqremotefo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Ibisqremotefo.plist; sourceTree = "<group>"; };
+		BEFB45FC20C355870052C91A /* bisqremote.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = bisqremote.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BEFB45E320C34BC10052C91A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA57D92E20DBFED2000FA5DA /* CryptoSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA97BFD120D255670092050E /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				AA97BFD220D255960092050E /* WelcomViewController.swift */,
+				AA97BFD620D257400092050E /* SetupEncryptionViewController.swift */,
+				AA97BFD820D25C930092050E /* SetupScanQRViewController.swift */,
+				AA97BFDA20D2694C0092050E /* SetupTransferNotificationTokenViewController.swift */,
+			);
+			path = Setup;
+			sourceTree = "<group>";
+		};
+		AAECD59E20D3098300F80E3A /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				AA57D8FF20DBEE74000FA5DA /* Base58.swift */,
+				AAF7B46820DAFD8A008237EA /* CryptoHelper.swift */,
+			);
+			path = Crypto;
+			sourceTree = "<group>";
+		};
+		AAF7B46420DAF789008237EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA57D92D20DBFED2000FA5DA /* CryptoSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BEFB45DD20C34BC10052C91A = {
+			isa = PBXGroup;
+			children = (
+				BEFB45E820C34BC10052C91A /* bisqremote */,
+				BEFB45E720C34BC10052C91A /* Products */,
+				AAF7B46420DAF789008237EA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BEFB45E720C34BC10052C91A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BEFB45E620C34BC10052C91A /* bisqremote.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BEFB45E820C34BC10052C91A /* bisqremote */ = {
+			isa = PBXGroup;
+			children = (
+				AAECD59E20D3098300F80E3A /* Crypto */,
+				AA97BFD120D255670092050E /* Setup */,
+				BEFB45ED20C34BC10052C91A /* Main.storyboard */,
+				BE92214F20C49B9B00F8EB93 /* NotificationTableViewController.swift */,
+				BE31BFC720C44A8D008F79C6 /* NotificationTableViewCell.swift */,
+				BE92215520C4AC0700F8EB93 /* NotificationDetailViewController.swift */,
+				AA811D8820D284B100F7CFBA /* SettingsViewController.swift */,
+				AA811D8A20D2ABBC00F7CFBA /* constants.swift */,
+				BEFB45E920C34BC10052C91A /* AppDelegate.swift */,
+				BE92215320C49C6F00F8EB93 /* BisqNotification.swift */,
+				BEFB45F020C34BC10052C91A /* Assets.xcassets */,
+				BEFB45FC20C355870052C91A /* bisqremote.entitlements */,
+				BEFB45F220C34BC10052C91A /* LaunchScreen.storyboard */,
+				BEFB45F520C34BC10052C91A /* Ibisqremotefo.plist */,
+			);
+			path = bisqremote;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BEFB45E520C34BC10052C91A /* bisqremote */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEFB45F820C34BC10052C91A /* Build configuration list for PBXNativeTarget "bisqremote" */;
+			buildPhases = (
+				BEFB45E220C34BC10052C91A /* Sources */,
+				BEFB45E320C34BC10052C91A /* Frameworks */,
+				BEFB45E420C34BC10052C91A /* Resources */,
+				AAF7B46620DAF7DA008237EA /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = bisqremote;
+			productName = n;
+			productReference = BEFB45E620C34BC10052C91A /* bisqremote.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BEFB45DE20C34BC10052C91A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "joachim Neumann";
+				TargetAttributes = {
+					BEFB45E520C34BC10052C91A = {
+						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 0940;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = BEFB45E120C34BC10052C91A /* Build configuration list for PBXProject "bisqremote" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BEFB45DD20C34BC10052C91A;
+			productRefGroup = BEFB45E720C34BC10052C91A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BEFB45E520C34BC10052C91A /* bisqremote */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BEFB45E420C34BC10052C91A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEFB45F420C34BC10052C91A /* LaunchScreen.storyboard in Resources */,
+				BEFB45F120C34BC10052C91A /* Assets.xcassets in Resources */,
+				BEFB45EF20C34BC10052C91A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BEFB45E220C34BC10052C91A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE92215420C49C6F00F8EB93 /* BisqNotification.swift in Sources */,
+				AA97BFDB20D2694C0092050E /* SetupTransferNotificationTokenViewController.swift in Sources */,
+				BE31BFC820C44A8D008F79C6 /* NotificationTableViewCell.swift in Sources */,
+				AA811D8920D284B100F7CFBA /* SettingsViewController.swift in Sources */,
+				AA811D8B20D2ABBC00F7CFBA /* constants.swift in Sources */,
+				BE92215620C4AC0700F8EB93 /* NotificationDetailViewController.swift in Sources */,
+				BE92215020C49B9B00F8EB93 /* NotificationTableViewController.swift in Sources */,
+				AA97BFD920D25C930092050E /* SetupScanQRViewController.swift in Sources */,
+				AA57D90020DBEE74000FA5DA /* Base58.swift in Sources */,
+				AAF7B46920DAFD8A008237EA /* CryptoHelper.swift in Sources */,
+				BEFB45EA20C34BC10052C91A /* AppDelegate.swift in Sources */,
+				AA97BFD320D255960092050E /* WelcomViewController.swift in Sources */,
+				AA97BFD720D257400092050E /* SetupEncryptionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BEFB45ED20C34BC10052C91A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEFB45EE20C34BC10052C91A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BEFB45F220C34BC10052C91A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEFB45F320C34BC10052C91A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BEFB45F620C34BC10052C91A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BEFB45F720C34BC10052C91A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BEFB45F920C34BC10052C91A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = bisqremote/bisqremote.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8A4DL788W9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = bisqremote/Ibisqremotefo.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.joachimneumann.bisqremotetest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		BEFB45FA20C34BC10052C91A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = bisqremote/bisqremote.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8A4DL788W9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = bisqremote/Ibisqremotefo.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.joachimneumann.bisqremotetest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BEFB45E120C34BC10052C91A /* Build configuration list for PBXProject "bisqremote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEFB45F620C34BC10052C91A /* Debug */,
+				BEFB45F720C34BC10052C91A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEFB45F820C34BC10052C91A /* Build configuration list for PBXNativeTarget "bisqremote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEFB45F920C34BC10052C91A /* Debug */,
+				BEFB45FA20C34BC10052C91A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BEFB45DE20C34BC10052C91A /* Project object */;
+}
