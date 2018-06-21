@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -230,50 +229,32 @@
                                 </constraints>
                             </imageView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Nv6-zs-CM8">
-                                <rect key="frame" x="30" y="234" width="260" height="36"/>
+                                <rect key="frame" x="30" y="520" width="260" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="INU-1V-ARp"/>
+                                    <constraint firstAttribute="height" constant="28" id="kyo-wl-Qyg"/>
                                 </constraints>
                                 <segments>
                                     <segment title="Scan"/>
                                     <segment title="Email"/>
-                                    <segment title="Manual"/>
                                 </segments>
                                 <connections>
                                     <action selector="methodChanged:" destination="cUX-nQ-faw" eventType="valueChanged" id="MIa-jc-GUu"/>
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="instruction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJj-U5-g73">
-                                <rect key="frame" x="20" y="289" width="280" height="21"/>
+                                <rect key="frame" x="20" y="224" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="missingQR" translatesAutoresizingMaskIntoConstraints="NO" id="ALl-Ci-drK">
-                                <rect key="frame" x="60" y="320" width="200" height="200"/>
-                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="c8Y-ei-Zc0"/>
-                                    <constraint firstAttribute="width" secondItem="ALl-Ci-drK" secondAttribute="height" multiplier="1:1" id="uBG-kI-uR3"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sC5-lM-8gK">
-                                <rect key="frame" x="20" y="360" width="280" height="33"/>
+                                <rect key="frame" x="20" y="265" width="280" height="235"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Send email with notification token"/>
                                 <connections>
                                     <action selector="emailButtonPressed:" destination="cUX-nQ-faw" eventType="touchUpInside" id="NNn-76-YIu"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="287364982367498273" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6hC-yh-6t5" userLabel="rawText">
-                                <rect key="frame" x="20" y="360" width="280" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="1sA-49-zic"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="25"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHz-in-zQl" userLabel="help">
                                 <rect key="frame" x="275" y="129" width="30" height="30"/>
                                 <constraints>
@@ -293,29 +274,32 @@
                                     <segue destination="edC-1E-qDP" kind="show" id="HNs-Z7-t1l"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="missingQR" translatesAutoresizingMaskIntoConstraints="NO" id="ALl-Ci-drK">
+                                <rect key="frame" x="15" y="265" width="290" height="235"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6hC-yh-6t5" firstAttribute="centerX" secondItem="PRd-Dk-E6X" secondAttribute="centerX" id="0N3-19-Ecc"/>
                             <constraint firstItem="y90-OJ-Exb" firstAttribute="trailing" secondItem="Nv6-zs-CM8" secondAttribute="trailing" constant="30" id="160-nr-WeH"/>
-                            <constraint firstItem="6hC-yh-6t5" firstAttribute="top" secondItem="JJj-U5-g73" secondAttribute="bottom" constant="50" id="4ue-Se-gee"/>
                             <constraint firstItem="sC5-lM-8gK" firstAttribute="leading" secondItem="y90-OJ-Exb" secondAttribute="leading" constant="20" id="8Vh-OU-rDJ"/>
                             <constraint firstItem="y90-OJ-Exb" firstAttribute="trailing" secondItem="JJj-U5-g73" secondAttribute="trailing" constant="20" id="CQv-fs-NVJ"/>
-                            <constraint firstItem="JJj-U5-g73" firstAttribute="top" secondItem="Nv6-zs-CM8" secondAttribute="bottom" constant="20" id="EQK-py-6Iy"/>
+                            <constraint firstItem="y90-OJ-Exb" firstAttribute="trailing" secondItem="ALl-Ci-drK" secondAttribute="trailing" constant="15" id="Dgb-0f-hoj"/>
                             <constraint firstItem="y90-OJ-Exb" firstAttribute="trailing" secondItem="rTa-2x-nhK" secondAttribute="trailing" constant="20" id="GUq-n5-tMT"/>
-                            <constraint firstItem="Nv6-zs-CM8" firstAttribute="top" secondItem="rTa-2x-nhK" secondAttribute="bottom" constant="30" id="K8Y-Hu-s7r"/>
-                            <constraint firstItem="6hC-yh-6t5" firstAttribute="leading" secondItem="y90-OJ-Exb" secondAttribute="leading" constant="20" id="Mb3-Wq-uvI"/>
-                            <constraint firstItem="sC5-lM-8gK" firstAttribute="top" secondItem="JJj-U5-g73" secondAttribute="bottom" constant="50" id="PIL-Yc-0A0"/>
+                            <constraint firstItem="y90-OJ-Exb" firstAttribute="bottom" secondItem="Nv6-zs-CM8" secondAttribute="bottom" constant="20" id="Pbc-n4-2Ql"/>
                             <constraint firstItem="rTa-2x-nhK" firstAttribute="top" secondItem="y90-OJ-Exb" secondAttribute="top" constant="20" id="Tvy-3z-3Vc"/>
                             <constraint firstItem="mHz-in-zQl" firstAttribute="centerY" secondItem="rTa-2x-nhK" secondAttribute="centerY" id="Ucf-jn-e9s"/>
-                            <constraint firstItem="ALl-Ci-drK" firstAttribute="centerX" secondItem="PRd-Dk-E6X" secondAttribute="centerX" id="WVy-fj-PYx"/>
-                            <constraint firstItem="y90-OJ-Exb" firstAttribute="trailing" secondItem="6hC-yh-6t5" secondAttribute="trailing" constant="20" id="Xkt-r5-IT7"/>
                             <constraint firstItem="JJj-U5-g73" firstAttribute="leading" secondItem="y90-OJ-Exb" secondAttribute="leading" constant="20" id="cA8-DZ-8rq"/>
                             <constraint firstItem="y90-OJ-Exb" firstAttribute="trailing" secondItem="sC5-lM-8gK" secondAttribute="trailing" constant="20" id="eDB-Jj-NMV"/>
-                            <constraint firstItem="ALl-Ci-drK" firstAttribute="top" secondItem="JJj-U5-g73" secondAttribute="bottom" constant="10" id="gSz-c7-i6t"/>
+                            <constraint firstItem="JJj-U5-g73" firstAttribute="top" secondItem="rTa-2x-nhK" secondAttribute="bottom" constant="20" id="eOg-Yb-ev5"/>
+                            <constraint firstItem="Nv6-zs-CM8" firstAttribute="top" secondItem="ALl-Ci-drK" secondAttribute="bottom" constant="20" id="iRz-BT-fer"/>
+                            <constraint firstItem="Nv6-zs-CM8" firstAttribute="top" secondItem="sC5-lM-8gK" secondAttribute="bottom" constant="20" id="juW-tT-vKx"/>
                             <constraint firstItem="y90-OJ-Exb" firstAttribute="trailing" secondItem="mHz-in-zQl" secondAttribute="trailing" constant="15" id="ob1-Sp-tPi"/>
                             <constraint firstItem="Nv6-zs-CM8" firstAttribute="leading" secondItem="y90-OJ-Exb" secondAttribute="leading" constant="30" id="p6Z-PX-2hq"/>
+                            <constraint firstItem="ALl-Ci-drK" firstAttribute="leading" secondItem="y90-OJ-Exb" secondAttribute="leading" constant="15" id="pZZ-dN-97q"/>
                             <constraint firstItem="rTa-2x-nhK" firstAttribute="leading" secondItem="y90-OJ-Exb" secondAttribute="leading" constant="20" id="pmb-ZQ-MXh"/>
+                            <constraint firstItem="sC5-lM-8gK" firstAttribute="top" secondItem="JJj-U5-g73" secondAttribute="bottom" constant="20" id="tpM-3O-6FH"/>
+                            <constraint firstItem="ALl-Ci-drK" firstAttribute="top" secondItem="JJj-U5-g73" secondAttribute="bottom" constant="20" id="yzm-Ui-qZv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="y90-OJ-Exb"/>
                     </view>
@@ -330,7 +314,6 @@
                         <outlet property="emailButton" destination="sC5-lM-8gK" id="JjH-fr-LJT"/>
                         <outlet property="instructionLabel" destination="JJj-U5-g73" id="2lr-yp-aiE"/>
                         <outlet property="qrImage" destination="ALl-Ci-drK" id="r3m-nC-AQu"/>
-                        <outlet property="rawText" destination="6hC-yh-6t5" id="GJK-k9-AjQ"/>
                         <outlet property="selectMethodControl" destination="Nv6-zs-CM8" id="aNo-mU-IPl"/>
                     </connections>
                 </viewController>

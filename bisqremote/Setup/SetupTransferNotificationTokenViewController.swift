@@ -21,7 +21,6 @@ import MessageUI
 
 class SetupTransferNotificationTokenViewController: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var emailButton: UIButton!
-    @IBOutlet weak var rawText: UITextView!
     @IBOutlet weak var qrImage: UIImageView!
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var selectMethodControl: UISegmentedControl!
@@ -33,7 +32,6 @@ class SetupTransferNotificationTokenViewController: UIViewController, MFMailComp
                 qrImage.contentMode = .scaleAspectFill
                 qrImage.image = generateQRCode(from: "BisqToken "+bundleIdentifier+" "+temp)
                 qrImage.contentMode = .scaleAspectFill
-                rawText.text = temp
             }
         }
         setMethod(index: 0)
@@ -66,17 +64,14 @@ class SetupTransferNotificationTokenViewController: UIViewController, MFMailComp
             instructionLabel.text = "Use the camera of your computer"
             qrImage.isHidden = false
             emailButton.isHidden = true
-            rawText.isHidden = true
         case 1:
             instructionLabel.text = "Email to yourself, then copy&paste"
             qrImage.isHidden = true
             emailButton.isHidden = false
-            rawText.isHidden = true
         case 2:
             instructionLabel.text = "Type this into the Bisq desktop app:"
             qrImage.isHidden = true
             emailButton.isHidden = true
-            rawText.isHidden = false
         default:
             print("wrong segmentIndex")
         }
