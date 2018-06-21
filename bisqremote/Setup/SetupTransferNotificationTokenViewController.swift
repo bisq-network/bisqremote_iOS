@@ -29,9 +29,8 @@ class SetupTransferNotificationTokenViewController: UIViewController, MFMailComp
         super.viewDidLoad()
         if let bundleIdentifier = Bundle.main.bundleIdentifier {
             if let temp = UserDefaults.standard.string(forKey: userDefaultApsToken) {
-                qrImage.contentMode = .scaleAspectFill
+                qrImage.contentMode = .scaleAspectFit
                 qrImage.image = generateQRCode(from: "BisqToken "+bundleIdentifier+" "+temp)
-                qrImage.contentMode = .scaleAspectFill
             }
         }
         setMethod(index: 0)
@@ -68,10 +67,6 @@ class SetupTransferNotificationTokenViewController: UIViewController, MFMailComp
             instructionLabel.text = "Email to yourself, then copy&paste"
             qrImage.isHidden = true
             emailButton.isHidden = false
-        case 2:
-            instructionLabel.text = "Type this into the Bisq desktop app:"
-            qrImage.isHidden = true
-            emailButton.isHidden = true
         default:
             print("wrong segmentIndex")
         }
