@@ -87,7 +87,6 @@
 
 /* Begin PBXFileReference section */
 		AA37213220DC4BAB0023E1C2 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
-		AA510BCD20DC4A44006110AD /* CryptoSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CryptoSwift.h; sourceTree = "<group>"; };
 		AA57D8FF20DBEE74000FA5DA /* Base58.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base58.swift; sourceTree = "<group>"; };
 		AA811D8820D284B100F7CFBA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AA811D8A20D2ABBC00F7CFBA /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
@@ -184,7 +183,6 @@
 				AA97BFD120D255670092050E /* Setup */,
 				BEFB45ED20C34BC10052C91A /* Main.storyboard */,
 				BE92214F20C49B9B00F8EB93 /* NotificationTableViewController.swift */,
-				AA510BCD20DC4A44006110AD /* CryptoSwift.h */,
 				BE31BFC720C44A8D008F79C6 /* NotificationTableViewCell.swift */,
 				BE92215520C4AC0700F8EB93 /* NotificationDetailViewController.swift */,
 				AA811D8820D284B100F7CFBA /* SettingsViewController.swift */,

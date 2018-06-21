@@ -27,12 +27,10 @@ class SetupTransferNotificationTokenViewController: UIViewController, MFMailComp
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let bundleIdentifier = Bundle.main.bundleIdentifier {
-            if let temp = UserDefaults.standard.string(forKey: userDefaultApsToken) {
-                qrImage.contentMode = .scaleAspectFit
-                qrImage.image = generateQRCode(from: "BisqToken "+bundleIdentifier+" "+temp)
-            }
-        }
+        let t = UserDefaults.standard.string(forKey: userDefaultApsToken)!
+        let k = UserDefaults.standard.string(forKey: userDefaultSymmetricKey)!
+        qrImage.contentMode = .scaleAspectFit
+        qrImage.image = generateQRCode(from: "BisqToken "+k+" "+t)
         setMethod(index: 0)
     }
     

@@ -28,6 +28,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.tintColor = UIColor(red: 37.0/255.0, green: 177.0/255.0, blue: 53.0/255.0, alpha: 1.0)
         registerForPushNotifications()
 
+        // create a key if needed
+        if let s = UserDefaults.standard.string(forKey: userDefaultSymmetricKey) {
+            CryptoHelper.key = s
+        } else {
+            var uuid = UUID().uuidString
+            uuid = uuid.replacingOccurrences(of: "-", with: "")
+            CryptoHelper.key = uuid
+            UserDefaults.standard.set(uuid, forKey: userDefaultSymmetricKey)
+        }
+        
+        
+        
+        
         // Check if launched from a notification
         if let message = launchOptions?[.remoteNotification] as? [String: AnyObject] {
             var success: String?
