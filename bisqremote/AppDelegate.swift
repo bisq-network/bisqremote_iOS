@@ -26,113 +26,144 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window?.tintColor = UIColor(red: 37.0/255.0, green: 177.0/255.0, blue: 53.0/255.0, alpha: 1.0)
-        registerForPushNotifications()
-
-        // create a key if needed
-        if let s = UserDefaults.standard.string(forKey: userDefaultSymmetricKey) {
-            CryptoHelper.key = s
-        } else {
-            var uuid = UUID().uuidString
-            uuid = uuid.replacingOccurrences(of: "-", with: "")
-            CryptoHelper.key = uuid
-            UserDefaults.standard.set(uuid, forKey: userDefaultSymmetricKey)
-        }
         
-        
-        
-        
-        // Check if launched from a notification
-        if let message = launchOptions?[.remoteNotification] as? [String: AnyObject] {
-            var success: String?
-            if let temp = message["bisqNotification"] as? String {
-                success = temp
-                if success != nil {
-                    print("json: "+success!)
-                }
-            }
-            if let encrypted = message["encrypted"] as? String {
-                let x = encrypted.split(separator: " ")
-                assert (x.count == 3)
-                assert (x[0] == BISQ_MESSAGE_MAGIC)
-                assert (x[1].count == 16)
-                CryptoHelper.iv = String(x[1])
-                if let s = UserDefaults.standard.string(forKey: userDefaultSymmetricKey) {
-                    CryptoHelper.key = s
-                } else {
-                    CryptoHelper.key = ""
-                }
-                let enc = String(x[2])
-                success = CryptoHelper.decrypt(input:enc)!;
-                if success != nil {
-                    print("decrypted json: "+success!)
-                }
-            }
-            if success != nil {
-                NotificationArray.shared.addFromString(new: success!)
-                let navigationController = application.windows[0].rootViewController as! UINavigationController
-                if let topController = navigationController.topViewController {
-                    if let vc = topController as? NotificationTableViewController {
-                        vc.reload()
-                    }
-                }
-            }
-        }
-
-        if UserDefaults.standard.bool(forKey: userDefaultKeySetupDone) {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "listScreen") as! NotificationTableViewController
-            let navigationController = application.windows[0].rootViewController as! UINavigationController
-            navigationController.setViewControllers([vc], animated: false)
+        // Setup needed?
+        if !UserDefaults.standard.bool(forKey: userDefaultKeySetupDone) {
+            registerForPushNotifications()
         }
         return true
     }
+    
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+            (granted, error) in
+            print("iOS Notification: permission granted: \(granted)")
+            
+            guard granted else {
+                if (error != nil) {
+                    print("iOS Notification: permission not granted: \(error.debugDescription)")
+                }
+                return
+            }
+            self.getNotificationSettings()
+        }
+    }
+    
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            print("Notification settings: \(settings)")
+            guard settings.authorizationStatus == .authorized else { return }
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+    }
+
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // Setup completed
+        let token = deviceToken.hexDescription
+        
+        // create a new key and save the phone persistently
+        _ = Phone(token: token)
+    }
+    
+    func application(_ application: UIApplication,
+                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+    }
+
+//        // Check if launched from a notification
+//        if let message = launchOptions?[.remoteNotification] as? [String: AnyObject] {
+//            var success: String?
+//            if let temp = message["bisqNotification"] as? String {
+//                success = temp
+//                if success != nil {
+//                    print("json: "+success!)
+//                }
+//            }
+//            if let encrypted = message["encrypted"] as? String {
+//                let x = encrypted.split(separator: " ")
+//                assert (x.count == 3)
+//                assert (x[0] == BISQ_MESSAGE_MAGIC)
+//                assert (x[1].count == 16)
+//                CryptoHelper.iv = String(x[1])
+//                if let s = UserDefaults.standard.string(forKey: userDefaultSymmetricKey) {
+//                    CryptoHelper.key = s
+//                } else {
+//                    CryptoHelper.key = ""
+//                }
+//                let enc = String(x[2])
+//                success = CryptoHelper.decrypt(input:enc)!;
+//                if success != nil {
+//                    print("decrypted json: "+success!)
+//                }
+//            }
+//            if success != nil {
+//                NotificationArray.shared.addFromString(new: success!)
+//                let navigationController = application.windows[0].rootViewController as! UINavigationController
+//                if let topController = navigationController.topViewController {
+//                    if let vc = topController as? NotificationTableViewController {
+//                        vc.reload()
+//                    }
+//                }
+//            }
+//        }
+//
+//        if UserDefaults.standard.bool(forKey: userDefaultKeySetupDone) {
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "listScreen") as! NotificationTableViewController
+//            let navigationController = application.windows[0].rootViewController as! UINavigationController
+//            navigationController.setViewControllers([vc], animated: false)
+//        }
+//        return true
+//    }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        if application.applicationState == .active {
-            print ("active")
-        } else if application.applicationState == .background {
-            print ("background")
-        } else if application.applicationState == .inactive {
-            print ("inactive")
-        } else{
-            print ("message received in undefined strange state")
-        }
-        
-        if let message = userInfo as? [String: AnyObject] {
-            var success: String?
-            if let temp = message["bisqNotification"] as? String {
-                success = temp
-                if success != nil {
-                    print("json: "+success!)
-                }
-            }
-            if let encrypted = message["encrypted"] as? String {
-                let x = encrypted.split(separator: " ")
-                guard x.count == 3               else { return }
-                guard x[0] == BISQ_MESSAGE_MAGIC else { return }
-                guard x[1].count == 16           else { return }
-                CryptoHelper.iv = String(x[1])
-                if let s = UserDefaults.standard.string(forKey: userDefaultSymmetricKey) {
-                    CryptoHelper.key = s
-                } else {
-                    CryptoHelper.key = ""
-                }
-                let enc = String(x[2])
-                success = CryptoHelper.decrypt(input:enc)!;
-                if success != nil {
-                    print("decrypted json: "+success!)
-                }
-            }
-            if success != nil {
-                NotificationArray.shared.addFromString(new: success!)
-                let navigationController = application.windows[0].rootViewController as! UINavigationController
-                if let topController = navigationController.topViewController {
-                    if let vc = topController as? NotificationTableViewController {
-                        vc.reload()
-                    }
-                }
-            }
-        }
+//        if application.applicationState == .active {
+//            print ("active")
+//        } else if application.applicationState == .background {
+//            print ("background")
+//        } else if application.applicationState == .inactive {
+//            print ("inactive")
+//        } else{
+//            print ("message received in undefined strange state")
+//        }
+//        
+//        if let message = userInfo as? [String: AnyObject] {
+//            var success: String?
+//            if let temp = message["bisqNotification"] as? String {
+//                success = temp
+//                if success != nil {
+//                    print("json: "+success!)
+//                }
+//            }
+//            if let encrypted = message["encrypted"] as? String {
+//                let x = encrypted.split(separator: " ")
+//                guard x.count == 3               else { return }
+//                guard x[0] == BISQ_MESSAGE_MAGIC else { return }
+//                guard x[1].count == 16           else { return }
+//                CryptoHelper.iv = String(x[1])
+//                if let s = UserDefaults.standard.string(forKey: userDefaultSymmetricKey) {
+//                    CryptoHelper.key = s
+//                } else {
+//                    CryptoHelper.key = ""
+//                }
+//                let enc = String(x[2])
+//                success = CryptoHelper.decrypt(input:enc)!;
+//                if success != nil {
+//                    print("decrypted json: "+success!)
+//                }
+//            }
+//            if success != nil {
+//                NotificationArray.shared.addFromString(new: success!)
+//                let navigationController = application.windows[0].rootViewController as! UINavigationController
+//                if let topController = navigationController.topViewController {
+//                    if let vc = topController as? NotificationTableViewController {
+//                        vc.reload()
+//                    }
+//                }
+//            }
+//        }
     }
 
     
@@ -158,49 +189,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func registerForPushNotifications() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
-            (granted, error) in
-            print("iOS Notification: permission granted: \(granted)")
-            
-            guard granted else {
-                if (error != nil) {
-                    print("iOS Notification: permission not granted: \(error.debugDescription)")
-                }
-                return
-            }
-            self.getNotificationSettings()
-        }
-    }
-    
-    func getNotificationSettings() {
-        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-            print("Notification settings: \(settings)")
-            guard settings.authorizationStatus == .authorized else { return }
-            DispatchQueue.main.async {
-                let x = UIApplication.shared
-                x.registerForRemoteNotifications()
-            }
-        }
-    }
-    
-    
-    
-    func application(_ application: UIApplication,
-                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let apsToken = Base58.base58FromBytes([UInt8](deviceToken))
-        print("as    Hex: "+deviceToken.hexDescription)
+//    func registerForPushNotifications() {
+//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+//            (granted, error) in
+//            print("iOS Notification: permission granted: \(granted)")
+//
+//            guard granted else {
+//                if (error != nil) {
+//                    print("iOS Notification: permission not granted: \(error.debugDescription)")
+//                }
+//                return
+//            }
+//            self.getNotificationSettings()
+//        }
+//    }
+//
 
-        UserDefaults.standard.set(apsToken, forKey: userDefaultApsToken)
-        print("as Base58: \(apsToken)")
-        print("\n### Example notification:\n")
-        print(NotificationArray.exampleAPS())
-    }
     
-    func application(_ application: UIApplication,
-                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Failed to register: \(error)")
-    }
+
+//    func getTokenAndKey() {
+//        if let phone = UserDefaults.standard.string(forKey: userDefaultKeyPhone) {
+//            let phoneArray = phone.split(separator: " ")
+//            assert (phoneArray.count == 3)
+//            assert (phoneArray[0] == PHONE_MAGIC)
+//            assert (phoneArray[1].count == 16)
+//            assert (phoneArray[2].count == 32)
+//            CryptoHelper.key = String(phoneArray[1])
+//        }
+//        if let s = UserDefaults.standard.string(forKey: userDefaultSymmetricKey) {
+//            CryptoHelper.key = s
+//        } else {
+//            CryptoHelper.key = ""
+//        }
+//
+//        CryptoHelper.key = "dfgdfgdf"
+//        let apsToken = Base58.base58FromBytes([UInt8](deviceToken))
+//        print("as    Hex: "+deviceToken.hexDescription)
+//
+//        UserDefaults.standard.set(apsToken, forKey: userDefaultApsToken)
+//        print("as Base58: \(apsToken)")
+//        print("\n### Example notification:\n")
+//        print(NotificationArray.exampleAPS())
+//    }
+    
+    
 }
 
 extension Data {

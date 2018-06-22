@@ -25,10 +25,17 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        keyLabel.text = "Key:   "+UserDefaults.standard.string(forKey: userDefaultSymmetricKey)!.prefix(8)+"..."
-        tokenLabel.text = "Token: "+UserDefaults.standard.string(forKey: userDefaultApsToken)!.prefix(8)+"..."
+        let phone = Phone()
+        keyLabel.text = phone.key.prefix(8)+"..."
+        tokenLabel.text = phone.apsToken.prefix(8)+"..."
     }
 
+    @IBAction func resetPressed(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: userDefaultKeySetupDone)
+        UserDefaults.standard.removeObject(forKey: userDefaultKeyPhone)
+        UserDefaults.standard.removeObject(forKey: userDefaultKeyNotifications)
+    }
+    
     @IBAction func rerunSetupPressed(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "welcomeScreen")

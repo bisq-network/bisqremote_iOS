@@ -19,10 +19,7 @@
 import Foundation
 import UIKit // for setting the badge number
 
-let userDefaultKey = "bisqNotification"
-
 let TYPE_TRADE_ACCEPTED = "TRADE_ACCEPTED"
-
 
 // Datastructure as sent from the Bisq notification server
 // This class does not have the variables timestampReceived and read.
@@ -214,7 +211,7 @@ class NotificationArray {
         do {
             let jsonData = try encoder.encode(array)
             let toDefaults = String(data: jsonData, encoding: .utf8)!
-            UserDefaults.standard.set(toDefaults, forKey: userDefaultKey)
+            UserDefaults.standard.set(toDefaults, forKey: userDefaultKeyNotifications)
             UIApplication.shared.applicationIconBadgeNumber = countUnread
         } catch {
             print("/n###/n### save failed/n###/n")
@@ -222,7 +219,7 @@ class NotificationArray {
     }
     
     private func load() {
-        let fromDefaults = UserDefaults.standard.string(forKey: userDefaultKey) ?? "[]"
+        let fromDefaults = UserDefaults.standard.string(forKey: userDefaultKeyNotifications) ?? "[]"
         parseArray(json: fromDefaults)
         UIApplication.shared.applicationIconBadgeNumber = countUnread
     }

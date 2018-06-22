@@ -25,12 +25,14 @@ class SetupTransferNotificationTokenViewController: UIViewController, MFMailComp
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var selectMethodControl: UISegmentedControl!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let t = UserDefaults.standard.string(forKey: userDefaultApsToken)!
-        let k = UserDefaults.standard.string(forKey: userDefaultSymmetricKey)!
-        qrImage.contentMode = .scaleAspectFit
-        qrImage.image = generateQRCode(from: "BisqToken "+k+" "+t)
+        let phone = Phone()
+        if let d = phone.description() {
+            qrImage.contentMode = .scaleAspectFit
+            qrImage.image = generateQRCode(from: d)
+        }
         setMethod(index: 0)
     }
     
@@ -79,16 +81,15 @@ class SetupTransferNotificationTokenViewController: UIViewController, MFMailComp
     
     
     @IBAction func emailButtonPressed(_ sender: Any) {
-        if let temp = UserDefaults.standard.string(forKey: userDefaultApsToken) {
+        let phone = Phone()
+        if let d = phone.description() {
             if MFMailComposeViewController.canSendMail() {
                 let mail = MFMailComposeViewController()
                 mail.mailComposeDelegate = self
                 mail.setSubject("Apple notification service token")
-                mail.setMessageBody("Your Apple Notifications Token is:\n\n\(temp)", isHTML: false)
+                mail.setMessageBody("Please copy this into the Bisq App:\n\n\(d)", isHTML: false)
                 present(mail, animated: true)
             }
-        } else {
-            // show failure alert
         }
     }
     

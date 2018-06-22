@@ -20,12 +20,52 @@ import UIKit
 
 class WelcomViewController: UIViewController {
 
+    @IBOutlet weak var startButton: UIBarButtonItem!
+    
+    @IBOutlet weak var statusLabel: UILabel!
+    
     override func viewDidLoad() {
+        statusLabel.isHidden = false
+        startButton.isEnabled = false
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(doYourStuff),
+                                               name: NSNotification.Name.UIApplicationWillEnterForeground,
+                                               object: nil)
+    }
+    
+    @objc func doYourStuff() {
+        isSetupCompleted()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+            self.isSetupCompleted()
+        })
     }
 
+    func isSetupCompleted() {
+        UIApplication.shared.registerForRemoteNotifications()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            let phone = Phone()
+            if !phone.initialised {
+                self.startButton.isEnabled = false
+                self.statusLabel.isHidden = false
+                let x = UIAlertController(title: "Setup failed", message: "Something went wrong in the setup. Make sure you are connected to the internet.", preferredStyle: .actionSheet)
+                x.addAction(UIAlertAction(title: "try again", style: .default, handler: self.retry))
+                x.addAction(UIAlertAction(title: "cancel", style: .default, handler: nil))
+                self.present(x, animated: true) {}
+            } else {
+                self.startButton.isEnabled = true
+                self.statusLabel.isHidden = true
+            }
+        })
+    }
+
+    func retry(alert: UIAlertAction!) {
+        isSetupCompleted()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
