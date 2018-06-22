@@ -28,9 +28,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.tintColor = UIColor(red: 37.0/255.0, green: 177.0/255.0, blue: 53.0/255.0, alpha: 1.0)
         
         // Setup needed?
-        if !UserDefaults.standard.bool(forKey: userDefaultKeySetupDone) {
+        if UserDefaults.standard.bool(forKey: userDefaultKeySetupDone) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "listScreen") as! NotificationTableViewController
+            let navigationController = application.windows[0].rootViewController as! UINavigationController
+            navigationController.setViewControllers([vc], animated: false)
+        } else {
             registerForPushNotifications()
         }
+        
         return true
     }
     

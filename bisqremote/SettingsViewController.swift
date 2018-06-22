@@ -26,8 +26,8 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let phone = Phone()
-        keyLabel.text = phone.key.prefix(8)+"..."
-        tokenLabel.text = phone.apsToken.prefix(8)+"..."
+        keyLabel.text   = "key   "+phone.key.prefix(8)+"..."
+        tokenLabel.text = "token "+phone.apsToken.prefix(8)+"..."
     }
 
     @IBAction func resetPressed(_ sender: Any) {
