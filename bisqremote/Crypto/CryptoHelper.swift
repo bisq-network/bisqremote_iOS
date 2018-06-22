@@ -44,7 +44,8 @@ class CryptoHelper{
             let aes: AES = try AES(key: key, iv: iv, padding: .pkcs5)
             let db = d!.bytes
             let decrypted = try aes.decrypt(db)
-            return String(data: Data(decrypted), encoding: .utf8)
+            let decryptedString = String(data: Data(decrypted), encoding: .utf8)
+            return decryptedString
         } catch {
             print("could not decrypt "+input)
         }

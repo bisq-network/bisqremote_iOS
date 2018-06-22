@@ -100,17 +100,17 @@ class SetupTransferNotificationTokenViewController: UIViewController, MFMailComp
         navigationController?.setViewControllers([vc], animated: true)
     }
     
-    func webPagePressed(alert: UIAlertAction!) {
-        if let url = NSURL(string: "https://developer.apple.com/documentation/usernotifications/registering_your_app_with_apns"){
-            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
-        }
-    }
+//    func webPagePressed(alert: UIAlertAction!) {
+//        if let url = NSURL(string: "https://developer.apple.com/documentation/usernotifications/registering_your_app_with_apns"){
+//            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+//        }
+//    }
     
-    @IBAction func helpPressed(_ sender: Any) {
-        let x = UIAlertController(title: "iOS Notification Service", message: "This app can receive iOS notifications from Apple, whihc are triggered by the Bisq desktop app. In order to identify your phone to the Bisq desktop app, the Bisq desktop app needs to know the notification token, which the mobile app has already received from the Apple Notification Service.", preferredStyle: .actionSheet)
-        x.addAction(UIAlertAction(title: "About the Apple Notification Token", style: .default, handler: webPagePressed))
-        x.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(x, animated: true) {}
-    }
+//    @IBAction func helpPressed(_ sender: Any) {
+//        let x = UIAlertController(title: "Register your phone", message: "If you register your phone with the Bisq desktop app, you will be able to receive iOS push notifications. The content of the notifications are encrypted by Bisq.", preferredStyle: .actionSheet)
+////        x.addAction(UIAlertAction(title: "About the Apple Notification Token", style: .default, handler: webPagePressed))
+//        x.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//        self.present(x, animated: true) {}
+//    }
     
 }

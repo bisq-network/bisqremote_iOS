@@ -39,27 +39,37 @@ class WelcomViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
-            self.isSetupCompleted()
-        })
+        if !UserDefaults.standard.bool(forKey: userDefaultKeySetupDone) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+                self.isSetupCompleted()
+            })
+        } else {
+            self.startButton.isEnabled = true
+            self.statusLabel.isHidden = true
+        }
     }
 
     func isSetupCompleted() {
-        UIApplication.shared.registerForRemoteNotifications()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            let phone = Phone()
-            if !phone.initialised {
-                self.startButton.isEnabled = false
-                self.statusLabel.isHidden = false
-                let x = UIAlertController(title: "Setup failed", message: "Something went wrong in the setup. Make sure you are connected to the internet.", preferredStyle: .actionSheet)
-                x.addAction(UIAlertAction(title: "try again", style: .default, handler: self.retry))
-                x.addAction(UIAlertAction(title: "cancel", style: .default, handler: nil))
-                self.present(x, animated: true) {}
-            } else {
-                self.startButton.isEnabled = true
-                self.statusLabel.isHidden = true
-            }
-        })
+        if !UserDefaults.standard.bool(forKey: userDefaultKeySetupDone) {
+            UIApplication.shared.registerForRemoteNotifications()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                let phone = Phone()
+                if !phone.initialised {
+                    self.startButton.isEnabled = false
+                    self.statusLabel.isHidden = false
+                    let x = UIAlertController(title: "Setup failed", message: "Something went wrong in the setup. Make sure you are connected to the internet.", preferredStyle: .actionSheet)
+                    x.addAction(UIAlertAction(title: "try again", style: .default, handler: self.retry))
+                    x.addAction(UIAlertAction(title: "cancel", style: .default, handler: nil))
+                    self.present(x, animated: true) {}
+                } else {
+                    self.startButton.isEnabled = true
+                    self.statusLabel.isHidden = true
+                }
+            })
+        } else {
+            self.startButton.isEnabled = true
+            self.statusLabel.isHidden = true
+        }
     }
 
     func retry(alert: UIAlertAction!) {

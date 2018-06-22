@@ -71,8 +71,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Welcome" id="Z7T-Wj-Kux">
-                        <barButtonItem key="rightBarButtonItem" title="Start" id="pMC-f9-8gJ">
+                    <navigationItem key="navigationItem" id="Z7T-Wj-Kux">
+                        <barButtonItem key="rightBarButtonItem" title="Setup Phone" id="pMC-f9-8gJ">
                             <connections>
                                 <segue destination="JyP-qo-d6l" kind="show" id="s9g-ca-KfE"/>
                             </connections>
@@ -96,46 +96,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setup_pushnotification" translatesAutoresizingMaskIntoConstraints="NO" id="vDN-Fd-vzs">
-                                <rect key="frame" x="0.0" y="84" width="290" height="120"/>
+                                <rect key="frame" x="0.0" y="125" width="290" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="wF4-yq-0cj"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Go to your computer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wql-92-PMJ">
-                                <rect key="frame" x="20" y="254" width="280" height="21"/>
+                                <rect key="frame" x="20" y="295" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Start the Bisq App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fS3-6z-SAJ">
-                                <rect key="frame" x="20" y="283" width="280" height="21"/>
+                                <rect key="frame" x="20" y="324" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. Open &quot;Bisq Remote&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YlV-fn-iqM">
-                                <rect key="frame" x="20" y="312" width="280" height="21"/>
+                                <rect key="frame" x="20" y="353" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4. Transfer the device information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v81-P6-NB9">
-                                <rect key="frame" x="20" y="341" width="280" height="21"/>
+                                <rect key="frame" x="20" y="382" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9FX-Rl-QgA" userLabel="help">
-                                <rect key="frame" x="275" y="129" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="54W-jP-mb9"/>
-                                    <constraint firstAttribute="height" constant="30" id="Yao-4I-O0x"/>
-                                </constraints>
-                                <state key="normal" image="help"/>
-                                <connections>
-                                    <action selector="helpPressed:" destination="JyP-qo-d6l" eventType="touchUpInside" id="pnn-sY-BZS"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register your phone with Bisq" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="965-4Q-kOa">
+                                <rect key="frame" x="20" y="84" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -143,17 +138,18 @@
                             <constraint firstItem="wLF-PD-qZI" firstAttribute="trailing" secondItem="vDN-Fd-vzs" secondAttribute="trailing" constant="30" id="4eI-IB-CwD"/>
                             <constraint firstItem="Wql-92-PMJ" firstAttribute="top" secondItem="vDN-Fd-vzs" secondAttribute="bottom" constant="50" id="BwW-hf-dXd"/>
                             <constraint firstItem="YlV-fn-iqM" firstAttribute="top" secondItem="fS3-6z-SAJ" secondAttribute="bottom" constant="8" id="EIn-Dz-KgI"/>
-                            <constraint firstItem="vDN-Fd-vzs" firstAttribute="top" secondItem="wLF-PD-qZI" secondAttribute="top" constant="20" id="EVL-uK-7aC"/>
                             <constraint firstItem="v81-P6-NB9" firstAttribute="leading" secondItem="wLF-PD-qZI" secondAttribute="leading" constant="20" id="Lws-tq-yB3"/>
                             <constraint firstItem="wLF-PD-qZI" firstAttribute="trailing" secondItem="YlV-fn-iqM" secondAttribute="trailing" constant="20" id="O4G-KS-bhI"/>
                             <constraint firstItem="wLF-PD-qZI" firstAttribute="trailing" secondItem="fS3-6z-SAJ" secondAttribute="trailing" constant="20" id="RiO-QB-k03"/>
+                            <constraint firstItem="965-4Q-kOa" firstAttribute="top" secondItem="wLF-PD-qZI" secondAttribute="top" constant="20" id="Tzc-No-zOX"/>
+                            <constraint firstItem="wLF-PD-qZI" firstAttribute="trailing" secondItem="965-4Q-kOa" secondAttribute="trailing" constant="20" id="WB7-32-Vfd"/>
                             <constraint firstItem="v81-P6-NB9" firstAttribute="top" secondItem="YlV-fn-iqM" secondAttribute="bottom" constant="8" id="WDn-fl-rH9"/>
+                            <constraint firstItem="965-4Q-kOa" firstAttribute="leading" secondItem="wLF-PD-qZI" secondAttribute="leading" constant="20" id="gDN-RY-cDp"/>
                             <constraint firstItem="wLF-PD-qZI" firstAttribute="trailing" secondItem="v81-P6-NB9" secondAttribute="trailing" constant="20" id="l9M-9C-1qI"/>
+                            <constraint firstItem="vDN-Fd-vzs" firstAttribute="top" secondItem="965-4Q-kOa" secondAttribute="bottom" constant="20" id="mbE-kg-HFP"/>
                             <constraint firstItem="Wql-92-PMJ" firstAttribute="leading" secondItem="wLF-PD-qZI" secondAttribute="leading" constant="20" id="nXG-nu-ncq"/>
                             <constraint firstItem="vDN-Fd-vzs" firstAttribute="leading" secondItem="wLF-PD-qZI" secondAttribute="leading" id="p2w-4z-X4B"/>
-                            <constraint firstItem="9FX-Rl-QgA" firstAttribute="centerY" secondItem="vDN-Fd-vzs" secondAttribute="centerY" id="pZ4-QY-CMA"/>
                             <constraint firstItem="wLF-PD-qZI" firstAttribute="trailing" secondItem="Wql-92-PMJ" secondAttribute="trailing" constant="20" id="t3Y-ga-1bw"/>
-                            <constraint firstAttribute="trailing" secondItem="9FX-Rl-QgA" secondAttribute="trailing" constant="15" id="t7n-ic-t1r"/>
                             <constraint firstItem="fS3-6z-SAJ" firstAttribute="top" secondItem="Wql-92-PMJ" secondAttribute="bottom" constant="8" id="w29-ch-AbN"/>
                             <constraint firstItem="YlV-fn-iqM" firstAttribute="leading" secondItem="wLF-PD-qZI" secondAttribute="leading" constant="20" id="wh4-q5-ZxO"/>
                         </constraints>
@@ -169,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ark-3S-GJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3101" y="-649"/>
+            <point key="canvasLocation" x="-3101.25" y="-649.64788732394368"/>
         </scene>
         <!--Setup-->
         <scene sceneID="cJi-lD-tH9">
