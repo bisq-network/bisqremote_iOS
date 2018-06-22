@@ -22,3 +22,5 @@ let userDefaultKeySetupDone = "SetupDone"
 let userDefaultKeyPhone = "Phone"
 let userDefaultKeyNotifications = "Notifications"
 
+let PHONE_MAGIC_IOS: String = "BisqPhoneiOS"
+

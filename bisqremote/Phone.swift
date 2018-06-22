@@ -20,8 +20,6 @@ import Foundation
 import UIKit
 
 class Phone {
-    let PHONE_MAGIC: String = "BisqPhoneiOS"
-    
     var key: String = ""
     var apsToken: String = ""
     var initialised = false
@@ -31,7 +29,7 @@ class Phone {
         if let s = UserDefaults.standard.string(forKey: userDefaultKeyPhone) {
             let a = s.split(separator: "@")
             assert (a.count == 3)
-            assert (a[0] == PHONE_MAGIC)
+            assert (a[0] == PHONE_MAGIC_IOS)
             assert (a[1].count == 32)
             assert (a[2].count == 64)
             key = String(a[1])
@@ -52,7 +50,7 @@ class Phone {
     
     func description() -> String? {
         if initialised {
-            return PHONE_MAGIC+"@"+key+"@"+apsToken
+            return PHONE_MAGIC_IOS+"@"+key+"@"+apsToken
         } else {
             return nil
         }
