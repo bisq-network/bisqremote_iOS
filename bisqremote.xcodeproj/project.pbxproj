@@ -184,18 +184,18 @@
 				AAECD59E20D3098300F80E3A /* Crypto */,
 				AA97BFD120D255670092050E /* Setup */,
 				BEFB45ED20C34BC10052C91A /* Main.storyboard */,
+				BEFB45E920C34BC10052C91A /* AppDelegate.swift */,
 				BE92214F20C49B9B00F8EB93 /* NotificationTableViewController.swift */,
 				BE31BFC720C44A8D008F79C6 /* NotificationTableViewCell.swift */,
 				BE92215520C4AC0700F8EB93 /* NotificationDetailViewController.swift */,
 				AA811D8820D284B100F7CFBA /* SettingsViewController.swift */,
-				AA811D8A20D2ABBC00F7CFBA /* constants.swift */,
-				BEFB45E920C34BC10052C91A /* AppDelegate.swift */,
+				AABC359A20DCD3C5008DDD26 /* Phone.swift */,
 				BE92215320C49C6F00F8EB93 /* BisqNotification.swift */,
+				AA811D8A20D2ABBC00F7CFBA /* constants.swift */,
 				BEFB45F020C34BC10052C91A /* Assets.xcassets */,
 				BEFB45FC20C355870052C91A /* bisqremote.entitlements */,
 				BEFB45F220C34BC10052C91A /* LaunchScreen.storyboard */,
 				BEFB45F520C34BC10052C91A /* Ibisqremotefo.plist */,
-				AABC359A20DCD3C5008DDD26 /* Phone.swift */,
 			);
 			path = bisqremote;
 			sourceTree = "<group>";
