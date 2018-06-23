@@ -90,16 +90,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func processNotification(app: UIApplication, n: [AnyHashable : Any]) {
+        // Setup done?
+        if !UserDefaults.standard.bool(forKey: userDefaultKeySetupDone) {return}
+
         if let message = n as? [String: AnyObject] {
             var success: String?
             if let encrypted = message["encrypted"] as? String {
-                let x = encrypted.split(separator: "@")
+                let x = encrypted.split(separator: Character(BISQ_MESSAGE_SEPARATOR))
                 guard x.count == 3                   else { return }
                 guard x[0] == BISQ_MESSAGE_IOS_MAGIC else { return }
                 guard x[1].count == 16               else { return }
-                CryptoHelper.iv = String(x[1])
                 let phone = Phone()
-                CryptoHelper.key = phone.key
+                if let key = phone.key {
+                     CryptoHelper.key = key
+                } else {
+                    return
+                }
+                CryptoHelper.iv = String(x[1])
                 let enc = String(x[2])
                 success = CryptoHelper.decrypt(input:enc);
                 if success != nil {

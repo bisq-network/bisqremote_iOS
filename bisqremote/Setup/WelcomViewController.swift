@@ -88,8 +88,8 @@ class WelcomViewController: UIViewController {
     }
 
     @IBAction func helpPressed(_ sender: Any) {
-        let x = UIAlertController(title: "Bisq", message: "Bisq is an open-source desktop application that allows you to buy and sell bitcoins in exchange for national currencies, or alternative crypto currencies.", preferredStyle: .actionSheet)
-        x.addAction(UIAlertAction(title: "https://bisq.network", style: .default, handler: webPagePressed))
+        let x = UIAlertController(title: "Bisq is an open-source desktop application that allows you to buy and sell bitcoins in exchange for national currencies, or alternative crypto currencies.", message: nil, preferredStyle: .actionSheet)
+        x.addAction(UIAlertAction(title: "bisq.network", style: .default, handler: webPagePressed))
         x.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(x, animated: true) {}
     }

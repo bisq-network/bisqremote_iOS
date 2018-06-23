@@ -20,14 +20,14 @@ import Foundation
 import UIKit
 
 class Phone {
-    var key: String = ""
-    var apsToken: String = ""
+    var key: String?
+    var apsToken: String?
     var initialised = false
     
     init() {
         // read the data from UserDefaults
         if let s = UserDefaults.standard.string(forKey: userDefaultKeyPhone) {
-            let a = s.split(separator: "@")
+            let a = s.split(separator: Character(BISQ_MESSAGE_SEPARATOR))
             assert (a.count == 3)
             assert (a[0] == PHONE_MAGIC_IOS)
             assert (a[1].count == 32)
@@ -50,9 +50,13 @@ class Phone {
     
     func description() -> String? {
         if initialised {
-            return PHONE_MAGIC_IOS+"@"+key+"@"+apsToken
-        } else {
-            return nil
+            if let k = key {
+                if let a = apsToken {
+                    return PHONE_MAGIC_IOS+BISQ_MESSAGE_SEPARATOR+k+BISQ_MESSAGE_SEPARATOR+a
+                }
+            }
         }
+        return nil
     }
+
 }

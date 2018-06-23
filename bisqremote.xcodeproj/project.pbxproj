@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA4367B020DEED700099C365 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4367AF20DEED700099C365 /* RegisterViewController.swift */; };
 		AA57D90020DBEE74000FA5DA /* Base58.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA57D8FF20DBEE74000FA5DA /* Base58.swift */; };
 		AA811D8920D284B100F7CFBA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA811D8820D284B100F7CFBA /* SettingsViewController.swift */; };
 		AA811D8B20D2ABBC00F7CFBA /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA811D8A20D2ABBC00F7CFBA /* constants.swift */; };
@@ -88,6 +89,7 @@
 
 /* Begin PBXFileReference section */
 		AA37213220DC4BAB0023E1C2 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
+		AA4367AF20DEED700099C365 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		AA57D8FF20DBEE74000FA5DA /* Base58.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base58.swift; sourceTree = "<group>"; };
 		AA811D8820D284B100F7CFBA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AA811D8A20D2ABBC00F7CFBA /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				AA97BFD220D255960092050E /* WelcomViewController.swift */,
 				AA97BFDA20D2694C0092050E /* SetupTransferNotificationTokenViewController.swift */,
+				AA4367AF20DEED700099C365 /* RegisterViewController.swift */,
 			);
 			path = Setup;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				BE92215020C49B9B00F8EB93 /* NotificationTableViewController.swift in Sources */,
 				AA57D90020DBEE74000FA5DA /* Base58.swift in Sources */,
 				AAF7B46920DAFD8A008237EA /* CryptoHelper.swift in Sources */,
+				AA4367B020DEED700099C365 /* RegisterViewController.swift in Sources */,
 				BEFB45EA20C34BC10052C91A /* AppDelegate.swift in Sources */,
 				AA97BFD320D255960092050E /* WelcomViewController.swift in Sources */,
 			);

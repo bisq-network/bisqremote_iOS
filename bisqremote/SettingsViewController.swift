@@ -22,18 +22,36 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var keyLabel: UILabel!
     @IBOutlet weak var tokenLabel: UILabel!
+    @IBOutlet weak var versionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let phone = Phone()
-        keyLabel.text   = "key   "+phone.key.prefix(8)+"..."
-        tokenLabel.text = "token "+phone.apsToken.prefix(8)+"..."
+        updateFooter()
     }
-
+    
+    func updateFooter() {
+        let phone = Phone()
+        if let k = phone.key {
+            keyLabel.text   = "key   "+k.prefix(8)+"..."
+        } else {
+            keyLabel.text   = "key   missing"
+        }
+        if let a = phone.apsToken {
+            tokenLabel.text = "token "+a.prefix(8)+"..."
+        } else {
+            tokenLabel.text = "token missing"
+        }
+        let dictionary = Bundle.main.infoDictionary!
+        let version = dictionary["CFBundleShortVersionString"] as! String
+        let build = dictionary["CFBundleVersion"] as! String
+        versionLabel.text = "Version \(version) build \(build)"
+    }
+    
     @IBAction func resetPressed(_ sender: Any) {
         UserDefaults.standard.removeObject(forKey: userDefaultKeySetupDone)
         UserDefaults.standard.removeObject(forKey: userDefaultKeyPhone)
         UserDefaults.standard.removeObject(forKey: userDefaultKeyNotifications)
+        updateFooter()
     }
     
     @IBAction func rerunSetupPressed(_ sender: Any) {

@@ -88,7 +88,7 @@ class SetupTransferNotificationTokenViewController: UIViewController, MFMailComp
 
                 var messageBody = "Please copy this Bisq Phone ID string into the field \"Bisq Phone ID\" in the Bisq App:\n\n"
                 messageBody += phoneDescription+"\n\n"
-                messageBody += "The Bisq phone ID string contains a token from Apple that identifies this instance of the Bisq remote app. The string also contains an excryption key (AES/CBC/NOPadding with initialization vector) which is used on the computer to encrypt the content of the notification."
+                messageBody += "The Bisq Phone ID contains (1) a token from Apple that identifies this instance of the Bisq remote app and (2) your excryption key (AES/CBC/NOPadding with initialization vector) which is used by Bisq to encrypt the notifications for you."
                 mail.setMessageBody(messageBody, isHTML: false)
                 present(mail, animated: true)
             }
@@ -103,18 +103,5 @@ class SetupTransferNotificationTokenViewController: UIViewController, MFMailComp
         let vc = storyboard.instantiateViewController(withIdentifier: "listScreen") as! NotificationTableViewController
         navigationController?.setViewControllers([vc], animated: true)
     }
-    
-//    func webPagePressed(alert: UIAlertAction!) {
-//        if let url = NSURL(string: "https://developer.apple.com/documentation/usernotifications/registering_your_app_with_apns"){
-//            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
-//        }
-//    }
-    
-//    @IBAction func helpPressed(_ sender: Any) {
-//        let x = UIAlertController(title: "Register your phone", message: "If you register your phone with the Bisq desktop app, you will be able to receive iOS push notifications. The content of the notifications are encrypted by Bisq.", preferredStyle: .actionSheet)
-////        x.addAction(UIAlertAction(title: "About the Apple Notification Token", style: .default, handler: webPagePressed))
-//        x.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//        self.present(x, animated: true) {}
-//    }
     
 }
