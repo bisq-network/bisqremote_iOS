@@ -25,7 +25,6 @@ class SetupTransferNotificationTokenViewController: UIViewController, MFMailComp
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var selectMethodControl: UISegmentedControl!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let phone = Phone()
@@ -60,15 +59,15 @@ class SetupTransferNotificationTokenViewController: UIViewController, MFMailComp
     func setMethod(index: Int) {
         switch index {
         case 0:
-            instructionLabel.text = "Use the camera of your computer"
+            instructionLabel.text = "Press \"Use Webcam\" in Bisq"
             qrImage.isHidden = false
             emailButton.isHidden = true
         case 1:
-            instructionLabel.text = "Email to yourself, then copy&paste"
+            instructionLabel.text = "Email to yourself with instructions"
             qrImage.isHidden = true
             emailButton.isHidden = false
         default:
-            print("wrong segmentIndex")
+            fatalError("wrong segmentIndex")
         }
     }
     @IBAction func methodChanged(_ method: UISegmentedControl) {
@@ -79,17 +78,22 @@ class SetupTransferNotificationTokenViewController: UIViewController, MFMailComp
         controller.dismiss(animated: true)
     }
     
-    
     @IBAction func emailButtonPressed(_ sender: Any) {
         let phone = Phone()
-        if let d = phone.description() {
+        if let phoneDescription = phone.description() {
             if MFMailComposeViewController.canSendMail() {
                 let mail = MFMailComposeViewController()
                 mail.mailComposeDelegate = self
-                mail.setSubject("Apple notification service token")
-                mail.setMessageBody("Please copy this into the Bisq App:\n\n\(d)", isHTML: false)
+                mail.setSubject("Register your phone with Bisq")
+
+                var messageBody = "Please copy this Bisq Phone ID string into the field \"Bisq Phone ID\" in the Bisq App:\n\n"
+                messageBody += phoneDescription+"\n\n"
+                messageBody += "The Bisq phone ID string contains a token from Apple that identifies this instance of the Bisq remote app. The string also contains an excryption key (AES/CBC/NOPadding with initialization vector) which is used on the computer to encrypt the content of the notification."
+                mail.setMessageBody(messageBody, isHTML: false)
                 present(mail, animated: true)
             }
+        } else {
+            
         }
     }
     
