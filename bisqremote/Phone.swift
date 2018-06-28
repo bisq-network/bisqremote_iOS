@@ -28,13 +28,19 @@ class Phone {
         // read the data from UserDefaults
         if let s = UserDefaults.standard.string(forKey: userDefaultKeyPhone) {
             let a = s.split(separator: Character(BISQ_MESSAGE_SEPARATOR))
-            assert (a.count == 3)
-            assert (a[0] == PHONE_MAGIC_IOS)
-            assert (a[1].count == 32)
-            assert (a[2].count == 64)
-            key = String(a[1])
-            apsToken = String(a[2])
-            initialised = true
+            if (a.count != 3) {
+                UserDefaults.standard.set(false, forKey: userDefaultKeyPhone)
+                key = nil
+                apsToken = nil
+                initialised = false
+            } else {
+                assert (a[0] == PHONE_MAGIC_IOS)
+                assert (a[1].count == 32)
+                assert (a[2].count == 64)
+                key = String(a[1])
+                apsToken = String(a[2])
+                initialised = true
+            }
         }
     }
     

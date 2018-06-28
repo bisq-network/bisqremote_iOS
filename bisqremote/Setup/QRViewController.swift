@@ -19,7 +19,7 @@
 import UIKit
 import MessageUI
 
-class SetupTransferNotificationTokenViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class QRViewController: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var qrImage: UIImageView!
     @IBOutlet weak var instructionLabel: UILabel!
@@ -88,12 +88,11 @@ class SetupTransferNotificationTokenViewController: UIViewController, MFMailComp
 
                 var messageBody = "Please copy this Bisq Phone ID string into the field \"Bisq Phone ID\" in the Bisq App:\n\n"
                 messageBody += phoneDescription+"\n\n"
-                messageBody += "The Bisq Phone ID contains (1) a token from Apple that identifies this instance of the Bisq remote app and (2) your excryption key (AES/CBC/NOPadding with initialization vector) which is used by Bisq to encrypt the notifications for you."
+                messageBody += "The Bisq Phone ID contains (1) your excryption key (AES/CBC/NOPadding with initialization vector) which is used by Bisq to encrypt the notifications for you and (2) a token from Apple that identifies this instance of the Bisq remote app."
                 mail.setMessageBody(messageBody, isHTML: false)
                 present(mail, animated: true)
             }
         } else {
-            
         }
     }
     

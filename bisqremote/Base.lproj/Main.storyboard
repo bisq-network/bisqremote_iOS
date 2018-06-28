@@ -158,7 +158,7 @@
         <!--QR code-->
         <scene sceneID="cJi-lD-tH9">
             <objects>
-                <viewController id="cUX-nQ-faw" customClass="SetupTransferNotificationTokenViewController" customModule="bisqremote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cUX-nQ-faw" customClass="QRViewController" customModule="bisqremote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PRd-Dk-E6X">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

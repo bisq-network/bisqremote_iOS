@@ -12,7 +12,7 @@
 		AA811D8920D284B100F7CFBA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA811D8820D284B100F7CFBA /* SettingsViewController.swift */; };
 		AA811D8B20D2ABBC00F7CFBA /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA811D8A20D2ABBC00F7CFBA /* constants.swift */; };
 		AA97BFD320D255960092050E /* WelcomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA97BFD220D255960092050E /* WelcomViewController.swift */; };
-		AA97BFDB20D2694C0092050E /* SetupTransferNotificationTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA97BFDA20D2694C0092050E /* SetupTransferNotificationTokenViewController.swift */; };
+		AA97BFDB20D2694C0092050E /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA97BFDA20D2694C0092050E /* QRViewController.swift */; };
 		AABC359520DC4E29008DDD26 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AABC359420DC4E29008DDD26 /* CryptoSwift.framework */; };
 		AABC359620DC4E90008DDD26 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA37213B20DC4BAB0023E1C2 /* CryptoSwift.framework */; };
 		AABC359720DC4E90008DDD26 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA37213B20DC4BAB0023E1C2 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -94,7 +94,7 @@
 		AA811D8820D284B100F7CFBA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AA811D8A20D2ABBC00F7CFBA /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		AA97BFD220D255960092050E /* WelcomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomViewController.swift; sourceTree = "<group>"; };
-		AA97BFDA20D2694C0092050E /* SetupTransferNotificationTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupTransferNotificationTokenViewController.swift; sourceTree = "<group>"; };
+		AA97BFDA20D2694C0092050E /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
 		AABC359420DC4E29008DDD26 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = "../../Library/Developer/Xcode/DerivedData/CryptoSwift-gqrdousjkckpjgbotctmeomuemqr/Build/Products/Debug-iphoneos/CryptoSwift.framework"; sourceTree = "<group>"; };
 		AABC359A20DCD3C5008DDD26 /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
 		AAF7B46820DAFD8A008237EA /* CryptoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoHelper.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				AA97BFD220D255960092050E /* WelcomViewController.swift */,
-				AA97BFDA20D2694C0092050E /* SetupTransferNotificationTokenViewController.swift */,
+				AA97BFDA20D2694C0092050E /* QRViewController.swift */,
 				AA4367AF20DEED700099C365 /* RegisterViewController.swift */,
 			);
 			path = Setup;
@@ -330,7 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE92215420C49C6F00F8EB93 /* BisqNotification.swift in Sources */,
-				AA97BFDB20D2694C0092050E /* SetupTransferNotificationTokenViewController.swift in Sources */,
+				AA97BFDB20D2694C0092050E /* QRViewController.swift in Sources */,
 				BE31BFC820C44A8D008F79C6 /* NotificationTableViewCell.swift in Sources */,
 				AA811D8920D284B100F7CFBA /* SettingsViewController.swift in Sources */,
 				AABC359B20DCD3C5008DDD26 /* Phone.swift in Sources */,
