@@ -20,14 +20,15 @@ import UIKit
 
 class WelcomViewController: UIViewController {
 
-    @IBOutlet weak var startButton: UIBarButtonItem!
+    @IBOutlet weak var registerButton: UIButton!
     
     @IBOutlet weak var statusLabel: UILabel!
     
     override func viewDidLoad() {
-        statusLabel.isHidden = false
-        startButton.isEnabled = false
         super.viewDidLoad()
+
+        statusLabel.isHidden = false
+        registerButton.isEnabled = false
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(doYourStuff),
                                                name: NSNotification.Name.UIApplicationWillEnterForeground,
@@ -39,12 +40,15 @@ class WelcomViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        // hide navigationbar in this screen
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
         if !UserDefaults.standard.bool(forKey: userDefaultKeySetupDone) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
                 self.isSetupCompleted()
             })
         } else {
-            self.startButton.isEnabled = true
+            self.registerButton.isEnabled = true
             self.statusLabel.isHidden = true
         }
     }
@@ -55,21 +59,22 @@ class WelcomViewController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                 let phone = Phone()
                 if !phone.initialised {
-                    self.startButton.isEnabled = false
+                    self.registerButton.isEnabled = true // TODO FIXME false
                     self.statusLabel.isHidden = false
                     let x = UIAlertController(title: "Setup failed", message: "Something went wrong in the setup. Make sure you are connected to the internet.", preferredStyle: .actionSheet)
                     x.addAction(UIAlertAction(title: "try again", style: .default, handler: self.retry))
                     x.addAction(UIAlertAction(title: "cancel", style: .default, handler: nil))
                     self.present(x, animated: true) {}
                 } else {
-                    self.startButton.isEnabled = true
+                    self.registerButton.isEnabled = true
                     self.statusLabel.isHidden = true
                 }
             })
         } else {
-            self.startButton.isEnabled = true
+            self.registerButton.isEnabled = true
             self.statusLabel.isHidden = true
         }
+        
     }
 
     func retry(alert: UIAlertAction!) {
@@ -81,26 +86,27 @@ class WelcomViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func webPagePressed(alert: UIAlertAction!) {
+    func bisqWebPagePressed(alert: UIAlertAction!) {
         if let url = NSURL(string: "https://bisq.network"){
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
     }
 
+    func bisqMobileWebPagePressed(alert: UIAlertAction!) {
+        if let url = NSURL(string: "https://bisq.network/bisqmobile"){
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        }
+    }
+
     @IBAction func helpPressed(_ sender: Any) {
-        let x = UIAlertController(title: "Bisq is an open-source desktop application that allows you to buy and sell bitcoins in exchange for national currencies, or alternative crypto currencies.", message: nil, preferredStyle: .actionSheet)
-        x.addAction(UIAlertAction(title: "bisq.network", style: .default, handler: webPagePressed))
+        let x = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        x.addAction(UIAlertAction(title: "About Bisq", style: .default, handler: bisqWebPagePressed))
+        x.addAction(UIAlertAction(title: "About Bisq mobile", style: .default, handler: bisqMobileWebPagePressed))
         x.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(x, animated: true) {}
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
-    */
-
 }

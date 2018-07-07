@@ -46,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    
     func registerForPushNotifications() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
             (granted, error) in
@@ -147,50 +148,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-//    func registerForPushNotifications() {
-//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
-//            (granted, error) in
-//            print("iOS Notification: permission granted: \(granted)")
-//
-//            guard granted else {
-//                if (error != nil) {
-//                    print("iOS Notification: permission not granted: \(error.debugDescription)")
-//                }
-//                return
-//            }
-//            self.getNotificationSettings()
-//        }
-//    }
-//
-
-    
-
-//    func getTokenAndKey() {
-//        if let phone = UserDefaults.standard.string(forKey: userDefaultKeyPhone) {
-//            let phoneArray = phone.split(separator: " ")
-//            assert (phoneArray.count == 3)
-//            assert (phoneArray[0] == PHONE_MAGIC)
-//            assert (phoneArray[1].count == 16)
-//            assert (phoneArray[2].count == 32)
-//            CryptoHelper.key = String(phoneArray[1])
-//        }
-//        if let s = UserDefaults.standard.string(forKey: userDefaultSymmetricKey) {
-//            CryptoHelper.key = s
-//        } else {
-//            CryptoHelper.key = ""
-//        }
-//
-//        CryptoHelper.key = "dfgdfgdf"
-//        let apsToken = Base58.base58FromBytes([UInt8](deviceToken))
-//        print("as    Hex: "+deviceToken.hexDescription)
-//
-//        UserDefaults.standard.set(apsToken, forKey: userDefaultApsToken)
-//        print("as Base58: \(apsToken)")
-//        print("\n### Example notification:\n")
-//        print(NotificationArray.exampleAPS())
-//    }
-    
     
 }
 

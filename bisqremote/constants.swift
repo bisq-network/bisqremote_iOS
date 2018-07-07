@@ -22,6 +22,8 @@ let userDefaultKeySetupDone = "SetupDone"
 let userDefaultKeyPhone = "BisqPhoneID"
 let userDefaultKeyNotifications = "Notifications"
 
-let PHONE_MAGIC_IOS: String = "BisqPhoneiOS"
+let PHONE_MAGIC_IOS_DEV: String = "BisqPhoneiOSDev"
+let PHONE_MAGIC_IOS:     String = "BisqPhoneiOS"
+
 let BISQ_MESSAGE_IOS_MAGIC: String = "BisqMessageiOS"
 let BISQ_MESSAGE_SEPARATOR = "|" // must be a single character

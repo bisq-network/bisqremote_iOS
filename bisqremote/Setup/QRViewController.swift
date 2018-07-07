@@ -17,13 +17,10 @@
  */
 
 import UIKit
-import MessageUI
 
-class QRViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class QRViewController: UIViewController {
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var qrImage: UIImageView!
-    @IBOutlet weak var instructionLabel: UILabel!
-    @IBOutlet weak var selectMethodControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +29,6 @@ class QRViewController: UIViewController, MFMailComposeViewControllerDelegate {
             qrImage.contentMode = .scaleAspectFit
             qrImage.image = generateQRCode(from: d)
         }
-        setMethod(index: 0)
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,46 +51,7 @@ class QRViewController: UIViewController, MFMailComposeViewControllerDelegate {
         
         return nil
     }
-    
-    func setMethod(index: Int) {
-        switch index {
-        case 0:
-            instructionLabel.text = "Press \"Use Webcam\" in Bisq"
-            qrImage.isHidden = false
-            emailButton.isHidden = true
-        case 1:
-            instructionLabel.text = "Email to yourself with instructions"
-            qrImage.isHidden = true
-            emailButton.isHidden = false
-        default:
-            fatalError("wrong segmentIndex")
-        }
-    }
-    @IBAction func methodChanged(_ method: UISegmentedControl) {
-        setMethod(index: method.selectedSegmentIndex)
-    }
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true)
-    }
-    
-    @IBAction func emailButtonPressed(_ sender: Any) {
-        let phone = Phone()
-        if let phoneDescription = phone.description() {
-            if MFMailComposeViewController.canSendMail() {
-                let mail = MFMailComposeViewController()
-                mail.mailComposeDelegate = self
-                mail.setSubject("Register your phone with Bisq")
-
-                var messageBody = "Please copy this Bisq Phone ID string into the field \"Bisq Phone ID\" in the Bisq App:\n\n"
-                messageBody += phoneDescription+"\n\n"
-                messageBody += "The Bisq Phone ID contains (1) your excryption key (AES/CBC/NOPadding with initialization vector) which is used by Bisq to encrypt the notifications for you and (2) a token from Apple that identifies this instance of the Bisq remote app."
-                mail.setMessageBody(messageBody, isHTML: false)
-                present(mail, animated: true)
-            }
-        } else {
-        }
-    }
+        
     
     @IBAction func doneButtonPressed(_ sender: Any) {
         UserDefaults.standard.set(true, forKey: userDefaultKeySetupDone)

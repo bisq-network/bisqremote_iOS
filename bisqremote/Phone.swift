@@ -34,7 +34,7 @@ class Phone {
                 apsToken = nil
                 initialised = false
             } else {
-                assert (a[0] == PHONE_MAGIC_IOS)
+                assert (a[0] == magic())
                 assert (a[1].count == 32)
                 assert (a[2].count == 64)
                 key = String(a[1])
@@ -58,11 +58,27 @@ class Phone {
         if initialised {
             if let k = key {
                 if let a = apsToken {
-                    return PHONE_MAGIC_IOS+BISQ_MESSAGE_SEPARATOR+k+BISQ_MESSAGE_SEPARATOR+a
+                    return magic()+BISQ_MESSAGE_SEPARATOR+k+BISQ_MESSAGE_SEPARATOR+a
                 }
             }
         }
         return nil
+    }
+    
+    func magic() -> String {
+        if amIBeingDebugged() {
+            return PHONE_MAGIC_IOS_DEV
+        } else {
+            return PHONE_MAGIC_IOS
+        }
+    }
+    func amIBeingDebugged() -> Bool {
+        var info = kinfo_proc()
+        var mib : [Int32] = [CTL_KERN, KERN_PROC, KERN_PROC_PID, getpid()]
+        var size = MemoryLayout<kinfo_proc>.stride
+        let junk = sysctl(&mib, UInt32(mib.count), &info, &size, nil, 0)
+        assert(junk == 0, "sysctl failed")
+        return (info.kp_proc.p_flag & P_TRACED) != 0
     }
 
 }

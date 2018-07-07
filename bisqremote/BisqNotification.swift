@@ -85,7 +85,7 @@ class RawNotification: Codable {
 }
 
 
-// This class ist stored persistently in the phone.
+// This class is stored persistently in the phone.
 class Notification: RawNotification {
     var read: Bool
     let timestampReceived: Date
