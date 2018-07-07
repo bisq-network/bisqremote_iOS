@@ -28,7 +28,13 @@ class WelcomViewController: UIViewController {
         super.viewDidLoad()
         
         statusLabel.isHidden = false
+
         registerButton.isEnabled = false
+        
+        #if targetEnvironment(simulator)
+        registerButton.isEnabled = true
+        #endif
+        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(checkForToken),
                                                name: NSNotification.Name.UIApplicationWillEnterForeground,
@@ -39,6 +45,7 @@ class WelcomViewController: UIViewController {
         // hide navigationbar in this screen
         navigationController?.setNavigationBarHidden(true, animated: false)
         
+        #if !targetEnvironment(simulator)
         if UserDefaults.standard.string(forKey: userDefaultKeyToken) == nil {
             DispatchQueue.main.asyncAfter(deadline: .now() + 4, execute: {
                 self.checkForToken()
@@ -47,6 +54,8 @@ class WelcomViewController: UIViewController {
             self.registerButton.isEnabled = true
             self.statusLabel.isHidden = true
         }
+        #endif
+
     }
 
     @objc func checkForToken() {

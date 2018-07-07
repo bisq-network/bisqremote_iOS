@@ -21,8 +21,10 @@ import UIKit
 
 class RegisterViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageView.layer.zPosition = 2
     }
 
     override func didReceiveMemoryWarning() {

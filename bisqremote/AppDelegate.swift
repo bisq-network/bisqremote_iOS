@@ -37,6 +37,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             processNotification(app: application, n: message)
         }
 
+        #if targetEnvironment(simulator)
+        Phone.instance.key = "A4C595428CAA4C768F60AE7EBFF85852"
+        Phone.instance.apsToken = "d45161df3d172837f1b83bb3e411d5a63120de6b435ff9235adb70d619d162a1"
+        Phone.instance.confirmed = true
+//        UserDefaults.standard.set(Phone.instance.description(), forKey: userDefaultKeyPhoneID)
+//        UserDefaults.standard.synchronize()
+        #endif
+        
         // Setup needed?
         if UserDefaults.standard.string(forKey: userDefaultKeyPhoneID) != nil {
             let vc = storyboard.instantiateViewController(withIdentifier: "listScreen") as! NotificationTableViewController
@@ -47,8 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 registerForPushNotifications()
             }
         }
-
-        
         return true
     }
     
