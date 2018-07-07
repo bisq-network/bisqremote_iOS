@@ -19,24 +19,23 @@
 import UIKit
 
 class QRViewController: UIViewController {
-    @IBOutlet weak var emailButton: UIButton!
+
+    @IBOutlet weak var confirmedImage: UIImageView!
+    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var qrImage: UIImageView!
+    @IBOutlet weak var instructionsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let phone = Phone()
-        if let d = phone.description() {
-            qrImage.contentMode = .scaleAspectFit
-            qrImage.image = generateQRCode(from: d)
-        }
+        update()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func confirmed() {
+        update()
     }
     
-    func generateQRCode(from string: String) -> UIImage? {
+
+    private func generateQRCode(from string: String) -> UIImage? {
         let data = string.data(using: String.Encoding.ascii)
         
         if let filter = CIFilter(name: "CIQRCodeGenerator") {
@@ -51,13 +50,45 @@ class QRViewController: UIViewController {
         
         return nil
     }
-        
     
-    @IBAction func doneButtonPressed(_ sender: Any) {
-        UserDefaults.standard.set(true, forKey: userDefaultKeySetupDone)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "listScreen") as! NotificationTableViewController
-        navigationController?.setViewControllers([vc], animated: true)
+    private func update() {
+        if let d = Phone.instance.description() {
+            qrImage.contentMode = .scaleAspectFit
+            qrImage.image = generateQRCode(from: d)
+        }
+        if Phone.instance.confirmed {
+            statusLabel.text = "confirmation received"
+            confirmedImage.isHidden = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                if let vc = storyboard.instantiateViewController(withIdentifier: "listScreen") as? NotificationTableViewController {
+                    self.navigationController?.setViewControllers([vc], animated: true)
+                }
+            })
+        } else {
+            statusLabel.text = "...waiting for confirmation"
+            confirmedImage.isHidden = true
+        }
+        instructionsLabel.isHidden = true
+        qrImage.isHidden = false
     }
+    
+    
+    @IBAction func instructionsPressed(_ sender: Any) {
+        if instructionsLabel.isHidden {
+            instructionsLabel.isHidden = false
+            qrImage.isHidden = true
+        } else {
+            instructionsLabel.isHidden = true
+            qrImage.isHidden = false
+        }
+    }
+    
+//    @IBAction func doneButtonPressed(_ sender: Any) {
+//        UserDefaults.standard.set(true, forKey: userDefaultKeySetupDone)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "listScreen") as! NotificationTableViewController
+//        navigationController?.setViewControllers([vc], animated: true)
+//    }
     
 }

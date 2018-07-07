@@ -18,12 +18,13 @@
 
 import Foundation
 
-let userDefaultKeySetupDone = "SetupDone"
-let userDefaultKeyPhone = "BisqPhoneID"
+let userDefaultKeyPhoneID       = "BisqPhoneID"
 let userDefaultKeyNotifications = "Notifications"
+let userDefaultKeyToken         = "Token"
 
-let PHONE_MAGIC_IOS_DEV: String = "BisqPhoneiOSDev"
-let PHONE_MAGIC_IOS:     String = "BisqPhoneiOS"
+let PHONE_MAGIC_IOS_DEV:       String = "BisqPhoneiOSDev"
+let PHONE_MAGIC_IOS:           String = "BisqPhoneiOS"
+let BISQ_CONFIRMATION_MESSAGE: String = "confirmationNotification"
+let BISQ_MESSAGE_IOS_MAGIC:    String = "BisqMessageiOS"
 
-let BISQ_MESSAGE_IOS_MAGIC: String = "BisqMessageiOS"
 let BISQ_MESSAGE_SEPARATOR = "|" // must be a single character

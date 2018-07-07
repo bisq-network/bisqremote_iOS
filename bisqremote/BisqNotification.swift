@@ -212,6 +212,7 @@ class NotificationArray {
             let jsonData = try encoder.encode(array)
             let toDefaults = String(data: jsonData, encoding: .utf8)!
             UserDefaults.standard.set(toDefaults, forKey: userDefaultKeyNotifications)
+            UserDefaults.standard.synchronize()
             UIApplication.shared.applicationIconBadgeNumber = countUnread
         } catch {
             print("/n###/n### save failed/n###/n")
@@ -231,7 +232,7 @@ class NotificationArray {
     var countUnread: Int {
         var unread = 0
         for n in array {
-            if (!n.read) { unread += 1 }
+            if !n.read { unread += 1 }
         }
         return unread
     }

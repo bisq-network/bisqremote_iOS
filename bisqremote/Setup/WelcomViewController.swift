@@ -26,26 +26,22 @@ class WelcomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         statusLabel.isHidden = false
         registerButton.isEnabled = false
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(doYourStuff),
+                                               selector: #selector(checkForToken),
                                                name: NSNotification.Name.UIApplicationWillEnterForeground,
                                                object: nil)
-    }
-    
-    @objc func doYourStuff() {
-        isSetupCompleted()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // hide navigationbar in this screen
         navigationController?.setNavigationBarHidden(true, animated: false)
         
-        if !UserDefaults.standard.bool(forKey: userDefaultKeySetupDone) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
-                self.isSetupCompleted()
+        if UserDefaults.standard.string(forKey: userDefaultKeyToken) == nil {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4, execute: {
+                self.checkForToken()
             })
         } else {
             self.registerButton.isEnabled = true
@@ -53,32 +49,25 @@ class WelcomViewController: UIViewController {
         }
     }
 
-    func isSetupCompleted() {
-        if !UserDefaults.standard.bool(forKey: userDefaultKeySetupDone) {
+    @objc func checkForToken() {
+        if UserDefaults.standard.string(forKey: userDefaultKeyToken) == nil {
             UIApplication.shared.registerForRemoteNotifications()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                let phone = Phone()
-                if !phone.initialised {
-                    self.registerButton.isEnabled = true // TODO FIXME false
-                    self.statusLabel.isHidden = false
-                    let x = UIAlertController(title: "Setup failed", message: "Something went wrong in the setup. Make sure you are connected to the internet.", preferredStyle: .actionSheet)
-                    x.addAction(UIAlertAction(title: "try again", style: .default, handler: self.retry))
-                    x.addAction(UIAlertAction(title: "cancel", style: .default, handler: nil))
-                    self.present(x, animated: true) {}
-                } else {
-                    self.registerButton.isEnabled = true
-                    self.statusLabel.isHidden = true
-                }
+                self.registerButton.isEnabled = false
+                self.statusLabel.isHidden = false
+                let x = UIAlertController(title: "Error", message: "Could not fetch the Apple notification token. Make sure you are connected to the internet.", preferredStyle: .actionSheet)
+                x.addAction(UIAlertAction(title: "Try again", style: .default, handler: self.retry))
+                x.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+                self.present(x, animated: true) {}
             })
         } else {
             self.registerButton.isEnabled = true
             self.statusLabel.isHidden = true
         }
-        
     }
 
     func retry(alert: UIAlertAction!) {
-        isSetupCompleted()
+        checkForToken()
     }
     
     override func didReceiveMemoryWarning() {

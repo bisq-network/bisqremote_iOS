@@ -33,13 +33,17 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
         // Dispose of any resources that can be recreated.
     }
     
+    func confirmed() {
+        
+    }
+
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true)
     }
     
+    
     @IBAction func emailButtonPressed(_ sender: Any) {
-        let phone = Phone()
-        if let phoneDescription = phone.description() {
+        if let phoneDescription = Phone.instance.description() {
             if MFMailComposeViewController.canSendMail() {
                 let mail = MFMailComposeViewController()
                 mail.mailComposeDelegate = self

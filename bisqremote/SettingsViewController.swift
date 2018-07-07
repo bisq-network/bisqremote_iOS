@@ -30,31 +30,21 @@ class SettingsViewController: UIViewController {
     }
     
     func updateFooter() {
-        let phone = Phone()
-        if let k = phone.key {
-            keyLabel.text   = "key   "+k.prefix(8)+"..."
-        } else {
-            keyLabel.text   = "key   missing"
-        }
-        if let a = phone.apsToken {
-            tokenLabel.text = "token "+a.prefix(8)+"..."
-        } else {
-            tokenLabel.text = "token missing"
-        }
+        keyLabel.text   = "key   "+Phone.instance.key.prefix(8)+"..."
+        tokenLabel.text = "token "+Phone.instance.apsToken.prefix(8)+"..."
         let dictionary = Bundle.main.infoDictionary!
         let version = dictionary["CFBundleShortVersionString"] as! String
         let build = dictionary["CFBundleVersion"] as! String
         versionLabel.text = "Version \(version) build \(build)"
     }
     
-    @IBAction func resetPressed(_ sender: Any) {
-        UserDefaults.standard.removeObject(forKey: userDefaultKeySetupDone)
-        UserDefaults.standard.removeObject(forKey: userDefaultKeyPhone)
-        UserDefaults.standard.removeObject(forKey: userDefaultKeyNotifications)
-        updateFooter()
-    }
-    
     @IBAction func rerunSetupPressed(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: userDefaultKeyToken)
+        UserDefaults.standard.removeObject(forKey: userDefaultKeyPhoneID)
+        UserDefaults.standard.removeObject(forKey: userDefaultKeyNotifications)
+        Phone.instance.reset()
+        updateFooter()
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "welcomeScreen")
         navigationController?.setViewControllers([vc], animated: true)

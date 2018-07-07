@@ -19,60 +19,65 @@
 import Foundation
 import UIKit
 
+
 class Phone {
-    var key: String?
-    var apsToken: String?
-    var initialised = false
     
-    init() {
-        // read the data from UserDefaults
-        if let s = UserDefaults.standard.string(forKey: userDefaultKeyPhone) {
+    static let instance = Phone()
+
+    var key: String
+    var apsToken: String
+    var confirmed = false // confirmation-notification received?
+    
+    private init() {
+        key = ""
+        apsToken = ""
+        confirmed = false
+
+        // try reading from UserDefaults
+        var phoneIDExists = false
+        if let s = UserDefaults.standard.string(forKey: userDefaultKeyPhoneID) {
             let a = s.split(separator: Character(BISQ_MESSAGE_SEPARATOR))
-            if (a.count != 3) {
-                UserDefaults.standard.set(false, forKey: userDefaultKeyPhone)
-                key = nil
-                apsToken = nil
-                initialised = false
-            } else {
-                assert (a[0] == magic())
-                assert (a[1].count == 32)
-                assert (a[2].count == 64)
+            var ok = true
+            if a.count != 3 { ok = false }
+            if ok && (a[0] != Phone.magic()) { ok = false }
+            if ok && (a[1].count != 32) { ok = false }
+            if ok && (a[2].count != 64) { ok = false }
+            if ok {
                 key = String(a[1])
                 apsToken = String(a[2])
-                initialised = true
+                confirmed = true // only confirmed phone IDs are saved into UserDefaults
+                phoneIDExists = true
             }
+        }
+        if !phoneIDExists {
+            UserDefaults.standard.removeObject(forKey: userDefaultKeyPhoneID)
+            key = UUID().uuidString.replacingOccurrences(of: "-", with: "")
+            if let token = UserDefaults.standard.string(forKey: userDefaultKeyToken) {
+                apsToken = token
+            }
+            confirmed = false
         }
     }
     
-    init(token: String) {
-        apsToken = token
-        // create key and store to Userdefaults
-        key = UUID().uuidString.replacingOccurrences(of: "-", with: "")
-        initialised = true
-        if let d = description() {
-            UserDefaults.standard.set(d, forKey: userDefaultKeyPhone)
-        }
+    func reset() {
+        key = ""
+        apsToken = ""
+        confirmed = false
     }
     
     func description() -> String? {
-        if initialised {
-            if let k = key {
-                if let a = apsToken {
-                    return magic()+BISQ_MESSAGE_SEPARATOR+k+BISQ_MESSAGE_SEPARATOR+a
-                }
-            }
-        }
-        return nil
+        return Phone.magic()+BISQ_MESSAGE_SEPARATOR+key+BISQ_MESSAGE_SEPARATOR+apsToken
     }
     
-    func magic() -> String {
+    static func magic() -> String {
         if amIBeingDebugged() {
             return PHONE_MAGIC_IOS_DEV
         } else {
             return PHONE_MAGIC_IOS
         }
     }
-    func amIBeingDebugged() -> Bool {
+    
+    static func amIBeingDebugged() -> Bool {
         var info = kinfo_proc()
         var mib : [Int32] = [CTL_KERN, KERN_PROC, KERN_PROC_PID, getpid()]
         var size = MemoryLayout<kinfo_proc>.stride
