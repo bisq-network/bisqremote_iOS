@@ -22,7 +22,7 @@ import UIKit
 
 class Phone {
     
-    static let instance = Phone()
+    static var instance = Phone()
 
     var key: String
     var apsToken: String
@@ -50,16 +50,26 @@ class Phone {
             }
         }
         if !phoneIDExists {
-            UserDefaults.standard.removeObject(forKey: userDefaultKeyPhoneID)
-            key = UUID().uuidString.replacingOccurrences(of: "-", with: "")
-            if let token = UserDefaults.standard.string(forKey: userDefaultKeyToken) {
-                apsToken = token
+            UserDefaults.standard.removeObject(forKey: userDefaultKeyPhoneID) // just to be safe
+            if let t = UserDefaults.standard.string(forKey: userDefaultKeyToken) {
+                newToken(token: t)
             }
-            confirmed = false
         }
     }
     
+    func newToken(token: String) {
+        key = UUID().uuidString.replacingOccurrences(of: "-", with: "")
+        apsToken = token
+        confirmed = false
+        UserDefaults.standard.set(token, forKey: userDefaultKeyToken)
+        UserDefaults.standard.synchronize()
+    }
+    
+    
     func reset() {
+        UserDefaults.standard.removeObject(forKey: userDefaultKeyToken)        
+        UserDefaults.standard.removeObject(forKey: userDefaultKeyPhoneID)
+        UserDefaults.standard.removeObject(forKey: userDefaultKeyNotifications)
         key = ""
         apsToken = ""
         confirmed = false

@@ -44,6 +44,15 @@ class RegisterViewController: UIViewController {
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "emailSeque" {
+            guard let emailViewController = segue.destination as? EmailViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            emailViewController.sendEmail()
+        }
+    }
 
     func webPageEncryptionPressed(alert: UIAlertAction!) {
         if let url = NSURL(string: "https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation"){

@@ -133,15 +133,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2pc-dl-AVV" userLabel="backgroundView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="247"/>
-                                <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="2pc-dl-AVV" secondAttribute="height" multiplier="983:646" id="RUA-Sp-97e"/>
-                                </constraints>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="setup_pushnotification" translatesAutoresizingMaskIntoConstraints="NO" id="vDN-Fd-vzs">
-                                <rect key="frame" x="30" y="80" width="315" height="207"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="webcam" translatesAutoresizingMaskIntoConstraints="NO" id="vDN-Fd-vzs">
+                                <rect key="frame" x="0.0" y="64" width="375" height="246"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="vDN-Fd-vzs" secondAttribute="height" multiplier="983:646" id="JbR-R9-thU"/>
                                 </constraints>
@@ -170,10 +163,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Kq-Af-8k3" userLabel="instructionView">
-                                <rect key="frame" x="0.0" y="287" width="375" height="287"/>
+                                <rect key="frame" x="0.0" y="310" width="375" height="264"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Do you want to use your computer's webcam or do you want to send an email to yourself?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eaD-FT-aPJ">
-                                        <rect key="frame" x="20" y="105" width="335" height="77"/>
+                                        <rect key="frame" x="20" y="94" width="335" height="77"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="77" id="Gyb-me-oDq"/>
@@ -191,18 +184,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="oxs-eh-zHi" firstAttribute="trailing" secondItem="2pc-dl-AVV" secondAttribute="trailing" id="0am-TE-5Rc"/>
-                            <constraint firstItem="vDN-Fd-vzs" firstAttribute="top" secondItem="eet-BC-8HS" secondAttribute="top" constant="80" id="4lE-6d-tII"/>
                             <constraint firstItem="CGg-CL-E5b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eet-BC-8HS" secondAttribute="leading" constant="20" symbolic="YES" id="4pe-3y-aFI"/>
                             <constraint firstItem="oxs-eh-zHi" firstAttribute="trailing" secondItem="CGg-CL-E5b" secondAttribute="trailing" constant="20" id="7gd-e7-ZuH"/>
-                            <constraint firstItem="oxs-eh-zHi" firstAttribute="trailing" secondItem="vDN-Fd-vzs" secondAttribute="trailing" constant="30" id="8Nh-rT-6cv"/>
+                            <constraint firstItem="oxs-eh-zHi" firstAttribute="trailing" secondItem="vDN-Fd-vzs" secondAttribute="trailing" id="8Nh-rT-6cv"/>
                             <constraint firstItem="CGg-CL-E5b" firstAttribute="centerY" secondItem="eqZ-RK-Byd" secondAttribute="centerY" id="8mJ-mg-81g"/>
-                            <constraint firstItem="vDN-Fd-vzs" firstAttribute="leading" secondItem="oxs-eh-zHi" secondAttribute="leading" constant="30" id="Bx2-Jc-xDi"/>
-                            <constraint firstItem="2pc-dl-AVV" firstAttribute="top" secondItem="eet-BC-8HS" secondAttribute="topMargin" id="S1G-Ze-Ows"/>
+                            <constraint firstItem="vDN-Fd-vzs" firstAttribute="leading" secondItem="oxs-eh-zHi" secondAttribute="leading" id="Bx2-Jc-xDi"/>
+                            <constraint firstItem="vDN-Fd-vzs" firstAttribute="top" secondItem="oxs-eh-zHi" secondAttribute="top" id="UKk-3j-DQn"/>
                             <constraint firstItem="7Kq-Af-8k3" firstAttribute="leading" secondItem="oxs-eh-zHi" secondAttribute="leading" id="YnB-9J-7Yi"/>
                             <constraint firstItem="oxs-eh-zHi" firstAttribute="bottom" secondItem="eqZ-RK-Byd" secondAttribute="bottom" constant="60" id="ahA-K9-QXr"/>
                             <constraint firstItem="oxs-eh-zHi" firstAttribute="trailing" secondItem="7Kq-Af-8k3" secondAttribute="trailing" id="cxC-cK-i8r"/>
-                            <constraint firstItem="2pc-dl-AVV" firstAttribute="leading" secondItem="oxs-eh-zHi" secondAttribute="leading" id="gwc-tU-ct0"/>
                             <constraint firstItem="7Kq-Af-8k3" firstAttribute="top" secondItem="vDN-Fd-vzs" secondAttribute="bottom" id="m9a-w9-kuH"/>
                             <constraint firstItem="eqZ-RK-Byd" firstAttribute="centerX" secondItem="eet-BC-8HS" secondAttribute="centerX" id="pGr-v8-5FU"/>
                             <constraint firstItem="eqZ-RK-Byd" firstAttribute="top" secondItem="7Kq-Af-8k3" secondAttribute="bottom" id="rse-NY-bdr"/>
@@ -251,7 +241,7 @@
 
 Settings -&gt; Bisq Mobile
 
-Then press "Webcam" and scan the QR code</string>
+Then press "Webcam" and scan this QR code</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -296,30 +286,44 @@ Then press "Webcam" and scan the QR code</string>
             </objects>
             <point key="canvasLocation" x="-1434.4000000000001" y="149.77511244377811"/>
         </scene>
-        <!--View Controller-->
+        <!--Email View Controller-->
         <scene sceneID="foB-Tv-DgN">
             <objects>
-                <viewController id="T7q-Gp-CGR" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tKR-bo-YWd">
+                <viewController id="T7q-Gp-CGR" customClass="EmailViewController" customModule="bisqremote" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tKR-bo-YWd" userLabel="view">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="53D-Ov-0Yz">
-                                <rect key="frame" x="128.5" y="364" width="118" height="33"/>
+                                <rect key="frame" x="128" y="574" width="118" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="RESEND EMAIL"/>
                                 <connections>
                                     <action selector="emailButtonPressed:" destination="cUX-nQ-faw" eventType="touchUpInside" id="Gl0-xU-ew1"/>
+                                    <action selector="emailButtonPressed:" destination="T7q-Gp-CGR" eventType="touchUpInside" id="VZd-pG-AG3"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D99-ee-xMM">
-                                <rect key="frame" x="20" y="323" width="335" height="21"/>
+                                <rect key="frame" x="163" y="533" width="49.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please copy this Bisq Phone ID string into the field &quot;Bisq Phone ID&quot; in the Bisq App" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8CE-xw-xEr">
-                                <rect key="frame" x="20" y="596" width="335" height="41"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ok" translatesAutoresizingMaskIntoConstraints="NO" id="7ok-fk-NtB">
+                                <rect key="frame" x="232.5" y="533.5" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="VuI-I7-qQN"/>
+                                    <constraint firstAttribute="height" constant="20" id="cLo-Uf-YHL"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVj-xe-uV5">
+                                <rect key="frame" x="40" y="84" width="295" height="295"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="HVj-xe-uV5" secondAttribute="height" multiplier="1:1" id="VyW-Dj-sRu"/>
+                                </constraints>
+                                <string key="text">Open the email on your computer.
+
+Then open the Bisq app and copy &amp; paste the Bisq Phone ID from the email into the field "Bisq Phone ID".</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -328,17 +332,20 @@ Then press "Webcam" and scan the QR code</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="53D-Ov-0Yz" firstAttribute="centerX" secondItem="tKR-bo-YWd" secondAttribute="centerX" id="4Ax-Ea-lwG"/>
-                            <constraint firstItem="D99-ee-xMM" firstAttribute="centerY" secondItem="tKR-bo-YWd" secondAttribute="centerY" id="Bcl-ku-dq9"/>
-                            <constraint firstItem="8CE-xw-xEr" firstAttribute="leading" secondItem="cCL-Ey-XlJ" secondAttribute="leading" constant="20" id="KJE-ev-l10"/>
-                            <constraint firstItem="cCL-Ey-XlJ" firstAttribute="bottom" secondItem="8CE-xw-xEr" secondAttribute="bottom" constant="30" id="N0L-Bf-5O0"/>
-                            <constraint firstItem="cCL-Ey-XlJ" firstAttribute="trailing" secondItem="D99-ee-xMM" secondAttribute="trailing" constant="20" id="Vd5-VM-Tv5"/>
+                            <constraint firstItem="cCL-Ey-XlJ" firstAttribute="bottom" secondItem="53D-Ov-0Yz" secondAttribute="bottom" constant="60" id="BBO-17-uCA"/>
+                            <constraint firstItem="7ok-fk-NtB" firstAttribute="leading" secondItem="D99-ee-xMM" secondAttribute="trailing" constant="20" id="HfD-hJ-RIA"/>
+                            <constraint firstItem="7ok-fk-NtB" firstAttribute="centerY" secondItem="D99-ee-xMM" secondAttribute="centerY" id="JUY-CZ-OTp"/>
+                            <constraint firstItem="cCL-Ey-XlJ" firstAttribute="trailing" secondItem="HVj-xe-uV5" secondAttribute="trailing" constant="40" id="ZIF-K1-ijU"/>
+                            <constraint firstItem="HVj-xe-uV5" firstAttribute="top" secondItem="cCL-Ey-XlJ" secondAttribute="top" constant="20" id="fUE-hQ-EBi"/>
+                            <constraint firstItem="HVj-xe-uV5" firstAttribute="leading" secondItem="cCL-Ey-XlJ" secondAttribute="leading" constant="40" id="ppx-B0-WTV"/>
                             <constraint firstItem="D99-ee-xMM" firstAttribute="centerX" secondItem="tKR-bo-YWd" secondAttribute="centerX" id="s8s-Xb-QR8"/>
-                            <constraint firstItem="cCL-Ey-XlJ" firstAttribute="trailing" secondItem="8CE-xw-xEr" secondAttribute="trailing" constant="20" id="ubc-B9-qc5"/>
                             <constraint firstItem="53D-Ov-0Yz" firstAttribute="top" secondItem="D99-ee-xMM" secondAttribute="bottom" constant="20" id="xz4-Tw-WTa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cCL-Ey-XlJ"/>
                     </view>
                     <connections>
+                        <outlet property="confirmedImage" destination="7ok-fk-NtB" id="aQq-hL-yAA"/>
+                        <outlet property="statusLabel" destination="D99-ee-xMM" id="Smx-L6-Iyz"/>
                         <segue destination="edC-1E-qDP" kind="show" identifier="emailToListSegue" id="ysd-b0-S7x"/>
                     </connections>
                 </viewController>
@@ -636,7 +643,7 @@ Then press "Webcam" and scan the QR code</string>
         <image name="missingQR" width="382" height="286"/>
         <image name="ok" width="243" height="189"/>
         <image name="settings" width="44" height="44"/>
-        <image name="setup_pushnotification" width="983" height="646"/>
+        <image name="webcam" width="540" height="355"/>
         <image name="welcome" width="983" height="646"/>
     </resources>
     <inferredMetricsTieBreakers>

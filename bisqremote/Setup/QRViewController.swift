@@ -27,6 +27,11 @@ class QRViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let d = Phone.instance.description() {
+            qrImage.contentMode = .scaleAspectFit
+            instructionsLabel.isHidden = true
+            qrImage.image = generateQRCode(from: d)
+        }
         update()
     }
     
@@ -52,25 +57,20 @@ class QRViewController: UIViewController {
     }
     
     private func update() {
-        if let d = Phone.instance.description() {
-            qrImage.contentMode = .scaleAspectFit
-            qrImage.image = generateQRCode(from: d)
-        }
         if Phone.instance.confirmed {
-            statusLabel.text = "confirmation received"
-            confirmedImage.isHidden = false
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 if let vc = storyboard.instantiateViewController(withIdentifier: "listScreen") as? NotificationTableViewController {
                     self.navigationController?.setViewControllers([vc], animated: true)
                 }
             })
+            statusLabel.text = "confirmation received"
+            instructionsLabel.isHidden = true
+            confirmedImage.isHidden = false
         } else {
-            statusLabel.text = "...waiting for confirmation"
+            statusLabel.text = "...waiting"
             confirmedImage.isHidden = true
         }
-        instructionsLabel.isHidden = true
-        qrImage.isHidden = false
     }
     
     

@@ -39,9 +39,6 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func rerunSetupPressed(_ sender: Any) {
-        UserDefaults.standard.removeObject(forKey: userDefaultKeyToken)
-        UserDefaults.standard.removeObject(forKey: userDefaultKeyPhoneID)
-        UserDefaults.standard.removeObject(forKey: userDefaultKeyNotifications)
         Phone.instance.reset()
         updateFooter()
 

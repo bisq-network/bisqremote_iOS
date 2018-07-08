@@ -17,6 +17,7 @@
  */
 
 import UIKit
+import UserNotifications
 
 class WelcomViewController: UIViewController {
 
@@ -39,11 +40,37 @@ class WelcomViewController: UIViewController {
                                                selector: #selector(checkForToken),
                                                name: NSNotification.Name.UIApplicationWillEnterForeground,
                                                object: nil)
+        
+        // Token needed?
+        if UserDefaults.standard.string(forKey: userDefaultKeyToken) == nil {
+            registerForPushNotifications()
+        }
     }
     
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+            (granted, error) in
+            print("iOS Notification: permission granted: \(granted)")
+            
+            guard granted else {
+                if error != nil {
+                    print("iOS Notification: permission not granted: \(error.debugDescription)")
+                }
+                return
+            }
+            
+            UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+                print("Notification settings: \(settings)")
+                guard settings.authorizationStatus == .authorized else { return }
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            }
+        }
+    }
+
     override func viewWillAppear(_ animated: Bool) {
-        // hide navigationbar in this screen
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.navigationBar.backgroundColor = view.backgroundColor
         
         #if !targetEnvironment(simulator)
         if UserDefaults.standard.string(forKey: userDefaultKeyToken) == nil {

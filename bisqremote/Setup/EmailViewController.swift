@@ -22,40 +22,61 @@ import MessageUI
 
 class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBOutlet weak var confirmedImage: UIImageView!
+    @IBOutlet weak var statusLabel: UILabel!
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+//    func delay(_ delay:Double, closure:@escaping ()->()) {
+//        let when = DispatchTime.now() + delay
+//        DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
+//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        update()
     }
     
     func confirmed() {
-        
+        confirmedImage.isHidden = false
+        statusLabel.text = "confirmation received"
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "listScreen") as? NotificationTableViewController {
+                self.navigationController?.setViewControllers([vc], animated: true)
+            }
+        })
+        update()
     }
 
+    func update() {
+        if Phone.instance.confirmed {
+            confirmedImage.isHidden = false
+            statusLabel.text = "confirmation received"
+        } else {
+            statusLabel.text = "...waiting"
+            confirmedImage.isHidden = true
+        }
+    }
+    
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true)
     }
     
-    
-    @IBAction func emailButtonPressed(_ sender: Any) {
+    func sendEmail() {
         if let phoneDescription = Phone.instance.description() {
             if MFMailComposeViewController.canSendMail() {
                 let mail = MFMailComposeViewController()
                 mail.mailComposeDelegate = self
-                mail.setSubject("Register your phone with Bisq")
-                
+                mail.setSubject("Bisq Phone ID")
+                mail.title = "Send mail to yourself"
                 var messageBody = "Please copy this Bisq Phone ID string into the field \"Bisq Phone ID\" in the Bisq App:\n\n"
                 messageBody += phoneDescription+"\n\n"
                 messageBody += "The Bisq Phone ID contains (1) your excryption key (AES/CBC/NOPadding with initialization vector) which is used by Bisq to encrypt the notifications for you and (2) a token from Apple that identifies this instance of the Bisq remote app."
                 mail.setMessageBody(messageBody, isHTML: false)
                 present(mail, animated: true)
             }
-        } else {
         }
+    }
+    
+    @IBAction func emailButtonPressed(_ sender: Any) {
+        sendEmail()
     }
 }
