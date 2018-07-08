@@ -595,6 +595,7 @@ Then open the Bisq app and copy &amp; paste the Bisq Phone ID from the email int
                                     <outlet property="comment" destination="Kq5-Zy-mjn" id="RK4-3X-9nK"/>
                                     <outlet property="okImage" destination="3xY-fy-kl5" id="8ah-C1-W68"/>
                                     <outlet property="timeEvent" destination="K96-6P-egi" id="8Qx-n4-lcn"/>
+                                    <segue destination="NLY-kU-KyA" kind="show" id="oAM-Bn-D2a"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -612,9 +613,6 @@ Then open the Bisq app and copy &amp; paste the Bisq Phone ID from the email int
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <segue destination="NLY-kU-KyA" kind="show" identifier="DetailSegue" id="Vyf-1O-mD5"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ckW-8Q-0Ls" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
