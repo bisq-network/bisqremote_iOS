@@ -24,6 +24,7 @@ class QRViewController: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var qrImage: UIImageView!
     @IBOutlet weak var instructionsLabel: UILabel!
+    @IBOutlet weak var waiting: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,9 +68,11 @@ class QRViewController: UIViewController {
             statusLabel.text = "confirmation received"
             instructionsLabel.isHidden = true
             confirmedImage.isHidden = false
+            waiting.isHidden = false
         } else {
             statusLabel.text = "...waiting"
             confirmedImage.isHidden = true
+            waiting.isHidden = true
         }
     }
     

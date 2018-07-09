@@ -41,10 +41,8 @@ class WelcomViewController: UIViewController {
                                                name: NSNotification.Name.UIApplicationWillEnterForeground,
                                                object: nil)
         
-        // Token needed?
-        if UserDefaults.standard.string(forKey: userDefaultKeyToken) == nil {
-            registerForPushNotifications()
-        }
+        Phone.instance.reset()
+        registerForPushNotifications()
     }
     
     func registerForPushNotifications() {

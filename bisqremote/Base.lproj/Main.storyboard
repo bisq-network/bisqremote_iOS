@@ -223,7 +223,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woN-3y-ho2">
-                                <rect key="frame" x="163" y="526" width="49.5" height="21"/>
+                                <rect key="frame" x="163" y="496" width="49.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -247,12 +247,15 @@ Then press "Webcam" and scan this QR code</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ok" translatesAutoresizingMaskIntoConstraints="NO" id="qqW-3v-yt9">
-                                <rect key="frame" x="232.5" y="526.5" width="20" height="20"/>
+                                <rect key="frame" x="232.5" y="496.5" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="PgB-tl-wrI"/>
                                     <constraint firstAttribute="width" constant="20" id="xEN-Sl-ikw"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="0dG-B7-u72">
+                                <rect key="frame" x="177.5" y="537" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -261,14 +264,16 @@ Then press "Webcam" and scan this QR code</string>
                             <constraint firstItem="QsP-te-lU8" firstAttribute="leading" secondItem="ALl-Ci-drK" secondAttribute="leading" constant="20" id="5Zk-VI-hHj"/>
                             <constraint firstItem="z09-Jp-Svw" firstAttribute="leading" secondItem="zlC-HL-qnf" secondAttribute="leading" constant="20" id="FRp-dn-mg3"/>
                             <constraint firstItem="ALl-Ci-drK" firstAttribute="leading" secondItem="zlC-HL-qnf" secondAttribute="leading" constant="20" id="M3T-gM-Ewo"/>
+                            <constraint firstItem="0dG-B7-u72" firstAttribute="top" secondItem="woN-3y-ho2" secondAttribute="bottom" constant="20" id="M6F-xx-Vs4"/>
                             <constraint firstItem="QsP-te-lU8" firstAttribute="top" secondItem="ALl-Ci-drK" secondAttribute="top" id="OUK-tT-PFr"/>
+                            <constraint firstItem="0dG-B7-u72" firstAttribute="centerX" secondItem="PRd-Dk-E6X" secondAttribute="centerX" id="S3j-JV-J8C"/>
                             <constraint firstItem="zlC-HL-qnf" firstAttribute="trailing" secondItem="z09-Jp-Svw" secondAttribute="trailing" constant="20" id="SR7-Wp-rDv"/>
                             <constraint firstItem="woN-3y-ho2" firstAttribute="centerX" secondItem="PRd-Dk-E6X" secondAttribute="centerX" id="Z7O-Fb-KxB"/>
-                            <constraint firstItem="z09-Jp-Svw" firstAttribute="top" secondItem="woN-3y-ho2" secondAttribute="bottom" constant="30" id="dAm-Jr-Yw8"/>
                             <constraint firstItem="qqW-3v-yt9" firstAttribute="centerY" secondItem="woN-3y-ho2" secondAttribute="centerY" id="dgY-Kz-WmM"/>
                             <constraint firstItem="zlC-HL-qnf" firstAttribute="trailing" secondItem="ALl-Ci-drK" secondAttribute="trailing" constant="20" id="kYo-rO-uzy"/>
                             <constraint firstItem="qqW-3v-yt9" firstAttribute="leading" secondItem="woN-3y-ho2" secondAttribute="trailing" constant="20" id="o1d-Ru-yUT"/>
                             <constraint firstItem="QsP-te-lU8" firstAttribute="trailing" secondItem="ALl-Ci-drK" secondAttribute="trailing" constant="-20" id="vOE-r3-2GB"/>
+                            <constraint firstItem="z09-Jp-Svw" firstAttribute="top" secondItem="0dG-B7-u72" secondAttribute="bottom" constant="20" id="vOq-Ql-msB"/>
                             <constraint firstItem="ALl-Ci-drK" firstAttribute="top" secondItem="PRd-Dk-E6X" secondAttribute="topMargin" constant="20" id="waq-bD-qRU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zlC-HL-qnf"/>
@@ -279,6 +284,7 @@ Then press "Webcam" and scan this QR code</string>
                         <outlet property="instructionsLabel" destination="QsP-te-lU8" id="EgT-H6-ev6"/>
                         <outlet property="qrImage" destination="ALl-Ci-drK" id="r3m-nC-AQu"/>
                         <outlet property="statusLabel" destination="woN-3y-ho2" id="1g5-LP-0jm"/>
+                        <outlet property="waiting" destination="0dG-B7-u72" id="rRQ-jf-kUf"/>
                         <segue destination="edC-1E-qDP" kind="show" identifier="QRToListSegue" id="wHa-9z-hAa"/>
                     </connections>
                 </viewController>
@@ -304,13 +310,13 @@ Then press "Webcam" and scan this QR code</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D99-ee-xMM">
-                                <rect key="frame" x="163" y="533" width="49.5" height="21"/>
+                                <rect key="frame" x="163" y="493" width="49.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ok" translatesAutoresizingMaskIntoConstraints="NO" id="7ok-fk-NtB">
-                                <rect key="frame" x="232.5" y="533.5" width="20" height="20"/>
+                                <rect key="frame" x="232.5" y="493.5" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="VuI-I7-qQN"/>
                                     <constraint firstAttribute="height" constant="20" id="cLo-Uf-YHL"/>
@@ -328,24 +334,30 @@ Then open the Bisq app and copy &amp; paste the Bisq Phone ID from the email int
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JLr-Rz-3vi">
+                                <rect key="frame" x="177" y="534" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="JLr-Rz-3vi" firstAttribute="top" secondItem="D99-ee-xMM" secondAttribute="bottom" constant="20" id="2GL-jY-TFI"/>
                             <constraint firstItem="53D-Ov-0Yz" firstAttribute="centerX" secondItem="tKR-bo-YWd" secondAttribute="centerX" id="4Ax-Ea-lwG"/>
                             <constraint firstItem="cCL-Ey-XlJ" firstAttribute="bottom" secondItem="53D-Ov-0Yz" secondAttribute="bottom" constant="60" id="BBO-17-uCA"/>
                             <constraint firstItem="7ok-fk-NtB" firstAttribute="leading" secondItem="D99-ee-xMM" secondAttribute="trailing" constant="20" id="HfD-hJ-RIA"/>
                             <constraint firstItem="7ok-fk-NtB" firstAttribute="centerY" secondItem="D99-ee-xMM" secondAttribute="centerY" id="JUY-CZ-OTp"/>
+                            <constraint firstItem="JLr-Rz-3vi" firstAttribute="centerX" secondItem="tKR-bo-YWd" secondAttribute="centerX" id="P4f-pa-wtv"/>
                             <constraint firstItem="cCL-Ey-XlJ" firstAttribute="trailing" secondItem="HVj-xe-uV5" secondAttribute="trailing" constant="40" id="ZIF-K1-ijU"/>
                             <constraint firstItem="HVj-xe-uV5" firstAttribute="top" secondItem="cCL-Ey-XlJ" secondAttribute="top" constant="20" id="fUE-hQ-EBi"/>
                             <constraint firstItem="HVj-xe-uV5" firstAttribute="leading" secondItem="cCL-Ey-XlJ" secondAttribute="leading" constant="40" id="ppx-B0-WTV"/>
+                            <constraint firstItem="53D-Ov-0Yz" firstAttribute="top" secondItem="JLr-Rz-3vi" secondAttribute="bottom" constant="20" id="rYR-NP-4cT"/>
                             <constraint firstItem="D99-ee-xMM" firstAttribute="centerX" secondItem="tKR-bo-YWd" secondAttribute="centerX" id="s8s-Xb-QR8"/>
-                            <constraint firstItem="53D-Ov-0Yz" firstAttribute="top" secondItem="D99-ee-xMM" secondAttribute="bottom" constant="20" id="xz4-Tw-WTa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cCL-Ey-XlJ"/>
                     </view>
                     <connections>
                         <outlet property="confirmedImage" destination="7ok-fk-NtB" id="aQq-hL-yAA"/>
                         <outlet property="statusLabel" destination="D99-ee-xMM" id="Smx-L6-Iyz"/>
+                        <outlet property="waiting" destination="JLr-Rz-3vi" id="qZW-9S-Ofw"/>
                         <segue destination="edC-1E-qDP" kind="show" identifier="emailToListSegue" id="ysd-b0-S7x"/>
                     </connections>
                 </viewController>

@@ -24,7 +24,8 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
 
     @IBOutlet weak var confirmedImage: UIImageView!
     @IBOutlet weak var statusLabel: UILabel!
-
+    @IBOutlet weak var waiting: UIActivityIndicatorView!
+    
 //    func delay(_ delay:Double, closure:@escaping ()->()) {
 //        let when = DispatchTime.now() + delay
 //        DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
@@ -35,8 +36,6 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
     }
     
     func confirmed() {
-        confirmedImage.isHidden = false
-        statusLabel.text = "confirmation received"
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "listScreen") as? NotificationTableViewController {
@@ -48,11 +47,17 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
 
     func update() {
         if Phone.instance.confirmed {
-            confirmedImage.isHidden = false
-            statusLabel.text = "confirmation received"
+            if statusLabel != nil {
+                statusLabel.text = "confirmation received"
+                confirmedImage.isHidden = false
+                waiting.isHidden = false
+            }
         } else {
-            statusLabel.text = "...waiting"
-            confirmedImage.isHidden = true
+            if statusLabel != nil {
+                statusLabel.text = "...waiting"
+                confirmedImage.isHidden = true
+                waiting.isHidden = true
+            }
         }
     }
     

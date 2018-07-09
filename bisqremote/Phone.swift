@@ -80,9 +80,12 @@ class Phone {
     }
     
     static func magic() -> String {
-        if amIBeingDebugged() {
+        switch (Config.appConfiguration) {
+        case .Debug:
             return PHONE_MAGIC_IOS_DEV
-        } else {
+        case .TestFlight:
+            return PHONE_MAGIC_IOS
+        case .AppStore:
             return PHONE_MAGIC_IOS
         }
     }

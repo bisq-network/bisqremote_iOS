@@ -35,7 +35,16 @@ class SettingsViewController: UIViewController {
         let dictionary = Bundle.main.infoDictionary!
         let version = dictionary["CFBundleShortVersionString"] as! String
         let build = dictionary["CFBundleVersion"] as! String
-        versionLabel.text = "Version \(version) build \(build)"
+        var configuration: String
+        switch (Config.appConfiguration) {
+        case .Debug:
+            configuration = " (from Xcode)"
+        case .TestFlight:
+            configuration = " (TestFlight)"
+        case .AppStore:
+            configuration = ""
+        }
+        versionLabel.text = "Version \(version) build \(build)"+configuration
     }
     
     @IBAction func rerunSetupPressed(_ sender: Any) {
