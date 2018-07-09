@@ -70,7 +70,7 @@ class QRViewController: UIViewController {
             confirmedImage.isHidden = false
             waiting.isHidden = false
         } else {
-            statusLabel.text = "...waiting"
+            statusLabel.text = ""
             confirmedImage.isHidden = true
             waiting.isHidden = true
         }

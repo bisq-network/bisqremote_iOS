@@ -54,7 +54,7 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
             }
         } else {
             if statusLabel != nil {
-                statusLabel.text = "...waiting"
+                statusLabel.text = ""
                 confirmedImage.isHidden = true
                 waiting.isHidden = true
             }
