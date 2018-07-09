@@ -49,14 +49,18 @@ class NotificationTableViewController: UITableViewController {
         let notification = NotificationArray.shared.at(n:indexPath.row)
         cell.comment.text = "\(notification.title)"
         cell.timeEvent.text = dateformatterShort.string(from: notification.timestampEvent)
-        if notification.read {
-            cell.comment.font = UIFont.systemFont(ofSize: 16.0)
-            cell.okImage.image = UIImage(named: "info_read.png")
-        } else {
+        if notification.notificationType == TYPE_ERROR {
+            cell.okImage.image = UIImage(named: "action.png")
             cell.comment.font = UIFont.boldSystemFont(ofSize: 16.0)
-            cell.okImage.image = UIImage(named: "info.png")
+        } else {
+            if notification.read {
+                cell.comment.font = UIFont.systemFont(ofSize: 16.0)
+                cell.okImage.image = UIImage(named: "info_read.png")
+            } else {
+                cell.comment.font = UIFont.boldSystemFont(ofSize: 16.0)
+                cell.okImage.image = UIImage(named: "info.png")
+            }
         }
-
         return cell
     }
  
@@ -104,7 +108,6 @@ class NotificationTableViewController: UITableViewController {
             guard let selectedNotificationTableViewCell = sender as? NotificationTableViewCell else {
                 fatalError("Unexpected sender: \(sender ?? "missing sender")")
             }
-            
             guard let indexPath = tableView.indexPath(for: selectedNotificationTableViewCell) else {
                 fatalError("the selected cell is not being displayed in the table")
             }

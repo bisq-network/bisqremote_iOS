@@ -95,21 +95,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                 } else {
                     var success: String?
+                    var ok = false
                     guard x[1].count == 16 else { return }
                     CryptoHelper.iv = String(x[1])
-                    CryptoHelper.key = Phone.instance.key
+                    CryptoHelper.key  = Phone.instance.key
                     let enc = String(x[2])
                     success = CryptoHelper.decrypt(input:enc);
                     if success != nil {
                         print("decrypted json: "+success!)
+                        ok = NotificationArray.shared.addFromString(new: success!)
                     }
-                    if success != nil {
-                        NotificationArray.shared.addFromString(new: success!)
-                        let navigationController = app.windows[0].rootViewController as! UINavigationController
-                        if let topController = navigationController.topViewController {
-                            if let vc = topController as? NotificationTableViewController {
-                                vc.reload()
-                            }
+                    if !ok {
+                        NotificationArray.shared.addError(title: "Could not decrypt", message: "Sorry\n\nSomething went wrong when decrypting this notification. You could try to delete the app and install it again.")
+                    }
+                    let navigationController = app.windows[0].rootViewController as! UINavigationController
+                    if let topController = navigationController.topViewController {
+                        if let vc = topController as? NotificationTableViewController {
+                            vc.reload()
                         }
                     }
                 }

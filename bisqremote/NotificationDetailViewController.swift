@@ -31,6 +31,7 @@ class NotificationDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "" // empty navigationBar
         actionTextview.layer.cornerRadius = 7
         messageTextView.layer.cornerRadius = 7
         dateformatterShort.dateFormat = "yyyy-MM-dd HH:mm"

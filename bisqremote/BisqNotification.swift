@@ -20,6 +20,7 @@ import Foundation
 import UIKit // for setting the badge number
 
 let TYPE_TRADE_ACCEPTED = "TRADE_ACCEPTED"
+let TYPE_ERROR = "ERROR"
 
 // Datastructure as sent from the Bisq notification server
 // This class does not have the variables timestampReceived and read.
@@ -59,6 +60,8 @@ class RawNotification: Codable {
         let notificationTypeCandidate = try container.decode(String.self, forKey: .notificationType)
         switch notificationTypeCandidate {
         case TYPE_TRADE_ACCEPTED:
+            break
+        case TYPE_ERROR:
             break
         default:
             print("unknown notificationType \(notificationTypeCandidate)")
@@ -177,7 +180,7 @@ class NotificationArray {
         let r = RawNotification()
         r.version = 1
         r.notificationType = TYPE_TRADE_ACCEPTED
-        r.title = "example title"
+        r.title = "Added from Settings"
         r.message = "example message"
         r.actionRequired = "You need to make the bank transfer to receive your BTC"
         r.transactionID = "293842038402983"
@@ -242,7 +245,7 @@ class NotificationArray {
         return x
     }
     
-    func addFromString(new: String) {
+    func addFromString(new: String) -> Bool {
         // let test "{\"timestampEvent\" : \"2018-06-19 12:00:50\",\"transactionID\" : \"293842038402983\",\"title\" : \"example title\",\"message\" : \"example message\",\"notificationType\" : \"TRADE_ACCEPTED\",\"actionRequired\" : \"You need to make the bank transfer to receive your BTC\",\"version\" : 1}"
         if let data = new.data(using: .utf8) {
             do {
@@ -252,10 +255,20 @@ class NotificationArray {
                 }
             } catch {
                 print("could not add notification")
+                return false
             }
         }
+        return true
     }
 
+    func addError(title: String, message: String) {
+        let raw = RawNotification()
+        raw.title = title
+        raw.notificationType = TYPE_ERROR
+        raw.message = message
+        addNotification(new: Notification(raw: raw))
+    }
+    
     func addFromJSON(new: AnyObject?) {
         if new != nil {
             do {

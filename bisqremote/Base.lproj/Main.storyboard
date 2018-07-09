@@ -425,6 +425,7 @@ Then open the Bisq app and copy &amp; paste the Bisq Phone ID from the email int
                         <viewLayoutGuide key="safeArea" id="Dyf-Kb-u4P"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="m5R-ge-Lgo">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="XO3-wP-a5r"/>
                         <barButtonItem key="rightBarButtonItem" title="Delete" id="oai-AA-y0M">
                             <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -536,10 +537,10 @@ Then open the Bisq app and copy &amp; paste the Bisq Phone ID from the email int
             </objects>
             <point key="canvasLocation" x="-785" y="1850"/>
         </scene>
-        <!--Notifications-->
+        <!--Bisq-->
         <scene sceneID="twP-0d-2ee">
             <objects>
-                <tableViewController storyboardIdentifier="listScreen" title="Notifications" id="edC-1E-qDP" customClass="NotificationTableViewController" customModule="bisqremote" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="listScreen" title="Bisq" id="edC-1E-qDP" customClass="NotificationTableViewController" customModule="bisqremote" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3on-RQ-wxT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -595,7 +596,7 @@ Then open the Bisq app and copy &amp; paste the Bisq Phone ID from the email int
                                     <outlet property="comment" destination="Kq5-Zy-mjn" id="RK4-3X-9nK"/>
                                     <outlet property="okImage" destination="3xY-fy-kl5" id="8ah-C1-W68"/>
                                     <outlet property="timeEvent" destination="K96-6P-egi" id="8Qx-n4-lcn"/>
-                                    <segue destination="NLY-kU-KyA" kind="show" id="oAM-Bn-D2a"/>
+                                    <segue destination="NLY-kU-KyA" kind="show" identifier="showDetail" id="oAM-Bn-D2a"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -605,8 +606,9 @@ Then open the Bisq app and copy &amp; paste the Bisq Phone ID from the email int
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Notifications" id="MlT-U6-TNn">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="settings" id="kiK-bA-Pwn">
+                    <navigationItem key="navigationItem" title="Bisq" id="MlT-U6-TNn">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="ilq-dZ-fd9"/>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="kiK-bA-Pwn">
                             <connections>
                                 <segue destination="wPz-Zx-mjx" kind="show" identifier="settingsSeque" id="6cH-5u-CMH"/>
                             </connections>
@@ -640,7 +642,6 @@ Then open the Bisq app and copy &amp; paste the Bisq Phone ID from the email int
     <resources>
         <image name="missingQR" width="382" height="286"/>
         <image name="ok" width="243" height="189"/>
-        <image name="settings" width="44" height="44"/>
         <image name="webcam" width="540" height="355"/>
         <image name="welcome" width="983" height="646"/>
     </resources>
