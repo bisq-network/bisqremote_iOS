@@ -16,6 +16,7 @@
  */
 
 import UIKit
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -81,6 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 guard x[0] == BISQ_MESSAGE_IOS_MAGIC else { return }
 
                 if x[2] == BISQ_CONFIRMATION_MESSAGE {
+                    AudioServicesPlaySystemSound(1007) // see https://github.com/TUNER88/iOSSystemSoundsLibrary
                     Phone.instance.confirmed = true
                     UserDefaults.standard.set(Phone.instance.description(), forKey: userDefaultKeyPhoneID) // only confirmed phones are stored
                     UserDefaults.standard.synchronize()
