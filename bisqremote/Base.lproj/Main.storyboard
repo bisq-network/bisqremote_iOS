@@ -59,7 +59,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="115" id="yRl-HB-3PN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="REGISTER"/>
+                                <state key="normal" title="SETUP"/>
                                 <connections>
                                     <segue destination="JyP-qo-d6l" kind="show" identifier="startSegue" id="lwy-qH-biQ"/>
                                 </connections>
@@ -468,7 +468,7 @@ Then open the Bisq app and copy &amp; paste the Bisq Phone ID from the email int
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUM-Ya-Cot">
                                 <rect key="frame" x="20" y="84" width="335" height="30"/>
-                                <state key="normal" title="Register again"/>
+                                <state key="normal" title="REPEAT SETUP"/>
                                 <connections>
                                     <action selector="rerunSetupPressed:" destination="wPz-Zx-mjx" eventType="touchUpInside" id="UT5-3S-7pF"/>
                                 </connections>
