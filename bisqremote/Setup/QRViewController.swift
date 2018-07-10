@@ -78,15 +78,24 @@ class QRViewController: UIViewController {
         }
     }
     
-    
-    @IBAction func instructionsPressed(_ sender: Any) {
+    private func toggleInstructions() {
         if instructionsLabel.isHidden {
             instructionsLabel.isHidden = false
             qrImage.isHidden = true
+            instructionsButton.setTitle("QR CODE", for: .normal)
         } else {
             instructionsLabel.isHidden = true
             qrImage.isHidden = false
+            instructionsButton.setTitle("INSTRUCTIONS", for: .normal)
         }
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        toggleInstructions()
+    }
+
+    @IBAction func instructionsPressed(_ sender: Any) {
+        toggleInstructions()
     }
     
 }
