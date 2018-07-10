@@ -48,6 +48,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func rerunSetupPressed(_ sender: Any) {
+        NotificationArray.shared.deleteAll()
         Phone.instance.reset()
         updateFooter()
 
@@ -63,8 +64,10 @@ class SettingsViewController: UIViewController {
     
     @IBAction func markAllAsReadPressed(_ sender: Any) {
         NotificationArray.shared.markAllAsRead()
+        navigationController?.popViewController(animated: true)
     }
     @IBAction func deleteAllPressed(_ sender: Any) {
         NotificationArray.shared.deleteAll()
+        navigationController?.popViewController(animated: true)
     }
 }

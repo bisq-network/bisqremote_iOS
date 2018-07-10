@@ -25,6 +25,7 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
     @IBOutlet weak var confirmedImage: UIImageView!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var waiting: UIActivityIndicatorView!
+    @IBOutlet weak var resendEmailButton: UIButton!
     
 //    func delay(_ delay:Double, closure:@escaping ()->()) {
 //        let when = DispatchTime.now() + delay
@@ -51,6 +52,7 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
                 statusLabel.text = "confirmation received"
                 confirmedImage.isHidden = false
                 waiting.isHidden = false
+                resendEmailButton.isHidden = true
             }
         } else {
             if statusLabel != nil {

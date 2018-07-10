@@ -25,6 +25,7 @@ class QRViewController: UIViewController {
     @IBOutlet weak var qrImage: UIImageView!
     @IBOutlet weak var instructionsLabel: UILabel!
     @IBOutlet weak var waiting: UIActivityIndicatorView!
+    @IBOutlet weak var instructionsButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +70,7 @@ class QRViewController: UIViewController {
             instructionsLabel.isHidden = true
             confirmedImage.isHidden = false
             waiting.isHidden = false
+            instructionsButton.isHidden = true
         } else {
             statusLabel.text = ""
             confirmedImage.isHidden = true
@@ -86,12 +88,5 @@ class QRViewController: UIViewController {
             qrImage.isHidden = false
         }
     }
-    
-//    @IBAction func doneButtonPressed(_ sender: Any) {
-//        UserDefaults.standard.set(true, forKey: userDefaultKeySetupDone)
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "listScreen") as! NotificationTableViewController
-//        navigationController?.setViewControllers([vc], animated: true)
-//    }
     
 }

@@ -281,6 +281,7 @@ Then press "Webcam" and scan this QR code</string>
                     <navigationItem key="navigationItem" id="pL3-ZO-uYc"/>
                     <connections>
                         <outlet property="confirmedImage" destination="qqW-3v-yt9" id="SDE-gC-83P"/>
+                        <outlet property="instructionsButton" destination="z09-Jp-Svw" id="yLe-HL-oDB"/>
                         <outlet property="instructionsLabel" destination="QsP-te-lU8" id="EgT-H6-ev6"/>
                         <outlet property="qrImage" destination="ALl-Ci-drK" id="r3m-nC-AQu"/>
                         <outlet property="statusLabel" destination="woN-3y-ho2" id="1g5-LP-0jm"/>
@@ -356,6 +357,7 @@ Then open the Bisq app and copy &amp; paste the Bisq Phone ID from the email int
                     </view>
                     <connections>
                         <outlet property="confirmedImage" destination="7ok-fk-NtB" id="aQq-hL-yAA"/>
+                        <outlet property="resendEmailButton" destination="53D-Ov-0Yz" id="ta8-IH-U45"/>
                         <outlet property="statusLabel" destination="D99-ee-xMM" id="Smx-L6-Iyz"/>
                         <outlet property="waiting" destination="JLr-Rz-3vi" id="qZW-9S-Ofw"/>
                         <segue destination="edC-1E-qDP" kind="show" identifier="emailToListSegue" id="ysd-b0-S7x"/>
@@ -468,7 +470,7 @@ Then open the Bisq app and copy &amp; paste the Bisq Phone ID from the email int
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUM-Ya-Cot">
                                 <rect key="frame" x="20" y="84" width="335" height="30"/>
-                                <state key="normal" title="REPEAT SETUP"/>
+                                <state key="normal" title="FACTORY RESET"/>
                                 <connections>
                                     <action selector="rerunSetupPressed:" destination="wPz-Zx-mjx" eventType="touchUpInside" id="UT5-3S-7pF"/>
                                 </connections>
