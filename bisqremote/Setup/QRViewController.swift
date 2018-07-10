@@ -24,7 +24,6 @@ class QRViewController: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var qrImage: UIImageView!
     @IBOutlet weak var instructionsLabel: UILabel!
-    @IBOutlet weak var waiting: UIActivityIndicatorView!
     @IBOutlet weak var instructionsButton: UIButton!
     
     override func viewDidLoad() {
@@ -60,21 +59,12 @@ class QRViewController: UIViewController {
     
     private func update() {
         if Phone.instance.confirmed {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                if let vc = storyboard.instantiateViewController(withIdentifier: "listScreen") as? NotificationTableViewController {
-                    self.navigationController?.setViewControllers([vc], animated: true)
-                }
-            })
             statusLabel.text = "confirmation received"
-            instructionsLabel.isHidden = true
             confirmedImage.isHidden = false
-            waiting.isHidden = false
-            instructionsButton.isHidden = true
+            instructionsButton.setTitle("CLOSE SETUP", for: .normal)
         } else {
             statusLabel.text = ""
             confirmedImage.isHidden = true
-            waiting.isHidden = true
         }
     }
     
@@ -95,7 +85,14 @@ class QRViewController: UIViewController {
     }
 
     @IBAction func instructionsPressed(_ sender: Any) {
-        toggleInstructions()
+        if Phone.instance.confirmed {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "listScreen") as? NotificationTableViewController {
+                self.navigationController?.setViewControllers([vc], animated: true)
+            }
+        } else {
+            toggleInstructions()
+        }
     }
     
 }

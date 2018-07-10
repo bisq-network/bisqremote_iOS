@@ -18,9 +18,11 @@
 
 import Foundation
 import UIKit // for setting the badge number
+import AVFoundation // for sound
 
-let TYPE_TRADE_ACCEPTED = "TRADE_ACCEPTED"
-let TYPE_ERROR = "ERROR"
+enum NotificationType: String {
+    case SETUP_CONFIRMATION, ERASE, TRADE, DISPUTE, FINANCIAL, ERROR, PLACEHOLDER
+}
 
 // Datastructure as sent from the Bisq notification server
 // This class does not have the variables timestampReceived and read.
@@ -57,21 +59,50 @@ class RawNotification: Codable {
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         version = try container.decode(Int.self, forKey: .version)
-        let notificationTypeCandidate = try container.decode(String.self, forKey: .notificationType)
-        switch notificationTypeCandidate {
-        case TYPE_TRADE_ACCEPTED:
-            break
-        case TYPE_ERROR:
-            break
-        default:
-            print("unknown notificationType \(notificationTypeCandidate)")
-        }
-        notificationType = notificationTypeCandidate
+        let t = try container.decode(String.self, forKey: .notificationType)
+
+        let navigationController = UIApplication.shared.windows[0].rootViewController as? UINavigationController
+        let visibleController = navigationController?.visibleViewController
+
+        notificationType = t
         title = try container.decode(String.self, forKey: .title)
         message = try container.decode(String.self, forKey: .message)
         actionRequired = try container.decode(String.self, forKey: .actionRequired)
         transactionID = try container.decode(String.self, forKey: .transactionID)
         timestampEvent = try container.decode(Date.self, forKey: .timestampEvent)
+
+        switch t {
+        case NotificationType.SETUP_CONFIRMATION.rawValue:
+            AudioServicesPlaySystemSound(1007) // see https://github.com/TUNER88/iOSSystemSoundsLibrary
+            Phone.instance.confirmed = true
+            
+            // only confirmed phones are stored
+            UserDefaults.standard.set(Phone.instance.description(), forKey: userDefaultKeyPhoneID)
+            UserDefaults.standard.synchronize()
+            
+            if let qr = visibleController as? QRViewController {
+                qr.confirmed()
+            }
+            if let email = visibleController as? EmailViewController {
+                email.confirmed()
+            }
+            break
+        case NotificationType.ERASE.rawValue:
+            Phone.instance.reset()
+            if let vc = visibleController as? NotificationTableViewController {
+                vc.reload()
+            }
+            if let _ = visibleController as? NotificationDetailViewController {
+                navigationController?.popViewController(animated: true)
+            }
+            break
+        case NotificationType.TRADE.rawValue,
+             NotificationType.DISPUTE.rawValue,
+             NotificationType.FINANCIAL.rawValue:
+            break
+        default:
+            print("unknown notificationType \(t)")
+        }
     }
     
     func encode(to encoder: Encoder) throws {
@@ -179,7 +210,7 @@ class NotificationArray {
     static func exampleRawNotification() -> RawNotification {
         let r = RawNotification()
         r.version = 1
-        r.notificationType = TYPE_TRADE_ACCEPTED
+        r.notificationType = NotificationType.TRADE.rawValue
         r.title = "Added from Settings"
         r.message = "example message"
         r.actionRequired = "You need to make the bank transfer to receive your BTC"
@@ -245,26 +276,32 @@ class NotificationArray {
         return x
     }
     
-    func addFromString(new: String) -> Bool {
+    func addFromString(new: String) {
         // let test "{\"timestampEvent\" : \"2018-06-19 12:00:50\",\"transactionID\" : \"293842038402983\",\"title\" : \"example title\",\"message\" : \"example message\",\"notificationType\" : \"TRADE_ACCEPTED\",\"actionRequired\" : \"You need to make the bank transfer to receive your BTC\",\"version\" : 1}"
         if let data = new.data(using: .utf8) {
             do {
                 let raw = try decoder.decode(RawNotification.self, from:data)
                 if raw.version >= 1 {
+                    switch raw.notificationType {
+                    case NotificationType.SETUP_CONFIRMATION.rawValue,
+                         NotificationType.ERASE.rawValue:
+                        return // no need to add to array
+                    default:
+                        break
+                    }
                     addNotification(new: Notification(raw: raw))
                 }
             } catch {
-                print("could not add notification")
-                return false
+                addError(title: "Could not decrypt", message: "Sorry\n\nSomething went wrong when decrypting this notification. You could try to delete the app and install it again.")
             }
         }
-        return true
+        return
     }
 
     func addError(title: String, message: String) {
         let raw = RawNotification()
         raw.title = title
-        raw.notificationType = TYPE_ERROR
+        raw.notificationType = NotificationType.ERROR.rawValue
         raw.message = message
         addNotification(new: Notification(raw: raw))
     }

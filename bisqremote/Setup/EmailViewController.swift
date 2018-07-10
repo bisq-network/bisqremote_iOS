@@ -24,7 +24,6 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
 
     @IBOutlet weak var confirmedImage: UIImageView!
     @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var waiting: UIActivityIndicatorView!
     @IBOutlet weak var resendEmailButton: UIButton!
     
 //    func delay(_ delay:Double, closure:@escaping ()->()) {
@@ -37,29 +36,17 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
     }
     
     func confirmed() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let vc = storyboard.instantiateViewController(withIdentifier: "listScreen") as? NotificationTableViewController {
-                self.navigationController?.setViewControllers([vc], animated: true)
-            }
-        })
         update()
     }
 
     func update() {
         if Phone.instance.confirmed {
-            if statusLabel != nil {
-                statusLabel.text = "confirmation received"
-                confirmedImage.isHidden = false
-                waiting.isHidden = false
-                resendEmailButton.isHidden = true
-            }
+            statusLabel.text = "confirmation received"
+            confirmedImage.isHidden = false
+            resendEmailButton.setTitle("CLOSE SETUP", for: .normal)
         } else {
-            if statusLabel != nil {
-                statusLabel.text = ""
-                confirmedImage.isHidden = true
-                waiting.isHidden = true
-            }
+            statusLabel.text = ""
+            confirmedImage.isHidden = true
         }
     }
     
@@ -84,6 +71,13 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
     }
     
     @IBAction func emailButtonPressed(_ sender: Any) {
-        sendEmail()
+        if Phone.instance.confirmed {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "listScreen") as? NotificationTableViewController {
+                self.navigationController?.setViewControllers([vc], animated: true)
+            }
+        } else {
+            sendEmail()
+        }
     }
 }

@@ -38,27 +38,49 @@ class NotificationTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return NotificationArray.shared.countAll
+        var n = NotificationArray.shared.countAll
+        if n == 0 { n = 1 } // show placeholder
+        return n
     }
 
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "NotificationTableViewCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? NotificationTableViewCell  else {
             fatalError("The dequeued cell is not an instance of NotificationTableViewCell.")
         }
-        let notification = NotificationArray.shared.at(n:indexPath.row)
-        cell.comment.text = "\(notification.title)"
-        cell.timeEvent.text = dateformatterShort.string(from: notification.timestampEvent)
-        if notification.notificationType == TYPE_ERROR {
-            cell.okImage.image = UIImage(named: "action.png")
-            cell.comment.font = UIFont.boldSystemFont(ofSize: 16.0)
+        var notification: Notification
+        if NotificationArray.shared.countAll > 0 {
+            notification = NotificationArray.shared.at(n:indexPath.row)
+            cell.comment.text = "\(notification.title)"
+            cell.timeEvent.text = dateformatterShort.string(from: notification.timestampEvent)
         } else {
+            notification = Notification()
+            notification.notificationType = NotificationType.PLACEHOLDER.rawValue
+            cell.comment.text = "your notifications will appear here"
+            cell.timeEvent.text = ""
+            cell.selectionStyle = .none
+        }
+        switch notification.notificationType {
+        case NotificationType.TRADE.rawValue:
             if notification.read {
                 cell.comment.font = UIFont.systemFont(ofSize: 16.0)
                 cell.okImage.image = UIImage(named: "info_read.png")
             } else {
                 cell.comment.font = UIFont.boldSystemFont(ofSize: 16.0)
                 cell.okImage.image = UIImage(named: "info.png")
+            }
+        case NotificationType.PLACEHOLDER.rawValue:
+            cell.comment.font = UIFont.italicSystemFont(ofSize: 16.0)
+            cell.comment.textColor = UIColor.gray
+            cell.okImage.image = nil
+        default:
+            if notification.read {
+                cell.comment.font = UIFont.systemFont(ofSize: 16.0)
+                cell.okImage.image = UIImage(named: "action.png_read.png")
+            } else {
+                cell.comment.font = UIFont.boldSystemFont(ofSize: 16.0)
+                cell.okImage.image = UIImage(named: "action.png")
             }
         }
         return cell
@@ -97,6 +119,15 @@ class NotificationTableViewController: UITableViewController {
     }
     */
 
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        switch(identifier) {
+        case "showDetail":
+            return NotificationArray.shared.countAll > 0
+        default:
+            return true
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
@@ -111,7 +142,6 @@ class NotificationTableViewController: UITableViewController {
             guard let indexPath = tableView.indexPath(for: selectedNotificationTableViewCell) else {
                 fatalError("the selected cell is not being displayed in the table")
             }
-            
             let selectedNotification = NotificationArray.shared.at(n: indexPath.row)
             detailViewController.notification = selectedNotification
             detailViewController.index = indexPath.row

@@ -16,7 +16,6 @@
  */
 
 import UIKit
-import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -80,52 +79,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let x = encrypted.split(separator: Character(BISQ_MESSAGE_SEPARATOR))
                 guard x.count == 3                   else { return }
                 guard x[0] == BISQ_MESSAGE_IOS_MAGIC else { return }
-                let category = String(x[2])
-                switch category {
-                case BISQ_CONFIRMATION_MESSAGE:
-                    AudioServicesPlaySystemSound(1007) // see https://github.com/TUNER88/iOSSystemSoundsLibrary
-                    Phone.instance.confirmed = true
-                    UserDefaults.standard.set(Phone.instance.description(), forKey: userDefaultKeyPhoneID) // only confirmed phones are stored
-                    UserDefaults.standard.synchronize()
-                    
-                    if let visibleController = navigationController?.visibleViewController {
-                        if let qr = visibleController as? QRViewController {
-                            qr.confirmed()
-                        }
-                        if let email = visibleController as? EmailViewController {
-                            email.confirmed()
-                        }
-                    }
-                case BISQ_FACTORY_RESET_MESSAGE:
-                    Phone.instance.reset()
-                    if let visibleController = navigationController?.visibleViewController {
-                        if let vc = visibleController as? NotificationTableViewController {
-                            vc.reload()
-                        }
-                        if let _ = visibleController as? NotificationDetailViewController {
-                            navigationController?.popViewController(animated: true)
-                        }
-                    }
-                default:
-                    var success: String?
-                    var ok = false
-                    guard x[1].count == 16 else { return }
-                    CryptoHelper.iv = String(x[1])
-                    CryptoHelper.key  = Phone.instance.key
-                    let enc = String(x[2])
-                    success = CryptoHelper.decrypt(input:enc);
-                    if success != nil {
-                        print("decrypted json: "+success!)
-                        ok = NotificationArray.shared.addFromString(new: success!)
-                    }
-                    if !ok {
-                        NotificationArray.shared.addError(title: "Could not decrypt", message: "Sorry\n\nSomething went wrong when decrypting this notification. You could try to delete the app and install it again.")
-                    }
-                    let navigationController = app.windows[0].rootViewController as! UINavigationController
-                    if let topController = navigationController.topViewController {
-                        if let vc = topController as? NotificationTableViewController {
-                            vc.reload()
-                        }
+                var success: String?
+                guard x[1].count == 16 else { return }
+                CryptoHelper.iv = String(x[1])
+                CryptoHelper.key  = Phone.instance.key
+                let enc = String(x[2])
+                success = CryptoHelper.decrypt(input:enc);
+                if success != nil {
+                    print("decrypted json: "+success!)
+                    NotificationArray.shared.addFromString(new: success!)
+                }
+                let navigationController = app.windows[0].rootViewController as! UINavigationController
+                if let topController = navigationController.topViewController {
+                    if let vc = topController as? NotificationTableViewController {
+                        vc.reload()
                     }
                 }
             }
