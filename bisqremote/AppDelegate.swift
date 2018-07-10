@@ -96,7 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             email.confirmed()
                         }
                     }
-                case BISQ_DELETE_MESSAGE:
+                case BISQ_FACTORY_RESET_MESSAGE:
                     Phone.instance.reset()
                     if let visibleController = navigationController?.visibleViewController {
                         if let vc = visibleController as? NotificationTableViewController {
