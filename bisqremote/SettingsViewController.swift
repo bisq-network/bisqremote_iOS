@@ -30,8 +30,18 @@ class SettingsViewController: UIViewController {
     }
     
     func updateFooter() {
-        keyLabel.text   = "key   "+Phone.instance.key.prefix(8)+"..."
-        tokenLabel.text = "token "+Phone.instance.apsToken.prefix(8)+"..."
+        var s = ""
+        if let k = Phone.instance.key {
+            s = k.prefix(8)+"..."
+        }
+        keyLabel.text   = "key   "+s
+
+        s = ""
+        if let t = Phone.instance.token {
+            s = t.prefix(8)+"..."
+        }
+        tokenLabel.text = "token "+s
+        
         let dictionary = Bundle.main.infoDictionary!
         let version = dictionary["CFBundleShortVersionString"] as! String
         let build = dictionary["CFBundleVersion"] as! String

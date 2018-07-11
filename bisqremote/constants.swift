@@ -20,7 +20,6 @@ import Foundation
 
 let userDefaultKeyPhoneID       = "BisqPhoneID"
 let userDefaultKeyNotifications = "Notifications"
-let userDefaultKeyToken         = "Token"
 
 let PHONE_MAGIC_IOS_DEV:        String = "BisqPhoneiOSDev"
 let PHONE_MAGIC_IOS:            String = "BisqPhoneiOS"

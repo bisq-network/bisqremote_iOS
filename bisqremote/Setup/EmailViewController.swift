@@ -22,8 +22,7 @@ import MessageUI
 
 class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
-    @IBOutlet weak var confirmedImage: UIImageView!
-    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var instructionsLabel: UILabel!
     @IBOutlet weak var resendEmailButton: UIButton!
     
 //    func delay(_ delay:Double, closure:@escaping ()->()) {
@@ -41,12 +40,11 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
 
     func update() {
         if Phone.instance.confirmed {
-            statusLabel.text = "confirmation received"
-            confirmedImage.isHidden = false
-            resendEmailButton.setTitle("CLOSE SETUP", for: .normal)
-        } else {
-            statusLabel.text = ""
-            confirmedImage.isHidden = true
+            instructionsLabel.text = "Congratulations, you are all set."
+            instructionsLabel.textAlignment = .center
+            instructionsLabel.font = UIFont.systemFont(ofSize: 24)
+            instructionsLabel.isHidden = false
+            resendEmailButton.setTitle("SHOW NOTIFICATIONS", for: .normal)
         }
     }
     
@@ -55,7 +53,7 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
     }
     
     func sendEmail() {
-        if let phoneDescription = Phone.instance.description() {
+        if let phoneDescription = Phone.instance.phoneID() {
             if MFMailComposeViewController.canSendMail() {
                 let mail = MFMailComposeViewController()
                 mail.mailComposeDelegate = self

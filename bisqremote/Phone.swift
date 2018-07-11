@@ -1,4 +1,3 @@
-//
 /*
  * This file is part of Bisq.
  *
@@ -24,60 +23,48 @@ class Phone {
     
     static var instance = Phone()
 
-    var key: String
-    var apsToken: String
+    var key: String?
+    var token: String?
     var confirmed = false // confirmation-notification received?
     
+    func phoneID() -> String? {
+        guard key != nil else { return ""}
+        guard token != nil else { return ""}
+        return Phone.magic()+BISQ_MESSAGE_SEPARATOR+key!+BISQ_MESSAGE_SEPARATOR+token!
+    }
+    
     private init() {
-        key = ""
-        apsToken = ""
+        key = nil
+        token = nil
         confirmed = false
 
         // try reading from UserDefaults
-        var phoneIDExists = false
         if let s = UserDefaults.standard.string(forKey: userDefaultKeyPhoneID) {
             let a = s.split(separator: Character(BISQ_MESSAGE_SEPARATOR))
-            var ok = true
-            if a.count != 3 { ok = false }
-            if ok && (a[0] != Phone.magic()) { ok = false }
-            if ok && (a[1].count != 32) { ok = false }
-            if ok && (a[2].count != 64) { ok = false }
-            if ok {
-                key = String(a[1])
-                apsToken = String(a[2])
-                confirmed = true // only confirmed phone IDs are saved into UserDefaults
-                phoneIDExists = true
-            }
-        }
-        if !phoneIDExists {
-            UserDefaults.standard.removeObject(forKey: userDefaultKeyPhoneID) // just to be safe
-            if let t = UserDefaults.standard.string(forKey: userDefaultKeyToken) {
-                newToken(token: t)
-            }
+            guard a.count == 3 else { return }
+            guard a[0] == Phone.magic() else { return }
+            guard a[1].count == 32 else { return }
+            guard a[2].count == 64 else { return }
+            key = String(a[1])
+            token = String(a[2])
+            confirmed = true // only confirmed phone IDs are saved into UserDefaults
         }
     }
     
-    func newToken(token: String) {
+    func newToken(t: String) {
+        token = t
         key = UUID().uuidString.replacingOccurrences(of: "-", with: "")
-        apsToken = token
         confirmed = false
-        UserDefaults.standard.set(token, forKey: userDefaultKeyToken)
-        UserDefaults.standard.synchronize()
     }
     
     
     func reset() {
-        UserDefaults.standard.removeObject(forKey: userDefaultKeyToken)        
         UserDefaults.standard.removeObject(forKey: userDefaultKeyPhoneID)
         UserDefaults.standard.removeObject(forKey: userDefaultKeyNotifications)
         NotificationArray.shared.deleteAll()
         key = ""
-        apsToken = ""
+        token = ""
         confirmed = false
-    }
-    
-    func description() -> String? {
-        return Phone.magic()+BISQ_MESSAGE_SEPARATOR+key+BISQ_MESSAGE_SEPARATOR+apsToken
     }
     
     static func magic() -> String {

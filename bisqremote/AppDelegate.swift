@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         #if targetEnvironment(simulator)
         Phone.instance.key = "A4C595428CAA4C768F60AE7EBFF85852"
-        Phone.instance.apsToken = "d45161df3d172837f1b83bb3e411d5a63120de6b435ff9235adb70d619d162a1"
+        Phone.instance.token = "d45161df3d172837f1b83bb3e411d5a63120de6b435ff9235adb70d619d162a1"
         Phone.instance.confirmed = true
         #endif
         
@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
 
         let token = deviceToken.hexDescription
-        Phone.instance.newToken(token: token)
+        Phone.instance.newToken(t: token)
         if let welcomeVC = navigationController?.topViewController as? WelcomViewController {
             welcomeVC.checkForToken()
         }
@@ -82,17 +82,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 var success: String?
                 guard x[1].count == 16 else { return }
                 CryptoHelper.iv = String(x[1])
-                CryptoHelper.key  = Phone.instance.key
-                let enc = String(x[2])
-                success = CryptoHelper.decrypt(input:enc);
-                if success != nil {
-                    print("decrypted json: "+success!)
-                    NotificationArray.shared.addFromString(new: success!)
-                }
-                let navigationController = app.windows[0].rootViewController as! UINavigationController
-                if let topController = navigationController.topViewController {
-                    if let vc = topController as? NotificationTableViewController {
-                        vc.reload()
+                if let k = Phone.instance.key {
+                    CryptoHelper.key = k
+                    let enc = String(x[2])
+                    success = CryptoHelper.decrypt(input:enc);
+                    if success != nil {
+                        print("decrypted json: "+success!)
+                        NotificationArray.shared.addFromString(new: success!)
+                    }
+                    let navigationController = app.windows[0].rootViewController as! UINavigationController
+                    if let topController = navigationController.topViewController {
+                        if let vc = topController as? NotificationTableViewController {
+                            vc.reload()
+                        }
                     }
                 }
             }

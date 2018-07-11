@@ -26,14 +26,8 @@
                                     <constraint firstAttribute="width" secondItem="QUx-Sa-keS" secondAttribute="height" multiplier="983:646" id="OMU-ag-WOj"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="...fetching token. Please wait" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwN-Ju-RfD">
-                                <rect key="frame" x="20" y="552" width="335" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bisq mobile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyR-lV-0bg">
-                                <rect key="frame" x="20" y="266.5" width="100" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bisq notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyR-lV-0bg">
+                                <rect key="frame" x="20" y="266.5" width="131.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="2wf-Ho-agl"/>
                                 </constraints>
@@ -67,10 +61,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7m-Ej-qH1">
                                 <rect key="frame" x="0.0" y="293.5" width="375" height="216.5"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" text="Now you can receive Bisq notifications on your phone." translatesAutoresizingMaskIntoConstraints="NO" id="yKU-e3-sbN">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" editable="NO" text="Now you can receive notifications about your Bisq trades." translatesAutoresizingMaskIntoConstraints="NO" id="yKU-e3-sbN">
                                         <rect key="frame" x="20" y="78.5" width="335" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" none="YES"/>
                                             <bool key="isElement" value="NO"/>
                                         </accessibility>
                                         <constraints>
@@ -100,14 +95,11 @@
                             <constraint firstItem="g7m-Ej-qH1" firstAttribute="leading" secondItem="fUB-4o-6UK" secondAttribute="leading" id="Fac-SZ-67q"/>
                             <constraint firstItem="g7m-Ej-qH1" firstAttribute="top" secondItem="Vj0-WG-iDU" secondAttribute="bottom" id="Gdc-8K-byU"/>
                             <constraint firstItem="QUx-Sa-keS" firstAttribute="leading" secondItem="fUB-4o-6UK" secondAttribute="leading" id="JPg-8r-f0R"/>
-                            <constraint firstItem="fUB-4o-6UK" firstAttribute="bottom" secondItem="rwN-Ju-RfD" secondAttribute="bottom" constant="30" id="WMB-IG-XI0"/>
                             <constraint firstItem="lyR-lV-0bg" firstAttribute="top" secondItem="QUx-Sa-keS" secondAttribute="bottom" constant="20" id="c9S-QL-MPm"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lyR-lV-0bg" secondAttribute="trailing" constant="20" symbolic="YES" id="dNF-02-xXg"/>
-                            <constraint firstItem="fUB-4o-6UK" firstAttribute="trailing" secondItem="rwN-Ju-RfD" secondAttribute="trailing" constant="20" id="dm5-5B-lsX"/>
                             <constraint firstItem="Vj0-WG-iDU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="gxw-Di-Rrt"/>
                             <constraint firstItem="fUB-4o-6UK" firstAttribute="trailing" secondItem="g7m-Ej-qH1" secondAttribute="trailing" id="m15-pR-Nf8"/>
                             <constraint firstItem="lyR-lV-0bg" firstAttribute="leading" secondItem="fUB-4o-6UK" secondAttribute="leading" constant="20" id="pPm-co-Sts"/>
-                            <constraint firstItem="rwN-Ju-RfD" firstAttribute="leading" secondItem="fUB-4o-6UK" secondAttribute="leading" constant="20" id="tB0-mq-Xjq"/>
                             <constraint firstItem="Vj0-WG-iDU" firstAttribute="centerY" secondItem="lyR-lV-0bg" secondAttribute="centerY" id="uJb-dP-lVz"/>
                             <constraint firstItem="fUB-4o-6UK" firstAttribute="bottom" secondItem="6hg-Ed-oEU" secondAttribute="bottom" constant="60" id="vSb-qw-keg"/>
                             <constraint firstItem="fUB-4o-6UK" firstAttribute="trailing" secondItem="QUx-Sa-keS" secondAttribute="trailing" id="zFS-Hz-3NY"/>
@@ -118,7 +110,6 @@
                     <navigationItem key="navigationItem" id="Z7T-Wj-Kux"/>
                     <connections>
                         <outlet property="registerButton" destination="6hg-Ed-oEU" id="dMU-eO-6sk"/>
-                        <outlet property="statusLabel" destination="rwN-Ju-RfD" id="wu4-Fb-2zb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -165,7 +156,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Kq-Af-8k3" userLabel="instructionView">
                                 <rect key="frame" x="0.0" y="310" width="375" height="264"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Do you want to use your computer's webcam or do you want to send an email to yourself?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eaD-FT-aPJ">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Do you want to use your computer's webcam or do you want to send an email to yourself?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eaD-FT-aPJ">
                                         <rect key="frame" x="20" y="94" width="335" height="77"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -223,7 +214,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woN-3y-ho2">
-                                <rect key="frame" x="163" y="536" width="49.5" height="21"/>
+                                <rect key="frame" x="163" y="526" width="49.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -235,24 +226,17 @@
                                     <action selector="instructionsPressed:" destination="cUX-nQ-faw" eventType="touchUpInside" id="8tL-DK-a2Y"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QsP-te-lU8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QsP-te-lU8">
                                 <rect key="frame" x="40" y="84" width="295" height="335"/>
                                 <string key="text">Go to your computer and open the Bisq App. 
 
-Settings -&gt; Bisq Mobile
+Open Account -&gt; Notifications
 
-Then press "Webcam" and scan this QR code</string>
+Then press "Scan QR code".  Your phone will automatically receive a confirmation notification.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ok" translatesAutoresizingMaskIntoConstraints="NO" id="qqW-3v-yt9">
-                                <rect key="frame" x="232.5" y="536.5" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="PgB-tl-wrI"/>
-                                    <constraint firstAttribute="width" constant="20" id="xEN-Sl-ikw"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -264,10 +248,8 @@ Then press "Webcam" and scan this QR code</string>
                             <constraint firstItem="QsP-te-lU8" firstAttribute="top" secondItem="ALl-Ci-drK" secondAttribute="top" id="OUK-tT-PFr"/>
                             <constraint firstItem="zlC-HL-qnf" firstAttribute="trailing" secondItem="z09-Jp-Svw" secondAttribute="trailing" constant="20" id="SR7-Wp-rDv"/>
                             <constraint firstItem="woN-3y-ho2" firstAttribute="centerX" secondItem="PRd-Dk-E6X" secondAttribute="centerX" id="Z7O-Fb-KxB"/>
-                            <constraint firstItem="qqW-3v-yt9" firstAttribute="centerY" secondItem="woN-3y-ho2" secondAttribute="centerY" id="dgY-Kz-WmM"/>
-                            <constraint firstItem="z09-Jp-Svw" firstAttribute="top" secondItem="woN-3y-ho2" secondAttribute="bottom" constant="20" id="fUy-rh-8w5"/>
+                            <constraint firstItem="z09-Jp-Svw" firstAttribute="top" secondItem="woN-3y-ho2" secondAttribute="bottom" constant="30" id="fUy-rh-8w5"/>
                             <constraint firstItem="zlC-HL-qnf" firstAttribute="trailing" secondItem="ALl-Ci-drK" secondAttribute="trailing" constant="20" id="kYo-rO-uzy"/>
-                            <constraint firstItem="qqW-3v-yt9" firstAttribute="leading" secondItem="woN-3y-ho2" secondAttribute="trailing" constant="20" id="o1d-Ru-yUT"/>
                             <constraint firstItem="QsP-te-lU8" firstAttribute="trailing" secondItem="ALl-Ci-drK" secondAttribute="trailing" constant="-20" id="vOE-r3-2GB"/>
                             <constraint firstItem="ALl-Ci-drK" firstAttribute="top" secondItem="PRd-Dk-E6X" secondAttribute="topMargin" constant="20" id="waq-bD-qRU"/>
                         </constraints>
@@ -275,7 +257,6 @@ Then press "Webcam" and scan this QR code</string>
                     </view>
                     <navigationItem key="navigationItem" id="pL3-ZO-uYc"/>
                     <connections>
-                        <outlet property="confirmedImage" destination="qqW-3v-yt9" id="SDE-gC-83P"/>
                         <outlet property="instructionsButton" destination="z09-Jp-Svw" id="yLe-HL-oDB"/>
                         <outlet property="instructionsLabel" destination="QsP-te-lU8" id="EgT-H6-ev6"/>
                         <outlet property="qrImage" destination="ALl-Ci-drK" id="r3m-nC-AQu"/>
@@ -304,27 +285,18 @@ Then press "Webcam" and scan this QR code</string>
                                     <action selector="emailButtonPressed:" destination="T7q-Gp-CGR" eventType="touchUpInside" id="VZd-pG-AG3"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D99-ee-xMM">
-                                <rect key="frame" x="163" y="533" width="49.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ok" translatesAutoresizingMaskIntoConstraints="NO" id="7ok-fk-NtB">
-                                <rect key="frame" x="232.5" y="533.5" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="VuI-I7-qQN"/>
-                                    <constraint firstAttribute="height" constant="20" id="cLo-Uf-YHL"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVj-xe-uV5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVj-xe-uV5">
                                 <rect key="frame" x="40" y="84" width="295" height="295"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="HVj-xe-uV5" secondAttribute="height" multiplier="1:1" id="VyW-Dj-sRu"/>
                                 </constraints>
-                                <string key="text">Open the email on your computer.
+                                <string key="text">Send the email to yourself.
 
-Then open the Bisq app and copy &amp; paste the Bisq Phone ID from the email into the field "Bisq Phone ID".</string>
+Then go to your computer and open the Bisq App. 
+
+Open Account -&gt; Notifications
+
+Then open the email and paste the Bisq Phone ID into the Bisq.  Your phone will automatically receive a confirmation notification.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -333,21 +305,16 @@ Then open the Bisq app and copy &amp; paste the Bisq Phone ID from the email int
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="53D-Ov-0Yz" firstAttribute="centerX" secondItem="tKR-bo-YWd" secondAttribute="centerX" id="4Ax-Ea-lwG"/>
-                            <constraint firstItem="53D-Ov-0Yz" firstAttribute="top" secondItem="D99-ee-xMM" secondAttribute="bottom" constant="20" id="64S-9Y-LzI"/>
                             <constraint firstItem="cCL-Ey-XlJ" firstAttribute="bottom" secondItem="53D-Ov-0Yz" secondAttribute="bottom" constant="60" id="BBO-17-uCA"/>
-                            <constraint firstItem="7ok-fk-NtB" firstAttribute="leading" secondItem="D99-ee-xMM" secondAttribute="trailing" constant="20" id="HfD-hJ-RIA"/>
-                            <constraint firstItem="7ok-fk-NtB" firstAttribute="centerY" secondItem="D99-ee-xMM" secondAttribute="centerY" id="JUY-CZ-OTp"/>
                             <constraint firstItem="cCL-Ey-XlJ" firstAttribute="trailing" secondItem="HVj-xe-uV5" secondAttribute="trailing" constant="40" id="ZIF-K1-ijU"/>
                             <constraint firstItem="HVj-xe-uV5" firstAttribute="top" secondItem="cCL-Ey-XlJ" secondAttribute="top" constant="20" id="fUE-hQ-EBi"/>
                             <constraint firstItem="HVj-xe-uV5" firstAttribute="leading" secondItem="cCL-Ey-XlJ" secondAttribute="leading" constant="40" id="ppx-B0-WTV"/>
-                            <constraint firstItem="D99-ee-xMM" firstAttribute="centerX" secondItem="tKR-bo-YWd" secondAttribute="centerX" id="s8s-Xb-QR8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cCL-Ey-XlJ"/>
                     </view>
                     <connections>
-                        <outlet property="confirmedImage" destination="7ok-fk-NtB" id="aQq-hL-yAA"/>
+                        <outlet property="instructionsLabel" destination="HVj-xe-uV5" id="fb4-cM-X21"/>
                         <outlet property="resendEmailButton" destination="53D-Ov-0Yz" id="ta8-IH-U45"/>
-                        <outlet property="statusLabel" destination="D99-ee-xMM" id="Smx-L6-Iyz"/>
                         <segue destination="edC-1E-qDP" kind="show" identifier="emailToListSegue" id="ysd-b0-S7x"/>
                     </connections>
                 </viewController>
@@ -369,12 +336,12 @@ Then open the Bisq app and copy &amp; paste the Bisq Phone ID from the email int
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="event time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3t0-Gv-2ua">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="event time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3t0-Gv-2ua">
                                 <rect key="frame" x="20" y="236" width="335" height="14"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="received time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meb-g0-7et">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="received time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meb-g0-7et">
                                 <rect key="frame" x="20" y="258" width="335" height="14"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -388,7 +355,7 @@ Then open the Bisq app and copy &amp; paste the Bisq Phone ID from the email int
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="transaction ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdd-8y-ixK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="transaction ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdd-8y-ixK">
                                 <rect key="frame" x="20" y="280" width="335" height="14"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -20,7 +20,6 @@ import UIKit
 
 class QRViewController: UIViewController {
 
-    @IBOutlet weak var confirmedImage: UIImageView!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var qrImage: UIImageView!
     @IBOutlet weak var instructionsLabel: UILabel!
@@ -28,7 +27,7 @@ class QRViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let d = Phone.instance.description() {
+        if let d = Phone.instance.phoneID() {
             qrImage.contentMode = .scaleAspectFit
             instructionsLabel.isHidden = true
             qrImage.image = generateQRCode(from: d)
@@ -59,24 +58,29 @@ class QRViewController: UIViewController {
     
     private func update() {
         if Phone.instance.confirmed {
-            statusLabel.text = "confirmation received"
-            confirmedImage.isHidden = false
-            instructionsButton.setTitle("CLOSE SETUP", for: .normal)
+            instructionsLabel.text = "Congratulations, you are all set."
+            instructionsLabel.textAlignment = .center
+            instructionsLabel.font = UIFont.systemFont(ofSize: 24)
+            instructionsLabel.isHidden = false
+            qrImage.isHidden = true
+            statusLabel.text = ""
+            instructionsButton.setTitle("SHOW NOTIFICATIONS", for: .normal)
         } else {
             statusLabel.text = ""
-            confirmedImage.isHidden = true
         }
     }
     
     private func toggleInstructions() {
-        if instructionsLabel.isHidden {
-            instructionsLabel.isHidden = false
-            qrImage.isHidden = true
-            instructionsButton.setTitle("QR CODE", for: .normal)
-        } else {
-            instructionsLabel.isHidden = true
-            qrImage.isHidden = false
-            instructionsButton.setTitle("INSTRUCTIONS", for: .normal)
+        if !Phone.instance.confirmed {
+            if instructionsLabel.isHidden {
+                instructionsLabel.isHidden = false
+                qrImage.isHidden = true
+                instructionsButton.setTitle("QR CODE", for: .normal)
+            } else {
+                instructionsLabel.isHidden = true
+                qrImage.isHidden = false
+                instructionsButton.setTitle("INSTRUCTIONS", for: .normal)
+            }
         }
     }
 

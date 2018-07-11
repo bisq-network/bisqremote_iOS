@@ -23,13 +23,9 @@ class WelcomViewController: UIViewController {
 
     @IBOutlet weak var registerButton: UIButton!
     
-    @IBOutlet weak var statusLabel: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        statusLabel.isHidden = false
-
         registerButton.isEnabled = false
         
         #if targetEnvironment(simulator)
@@ -71,24 +67,22 @@ class WelcomViewController: UIViewController {
         navigationController?.navigationBar.backgroundColor = view.backgroundColor
         
         #if !targetEnvironment(simulator)
-        if UserDefaults.standard.string(forKey: userDefaultKeyToken) == nil {
+        if Phone.instance.token != nil {
             DispatchQueue.main.asyncAfter(deadline: .now() + 4, execute: {
                 self.checkForToken()
             })
         } else {
             self.registerButton.isEnabled = true
-            self.statusLabel.isHidden = true
         }
         #endif
 
     }
 
     @objc func checkForToken() {
-        if UserDefaults.standard.string(forKey: userDefaultKeyToken) == nil {
+        if Phone.instance.token == nil {
             UIApplication.shared.registerForRemoteNotifications()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                 self.registerButton.isEnabled = false
-                self.statusLabel.isHidden = false
                 let x = UIAlertController(title: "Error", message: "Could not fetch the Apple notification token. Make sure you are connected to the internet.", preferredStyle: .actionSheet)
                 x.addAction(UIAlertAction(title: "Try again", style: .default, handler: self.retry))
                 x.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
@@ -96,7 +90,6 @@ class WelcomViewController: UIViewController {
             })
         } else {
             self.registerButton.isEnabled = true
-            self.statusLabel.isHidden = true
         }
     }
 
