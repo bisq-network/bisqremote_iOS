@@ -523,9 +523,8 @@ Then open the email and paste the Bisq Phone ID into the Bisq.  Your phone w
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kq5-Zy-mjn" userLabel="comment">
-                                            <rect key="frame" x="86" y="31" width="271" height="21"/>
+                                            <rect key="frame" x="76" y="31" width="283" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="271" id="5JJ-9t-WQU"/>
                                                 <constraint firstAttribute="height" constant="21" id="VB2-bU-yiT"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -533,7 +532,7 @@ Then open the email and paste the Bisq Phone ID into the Bisq.  Your phone w
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K96-6P-egi" userLabel="timeEvent">
-                                            <rect key="frame" x="86" y="61.5" width="271" height="14.5"/>
+                                            <rect key="frame" x="76" y="61.5" width="283" height="14.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -552,11 +551,12 @@ Then open the email and paste the Bisq Phone ID into the Bisq.  Your phone w
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Kq5-Zy-mjn" firstAttribute="leading" secondItem="2gF-jD-Yei" secondAttribute="trailing" constant="22" id="2db-bp-61h"/>
                                         <constraint firstItem="2gF-jD-Yei" firstAttribute="top" secondItem="ckV-oX-QoS" secondAttribute="topMargin" constant="12" id="40h-7O-7d8"/>
                                         <constraint firstItem="K96-6P-egi" firstAttribute="leading" secondItem="Kq5-Zy-mjn" secondAttribute="leading" id="Hdq-Ls-rlp"/>
+                                        <constraint firstItem="Kq5-Zy-mjn" firstAttribute="leading" secondItem="ckV-oX-QoS" secondAttribute="leadingMargin" constant="60" id="KO7-La-3k5"/>
                                         <constraint firstItem="Kq5-Zy-mjn" firstAttribute="top" secondItem="ckV-oX-QoS" secondAttribute="topMargin" constant="20" id="KeS-F9-XUY"/>
                                         <constraint firstItem="K96-6P-egi" firstAttribute="trailing" secondItem="Kq5-Zy-mjn" secondAttribute="trailing" id="OGF-yX-wTB"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Kq5-Zy-mjn" secondAttribute="trailing" id="ZAP-s2-6FD"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="K96-6P-egi" secondAttribute="bottom" constant="3" id="eTW-j9-Wdy"/>
                                         <constraint firstItem="2gF-jD-Yei" firstAttribute="leading" secondItem="ckV-oX-QoS" secondAttribute="leadingMargin" id="xbI-dk-XGQ"/>
                                     </constraints>
@@ -565,6 +565,7 @@ Then open the email and paste the Bisq Phone ID into the Bisq.  Your phone w
                                     <outlet property="comment" destination="Kq5-Zy-mjn" id="RK4-3X-9nK"/>
                                     <outlet property="okImage" destination="3xY-fy-kl5" id="8ah-C1-W68"/>
                                     <outlet property="timeEvent" destination="K96-6P-egi" id="8Qx-n4-lcn"/>
+                                    <outlet property="titleLeadingConstraint" destination="KO7-La-3k5" id="fNn-DV-hYn"/>
                                     <segue destination="NLY-kU-KyA" kind="show" identifier="showDetail" id="oAM-Bn-D2a"/>
                                 </connections>
                             </tableViewCell>

@@ -20,6 +20,7 @@ import UIKit
 
 class NotificationTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var titleLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var okImage: UIImageView!
     @IBOutlet weak var timeEvent: UILabel!
     @IBOutlet weak var comment: UILabel!
@@ -29,6 +30,14 @@ class NotificationTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+    func placeholder() {
+        comment.text = "your notifications will appear here"
+        comment.textAlignment = .center
+        timeEvent.isHidden = true
+        selectionStyle = .none
+        titleLeadingConstraint.constant = 0
+        okImage.image = nil
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

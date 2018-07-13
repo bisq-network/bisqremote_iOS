@@ -58,9 +58,7 @@ class NotificationTableViewController: UITableViewController {
         } else {
             notification = Notification()
             notification.notificationType = NotificationType.PLACEHOLDER.rawValue
-            cell.comment.text = "your notifications will appear here"
-            cell.timeEvent.text = ""
-            cell.selectionStyle = .none
+            cell.placeholder()
         }
         switch notification.notificationType {
         case NotificationType.TRADE.rawValue:
@@ -76,7 +74,6 @@ class NotificationTableViewController: UITableViewController {
         case NotificationType.PLACEHOLDER.rawValue:
             cell.comment.font = UIFont.italicSystemFont(ofSize: 16.0)
             cell.comment.textColor = UIColor.gray
-            cell.okImage.image = nil
         default:
             if notification.read {
                 cell.comment.font = UIFont.systemFont(ofSize: 16.0)
