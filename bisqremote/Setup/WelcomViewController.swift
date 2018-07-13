@@ -64,6 +64,7 @@ class WelcomViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+
         navigationController?.navigationBar.backgroundColor = view.backgroundColor
         
         #if !targetEnvironment(simulator)

@@ -14,6 +14,7 @@
 		AA97BFDB20D2694C0092050E /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA97BFDA20D2694C0092050E /* QRViewController.swift */; };
 		AAA7FBD820F0B9B4007F9E3C /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA7FBD720F0B9B4007F9E3C /* EmailViewController.swift */; };
 		AABC359B20DCD3C5008DDD26 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC359A20DCD3C5008DDD26 /* Phone.swift */; };
+		AAD6FA1620F8BA7300B35D86 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AAD6FA1520F8BA7200B35D86 /* Settings.bundle */; };
 		AAF7B46920DAFD8A008237EA /* CryptoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF7B46820DAFD8A008237EA /* CryptoHelper.swift */; };
 		AAFEAE0220F363D700938898 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFEAE0120F363D700938898 /* AppConfiguration.swift */; };
 		BE31BFC820C44A8D008F79C6 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE31BFC720C44A8D008F79C6 /* NotificationTableViewCell.swift */; };
@@ -51,6 +52,7 @@
 		AA97BFDA20D2694C0092050E /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
 		AAA7FBD720F0B9B4007F9E3C /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		AABC359A20DCD3C5008DDD26 /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
+		AAD6FA1520F8BA7200B35D86 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = bisqremote/Settings.bundle; sourceTree = SOURCE_ROOT; };
 		AAF7B46820DAFD8A008237EA /* CryptoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoHelper.swift; sourceTree = "<group>"; };
 		AAFEAE0120F363D700938898 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		BE31BFC720C44A8D008F79C6 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				BEFB45FC20C355870052C91A /* bisqremote.entitlements */,
 				BEFB45F220C34BC10052C91A /* LaunchScreen.storyboard */,
 				BEFB45F520C34BC10052C91A /* Ibisqremotefo.plist */,
+				AAD6FA1520F8BA7200B35D86 /* Settings.bundle */,
 			);
 			path = bisqremote;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAD6FA1620F8BA7300B35D86 /* Settings.bundle in Resources */,
 				BEFB45F420C34BC10052C91A /* LaunchScreen.storyboard in Resources */,
 				BEFB45F120C34BC10052C91A /* Assets.xcassets in Resources */,
 				BEFB45EF20C34BC10052C91A /* Main.storyboard in Resources */,

@@ -23,6 +23,7 @@ class NotificationTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         dateformatterShort.dateFormat = "yyyy-MM-dd HH:mm"
     }
 
@@ -65,9 +66,11 @@ class NotificationTableViewController: UITableViewController {
         case NotificationType.TRADE.rawValue:
             if notification.read {
                 cell.comment.font = UIFont.systemFont(ofSize: 16.0)
+                cell.comment.textColor = UIColor.gray
                 cell.okImage.image = UIImage(named: "info_read.png")
             } else {
                 cell.comment.font = UIFont.boldSystemFont(ofSize: 16.0)
+                cell.comment.textColor = UIColor.black
                 cell.okImage.image = UIImage(named: "info.png")
             }
         case NotificationType.PLACEHOLDER.rawValue:

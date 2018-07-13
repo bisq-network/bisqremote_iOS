@@ -22,8 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController?
+    var rawNotification: String?
+    var applicationIsActive: Bool = false
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        registerSettingsBundle()
+        rawNotification = nil
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         navigationController = application.windows[0].rootViewController as? UINavigationController
@@ -46,11 +51,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let vc = storyboard.instantiateViewController(withIdentifier: "listScreen") as! NotificationTableViewController
             navigationController?.setViewControllers([vc], animated: false)
         }
+        
         return true
     }
     
-    func fetchToken() {
-        
+    func registerSettingsBundle(){
+        let appDefaults = [String:AnyObject]()
+        UserDefaults.standard.register(defaults: appDefaults)
     }
     
     func application(_ application: UIApplication,
@@ -72,8 +79,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         processNotification(app: application, n: userInfo)
     }
 
-    func processNotification(app: UIApplication, n: [AnyHashable : Any]) {
+    func rawNotificationAlert() {
+        if UserDefaults.standard.bool(forKey: "showRawNotifications") {
+            if applicationIsActive {
+                if rawNotification != nil {
+                    let paragraph = NSMutableParagraphStyle()
+                    paragraph.alignment = .left
+                    let attributedMessage = NSAttributedString(string: rawNotification!,
+                                                               attributes: [.paragraphStyle: paragraph])
+                    let alert = UIAlertController(title: "raw notificaton", message: "", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.setValue(attributedMessage, forKey: "attributedMessage")
+                    alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
+                    self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+                    rawNotification = nil
+                }
+            }
+        }
 
+    }
+    func processNotification(app: UIApplication, n: [AnyHashable : Any]) {
+        rawNotification = n.description
         if let message = n as? [String: AnyObject] {
             if let encrypted = message["encrypted"] as? String {
                 let x = encrypted.split(separator: Character(BISQ_MESSAGE_SEPARATOR))
@@ -89,6 +114,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     if success != nil {
                         print("decrypted json: "+success!)
                         NotificationArray.shared.addFromString(new: success!)
+                        rawNotification! += "\n\n\nDecrypted:\n"+success!
+                    } else {
+                        print("decrypted json: COULD NOT DECRYPT")
+                        rawNotification! += "\n\n\nDecrypted:\nCOULD NOT DECRYPT"
                     }
                     let navigationController = app.windows[0].rootViewController as! UINavigationController
                     if let topController = navigationController.topViewController {
@@ -99,6 +128,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
+        rawNotificationAlert()
     }
 
     
@@ -117,8 +147,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        //This method is called when the rootViewController is set and the view.
+        // And the View controller is ready to get touches or events.
+        applicationIsActive = true
+        rawNotificationAlert()
     }
+
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
