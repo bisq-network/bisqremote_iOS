@@ -186,6 +186,9 @@
 						CreatedOnToolsVersion = 9.4;
 						LastSwiftMigration = 0940;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.InAppPurchase = {
 								enabled = 0;
 							};
