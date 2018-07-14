@@ -30,6 +30,12 @@ class NotificationTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+    override func prepareForReuse() {
+        comment.textAlignment = .left
+        timeEvent.isHidden = false
+        titleLeadingConstraint.constant = 60
+    }
+    
     func placeholder() {
         comment.text = "your notifications will appear here"
         comment.textAlignment = .center

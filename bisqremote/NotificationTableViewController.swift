@@ -43,7 +43,6 @@ class NotificationTableViewController: UITableViewController {
         if n == 0 { n = 1 } // show placeholder
         return n
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "NotificationTableViewCell"
