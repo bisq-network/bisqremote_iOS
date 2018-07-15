@@ -88,6 +88,12 @@ class QRViewController: UIViewController {
     }
 
     @IBAction func instructionsPressed(_ sender: Any) {
+        
+        let log = UserDefaults.standard.string(forKey: "logging")
+        let x = UIAlertController(title: "log", message: log, preferredStyle: .actionSheet)
+        x.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(x, animated: true) {}
+
         if Phone.instance.confirmed {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "listScreen") as? NotificationTableViewController {

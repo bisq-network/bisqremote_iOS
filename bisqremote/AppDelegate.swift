@@ -77,14 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        let state = application.applicationState
         ("didReceiveRemoteNotification "+userInfo.description).bisqLog()
-        
-        if state == UIApplicationState.background {"state background".bisqLog()}
-        if state == UIApplicationState.inactive {"inactive".bisqLog()}
-        if state == UIApplicationState.active {"active".bisqLog()}
-        if appIsStarting {"appIsStarting = true".bisqLog()}
-        if !appIsStarting {"appIsStarting = false".bisqLog()}
         processNotification(application: application, n: userInfo)
 
     }
@@ -123,11 +116,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-
     }
+    
     func processNotification(application: UIApplication, n: [AnyHashable : Any]) {
+        "--> processNotification".bisqLog()
         let state = application.applicationState
+        if state == UIApplicationState.background {"state background".bisqLog()}
+        if state == UIApplicationState.inactive {"inactive".bisqLog()}
+        if state == UIApplicationState.active {"active".bisqLog()}
+        if appIsStarting {"appIsStarting = true".bisqLog()}
+        if !appIsStarting {"appIsStarting = false".bisqLog()}
+
         if state == UIApplicationState.inactive && appIsStarting {
+            "--> processNotification RETURN".bisqLog()
             return
         }
 
@@ -201,7 +202,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension String {
     func bisqLog() {
-        #if DEBUG
         let old = UserDefaults.standard.string(forKey: "logging")
         let new: String
         if let o = old {
@@ -210,7 +210,6 @@ extension String {
             new = self
         }
         UserDefaults.standard.set(new, forKey: "logging")
-        #endif
     }
 }
 
