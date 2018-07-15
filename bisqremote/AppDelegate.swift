@@ -27,22 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var applicationCanShowAlert: Bool = false
     var appIsStarting: Bool = false
     
-    func addLog(s: String) {
-        let lOld = UserDefaults.standard.string(forKey: "logging")
-        let lNew = lOld! + "\n"+s
-        UserDefaults.standard.set(lNew, forKey: "logging")
-    }
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         registerSettingsBundle()
         rawNotification = nil
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         navigationController = application.windows[0].rootViewController as? UINavigationController
-
-        UserDefaults.standard.set("logging starts", forKey: "logging")
- 
-        
 
         window?.tintColor = UIColor(red: 37.0/255.0, green: 177.0/255.0, blue: 53.0/255.0, alpha: 1.0)
 
@@ -211,9 +201,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension String {
     func bisqLog() {
-        let lOld = UserDefaults.standard.string(forKey: "logging")
-        let lNew = lOld! + "\n"+self
-        UserDefaults.standard.set(lNew, forKey: "logging")
+        #if DEBUG
+        let old = UserDefaults.standard.string(forKey: "logging")
+        let new: String
+        if let o = old {
+            new = o + "\n"+self
+        } else {
+            new = self
+        }
+        UserDefaults.standard.set(new, forKey: "logging")
+        #endif
     }
 }
 
