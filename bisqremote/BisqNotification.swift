@@ -21,7 +21,7 @@ import UIKit // for setting the badge number
 import AVFoundation // for sound
 
 enum NotificationType: String {
-    case SETUP_CONFIRMATION, ERASE, TRADE, DISPUTE, FINANCIAL, ERROR, PLACEHOLDER
+    case SETUP_CONFIRMATION, ERASE, OFFER, TRADE, DISPUTE, PRICE, MARKET, ERROR, PLACEHOLDER
 }
 
 // Datastructure as sent from the Bisq notification server
@@ -109,9 +109,13 @@ class RawNotification: Codable {
                 navigationController?.popViewController(animated: true)
             }
             break
-        case NotificationType.TRADE.rawValue,
+        case NotificationType.OFFER.rawValue,
+             NotificationType.TRADE.rawValue,
              NotificationType.DISPUTE.rawValue,
-             NotificationType.FINANCIAL.rawValue:
+             NotificationType.PRICE.rawValue,
+             NotificationType.MARKET.rawValue,
+             NotificationType.ERROR.rawValue,
+             NotificationType.PLACEHOLDER.rawValue:
             break
         default:
             print("unknown notificationType \(type)")

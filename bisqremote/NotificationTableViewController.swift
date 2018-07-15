@@ -64,11 +64,51 @@ class NotificationTableViewController: UITableViewController {
             if notification.read {
                 cell.comment.font = UIFont.systemFont(ofSize: 16.0)
                 cell.comment.textColor = UIColor.gray
-                cell.okImage.image = UIImage(named: "info_read.png")
+                cell.okImage.image = UIImage(named: "TRADE")
             } else {
                 cell.comment.font = UIFont.boldSystemFont(ofSize: 16.0)
                 cell.comment.textColor = UIColor.black
-                cell.okImage.image = UIImage(named: "info.png")
+                cell.okImage.image = UIImage(named: "TRADE")
+            }
+        case NotificationType.OFFER.rawValue:
+            if notification.read {
+                cell.comment.font = UIFont.systemFont(ofSize: 16.0)
+                cell.comment.textColor = UIColor.gray
+                cell.okImage.image = UIImage(named: "OFFER")
+            } else {
+                cell.comment.font = UIFont.boldSystemFont(ofSize: 16.0)
+                cell.comment.textColor = UIColor.black
+                cell.okImage.image = UIImage(named: "OFFER")
+            }
+        case NotificationType.DISPUTE.rawValue:
+            if notification.read {
+                cell.comment.font = UIFont.systemFont(ofSize: 16.0)
+                cell.comment.textColor = UIColor.gray
+                cell.okImage.image = UIImage(named: "DISPUTE")
+            } else {
+                cell.comment.font = UIFont.boldSystemFont(ofSize: 16.0)
+                cell.comment.textColor = UIColor.black
+                cell.okImage.image = UIImage(named: "DISPUTE")
+            }
+        case NotificationType.PRICE.rawValue:
+            if notification.read {
+                cell.comment.font = UIFont.systemFont(ofSize: 16.0)
+                cell.comment.textColor = UIColor.gray
+                cell.okImage.image = UIImage(named: "PRICE")
+            } else {
+                cell.comment.font = UIFont.boldSystemFont(ofSize: 16.0)
+                cell.comment.textColor = UIColor.black
+                cell.okImage.image = UIImage(named: "PRICE")
+            }
+        case NotificationType.MARKET.rawValue:
+            if notification.read {
+                cell.comment.font = UIFont.systemFont(ofSize: 16.0)
+                cell.comment.textColor = UIColor.gray
+                cell.okImage.image = UIImage(named: "MARKET")
+            } else {
+                cell.comment.font = UIFont.boldSystemFont(ofSize: 16.0)
+                cell.comment.textColor = UIColor.black
+                cell.okImage.image = UIImage(named: "MARKET")
             }
         case NotificationType.PLACEHOLDER.rawValue:
             cell.comment.font = UIFont.italicSystemFont(ofSize: 16.0)
