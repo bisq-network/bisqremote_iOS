@@ -63,7 +63,7 @@ class QRViewController: UIViewController {
             instructionsLabel.isHidden = false
             qrImage.isHidden = true
             statusLabel.text = ""
-            instructionsButton.setTitle("SHOW NOTIFICATIONS", for: .normal)
+            instructionsButton.setTitle("Show notifications", for: .normal)
         } else {
             statusLabel.text = ""
         }

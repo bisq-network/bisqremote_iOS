@@ -37,7 +37,7 @@ class NotificationTableViewCell: UITableViewCell {
     }
     
     func placeholder() {
-        comment.text = "your notifications will appear here"
+        comment.text = "No notifications yet"
         comment.textAlignment = .center
         timeEvent.isHidden = true
         selectionStyle = .none

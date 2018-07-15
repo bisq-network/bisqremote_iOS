@@ -44,7 +44,7 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
             instructionsLabel.text = "Congratulations, you are all set."
             instructionsLabel.textAlignment = .center
             instructionsLabel.isHidden = false
-            resendEmailButton.setTitle("SHOW NOTIFICATIONS", for: .normal)
+            resendEmailButton.setTitle("Show notifications", for: .normal)
         }
     }
     

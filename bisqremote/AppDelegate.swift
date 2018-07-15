@@ -78,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
         let state = application.applicationState
-        receivedAlert(state: state)
+//        receivedAlert(state: state)
         if (state == UIApplicationState.background ||
             (state == UIApplicationState.inactive && !appIsStarting)) {
             processNotification(app: application, n: userInfo)

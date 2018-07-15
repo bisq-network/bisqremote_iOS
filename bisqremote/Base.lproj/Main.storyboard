@@ -53,7 +53,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="115" id="yRl-HB-3PN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Setup"/>
+                                <state key="normal" title="Pair"/>
                                 <connections>
                                     <segue destination="JyP-qo-d6l" kind="show" identifier="startSegue" id="lwy-qH-biQ"/>
                                 </connections>
@@ -71,7 +71,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="EXr-6a-zDS"/>
                                         </constraints>
-                                        <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" smartQuotesType="no"/>
                                     </textView>
