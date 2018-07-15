@@ -53,13 +53,13 @@ class NotificationTableViewController: UITableViewController {
         if NotificationArray.shared.countAll > 0 {
             notification = NotificationArray.shared.at(n:indexPath.row)
             cell.comment.text = "\(notification.title)"
-            cell.timeEvent.text = dateformatterShort.string(from: notification.timestampEvent)
+            cell.timeEvent.text = String(notification.sentDate)
         } else {
             notification = Notification()
-            notification.notificationType = NotificationType.PLACEHOLDER.rawValue
+            notification.type = NotificationType.PLACEHOLDER.rawValue
             cell.placeholder()
         }
-        switch notification.notificationType {
+        switch notification.type {
         case NotificationType.TRADE.rawValue:
             if notification.read {
                 cell.comment.font = UIFont.systemFont(ofSize: 16.0)

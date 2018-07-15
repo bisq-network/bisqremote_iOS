@@ -46,9 +46,9 @@ class NotificationDetailViewController: UIViewController {
             }
 
             messageTextView.text = n.message
-            eventTimeLabel.text   = "event:    "+dateformatterShort.string(from: n.timestampEvent)
+            eventTimeLabel.text   = "event:    "+String(n.sentDate)
             receiveTimelabel.text = "received: "+dateformatterShort.string(from: n.timestampReceived)
-            transactionID.text = "transaction ID: "+n.transactionID
+            transactionID.text = "transaction ID: "+n.txId
             if n.actionRequired.count > 0 {
                 actionTextview.isHidden = false
                 actionTextview.text = n.actionRequired

@@ -29,51 +29,51 @@ enum NotificationType: String {
 // We need a class and custom encoder and decoder because we will inherit from this class
 class RawNotification: Codable {
     var version: Int
-    var notificationType: String
+    var type: String
     var title: String
     var message: String
     var actionRequired: String
-    var transactionID: String
-    var timestampEvent: Date
+    var txId: String
+    var sentDate: Int
 
     init() {
         version = 0
-        notificationType = ""
+        type = ""
         title = ""
         message = ""
         actionRequired = ""
-        transactionID = ""
-        timestampEvent = Date()
+        txId = ""
+        sentDate = 1 // 1970
     }
     
     private enum CodingKeys: String, CodingKey {
         case version
-        case notificationType
+        case type
         case title
         case message
         case actionRequired
-        case transactionID
-        case timestampEvent
+        case txId
+        case sentDate
     }
     
     required init(from decoder: Decoder) throws {
         version = 0
-        notificationType = "unknown"
+        type = "unknown"
         title = ""
         message = ""
         actionRequired = ""
-        transactionID = ""
-        timestampEvent = Date()
+        txId = ""
+        sentDate = 1
         let container: KeyedDecodingContainer<RawNotification.CodingKeys>
         do {
             container = try decoder.container(keyedBy: CodingKeys.self)
             version = try container.decode(Int.self, forKey: .version)
-            notificationType = try container.decode(String.self, forKey: .notificationType)
+            type = try container.decode(String.self, forKey: .type)
             title = try container.decode(String.self, forKey: .title)
             message = try container.decode(String.self, forKey: .message)
             actionRequired = try container.decode(String.self, forKey: .actionRequired)
-            transactionID = try container.decode(String.self, forKey: .transactionID)
-            timestampEvent = try container.decode(Date.self, forKey: .timestampEvent)
+            txId = try container.decode(String.self, forKey: .txId)
+            sentDate = try container.decode(Int.self, forKey: .sentDate)
         } catch {
             message = "could not decode json message"
             return
@@ -83,7 +83,7 @@ class RawNotification: Codable {
         let visibleController = navigationController?.visibleViewController
 
         
-        switch notificationType {
+        switch type {
         case NotificationType.SETUP_CONFIRMATION.rawValue:
             AudioServicesPlaySystemSound(1007) // see https://github.com/TUNER88/iOSSystemSoundsLibrary
             Phone.instance.confirmed = true
@@ -113,7 +113,7 @@ class RawNotification: Codable {
              NotificationType.FINANCIAL.rawValue:
             break
         default:
-            print("unknown notificationType \(notificationType)")
+            print("unknown notificationType \(type)")
         }
     }
     
@@ -121,12 +121,12 @@ class RawNotification: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         
         try container.encode(version, forKey: .version)
-        try container.encode(notificationType, forKey: .notificationType)
+        try container.encode(type, forKey: .type)
         try container.encode(title, forKey: .title)
         try container.encode(message, forKey: .message)
         try container.encode(actionRequired, forKey: .actionRequired)
-        try container.encode(transactionID, forKey: .transactionID)
-        try container.encode(timestampEvent, forKey: .timestampEvent)
+        try container.encode(txId, forKey: .txId)
+        try container.encode(sentDate, forKey: .sentDate)
     }
 }
 
@@ -150,12 +150,12 @@ class Notification: RawNotification {
     convenience init(raw: RawNotification) {
         self.init()
         self.version = raw.version
-        self.notificationType = raw.notificationType
+        self.type = raw.type
         self.title = raw.title
         self.message = raw.message
         self.actionRequired = raw.actionRequired
-        self.transactionID = raw.transactionID
-        self.timestampEvent = raw.timestampEvent
+        self.txId = raw.txId
+        self.sentDate = raw.sentDate
     }
     
     required init(from decoder: Decoder) throws {
@@ -222,12 +222,12 @@ class NotificationArray {
     static func exampleRawNotification() -> RawNotification {
         let r = RawNotification()
         r.version = 1
-        r.notificationType = NotificationType.TRADE.rawValue
+        r.type = NotificationType.TRADE.rawValue
         r.title = "Added from Settings"
         r.message = "example message"
         r.actionRequired = "You need to make the bank transfer to receive your BTC"
-        r.transactionID = "293842038402983"
-        r.timestampEvent = Date()
+        r.txId = "293842038402983"
+        r.sentDate = 1531659268 // July 2018
         return r
     }
     
@@ -289,13 +289,11 @@ class NotificationArray {
     }
     
     func addFromString(new: String) {
-        "{\"timestampEvent\":\"2018-06-19 11:58:41\",\"transactionID\":\"234523423\",\"title\":\"\",\"message\":\"\",\"notificationType\":\"SETUP_CONFIRMATION\",\"actionRequired\":\"\",\"version\":1}            "
-        // let test "{\"timestampEvent\" : \"2018-06-19 12:00:50\",\"transactionID\" : \"293842038402983\",\"title\" : \"example title\",\"message\" : \"example message\",\"notificationType\" : \"TRADE_ACCEPTED\",\"actionRequired\" : \"You need to make the bank transfer to receive your BTC\",\"version\" : 1}"
         if let data = new.data(using: .utf8) {
             do {
                 let raw = try decoder.decode(RawNotification.self, from:data)
                 if raw.version >= 1 {
-                    switch raw.notificationType {
+                    switch raw.type {
                     case NotificationType.SETUP_CONFIRMATION.rawValue,
                          NotificationType.ERASE.rawValue:
                         return // no need to add to array
@@ -314,7 +312,7 @@ class NotificationArray {
     func addError(title: String, message: String) {
         let raw = RawNotification()
         raw.title = title
-        raw.notificationType = NotificationType.ERROR.rawValue
+        raw.type = NotificationType.ERROR.rawValue
         raw.message = message
         addNotification(new: Notification(raw: raw))
     }
