@@ -16,6 +16,7 @@
  */
 
 import UIKit
+import os
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,20 +27,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var applicationCanShowAlert: Bool = false
     var appIsStarting: Bool = false
     
+    func addLog(s: String) {
+        let lOld = UserDefaults.standard.string(forKey: "logging")
+        let lNew = lOld! + "\n"+s
+        UserDefaults.standard.set(lNew, forKey: "logging")
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
         registerSettingsBundle()
         rawNotification = nil
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         navigationController = application.windows[0].rootViewController as? UINavigationController
 
+        UserDefaults.standard.set("logging starts", forKey: "logging")
+ 
+        
+
         window?.tintColor = UIColor(red: 37.0/255.0, green: 177.0/255.0, blue: 53.0/255.0, alpha: 1.0)
 
         // Check if launched from a notification
         if let message = launchOptions?[.remoteNotification] as? [String: AnyObject] {
-            appIsStarting = true
-            processNotification(app: application, n: message)
+            processNotification(application: application, n: message)
+            ("launchOptions "+message.description).bisqLog()
         }
 
         #if targetEnvironment(simulator)
@@ -78,16 +88,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
         let state = application.applicationState
-//        receivedAlert(state: state)
-        if (state == UIApplicationState.background ||
-            (state == UIApplicationState.inactive && !appIsStarting)) {
-            processNotification(app: application, n: userInfo)
-        } else if state == UIApplicationState.inactive && appIsStarting {
-            // do nothing
-        } else {
-            // app is active
-            processNotification(app: application, n: userInfo)
-        }
+        ("didReceiveRemoteNotification "+userInfo.description).bisqLog()
+        
+        if state == UIApplicationState.background {"state background".bisqLog()}
+        if state == UIApplicationState.inactive {"inactive".bisqLog()}
+        if state == UIApplicationState.active {"active".bisqLog()}
+        if appIsStarting {"appIsStarting = true".bisqLog()}
+        if !appIsStarting {"appIsStarting = false".bisqLog()}
+        processNotification(application: application, n: userInfo)
+
     }
 
     func receivedAlert(state: UIApplicationState) {
@@ -126,7 +135,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
     }
-    func processNotification(app: UIApplication, n: [AnyHashable : Any]) {
+    func processNotification(application: UIApplication, n: [AnyHashable : Any]) {
+        let state = application.applicationState
+        if state == UIApplicationState.inactive && appIsStarting {
+            return
+        }
+
+        ("processNotification "+n.description).bisqLog()
         rawNotification = n.description
         if let message = n as? [String: AnyObject] {
             if let encrypted = message["encrypted"] as? String {
@@ -142,13 +157,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     success = CryptoHelper.decrypt(input:enc);
                     if success != nil {
                         print("decrypted json: "+success!)
+                        ("processNotification_decrypted "+success!).bisqLog()
                         NotificationArray.shared.addFromString(new: success!)
                         rawNotification! += "\n\n\nDecrypted:\n"+success!
                     } else {
                         print("decrypted json: COULD NOT DECRYPT")
                         rawNotification! += "\n\n\nDecrypted:\nCOULD NOT DECRYPT"
                     }
-                    let navigationController = app.windows[0].rootViewController as! UINavigationController
+                    let navigationController = application.windows[0].rootViewController as! UINavigationController
                     if let topController = navigationController.topViewController {
                         if let vc = topController as? NotificationTableViewController {
                             vc.reload()
@@ -193,8 +209,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 }
 
+extension String {
+    func bisqLog() {
+        let lOld = UserDefaults.standard.string(forKey: "logging")
+        let lNew = lOld! + "\n"+self
+        UserDefaults.standard.set(lNew, forKey: "logging")
+    }
+}
+
 extension Data {
-    
     var utf8String: String? {
         return string()
     }

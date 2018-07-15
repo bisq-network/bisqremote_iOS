@@ -76,6 +76,7 @@ class RawNotification: Codable {
             sentDate = try container.decode(Int.self, forKey: .sentDate)
         } catch {
             message = "could not decode json message"
+            "could not decode".bisqLog()
             return
         }
 
