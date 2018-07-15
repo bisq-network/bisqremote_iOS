@@ -64,7 +64,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-
         let token = deviceToken.hexDescription
         Phone.instance.newToken(t: token)
         if let welcomeVC = navigationController?.topViewController as? WelcomViewController {
@@ -74,10 +73,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        failAltert()
     }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
         let state = application.applicationState
+        receivedAlert(state: state)
         if (state == UIApplicationState.background ||
             (state == UIApplicationState.inactive && !appIsStarting)) {
             processNotification(app: application, n: userInfo)
@@ -89,6 +90,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    func receivedAlert(state: UIApplicationState) {
+        var sateString = "unknown"
+        if state == UIApplicationState.background {sateString = "background"}
+        if state == UIApplicationState.inactive {sateString = "inactive"}
+        if state == UIApplicationState.active {sateString = "active"}
+        var b = "false"
+        if appIsStarting {b = "true"}
+        let m = "I have received something, state="+sateString+" appIsStarting="+b
+        let alert = UIAlertController(title: "Notification", message: m, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
+        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
+    
+    func failAltert() {
+        let alert = UIAlertController(title: "Registration failed", message: "Cound not register with Apple Push notifications", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
+        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
     func rawNotificationAlert() {
         if UserDefaults.standard.bool(forKey: "showRawNotifications") {
             if applicationCanShowAlert {

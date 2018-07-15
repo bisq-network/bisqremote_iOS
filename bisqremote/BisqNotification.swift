@@ -57,21 +57,33 @@ class RawNotification: Codable {
     }
     
     required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        version = try container.decode(Int.self, forKey: .version)
-        let t = try container.decode(String.self, forKey: .notificationType)
+        version = 0
+        notificationType = "unknown"
+        title = ""
+        message = ""
+        actionRequired = ""
+        transactionID = ""
+        timestampEvent = Date()
+        let container: KeyedDecodingContainer<RawNotification.CodingKeys>
+        do {
+            container = try decoder.container(keyedBy: CodingKeys.self)
+            version = try container.decode(Int.self, forKey: .version)
+            notificationType = try container.decode(String.self, forKey: .notificationType)
+            title = try container.decode(String.self, forKey: .title)
+            message = try container.decode(String.self, forKey: .message)
+            actionRequired = try container.decode(String.self, forKey: .actionRequired)
+            transactionID = try container.decode(String.self, forKey: .transactionID)
+            timestampEvent = try container.decode(Date.self, forKey: .timestampEvent)
+        } catch {
+            message = "could not decode json message"
+            return
+        }
 
         let navigationController = UIApplication.shared.windows[0].rootViewController as? UINavigationController
         let visibleController = navigationController?.visibleViewController
 
-        notificationType = t
-        title = try container.decode(String.self, forKey: .title)
-        message = try container.decode(String.self, forKey: .message)
-        actionRequired = try container.decode(String.self, forKey: .actionRequired)
-        transactionID = try container.decode(String.self, forKey: .transactionID)
-        timestampEvent = try container.decode(Date.self, forKey: .timestampEvent)
-
-        switch t {
+        
+        switch notificationType {
         case NotificationType.SETUP_CONFIRMATION.rawValue:
             AudioServicesPlaySystemSound(1007) // see https://github.com/TUNER88/iOSSystemSoundsLibrary
             Phone.instance.confirmed = true
@@ -101,7 +113,7 @@ class RawNotification: Codable {
              NotificationType.FINANCIAL.rawValue:
             break
         default:
-            print("unknown notificationType \(t)")
+            print("unknown notificationType \(notificationType)")
         }
     }
     
@@ -277,6 +289,7 @@ class NotificationArray {
     }
     
     func addFromString(new: String) {
+        "{\"timestampEvent\":\"2018-06-19 11:58:41\",\"transactionID\":\"234523423\",\"title\":\"\",\"message\":\"\",\"notificationType\":\"SETUP_CONFIRMATION\",\"actionRequired\":\"\",\"version\":1}            "
         // let test "{\"timestampEvent\" : \"2018-06-19 12:00:50\",\"transactionID\" : \"293842038402983\",\"title\" : \"example title\",\"message\" : \"example message\",\"notificationType\" : \"TRADE_ACCEPTED\",\"actionRequired\" : \"You need to make the bank transfer to receive your BTC\",\"version\" : 1}"
         if let data = new.data(using: .utf8) {
             do {

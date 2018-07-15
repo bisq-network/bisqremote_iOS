@@ -32,6 +32,7 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
     
     override func viewWillAppear(_ animated: Bool) {
         update()
+        instructionsLabel.highlightedTextColor = UIColor.green
     }
     
     func confirmed() {
@@ -42,7 +43,6 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
         if Phone.instance.confirmed {
             instructionsLabel.text = "Congratulations, you are all set."
             instructionsLabel.textAlignment = .center
-            instructionsLabel.font = UIFont.systemFont(ofSize: 24)
             instructionsLabel.isHidden = false
             resendEmailButton.setTitle("SHOW NOTIFICATIONS", for: .normal)
         }

@@ -60,7 +60,6 @@ class QRViewController: UIViewController {
         if Phone.instance.confirmed {
             instructionsLabel.text = "Congratulations, you are all set."
             instructionsLabel.textAlignment = .center
-            instructionsLabel.font = UIFont.systemFont(ofSize: 24)
             instructionsLabel.isHidden = false
             qrImage.isHidden = true
             statusLabel.text = ""

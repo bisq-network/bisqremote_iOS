@@ -41,7 +41,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="115" id="h9O-uV-hVo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="LEARN MORE"/>
+                                <state key="normal" title="Learn more"/>
                                 <connections>
                                     <action selector="helpPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jub-Ce-XAy"/>
                                 </connections>
@@ -53,7 +53,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="115" id="yRl-HB-3PN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="SETUP"/>
+                                <state key="normal" title="Setup"/>
                                 <connections>
                                     <segue destination="JyP-qo-d6l" kind="show" identifier="startSegue" id="lwy-qH-biQ"/>
                                 </connections>
@@ -131,12 +131,12 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqZ-RK-Byd">
-                                <rect key="frame" x="149" y="574" width="78" height="33"/>
+                                <rect key="frame" x="152.5" y="574" width="71" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="rWj-2j-XsZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="WEBCAM"/>
+                                <state key="normal" title="Webcam"/>
                                 <connections>
                                     <segue destination="cUX-nQ-faw" kind="show" identifier="QRSegue" id="MW1-Ih-JvF"/>
                                 </connections>
@@ -148,7 +148,7 @@
                                     <constraint firstAttribute="height" constant="33" id="clk-0Z-Fhf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="EMAIL"/>
+                                <state key="normal" title="Email"/>
                                 <connections>
                                     <segue destination="T7q-Gp-CGR" kind="show" identifier="emailSeque" id="kog-z4-3Vm"/>
                                 </connections>
@@ -221,13 +221,13 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z09-Jp-Svw">
                                 <rect key="frame" x="20" y="577" width="335" height="30"/>
-                                <state key="normal" title="INSTRUCTIONS"/>
+                                <state key="normal" title="Instructions"/>
                                 <connections>
                                     <action selector="instructionsPressed:" destination="cUX-nQ-faw" eventType="touchUpInside" id="8tL-DK-a2Y"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QsP-te-lU8">
-                                <rect key="frame" x="40" y="84" width="295" height="335"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0AR-LZ-0i0">
+                                <rect key="frame" x="40" y="84" width="335" height="335"/>
                                 <string key="text">Go to your computer and open the Bisq App. 
 
 Open Account -&gt; Notifications
@@ -240,17 +240,17 @@ Then press "Scan QR code".  Your phone will automatically receive a confirma
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="QsP-te-lU8" firstAttribute="bottom" secondItem="ALl-Ci-drK" secondAttribute="bottom" id="0He-vr-kLw"/>
                             <constraint firstItem="zlC-HL-qnf" firstAttribute="bottom" secondItem="z09-Jp-Svw" secondAttribute="bottom" constant="60" id="0JK-NY-PCq"/>
-                            <constraint firstItem="QsP-te-lU8" firstAttribute="leading" secondItem="ALl-Ci-drK" secondAttribute="leading" constant="20" id="5Zk-VI-hHj"/>
                             <constraint firstItem="z09-Jp-Svw" firstAttribute="leading" secondItem="zlC-HL-qnf" secondAttribute="leading" constant="20" id="FRp-dn-mg3"/>
+                            <constraint firstItem="0AR-LZ-0i0" firstAttribute="trailing" secondItem="ALl-Ci-drK" secondAttribute="trailing" constant="20" id="JKm-ux-7b8"/>
                             <constraint firstItem="ALl-Ci-drK" firstAttribute="leading" secondItem="zlC-HL-qnf" secondAttribute="leading" constant="20" id="M3T-gM-Ewo"/>
-                            <constraint firstItem="QsP-te-lU8" firstAttribute="top" secondItem="ALl-Ci-drK" secondAttribute="top" id="OUK-tT-PFr"/>
                             <constraint firstItem="zlC-HL-qnf" firstAttribute="trailing" secondItem="z09-Jp-Svw" secondAttribute="trailing" constant="20" id="SR7-Wp-rDv"/>
+                            <constraint firstItem="0AR-LZ-0i0" firstAttribute="bottom" secondItem="ALl-Ci-drK" secondAttribute="bottom" id="Udu-cn-7ya"/>
                             <constraint firstItem="woN-3y-ho2" firstAttribute="centerX" secondItem="PRd-Dk-E6X" secondAttribute="centerX" id="Z7O-Fb-KxB"/>
+                            <constraint firstItem="0AR-LZ-0i0" firstAttribute="top" secondItem="ALl-Ci-drK" secondAttribute="top" id="chI-fx-pRz"/>
                             <constraint firstItem="z09-Jp-Svw" firstAttribute="top" secondItem="woN-3y-ho2" secondAttribute="bottom" constant="30" id="fUy-rh-8w5"/>
                             <constraint firstItem="zlC-HL-qnf" firstAttribute="trailing" secondItem="ALl-Ci-drK" secondAttribute="trailing" constant="20" id="kYo-rO-uzy"/>
-                            <constraint firstItem="QsP-te-lU8" firstAttribute="trailing" secondItem="ALl-Ci-drK" secondAttribute="trailing" constant="-20" id="vOE-r3-2GB"/>
+                            <constraint firstItem="0AR-LZ-0i0" firstAttribute="leading" secondItem="ALl-Ci-drK" secondAttribute="leading" constant="20" id="mwI-hZ-fAN"/>
                             <constraint firstItem="ALl-Ci-drK" firstAttribute="top" secondItem="PRd-Dk-E6X" secondAttribute="topMargin" constant="20" id="waq-bD-qRU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zlC-HL-qnf"/>
@@ -258,7 +258,7 @@ Then press "Scan QR code".  Your phone will automatically receive a confirma
                     <navigationItem key="navigationItem" id="pL3-ZO-uYc"/>
                     <connections>
                         <outlet property="instructionsButton" destination="z09-Jp-Svw" id="yLe-HL-oDB"/>
-                        <outlet property="instructionsLabel" destination="QsP-te-lU8" id="EgT-H6-ev6"/>
+                        <outlet property="instructionsLabel" destination="0AR-LZ-0i0" id="6cq-mE-naG"/>
                         <outlet property="qrImage" destination="ALl-Ci-drK" id="r3m-nC-AQu"/>
                         <outlet property="statusLabel" destination="woN-3y-ho2" id="1g5-LP-0jm"/>
                         <segue destination="edC-1E-qDP" kind="show" identifier="QRToListSegue" id="wHa-9z-hAa"/>
@@ -277,18 +277,18 @@ Then press "Scan QR code".  Your phone will automatically receive a confirma
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="53D-Ov-0Yz">
-                                <rect key="frame" x="128" y="574" width="118" height="33"/>
+                                <rect key="frame" x="135.5" y="574" width="103" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="RESEND EMAIL"/>
+                                <state key="normal" title="Resend email"/>
                                 <connections>
                                     <action selector="emailButtonPressed:" destination="cUX-nQ-faw" eventType="touchUpInside" id="Gl0-xU-ew1"/>
                                     <action selector="emailButtonPressed:" destination="T7q-Gp-CGR" eventType="touchUpInside" id="VZd-pG-AG3"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVj-xe-uV5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CR7-f9-aEL">
                                 <rect key="frame" x="40" y="84" width="295" height="295"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="HVj-xe-uV5" secondAttribute="height" multiplier="1:1" id="VyW-Dj-sRu"/>
+                                    <constraint firstAttribute="width" secondItem="CR7-f9-aEL" secondAttribute="height" multiplier="1:1" id="iWY-PF-Gif"/>
                                 </constraints>
                                 <string key="text">Send the email to yourself.
 
@@ -296,7 +296,7 @@ Then go to your computer and open the Bisq App.
 
 Open Account -&gt; Notifications
 
-Then open the email and paste the Bisq Phone ID into the Bisq.  Your phone will automatically receive a confirmation notification.</string>
+Then open the email and paste the Pairing token into the Bisq.  Your phone will automatically receive a confirmation notification.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -305,22 +305,22 @@ Then open the email and paste the Bisq Phone ID into the Bisq.  Your phone w
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="53D-Ov-0Yz" firstAttribute="centerX" secondItem="tKR-bo-YWd" secondAttribute="centerX" id="4Ax-Ea-lwG"/>
+                            <constraint firstItem="CR7-f9-aEL" firstAttribute="top" secondItem="cCL-Ey-XlJ" secondAttribute="top" constant="20" id="6Ad-uY-l5n"/>
+                            <constraint firstItem="CR7-f9-aEL" firstAttribute="leading" secondItem="cCL-Ey-XlJ" secondAttribute="leading" constant="40" id="A1M-nV-9MV"/>
                             <constraint firstItem="cCL-Ey-XlJ" firstAttribute="bottom" secondItem="53D-Ov-0Yz" secondAttribute="bottom" constant="60" id="BBO-17-uCA"/>
-                            <constraint firstItem="cCL-Ey-XlJ" firstAttribute="trailing" secondItem="HVj-xe-uV5" secondAttribute="trailing" constant="40" id="ZIF-K1-ijU"/>
-                            <constraint firstItem="HVj-xe-uV5" firstAttribute="top" secondItem="cCL-Ey-XlJ" secondAttribute="top" constant="20" id="fUE-hQ-EBi"/>
-                            <constraint firstItem="HVj-xe-uV5" firstAttribute="leading" secondItem="cCL-Ey-XlJ" secondAttribute="leading" constant="40" id="ppx-B0-WTV"/>
+                            <constraint firstItem="cCL-Ey-XlJ" firstAttribute="trailing" secondItem="CR7-f9-aEL" secondAttribute="trailing" constant="40" id="lH1-vD-krJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cCL-Ey-XlJ"/>
                     </view>
                     <connections>
-                        <outlet property="instructionsLabel" destination="HVj-xe-uV5" id="fb4-cM-X21"/>
+                        <outlet property="instructionsLabel" destination="CR7-f9-aEL" id="VdB-GE-G5n"/>
                         <outlet property="resendEmailButton" destination="53D-Ov-0Yz" id="ta8-IH-U45"/>
                         <segue destination="edC-1E-qDP" kind="show" identifier="emailToListSegue" id="ysd-b0-S7x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKs-dg-rRg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-784" y="150"/>
+            <point key="canvasLocation" x="-784.79999999999995" y="149.77511244377811"/>
         </scene>
         <!--Title-->
         <scene sceneID="FcW-U4-rc4">
@@ -425,7 +425,7 @@ Then open the email and paste the Bisq Phone ID into the Bisq.  Your phone w
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUM-Ya-Cot">
                                 <rect key="frame" x="20" y="84" width="335" height="30"/>
-                                <state key="normal" title="FACTORY RESET"/>
+                                <state key="normal" title="Start new setup"/>
                                 <connections>
                                     <action selector="rerunSetupPressed:" destination="wPz-Zx-mjx" eventType="touchUpInside" id="UT5-3S-7pF"/>
                                 </connections>
@@ -616,7 +616,7 @@ Then open the email and paste the Bisq Phone ID into the Bisq.  Your phone w
         <image name="welcome" width="983" height="646"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ysd-b0-S7x"/>
+        <segue reference="wHa-9z-hAa"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.058823529411764705" green="0.52549019607843139" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
 </document>
