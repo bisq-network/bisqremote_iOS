@@ -17,15 +17,11 @@
 		AAF7B46920DAFD8A008237EA /* CryptoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF7B46820DAFD8A008237EA /* CryptoHelper.swift */; };
 		AAFEAE0220F363D700938898 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFEAE0120F363D700938898 /* AppConfiguration.swift */; };
 		BE31BFC820C44A8D008F79C6 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE31BFC720C44A8D008F79C6 /* NotificationTableViewCell.swift */; };
-		BE899FBE20F3E8450027D35B /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEE7F4EE20F3E589003B0CC9 /* CryptoSwift.framework */; };
-		BE899FBF20F3E8450027D35B /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEE7F4EE20F3E589003B0CC9 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE92215020C49B9B00F8EB93 /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92214F20C49B9B00F8EB93 /* NotificationTableViewController.swift */; };
 		BE92215420C49C6F00F8EB93 /* BisqNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92215320C49C6F00F8EB93 /* BisqNotification.swift */; };
 		BE92215620C4AC0700F8EB93 /* NotificationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92215520C4AC0700F8EB93 /* NotificationDetailViewController.swift */; };
-		BEDF8DCB20FC857A00CDAB47 /* Device.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDF8DCA20FC857900CDAB47 /* Device.framework */; };
-		BEDF8DCC20FC859000CDAB47 /* Device.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDF8DCA20FC857900CDAB47 /* Device.framework */; };
-		BEDF8DCD20FC859000CDAB47 /* Device.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEDF8DCA20FC857900CDAB47 /* Device.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BEE7F4EF20F3E589003B0CC9 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEE7F4EE20F3E589003B0CC9 /* CryptoSwift.framework */; };
+		BE9F066220FCA2AF007ACF3F /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEE7F4EE20F3E589003B0CC9 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BE9F066320FCA2BE007ACF3F /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEE7F4EE20F3E589003B0CC9 /* CryptoSwift.framework */; };
 		BEFB45EA20C34BC10052C91A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB45E920C34BC10052C91A /* AppDelegate.swift */; };
 		BEFB45EF20C34BC10052C91A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEFB45ED20C34BC10052C91A /* Main.storyboard */; };
 		BEFB45F120C34BC10052C91A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEFB45F020C34BC10052C91A /* Assets.xcassets */; };
@@ -39,8 +35,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BEDF8DCD20FC859000CDAB47 /* Device.framework in Embed Frameworks */,
-				BE899FBF20F3E8450027D35B /* CryptoSwift.framework in Embed Frameworks */,
+				BE9F066220FCA2AF007ACF3F /* CryptoSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,7 +56,6 @@
 		BE92214F20C49B9B00F8EB93 /* NotificationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewController.swift; sourceTree = "<group>"; };
 		BE92215320C49C6F00F8EB93 /* BisqNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BisqNotification.swift; sourceTree = "<group>"; };
 		BE92215520C4AC0700F8EB93 /* NotificationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDetailViewController.swift; sourceTree = "<group>"; };
-		BEDF8DCA20FC857900CDAB47 /* Device.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Device.framework; path = Carthage/Build/iOS/Device.framework; sourceTree = "<group>"; };
 		BEE7F4EE20F3E589003B0CC9 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		BEFB45E620C34BC10052C91A /* bisqremote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bisqremote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEFB45E920C34BC10052C91A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,10 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEDF8DCC20FC859000CDAB47 /* Device.framework in Frameworks */,
-				BEDF8DCB20FC857A00CDAB47 /* Device.framework in Frameworks */,
-				BEE7F4EF20F3E589003B0CC9 /* CryptoSwift.framework in Frameworks */,
-				BE899FBE20F3E8450027D35B /* CryptoSwift.framework in Frameworks */,
+				BE9F066320FCA2BE007ACF3F /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,7 +100,6 @@
 		AAF7B46420DAF789008237EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BEDF8DCA20FC857900CDAB47 /* Device.framework */,
 				BEE7F4EE20F3E589003B0CC9 /* CryptoSwift.framework */,
 			);
 			name = Frameworks;
@@ -239,18 +229,19 @@
 /* Begin PBXShellScriptBuildPhase section */
 		BEE7F4F020F3E5AC003B0CC9 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
+				"",
+				"",
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/CryptoSwift.framework",
+				"",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -61,7 +61,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Pair"/>
                                 <connections>
-                                    <segue destination="cUX-nQ-faw" kind="show" id="BQU-da-3PA"/>
+                                    <segue destination="cUX-nQ-faw" kind="show" identifier="PairSegue" id="BQU-da-3PA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -95,7 +95,7 @@
         <!--View Controller-->
         <scene sceneID="cJi-lD-tH9">
             <objects>
-                <viewController id="cUX-nQ-faw" customClass="QRViewController" customModule="bisqremote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QRViewController" id="cUX-nQ-faw" customClass="QRViewController" customModule="bisqremote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PRd-Dk-E6X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,11 +117,11 @@
                                 <state key="normal" title="send Email to myself"/>
                                 <connections>
                                     <action selector="emailPressed:" destination="cUX-nQ-faw" eventType="touchUpInside" id="ubl-fF-Ulv"/>
-                                    <segue destination="T7q-Gp-CGR" kind="show" identifier="emailSeque" id="SUn-3H-eyZ"/>
+                                    <segue destination="T7q-Gp-CGR" kind="show" identifier="emailSeque" id="v02-AC-a8V"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No webcam?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3l-nT-8BF">
-                                <rect key="frame" x="105" y="621.5" width="99" height="21"/>
+                                <rect key="frame" x="107" y="621.5" width="99" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -129,10 +129,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="z09-Jp-Svw" firstAttribute="leading" secondItem="h3l-nT-8BF" secondAttribute="trailing" constant="10" id="0Vi-DC-VL8"/>
+                            <constraint firstItem="z09-Jp-Svw" firstAttribute="leading" secondItem="h3l-nT-8BF" secondAttribute="trailing" constant="8" symbolic="YES" id="0Vi-DC-VL8"/>
                             <constraint firstItem="zlC-HL-qnf" firstAttribute="bottom" secondItem="z09-Jp-Svw" secondAttribute="bottom" constant="20" id="6ms-Kz-sXV"/>
                             <constraint firstAttribute="trailing" secondItem="woN-3y-ho2" secondAttribute="trailing" constant="20" id="G0l-cD-1iX"/>
                             <constraint firstItem="ALl-Ci-drK" firstAttribute="leading" secondItem="zlC-HL-qnf" secondAttribute="leading" constant="20" id="M3T-gM-Ewo"/>
+                            <constraint firstItem="h3l-nT-8BF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PRd-Dk-E6X" secondAttribute="leading" id="NcG-Gv-RM1"/>
                             <constraint firstItem="zlC-HL-qnf" firstAttribute="trailing" secondItem="z09-Jp-Svw" secondAttribute="trailing" constant="20" id="Obh-Im-O3O"/>
                             <constraint firstItem="zlC-HL-qnf" firstAttribute="trailing" secondItem="ALl-Ci-drK" secondAttribute="trailing" constant="20" id="kYo-rO-uzy"/>
                             <constraint firstItem="z09-Jp-Svw" firstAttribute="centerY" secondItem="h3l-nT-8BF" secondAttribute="centerY" id="muN-LX-VHu"/>
@@ -145,7 +146,7 @@
                     <navigationItem key="navigationItem" id="pL3-ZO-uYc"/>
                     <connections>
                         <outlet property="qrImage" destination="ALl-Ci-drK" id="r3m-nC-AQu"/>
-                        <segue destination="gG1-uL-Fgi" kind="show" id="WNW-kD-TTe"/>
+                        <segue destination="gG1-uL-Fgi" kind="show" identifier="QRcongratulationSegue" id="WNW-kD-TTe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DXt-TP-YE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -155,7 +156,7 @@
         <!--Email View Controller-->
         <scene sceneID="foB-Tv-DgN">
             <objects>
-                <viewController id="T7q-Gp-CGR" customClass="EmailViewController" customModule="bisqremote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EmailViewController" id="T7q-Gp-CGR" customClass="EmailViewController" customModule="bisqremote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tKR-bo-YWd" userLabel="view">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -199,12 +200,12 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                     <connections>
                         <outlet property="instructionsLabel" destination="CR7-f9-aEL" id="VdB-GE-G5n"/>
                         <outlet property="resendEmailButton" destination="53D-Ov-0Yz" id="ta8-IH-U45"/>
-                        <segue destination="gG1-uL-Fgi" kind="show" id="gJ4-0y-dvU"/>
+                        <segue destination="gG1-uL-Fgi" kind="show" identifier="EmailcongratulationSegue" id="gJ4-0y-dvU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKs-dg-rRg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-366" y="-652"/>
+            <point key="canvasLocation" x="-1396" y="255"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="crn-SH-4f4">
@@ -230,7 +231,7 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                                 <connections>
                                     <action selector="emailButtonPressed:" destination="cUX-nQ-faw" eventType="touchUpInside" id="AR6-OA-nhp"/>
                                     <action selector="emailButtonPressed:" destination="T7q-Gp-CGR" eventType="touchUpInside" id="cXg-bS-Xfr"/>
-                                    <segue destination="edC-1E-qDP" kind="show" id="17e-Rr-V60"/>
+                                    <segue destination="edC-1E-qDP" kind="show" identifier="showNotificationSegue" id="17e-Rr-V60"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -247,7 +248,7 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pcr-uk-1Ni" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="316" y="-653"/>
+            <point key="canvasLocation" x="-244" y="-628"/>
         </scene>
         <!--Title-->
         <scene sceneID="FcW-U4-rc4">
@@ -340,7 +341,7 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwk-0C-F5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-34" y="880"/>
+            <point key="canvasLocation" x="756" y="526"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="jCL-pA-64i">
@@ -431,7 +432,7 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y3e-e6-FwU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="641" y="880"/>
+            <point key="canvasLocation" x="873" y="-194"/>
         </scene>
         <!--Bisq-->
         <scene sceneID="twP-0d-2ee">
@@ -515,7 +516,7 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ckW-8Q-0Ls" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="316" y="109"/>
+            <point key="canvasLocation" x="-244" y="254"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tRG-7c-fXf">
@@ -542,7 +543,7 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
         <image name="ok" width="243" height="189"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WNW-kD-TTe"/>
+        <segue reference="gJ4-0y-dvU"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.058823529411764705" green="0.52549019607843139" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
 </document>
