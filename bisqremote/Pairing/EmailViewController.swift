@@ -53,15 +53,15 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
     }
     
     func sendEmail() {
-        if let phoneDescription = Phone.instance.phoneID() {
+        if let phoneDescription = Phone.instance.pairingToken() {
             if MFMailComposeViewController.canSendMail() {
                 let mail = MFMailComposeViewController()
                 mail.mailComposeDelegate = self
-                mail.setSubject("Bisq Phone ID")
+                mail.setSubject("Bisq Pairing token")
                 mail.title = "Send mail to yourself"
-                var messageBody = "Please copy this Bisq Phone ID string into the field \"Bisq Phone ID\" in the Bisq App:\n\n"
+                var messageBody = "Please copy this Pairing token into the field \"Pairing token\" in the Bisq App:\n\n"
                 messageBody += phoneDescription+"\n\n"
-                messageBody += "The Bisq Phone ID contains (1) your excryption key (AES/CBC/NOPadding with initialization vector) which is used by Bisq to encrypt the notifications for you and (2) a token from Apple that identifies this instance of the Bisq remote app."
+                messageBody += "The Pairing token contains your excryption key (AES/CBC/NOPadding with initialization vector) which is used by Bisq to encrypt the notifications for you and a token from Apple that identifies this instance of the Bisq remote app."
                 mail.setMessageBody(messageBody, isHTML: false)
                 present(mail, animated: true)
             }

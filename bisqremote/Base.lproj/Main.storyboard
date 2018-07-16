@@ -20,25 +20,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome" translatesAutoresizingMaskIntoConstraints="NO" id="QUx-Sa-keS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="246.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="QUx-Sa-keS">
+                                <rect key="frame" x="40" y="40" width="295" height="194"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="QUx-Sa-keS" secondAttribute="height" multiplier="983:646" id="OMU-ag-WOj"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bisq notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyR-lV-0bg">
-                                <rect key="frame" x="20" y="266.5" width="131.5" height="21"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7m-Ej-qH1">
+                                <rect key="frame" x="0.0" y="301" width="375" height="210"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now you can receive notifications about your Bisq trades." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CvA-ME-CKY">
+                                        <rect key="frame" x="20" y="20" width="335" height="170"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="2wf-Ho-agl"/>
+                                    <constraint firstAttribute="bottom" secondItem="CvA-ME-CKY" secondAttribute="bottom" constant="20" id="4ME-io-Ax4"/>
+                                    <constraint firstItem="CvA-ME-CKY" firstAttribute="top" secondItem="g7m-Ej-qH1" secondAttribute="top" constant="20" id="UDd-sa-Um0"/>
+                                    <constraint firstAttribute="trailing" secondItem="CvA-ME-CKY" secondAttribute="trailing" constant="20" id="YRh-W1-1Xf"/>
+                                    <constraint firstItem="CvA-ME-CKY" firstAttribute="leading" secondItem="g7m-Ej-qH1" secondAttribute="leading" constant="20" id="ky5-sw-NoH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vj0-WG-iDU">
-                                <rect key="frame" x="240" y="260.5" width="115" height="33"/>
+                                <rect key="frame" x="268" y="550" width="87" height="33"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="115" id="h9O-uV-hVo"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="87" id="dU9-dv-1xZ"/>
+                                    <constraint firstAttribute="height" constant="33" id="nrE-oK-vOe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Learn more"/>
@@ -47,62 +57,28 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hg-Ed-oEU">
-                                <rect key="frame" x="20" y="510" width="335" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="Qrf-j9-zNu"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="115" id="yRl-HB-3PN"/>
-                                </constraints>
+                                <rect key="frame" x="171" y="550.5" width="32" height="33"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Pair"/>
                                 <connections>
-                                    <segue destination="JyP-qo-d6l" kind="show" identifier="startSegue" id="lwy-qH-biQ"/>
+                                    <segue destination="cUX-nQ-faw" kind="show" id="BQU-da-3PA"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7m-Ej-qH1">
-                                <rect key="frame" x="0.0" y="293.5" width="375" height="216.5"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" editable="NO" text="Now you can receive notifications about your Bisq trades." translatesAutoresizingMaskIntoConstraints="NO" id="yKU-e3-sbN">
-                                        <rect key="frame" x="20" y="78.5" width="335" height="60"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <accessibility key="accessibilityConfiguration">
-                                            <accessibilityTraits key="traits" none="YES"/>
-                                            <bool key="isElement" value="NO"/>
-                                        </accessibility>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="EXr-6a-zDS"/>
-                                        </constraints>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" smartQuotesType="no"/>
-                                    </textView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="yKU-e3-sbN" firstAttribute="leading" secondItem="g7m-Ej-qH1" secondAttribute="leading" constant="20" id="9CI-7C-XST"/>
-                                    <constraint firstAttribute="trailing" secondItem="yKU-e3-sbN" secondAttribute="trailing" constant="20" id="NjX-ka-c69"/>
-                                    <constraint firstItem="yKU-e3-sbN" firstAttribute="centerX" secondItem="g7m-Ej-qH1" secondAttribute="centerX" id="SJa-j0-S6z"/>
-                                    <constraint firstItem="yKU-e3-sbN" firstAttribute="centerY" secondItem="g7m-Ej-qH1" secondAttribute="centerY" id="ZIw-B3-oPl"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="fUB-4o-6UK" firstAttribute="trailing" secondItem="Vj0-WG-iDU" secondAttribute="trailing" constant="20" id="47f-FV-7Rm"/>
-                            <constraint firstItem="fUB-4o-6UK" firstAttribute="trailing" secondItem="6hg-Ed-oEU" secondAttribute="trailing" constant="20" id="6xU-eE-oF5"/>
-                            <constraint firstItem="QUx-Sa-keS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="7WA-rm-wld"/>
-                            <constraint firstItem="6hg-Ed-oEU" firstAttribute="leading" secondItem="fUB-4o-6UK" secondAttribute="leading" constant="20" id="9vg-aY-bxB"/>
-                            <constraint firstItem="6hg-Ed-oEU" firstAttribute="top" secondItem="g7m-Ej-qH1" secondAttribute="bottom" id="BAo-xA-Mr8"/>
-                            <constraint firstItem="g7m-Ej-qH1" firstAttribute="leading" secondItem="fUB-4o-6UK" secondAttribute="leading" id="Fac-SZ-67q"/>
-                            <constraint firstItem="g7m-Ej-qH1" firstAttribute="top" secondItem="Vj0-WG-iDU" secondAttribute="bottom" id="Gdc-8K-byU"/>
-                            <constraint firstItem="QUx-Sa-keS" firstAttribute="leading" secondItem="fUB-4o-6UK" secondAttribute="leading" id="JPg-8r-f0R"/>
-                            <constraint firstItem="lyR-lV-0bg" firstAttribute="top" secondItem="QUx-Sa-keS" secondAttribute="bottom" constant="20" id="c9S-QL-MPm"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lyR-lV-0bg" secondAttribute="trailing" constant="20" symbolic="YES" id="dNF-02-xXg"/>
-                            <constraint firstItem="Vj0-WG-iDU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="gxw-Di-Rrt"/>
-                            <constraint firstItem="fUB-4o-6UK" firstAttribute="trailing" secondItem="g7m-Ej-qH1" secondAttribute="trailing" id="m15-pR-Nf8"/>
-                            <constraint firstItem="lyR-lV-0bg" firstAttribute="leading" secondItem="fUB-4o-6UK" secondAttribute="leading" constant="20" id="pPm-co-Sts"/>
-                            <constraint firstItem="Vj0-WG-iDU" firstAttribute="centerY" secondItem="lyR-lV-0bg" secondAttribute="centerY" id="uJb-dP-lVz"/>
-                            <constraint firstItem="fUB-4o-6UK" firstAttribute="bottom" secondItem="6hg-Ed-oEU" secondAttribute="bottom" constant="60" id="vSb-qw-keg"/>
-                            <constraint firstItem="fUB-4o-6UK" firstAttribute="trailing" secondItem="QUx-Sa-keS" secondAttribute="trailing" id="zFS-Hz-3NY"/>
+                            <constraint firstItem="fUB-4o-6UK" firstAttribute="bottom" secondItem="Vj0-WG-iDU" secondAttribute="bottom" constant="20" id="7Cn-Eu-aa2"/>
+                            <constraint firstItem="QUx-Sa-keS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="40" id="7WA-rm-wld"/>
+                            <constraint firstItem="6hg-Ed-oEU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BdA-eO-hSX"/>
+                            <constraint firstItem="fUB-4o-6UK" firstAttribute="trailing" secondItem="Vj0-WG-iDU" secondAttribute="trailing" constant="20" id="Fgh-Lk-pQy"/>
+                            <constraint firstItem="QUx-Sa-keS" firstAttribute="leading" secondItem="fUB-4o-6UK" secondAttribute="leading" constant="40" id="JPg-8r-f0R"/>
+                            <constraint firstItem="g7m-Ej-qH1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LQL-RA-ALh"/>
+                            <constraint firstItem="Vj0-WG-iDU" firstAttribute="top" secondItem="g7m-Ej-qH1" secondAttribute="bottom" constant="39" id="PCN-e5-N0E"/>
+                            <constraint firstItem="Vj0-WG-iDU" firstAttribute="centerY" secondItem="6hg-Ed-oEU" secondAttribute="centerY" id="SfL-LL-sQT"/>
+                            <constraint firstItem="g7m-Ej-qH1" firstAttribute="centerX" secondItem="6hg-Ed-oEU" secondAttribute="centerX" id="Xs0-aC-dwC"/>
+                            <constraint firstItem="g7m-Ej-qH1" firstAttribute="top" secondItem="QUx-Sa-keS" secondAttribute="bottom" constant="67" id="lxV-7O-Y1N"/>
+                            <constraint firstItem="fUB-4o-6UK" firstAttribute="trailing" secondItem="QUx-Sa-keS" secondAttribute="trailing" constant="40" id="zFS-Hz-3NY"/>
+                            <constraint firstItem="Vj0-WG-iDU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="zh7-pI-gth"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fUB-4o-6UK"/>
                     </view>
@@ -114,90 +90,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1868" y="-650"/>
-        </scene>
-        <!--Register View Controller-->
-        <scene sceneID="rFS-F5-z4K">
-            <objects>
-                <viewController id="JyP-qo-d6l" customClass="RegisterViewController" customModule="bisqremote" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="eet-BC-8HS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="webcam" translatesAutoresizingMaskIntoConstraints="NO" id="vDN-Fd-vzs">
-                                <rect key="frame" x="0.0" y="64" width="375" height="246"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="vDN-Fd-vzs" secondAttribute="height" multiplier="983:646" id="JbR-R9-thU"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqZ-RK-Byd">
-                                <rect key="frame" x="152.5" y="574" width="71" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="rWj-2j-XsZ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Webcam"/>
-                                <connections>
-                                    <segue destination="cUX-nQ-faw" kind="show" identifier="QRSegue" id="MW1-Ih-JvF"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGg-CL-E5b">
-                                <rect key="frame" x="306" y="574" width="49" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="49" id="9Cb-Fs-aSO"/>
-                                    <constraint firstAttribute="height" constant="33" id="clk-0Z-Fhf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Email"/>
-                                <connections>
-                                    <segue destination="T7q-Gp-CGR" kind="show" identifier="emailSeque" id="kog-z4-3Vm"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Kq-Af-8k3" userLabel="instructionView">
-                                <rect key="frame" x="0.0" y="310" width="375" height="264"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Do you want to use your computer's webcam or do you want to send an email to yourself?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eaD-FT-aPJ">
-                                        <rect key="frame" x="20" y="94" width="335" height="77"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="77" id="Gyb-me-oDq"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="eaD-FT-aPJ" secondAttribute="trailing" constant="20" id="1mr-gp-r1w"/>
-                                    <constraint firstItem="eaD-FT-aPJ" firstAttribute="centerY" secondItem="7Kq-Af-8k3" secondAttribute="centerY" id="ow8-GM-etD"/>
-                                    <constraint firstItem="eaD-FT-aPJ" firstAttribute="leading" secondItem="7Kq-Af-8k3" secondAttribute="leading" constant="20" id="tmD-9W-vQT"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="CGg-CL-E5b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eet-BC-8HS" secondAttribute="leading" constant="20" symbolic="YES" id="4pe-3y-aFI"/>
-                            <constraint firstItem="oxs-eh-zHi" firstAttribute="trailing" secondItem="CGg-CL-E5b" secondAttribute="trailing" constant="20" id="7gd-e7-ZuH"/>
-                            <constraint firstItem="oxs-eh-zHi" firstAttribute="trailing" secondItem="vDN-Fd-vzs" secondAttribute="trailing" id="8Nh-rT-6cv"/>
-                            <constraint firstItem="CGg-CL-E5b" firstAttribute="centerY" secondItem="eqZ-RK-Byd" secondAttribute="centerY" id="8mJ-mg-81g"/>
-                            <constraint firstItem="vDN-Fd-vzs" firstAttribute="leading" secondItem="oxs-eh-zHi" secondAttribute="leading" id="Bx2-Jc-xDi"/>
-                            <constraint firstItem="vDN-Fd-vzs" firstAttribute="top" secondItem="oxs-eh-zHi" secondAttribute="top" id="UKk-3j-DQn"/>
-                            <constraint firstItem="7Kq-Af-8k3" firstAttribute="leading" secondItem="oxs-eh-zHi" secondAttribute="leading" id="YnB-9J-7Yi"/>
-                            <constraint firstItem="oxs-eh-zHi" firstAttribute="bottom" secondItem="eqZ-RK-Byd" secondAttribute="bottom" constant="60" id="ahA-K9-QXr"/>
-                            <constraint firstItem="oxs-eh-zHi" firstAttribute="trailing" secondItem="7Kq-Af-8k3" secondAttribute="trailing" id="cxC-cK-i8r"/>
-                            <constraint firstItem="7Kq-Af-8k3" firstAttribute="top" secondItem="vDN-Fd-vzs" secondAttribute="bottom" id="m9a-w9-kuH"/>
-                            <constraint firstItem="eqZ-RK-Byd" firstAttribute="centerX" secondItem="eet-BC-8HS" secondAttribute="centerX" id="pGr-v8-5FU"/>
-                            <constraint firstItem="eqZ-RK-Byd" firstAttribute="top" secondItem="7Kq-Af-8k3" secondAttribute="bottom" id="rse-NY-bdr"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="oxs-eh-zHi"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="QYI-Ca-MHl"/>
-                    <connections>
-                        <outlet property="imageView" destination="vDN-Fd-vzs" id="rxI-To-4AU"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ark-3S-GJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1106.4000000000001" y="-649.92503748125944"/>
+            <point key="canvasLocation" x="-1868" y="-650.82458770614699"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="cJi-lD-tH9">
@@ -213,26 +106,22 @@
                                     <constraint firstAttribute="width" secondItem="ALl-Ci-drK" secondAttribute="height" multiplier="1:1" id="wDo-Bo-U8s"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woN-3y-ho2">
-                                <rect key="frame" x="163" y="526" width="49.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Bisq open Account -&gt; Notifications, then press &quot;Scan QR code&quot;" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woN-3y-ho2">
+                                <rect key="frame" x="20" y="439" width="335" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z09-Jp-Svw">
-                                <rect key="frame" x="20" y="577" width="335" height="30"/>
-                                <state key="normal" title="Instructions"/>
+                                <rect key="frame" x="214" y="617" width="141" height="30"/>
+                                <state key="normal" title="send Email to myself"/>
                                 <connections>
-                                    <action selector="instructionsPressed:" destination="cUX-nQ-faw" eventType="touchUpInside" id="8tL-DK-a2Y"/>
+                                    <action selector="emailPressed:" destination="cUX-nQ-faw" eventType="touchUpInside" id="ubl-fF-Ulv"/>
+                                    <segue destination="T7q-Gp-CGR" kind="show" identifier="emailSeque" id="SUn-3H-eyZ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0AR-LZ-0i0">
-                                <rect key="frame" x="40" y="84" width="335" height="335"/>
-                                <string key="text">Go to your computer and open the Bisq App. 
-
-Open Account -&gt; Notifications
-
-Then press "Scan QR code".  Your phone will automatically receive a confirmation notification.</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No webcam?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3l-nT-8BF">
+                                <rect key="frame" x="105" y="621.5" width="99" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -240,33 +129,28 @@ Then press "Scan QR code".  Your phone will automatically receive a confirma
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="zlC-HL-qnf" firstAttribute="bottom" secondItem="z09-Jp-Svw" secondAttribute="bottom" constant="60" id="0JK-NY-PCq"/>
-                            <constraint firstItem="z09-Jp-Svw" firstAttribute="leading" secondItem="zlC-HL-qnf" secondAttribute="leading" constant="20" id="FRp-dn-mg3"/>
-                            <constraint firstItem="0AR-LZ-0i0" firstAttribute="trailing" secondItem="ALl-Ci-drK" secondAttribute="trailing" constant="20" id="JKm-ux-7b8"/>
+                            <constraint firstItem="z09-Jp-Svw" firstAttribute="leading" secondItem="h3l-nT-8BF" secondAttribute="trailing" constant="10" id="0Vi-DC-VL8"/>
+                            <constraint firstItem="zlC-HL-qnf" firstAttribute="bottom" secondItem="z09-Jp-Svw" secondAttribute="bottom" constant="20" id="6ms-Kz-sXV"/>
+                            <constraint firstAttribute="trailing" secondItem="woN-3y-ho2" secondAttribute="trailing" constant="20" id="G0l-cD-1iX"/>
                             <constraint firstItem="ALl-Ci-drK" firstAttribute="leading" secondItem="zlC-HL-qnf" secondAttribute="leading" constant="20" id="M3T-gM-Ewo"/>
-                            <constraint firstItem="zlC-HL-qnf" firstAttribute="trailing" secondItem="z09-Jp-Svw" secondAttribute="trailing" constant="20" id="SR7-Wp-rDv"/>
-                            <constraint firstItem="0AR-LZ-0i0" firstAttribute="bottom" secondItem="ALl-Ci-drK" secondAttribute="bottom" id="Udu-cn-7ya"/>
-                            <constraint firstItem="woN-3y-ho2" firstAttribute="centerX" secondItem="PRd-Dk-E6X" secondAttribute="centerX" id="Z7O-Fb-KxB"/>
-                            <constraint firstItem="0AR-LZ-0i0" firstAttribute="top" secondItem="ALl-Ci-drK" secondAttribute="top" id="chI-fx-pRz"/>
-                            <constraint firstItem="z09-Jp-Svw" firstAttribute="top" secondItem="woN-3y-ho2" secondAttribute="bottom" constant="30" id="fUy-rh-8w5"/>
+                            <constraint firstItem="zlC-HL-qnf" firstAttribute="trailing" secondItem="z09-Jp-Svw" secondAttribute="trailing" constant="20" id="Obh-Im-O3O"/>
                             <constraint firstItem="zlC-HL-qnf" firstAttribute="trailing" secondItem="ALl-Ci-drK" secondAttribute="trailing" constant="20" id="kYo-rO-uzy"/>
-                            <constraint firstItem="0AR-LZ-0i0" firstAttribute="leading" secondItem="ALl-Ci-drK" secondAttribute="leading" constant="20" id="mwI-hZ-fAN"/>
+                            <constraint firstItem="z09-Jp-Svw" firstAttribute="centerY" secondItem="h3l-nT-8BF" secondAttribute="centerY" id="muN-LX-VHu"/>
+                            <constraint firstItem="woN-3y-ho2" firstAttribute="leading" secondItem="PRd-Dk-E6X" secondAttribute="leading" constant="20" id="reC-Yt-W5Q"/>
                             <constraint firstItem="ALl-Ci-drK" firstAttribute="top" secondItem="PRd-Dk-E6X" secondAttribute="topMargin" constant="20" id="waq-bD-qRU"/>
+                            <constraint firstItem="woN-3y-ho2" firstAttribute="top" secondItem="ALl-Ci-drK" secondAttribute="bottom" constant="20" id="xZm-1P-KZm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zlC-HL-qnf"/>
                     </view>
                     <navigationItem key="navigationItem" id="pL3-ZO-uYc"/>
                     <connections>
-                        <outlet property="instructionsButton" destination="z09-Jp-Svw" id="yLe-HL-oDB"/>
-                        <outlet property="instructionsLabel" destination="0AR-LZ-0i0" id="6cq-mE-naG"/>
                         <outlet property="qrImage" destination="ALl-Ci-drK" id="r3m-nC-AQu"/>
-                        <outlet property="statusLabel" destination="woN-3y-ho2" id="1g5-LP-0jm"/>
-                        <segue destination="edC-1E-qDP" kind="show" identifier="QRToListSegue" id="wHa-9z-hAa"/>
+                        <segue destination="gG1-uL-Fgi" kind="show" id="WNW-kD-TTe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DXt-TP-YE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1434.4000000000001" y="149.77511244377811"/>
+            <point key="canvasLocation" x="-1090" y="-651"/>
         </scene>
         <!--Email View Controller-->
         <scene sceneID="foB-Tv-DgN">
@@ -315,12 +199,55 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                     <connections>
                         <outlet property="instructionsLabel" destination="CR7-f9-aEL" id="VdB-GE-G5n"/>
                         <outlet property="resendEmailButton" destination="53D-Ov-0Yz" id="ta8-IH-U45"/>
-                        <segue destination="edC-1E-qDP" kind="show" identifier="emailToListSegue" id="ysd-b0-S7x"/>
+                        <segue destination="gG1-uL-Fgi" kind="show" id="gJ4-0y-dvU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKs-dg-rRg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-784.79999999999995" y="149.77511244377811"/>
+            <point key="canvasLocation" x="-366" y="-652"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="crn-SH-4f4">
+            <objects>
+                <viewController storyboardIdentifier="congratulationsScreen" id="gG1-uL-Fgi" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zGb-K0-RwZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations, you are all set." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="S0I-sW-1ui">
+                                <rect key="frame" x="67" y="213" width="241" height="241"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="S0I-sW-1ui" secondAttribute="height" multiplier="1:1" id="9fE-8E-E7H"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDw-e2-Taq">
+                                <rect key="frame" x="117" y="574" width="141" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Show notifications"/>
+                                <connections>
+                                    <action selector="emailButtonPressed:" destination="cUX-nQ-faw" eventType="touchUpInside" id="AR6-OA-nhp"/>
+                                    <action selector="emailButtonPressed:" destination="T7q-Gp-CGR" eventType="touchUpInside" id="cXg-bS-Xfr"/>
+                                    <segue destination="edC-1E-qDP" kind="show" id="17e-Rr-V60"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="igQ-xo-rGY" firstAttribute="bottom" secondItem="xDw-e2-Taq" secondAttribute="bottom" constant="60" id="H3l-2S-C0w"/>
+                            <constraint firstItem="S0I-sW-1ui" firstAttribute="centerY" secondItem="zGb-K0-RwZ" secondAttribute="centerY" id="MPx-3u-6In"/>
+                            <constraint firstItem="S0I-sW-1ui" firstAttribute="width" secondItem="S0I-sW-1ui" secondAttribute="height" multiplier="1:1" id="Tf2-Zf-GOJ"/>
+                            <constraint firstItem="S0I-sW-1ui" firstAttribute="centerX" secondItem="zGb-K0-RwZ" secondAttribute="centerX" id="jbk-x3-5RE"/>
+                            <constraint firstItem="xDw-e2-Taq" firstAttribute="centerX" secondItem="zGb-K0-RwZ" secondAttribute="centerX" id="wfv-gb-Vvy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="igQ-xo-rGY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pcr-uk-1Ni" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="316" y="-653"/>
         </scene>
         <!--Title-->
         <scene sceneID="FcW-U4-rc4">
@@ -413,7 +340,7 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwk-0C-F5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1435" y="1850"/>
+            <point key="canvasLocation" x="-34" y="880"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="jCL-pA-64i">
@@ -504,7 +431,7 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y3e-e6-FwU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-785" y="1850"/>
+            <point key="canvasLocation" x="641" y="880"/>
         </scene>
         <!--Bisq-->
         <scene sceneID="twP-0d-2ee">
@@ -588,7 +515,7 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ckW-8Q-0Ls" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1107" y="992"/>
+            <point key="canvasLocation" x="316" y="109"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tRG-7c-fXf">
@@ -610,13 +537,12 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
         </scene>
     </scenes>
     <resources>
+        <image name="iTunesArtwork" width="512" height="512"/>
         <image name="missingQR" width="382" height="286"/>
         <image name="ok" width="243" height="189"/>
-        <image name="webcam" width="540" height="355"/>
-        <image name="welcome" width="983" height="646"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wHa-9z-hAa"/>
+        <segue reference="WNW-kD-TTe"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.058823529411764705" green="0.52549019607843139" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
 </document>

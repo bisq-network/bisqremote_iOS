@@ -90,7 +90,7 @@ class RawNotification: Codable {
             Phone.instance.confirmed = true
             
             // only confirmed phones are stored
-            UserDefaults.standard.set(Phone.instance.phoneID(), forKey: userDefaultKeyPhoneID)
+            UserDefaults.standard.set(Phone.instance.pairingToken(), forKey: userDefaultKeyPairingToken)
             UserDefaults.standard.synchronize()
             
             if let qr = visibleController as? QRViewController {

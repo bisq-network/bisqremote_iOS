@@ -17,37 +17,40 @@
 
 import Foundation
 import UIKit
-
+import Device
 
 class Phone {
     
     static var instance = Phone()
-
+    var descriptor: String?
     var key: String?
     var token: String?
     var confirmed = false // confirmation-notification received?
     
-    func phoneID() -> String? {
+    func pairingToken() -> String? {
         guard key != nil else { return ""}
         guard token != nil else { return ""}
-        return Phone.magic()+BISQ_MESSAGE_SEPARATOR+key!+BISQ_MESSAGE_SEPARATOR+token!
+        guard descriptor != nil else { return "" }
+        return Phone.magic()+BISQ_MESSAGE_SEPARATOR+descriptor!+BISQ_MESSAGE_SEPARATOR+key!+BISQ_MESSAGE_SEPARATOR+token!
     }
     
     private init() {
+        descriptor = UIDevice.current.deviceType.rawValue
         key = nil
         token = nil
         confirmed = false
 
         // try reading from UserDefaults
-        if let s = UserDefaults.standard.string(forKey: userDefaultKeyPhoneID) {
+        if let s = UserDefaults.standard.string(forKey: userDefaultKeyPairingToken) {
             let a = s.split(separator: Character(BISQ_MESSAGE_SEPARATOR))
             guard a.count == 3 else { return }
             guard a[0] == Phone.magic() else { return }
-            guard a[1].count == 32 else { return }
-            guard a[2].count == 64 else { return }
-            key = String(a[1])
-            token = String(a[2])
-            confirmed = true // only confirmed phone IDs are saved into UserDefaults
+            guard a[2].count == 32 else { return }
+            guard a[3].count == 64 else { return }
+            descriptor = String(a[1])
+            key = String(a[2])
+            token = String(a[3])
+            confirmed = true // only confirmed pairing token is saved into UserDefaults
         }
     }
     
@@ -59,7 +62,7 @@ class Phone {
     
     
     func reset() {
-        UserDefaults.standard.removeObject(forKey: userDefaultKeyPhoneID)
+        UserDefaults.standard.removeObject(forKey: userDefaultKeyPairingToken)
         UserDefaults.standard.removeObject(forKey: userDefaultKeyNotifications)
         NotificationArray.shared.deleteAll()
         key = ""
@@ -70,11 +73,11 @@ class Phone {
     static func magic() -> String {
         switch (Config.appConfiguration) {
         case .Debug:
-            return PHONE_MAGIC_IOS_DEV
+            return PAIRING_MAGIC_IOS_DEV
         case .TestFlight:
-            return PHONE_MAGIC_IOS
+            return PAIRING_MAGIC_IOS
         case .AppStore:
-            return PHONE_MAGIC_IOS
+            return PAIRING_MAGIC_IOS
         }
     }
     

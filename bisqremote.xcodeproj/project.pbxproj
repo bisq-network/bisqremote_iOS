@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA4367B020DEED700099C365 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4367AF20DEED700099C365 /* RegisterViewController.swift */; };
 		AA811D8920D284B100F7CFBA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA811D8820D284B100F7CFBA /* SettingsViewController.swift */; };
 		AA811D8B20D2ABBC00F7CFBA /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA811D8A20D2ABBC00F7CFBA /* constants.swift */; };
 		AA97BFD320D255960092050E /* WelcomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA97BFD220D255960092050E /* WelcomViewController.swift */; };
@@ -23,6 +22,9 @@
 		BE92215020C49B9B00F8EB93 /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92214F20C49B9B00F8EB93 /* NotificationTableViewController.swift */; };
 		BE92215420C49C6F00F8EB93 /* BisqNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92215320C49C6F00F8EB93 /* BisqNotification.swift */; };
 		BE92215620C4AC0700F8EB93 /* NotificationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92215520C4AC0700F8EB93 /* NotificationDetailViewController.swift */; };
+		BEDF8DCB20FC857A00CDAB47 /* Device.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDF8DCA20FC857900CDAB47 /* Device.framework */; };
+		BEDF8DCC20FC859000CDAB47 /* Device.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDF8DCA20FC857900CDAB47 /* Device.framework */; };
+		BEDF8DCD20FC859000CDAB47 /* Device.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEDF8DCA20FC857900CDAB47 /* Device.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BEE7F4EF20F3E589003B0CC9 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEE7F4EE20F3E589003B0CC9 /* CryptoSwift.framework */; };
 		BEFB45EA20C34BC10052C91A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB45E920C34BC10052C91A /* AppDelegate.swift */; };
 		BEFB45EF20C34BC10052C91A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEFB45ED20C34BC10052C91A /* Main.storyboard */; };
@@ -37,6 +39,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				BEDF8DCD20FC859000CDAB47 /* Device.framework in Embed Frameworks */,
 				BE899FBF20F3E8450027D35B /* CryptoSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -45,7 +48,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AA4367AF20DEED700099C365 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		AA811D8820D284B100F7CFBA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AA811D8A20D2ABBC00F7CFBA /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		AA97BFD220D255960092050E /* WelcomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 		BE92214F20C49B9B00F8EB93 /* NotificationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewController.swift; sourceTree = "<group>"; };
 		BE92215320C49C6F00F8EB93 /* BisqNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BisqNotification.swift; sourceTree = "<group>"; };
 		BE92215520C4AC0700F8EB93 /* NotificationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDetailViewController.swift; sourceTree = "<group>"; };
+		BEDF8DCA20FC857900CDAB47 /* Device.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Device.framework; path = Carthage/Build/iOS/Device.framework; sourceTree = "<group>"; };
 		BEE7F4EE20F3E589003B0CC9 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		BEFB45E620C34BC10052C91A /* bisqremote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bisqremote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEFB45E920C34BC10052C91A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEDF8DCC20FC859000CDAB47 /* Device.framework in Frameworks */,
+				BEDF8DCB20FC857A00CDAB47 /* Device.framework in Frameworks */,
 				BEE7F4EF20F3E589003B0CC9 /* CryptoSwift.framework in Frameworks */,
 				BE899FBE20F3E8450027D35B /* CryptoSwift.framework in Frameworks */,
 			);
@@ -82,16 +87,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AA97BFD120D255670092050E /* Setup */ = {
+		AA97BFD120D255670092050E /* Pairing */ = {
 			isa = PBXGroup;
 			children = (
 				AA97BFD220D255960092050E /* WelcomViewController.swift */,
 				AA97BFDA20D2694C0092050E /* QRViewController.swift */,
-				AA4367AF20DEED700099C365 /* RegisterViewController.swift */,
 				AAA7FBD720F0B9B4007F9E3C /* EmailViewController.swift */,
 				AAFEAE0120F363D700938898 /* AppConfiguration.swift */,
 			);
-			path = Setup;
+			path = Pairing;
 			sourceTree = "<group>";
 		};
 		AAECD59E20D3098300F80E3A /* Crypto */ = {
@@ -105,6 +109,7 @@
 		AAF7B46420DAF789008237EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BEDF8DCA20FC857900CDAB47 /* Device.framework */,
 				BEE7F4EE20F3E589003B0CC9 /* CryptoSwift.framework */,
 			);
 			name = Frameworks;
@@ -131,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				AAECD59E20D3098300F80E3A /* Crypto */,
-				AA97BFD120D255670092050E /* Setup */,
+				AA97BFD120D255670092050E /* Pairing */,
 				BEFB45ED20C34BC10052C91A /* Main.storyboard */,
 				BEFB45E920C34BC10052C91A /* AppDelegate.swift */,
 				BE92214F20C49B9B00F8EB93 /* NotificationTableViewController.swift */,
@@ -264,7 +269,6 @@
 				BE92215620C4AC0700F8EB93 /* NotificationDetailViewController.swift in Sources */,
 				BE92215020C49B9B00F8EB93 /* NotificationTableViewController.swift in Sources */,
 				AAF7B46920DAFD8A008237EA /* CryptoHelper.swift in Sources */,
-				AA4367B020DEED700099C365 /* RegisterViewController.swift in Sources */,
 				BEFB45EA20C34BC10052C91A /* AppDelegate.swift in Sources */,
 				AAFEAE0220F363D700938898 /* AppConfiguration.swift in Sources */,
 				AA97BFD320D255960092050E /* WelcomViewController.swift in Sources */,

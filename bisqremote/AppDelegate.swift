@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         navigationController = application.windows[0].rootViewController as? UINavigationController
 
-        window?.tintColor = UIColor(red: 37.0/255.0, green: 177.0/255.0, blue: 53.0/255.0, alpha: 1.0)
+        window?.tintColor =  TINTCOLOR_BLUE
 
         // Check if launched from a notification
         if let message = launchOptions?[.remoteNotification] as? [String: AnyObject] {
@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
         
         // No Setup needed? --> List of Notifications
-        if UserDefaults.standard.string(forKey: userDefaultKeyPhoneID) != nil {
+        if UserDefaults.standard.string(forKey: userDefaultKeyPairingToken) != nil {
             let vc = storyboard.instantiateViewController(withIdentifier: "listScreen") as! NotificationTableViewController
             navigationController?.setViewControllers([vc], animated: false)
         }

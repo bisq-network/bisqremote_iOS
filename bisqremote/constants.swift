@@ -17,14 +17,18 @@
  */
 
 import Foundation
+import UIKit
 
-let userDefaultKeyPhoneID       = "BisqPhoneID"
+let userDefaultKeyPairingToken  = "PairingToken"
 let userDefaultKeyNotifications = "Notifications"
 
-let PHONE_MAGIC_IOS_DEV:        String = "BisqPhoneiOSDev"
-let PHONE_MAGIC_IOS:            String = "BisqPhoneiOS"
+let PAIRING_MAGIC_IOS_DEV:      String = "iOSDev"
+let PAIRING_MAGIC_IOS:          String = "iOS"
 let BISQ_CONFIRMATION_MESSAGE:  String = "confirmationNotification"
 let BISQ_FACTORY_RESET_MESSAGE: String = "factoryResetNotification"
 let BISQ_MESSAGE_IOS_MAGIC:     String = "BisqMessageiOS"
 
 let BISQ_MESSAGE_SEPARATOR = "|" // must be a single character
+
+let TINTCOLOR_GREEN = UIColor(red: 37.0/255.0, green: 177.0/255.0, blue: 53.0/255.0, alpha: 1.0)
+let TINTCOLOR_BLUE = UIColor(red: 15.0/255.0, green: 134.0/255.0, blue: 195.0/255.0, alpha: 1.0)
