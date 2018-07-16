@@ -202,14 +202,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension String {
     func bisqLog() {
-        let old = UserDefaults.standard.string(forKey: "logging")
-        let new: String
-        if let o = old {
-            new = o + "\n"+self
-        } else {
-            new = self
-        }
-        UserDefaults.standard.set(new, forKey: "logging")
+//        let old = UserDefaults.standard.string(forKey: "logging")
+//        let new: String
+//        if let o = old {
+//            new = o + "\n"+self
+//        } else {
+//            new = self
+//        }
+//        UserDefaults.standard.set(new, forKey: "logging")
     }
 }
 
