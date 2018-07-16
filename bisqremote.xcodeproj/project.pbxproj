@@ -9,19 +9,20 @@
 /* Begin PBXBuildFile section */
 		AA811D8920D284B100F7CFBA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA811D8820D284B100F7CFBA /* SettingsViewController.swift */; };
 		AA811D8B20D2ABBC00F7CFBA /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA811D8A20D2ABBC00F7CFBA /* constants.swift */; };
-		AA97BFD320D255960092050E /* WelcomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA97BFD220D255960092050E /* WelcomViewController.swift */; };
-		AA97BFDB20D2694C0092050E /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA97BFDA20D2694C0092050E /* QRViewController.swift */; };
-		AAA7FBD820F0B9B4007F9E3C /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA7FBD720F0B9B4007F9E3C /* EmailViewController.swift */; };
 		AABC359B20DCD3C5008DDD26 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC359A20DCD3C5008DDD26 /* Phone.swift */; };
 		AAD6FA1620F8BA7300B35D86 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AAD6FA1520F8BA7200B35D86 /* Settings.bundle */; };
 		AAF7B46920DAFD8A008237EA /* CryptoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF7B46820DAFD8A008237EA /* CryptoHelper.swift */; };
-		AAFEAE0220F363D700938898 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFEAE0120F363D700938898 /* AppConfiguration.swift */; };
+		BE303D8020FCA96000226F7C /* WelcomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303D7C20FCA95F00226F7C /* WelcomViewController.swift */; };
+		BE303D8120FCA96000226F7C /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303D7D20FCA95F00226F7C /* AppConfiguration.swift */; };
+		BE303D8220FCA96000226F7C /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303D7E20FCA95F00226F7C /* QRViewController.swift */; };
+		BE303D8320FCA96000226F7C /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303D7F20FCA95F00226F7C /* EmailViewController.swift */; };
 		BE31BFC820C44A8D008F79C6 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE31BFC720C44A8D008F79C6 /* NotificationTableViewCell.swift */; };
+		BE899FBE20F3E8450027D35B /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEE7F4EE20F3E589003B0CC9 /* CryptoSwift.framework */; };
+		BE899FBF20F3E8450027D35B /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEE7F4EE20F3E589003B0CC9 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE92215020C49B9B00F8EB93 /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92214F20C49B9B00F8EB93 /* NotificationTableViewController.swift */; };
 		BE92215420C49C6F00F8EB93 /* BisqNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92215320C49C6F00F8EB93 /* BisqNotification.swift */; };
 		BE92215620C4AC0700F8EB93 /* NotificationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92215520C4AC0700F8EB93 /* NotificationDetailViewController.swift */; };
-		BE9F066220FCA2AF007ACF3F /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEE7F4EE20F3E589003B0CC9 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BE9F066320FCA2BE007ACF3F /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEE7F4EE20F3E589003B0CC9 /* CryptoSwift.framework */; };
+		BEE7F4EF20F3E589003B0CC9 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEE7F4EE20F3E589003B0CC9 /* CryptoSwift.framework */; };
 		BEFB45EA20C34BC10052C91A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFB45E920C34BC10052C91A /* AppDelegate.swift */; };
 		BEFB45EF20C34BC10052C91A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEFB45ED20C34BC10052C91A /* Main.storyboard */; };
 		BEFB45F120C34BC10052C91A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEFB45F020C34BC10052C91A /* Assets.xcassets */; };
@@ -35,7 +36,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BE9F066220FCA2AF007ACF3F /* CryptoSwift.framework in Embed Frameworks */,
+				BE899FBF20F3E8450027D35B /* CryptoSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,13 +46,13 @@
 /* Begin PBXFileReference section */
 		AA811D8820D284B100F7CFBA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AA811D8A20D2ABBC00F7CFBA /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
-		AA97BFD220D255960092050E /* WelcomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomViewController.swift; sourceTree = "<group>"; };
-		AA97BFDA20D2694C0092050E /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
-		AAA7FBD720F0B9B4007F9E3C /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		AABC359A20DCD3C5008DDD26 /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
 		AAD6FA1520F8BA7200B35D86 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = bisqremote/Settings.bundle; sourceTree = SOURCE_ROOT; };
 		AAF7B46820DAFD8A008237EA /* CryptoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoHelper.swift; sourceTree = "<group>"; };
-		AAFEAE0120F363D700938898 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		BE303D7C20FCA95F00226F7C /* WelcomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomViewController.swift; sourceTree = "<group>"; };
+		BE303D7D20FCA95F00226F7C /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		BE303D7E20FCA95F00226F7C /* QRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
+		BE303D7F20FCA95F00226F7C /* EmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		BE31BFC720C44A8D008F79C6 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		BE92214F20C49B9B00F8EB93 /* NotificationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewController.swift; sourceTree = "<group>"; };
 		BE92215320C49C6F00F8EB93 /* BisqNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BisqNotification.swift; sourceTree = "<group>"; };
@@ -71,24 +72,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE9F066320FCA2BE007ACF3F /* CryptoSwift.framework in Frameworks */,
+				BEE7F4EF20F3E589003B0CC9 /* CryptoSwift.framework in Frameworks */,
+				BE899FBE20F3E8450027D35B /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AA97BFD120D255670092050E /* Pairing */ = {
-			isa = PBXGroup;
-			children = (
-				AA97BFD220D255960092050E /* WelcomViewController.swift */,
-				AA97BFDA20D2694C0092050E /* QRViewController.swift */,
-				AAA7FBD720F0B9B4007F9E3C /* EmailViewController.swift */,
-				AAFEAE0120F363D700938898 /* AppConfiguration.swift */,
-			);
-			path = Pairing;
-			sourceTree = "<group>";
-		};
 		AAECD59E20D3098300F80E3A /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,8 +116,11 @@
 		BEFB45E820C34BC10052C91A /* bisqremote */ = {
 			isa = PBXGroup;
 			children = (
+				BE303D7D20FCA95F00226F7C /* AppConfiguration.swift */,
+				BE303D7F20FCA95F00226F7C /* EmailViewController.swift */,
+				BE303D7E20FCA95F00226F7C /* QRViewController.swift */,
+				BE303D7C20FCA95F00226F7C /* WelcomViewController.swift */,
 				AAECD59E20D3098300F80E3A /* Crypto */,
-				AA97BFD120D255670092050E /* Pairing */,
 				BEFB45ED20C34BC10052C91A /* Main.storyboard */,
 				BEFB45E920C34BC10052C91A /* AppDelegate.swift */,
 				BE92214F20C49B9B00F8EB93 /* NotificationTableViewController.swift */,
@@ -229,19 +223,18 @@
 /* Begin PBXShellScriptBuildPhase section */
 		BEE7F4F020F3E5AC003B0CC9 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"",
-				"",
+				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
 			);
 			outputPaths = (
-				"",
+				"$(DERIVED_FILE_DIR)/CryptoSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -251,18 +244,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE92215420C49C6F00F8EB93 /* BisqNotification.swift in Sources */,
-				AA97BFDB20D2694C0092050E /* QRViewController.swift in Sources */,
 				BE31BFC820C44A8D008F79C6 /* NotificationTableViewCell.swift in Sources */,
 				AA811D8920D284B100F7CFBA /* SettingsViewController.swift in Sources */,
 				AABC359B20DCD3C5008DDD26 /* Phone.swift in Sources */,
 				AA811D8B20D2ABBC00F7CFBA /* constants.swift in Sources */,
-				AAA7FBD820F0B9B4007F9E3C /* EmailViewController.swift in Sources */,
+				BE303D8120FCA96000226F7C /* AppConfiguration.swift in Sources */,
+				BE303D8320FCA96000226F7C /* EmailViewController.swift in Sources */,
 				BE92215620C4AC0700F8EB93 /* NotificationDetailViewController.swift in Sources */,
 				BE92215020C49B9B00F8EB93 /* NotificationTableViewController.swift in Sources */,
 				AAF7B46920DAFD8A008237EA /* CryptoHelper.swift in Sources */,
 				BEFB45EA20C34BC10052C91A /* AppDelegate.swift in Sources */,
-				AAFEAE0220F363D700938898 /* AppConfiguration.swift in Sources */,
-				AA97BFD320D255960092050E /* WelcomViewController.swift in Sources */,
+				BE303D8020FCA96000226F7C /* WelcomViewController.swift in Sources */,
+				BE303D8220FCA96000226F7C /* QRViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
