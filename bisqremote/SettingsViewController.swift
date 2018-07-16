@@ -48,13 +48,13 @@ class SettingsViewController: UIViewController {
         var configuration: String
         switch (Config.appConfiguration) {
         case .Debug:
-            configuration = " (from Xcode)"
+            configuration = "Xcode "
         case .TestFlight:
-            configuration = " (TestFlight)"
+            configuration = "TestFlight "
         case .AppStore:
             configuration = ""
         }
-        versionLabel.text = "Version \(version) build \(build)"+configuration
+        versionLabel.text = "Version \(version) (\(build)) \(configuration+Phone.instance.descriptor)"
     }
     
     @IBAction func rerunSetupPressed(_ sender: Any) {
