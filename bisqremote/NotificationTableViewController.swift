@@ -53,66 +53,31 @@ class NotificationTableViewController: UITableViewController {
         if NotificationArray.shared.countAll > 0 {
             notification = NotificationArray.shared.at(n:indexPath.row)
             cell.comment.text = "\(notification.title)"
-            #if targetEnvironment(simulator)
-            cell.comment.text = cell.comment.text! + " \(notification.type)"
-            #endif
             cell.timeEvent.text = String(notification.sentDate)
             cell.iconLabel.isHidden = false
         } else {
             notification = Notification()
             notification.type = NotificationType.PLACEHOLDER.rawValue
         }
+        
+        if notification.read {
+            cell.comment.textColor = UIColor.gray
+            cell.iconLabel.textColor = TINTCOLOR_BLUE_DISABLED
+        } else {
+            cell.comment.textColor = UIColor.black
+            cell.iconLabel.textColor = TINTCOLOR_BLUE
+        }
         switch notification.type {
         case NotificationType.TRADE.rawValue:
-            if notification.read {
-                cell.comment.textColor = UIColor.gray
-                cell.iconLabel.textColor = UIColor.gray
-                cell.iconLabel.text = ICON_TRADE
-            } else {
-                cell.comment.textColor = UIColor.black
-                cell.iconLabel.textColor = UIColor.black
-                cell.iconLabel.text = ICON_TRADE
-            }
+            cell.iconLabel.text = ICON_TRADE
         case NotificationType.OFFER.rawValue:
-            if notification.read {
-                cell.comment.textColor = UIColor.gray
-                cell.iconLabel.textColor = UIColor.gray
-                cell.iconLabel.text = ICON_OFFER
-            } else {
-                cell.comment.textColor = UIColor.black
-                cell.iconLabel.textColor = UIColor.black
-                cell.iconLabel.text = ICON_OFFER
-            }
+            cell.iconLabel.text = ICON_OFFER
         case NotificationType.DISPUTE.rawValue:
-            if notification.read {
-                cell.comment.textColor = UIColor.gray
-                cell.iconLabel.textColor = UIColor.gray
-                cell.iconLabel.text = ICON_DISPUTE
-            } else {
-                cell.comment.textColor = UIColor.black
-                cell.iconLabel.textColor = UIColor.black
-                cell.iconLabel.text = ICON_DISPUTE
-            }
+            cell.iconLabel.text = ICON_DISPUTE
         case NotificationType.PRICE.rawValue:
-            if notification.read {
-                cell.comment.textColor = UIColor.gray
-                cell.iconLabel.textColor = UIColor.gray
-                cell.iconLabel.text = ICON_PRICE
-            } else {
-                cell.comment.textColor = UIColor.black
-                cell.iconLabel.textColor = UIColor.black
-                cell.iconLabel.text = ICON_PRICE
-            }
+            cell.iconLabel.text = ICON_PRICE
         case NotificationType.MARKET.rawValue:
-            if notification.read {
-                cell.comment.textColor = UIColor.gray
-                cell.iconLabel.textColor = UIColor.gray
-                cell.iconLabel.text = ICON_MARKET
-            } else {
-                cell.comment.textColor = UIColor.black
-                cell.iconLabel.textColor = UIColor.black
-                cell.iconLabel.text = ICON_MARKET
-            }
+            cell.iconLabel.text = ICON_MARKET
         case NotificationType.PLACEHOLDER.rawValue:
             cell.comment.textColor = UIColor.gray
             cell.comment.text = "No notifications yet"

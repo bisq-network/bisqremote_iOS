@@ -74,11 +74,31 @@ class SettingsViewController: UIViewController {
     static var typeIndex = 0
     @IBAction func addNotificationPressed(_ sender: Any) {
         let x = Notification(raw: NotificationArray.exampleRawNotification())
-        if (SettingsViewController.typeIndex % 5) == 0 { x.type = "TRADE"}
-        if (SettingsViewController.typeIndex % 5) == 1 { x.type = "OFFER"}
-        if (SettingsViewController.typeIndex % 5) == 2 { x.type = "DISPUTE"}
-        if (SettingsViewController.typeIndex % 5) == 3 { x.type = "PRICE"}
-        if (SettingsViewController.typeIndex % 5) == 4 { x.type = "MARKET"}
+        if (SettingsViewController.typeIndex % 5) == 0 {
+            x.type = "TRADE"
+            x.title = "Trade confirmed"
+            x.message = "The trade with ID 38765384 is confirmed."
+        }
+        if (SettingsViewController.typeIndex % 5) == 1 {
+            x.type = "OFFER"
+            x.title = "Offer taken"
+            x.message = "Your offer with ID 39847534 was taken"
+        }
+        if (SettingsViewController.typeIndex % 5) == 2 {
+            x.type = "DISPUTE"
+            x.title = "Dispute message"
+            x.message = "You received a dispute message for trade with ID 34059340"
+        }
+        if (SettingsViewController.typeIndex % 5) == 3 {
+            x.type = "PRICE"
+            x.title = "Price below 5000 Euro"
+            x.message = "Your price alert got triggered. The current Euro price is below 5000"
+        }
+        if (SettingsViewController.typeIndex % 5) == 4 {
+            x.type = "MARKET"
+            x.title = "New offer"
+            x.message = "A new offer offer with price 5600 Euro (5% below market price) and payment method SEPA was published to the Bisq offerbook.\nThe offer ID is 34534"
+        }
         SettingsViewController.typeIndex += 1
         NotificationArray.shared.addNotification(new: x)
     }

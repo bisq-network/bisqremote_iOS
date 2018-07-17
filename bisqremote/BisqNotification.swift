@@ -228,9 +228,9 @@ class NotificationArray {
         let r = RawNotification()
         r.version = 1
         r.type = NotificationType.TRADE.rawValue
-        r.title = "Added from Settings"
-        r.message = "example message"
-        r.actionRequired = "You need to make the bank transfer to receive your BTC"
+        r.title = "title"
+        r.message = "message"
+        r.actionRequired = ""
         r.txId = "293842038402983"
         r.sentDate = 1531659268 // July 2018
         return r

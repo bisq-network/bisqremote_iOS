@@ -454,30 +454,21 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotificationTableViewCell" rowHeight="90" id="aZz-hT-NOV" customClass="NotificationTableViewCell" customModule="bisqremote" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotificationTableViewCell" rowHeight="70" id="aZz-hT-NOV" customClass="NotificationTableViewCell" customModule="bisqremote" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aZz-hT-NOV" id="ckV-oX-QoS">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kq5-Zy-mjn" userLabel="comment">
-                                            <rect key="frame" x="64.5" y="31" width="294.5" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="VB2-bU-yiT"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K96-6P-egi" userLabel="timeEvent">
-                                            <rect key="frame" x="64.5" y="61.5" width="294.5" height="14.5"/>
+                                            <rect key="frame" x="48" y="41.5" width="311" height="14.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNz-2I-0pD">
-                                            <rect key="frame" x="16" y="21" width="38.5" height="48"/>
+                                            <rect key="frame" x="16" y="21" width="22" height="28"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="GNz-2I-0pD" secondAttribute="height" multiplier="4:5" id="ZtW-hR-hGe"/>
                                             </constraints>
@@ -485,13 +476,22 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kq5-Zy-mjn" userLabel="comment">
+                                            <rect key="frame" x="48" y="10.5" width="311" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="VB2-bU-yiT"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="GNz-2I-0pD" firstAttribute="leading" secondItem="ckV-oX-QoS" secondAttribute="leadingMargin" id="GCu-Jw-wKq"/>
                                         <constraint firstItem="K96-6P-egi" firstAttribute="leading" secondItem="Kq5-Zy-mjn" secondAttribute="leading" id="Hdq-Ls-rlp"/>
-                                        <constraint firstItem="Kq5-Zy-mjn" firstAttribute="top" secondItem="ckV-oX-QoS" secondAttribute="topMargin" constant="20" id="KeS-F9-XUY"/>
                                         <constraint firstItem="K96-6P-egi" firstAttribute="trailing" secondItem="Kq5-Zy-mjn" secondAttribute="trailing" id="OGF-yX-wTB"/>
                                         <constraint firstItem="Kq5-Zy-mjn" firstAttribute="leading" secondItem="GNz-2I-0pD" secondAttribute="trailing" constant="10" id="P0M-3a-38x"/>
+                                        <constraint firstItem="K96-6P-egi" firstAttribute="top" secondItem="Kq5-Zy-mjn" secondAttribute="bottom" constant="10" id="XwK-zP-XHX"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Kq5-Zy-mjn" secondAttribute="trailing" id="ZAP-s2-6FD"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="GNz-2I-0pD" secondAttribute="bottom" constant="10" id="ZL8-2I-1qT"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="K96-6P-egi" secondAttribute="bottom" constant="3" id="eTW-j9-Wdy"/>
