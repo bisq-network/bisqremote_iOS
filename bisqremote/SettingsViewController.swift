@@ -73,34 +73,34 @@ class SettingsViewController: UIViewController {
     }
     static var typeIndex = 0
     @IBAction func addNotificationPressed(_ sender: Any) {
-        let x = Notification(raw: NotificationArray.exampleRawNotification())
+        let new = Notification(raw: NotificationArray.exampleRawNotification())
         if (SettingsViewController.typeIndex % 5) == 0 {
-            x.type = "TRADE"
-            x.title = "Trade confirmed"
-            x.message = "The trade with ID 38765384 is confirmed."
+            new.type = "TRADE"
+            new.title = "Trade confirmed"
+            new.message = "The trade with ID 38765384 is confirmed."
         }
         if (SettingsViewController.typeIndex % 5) == 1 {
-            x.type = "OFFER"
-            x.title = "Offer taken"
-            x.message = "Your offer with ID 39847534 was taken"
+            new.type = "OFFER"
+            new.title = "Offer taken"
+            new.message = "Your offer with ID 39847534 was taken"
         }
         if (SettingsViewController.typeIndex % 5) == 2 {
-            x.type = "DISPUTE"
-            x.title = "Dispute message"
-            x.message = "You received a dispute message for trade with ID 34059340"
+            new.type = "DISPUTE"
+            new.title = "Dispute message"
+            new.message = "You received a dispute message for trade with ID 34059340"
         }
         if (SettingsViewController.typeIndex % 5) == 3 {
-            x.type = "PRICE"
-            x.title = "Price below 5000 Euro"
-            x.message = "Your price alert got triggered. The current Euro price is below 5000"
+            new.type = "PRICE"
+            new.title = "Price below 5000 Euro"
+            new.message = "Your price alert got triggered. The current Euro price is below 5000"
         }
         if (SettingsViewController.typeIndex % 5) == 4 {
-            x.type = "MARKET"
-            x.title = "New offer"
-            x.message = "A new offer offer with price 5600 Euro (5% below market price) and payment method SEPA was published to the Bisq offerbook.\nThe offer ID is 34534"
+            new.type = "MARKET"
+            new.title = "New offer"
+            new.message = "A new offer offer with price 5600 Euro (5% below market price) and payment method SEPA was published to the Bisq offerbook.\nThe offer ID is 34534"
         }
         SettingsViewController.typeIndex += 1
-        NotificationArray.shared.addNotification(new: x)
+        NotificationArray.shared.addNotification(new: new)
     }
     
     @IBAction func markAllAsReadPressed(_ sender: Any) {
