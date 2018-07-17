@@ -24,13 +24,21 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var tokenLabel: UILabel!
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var addNotificationButton: UIButton!
+    @IBOutlet weak var markAllAsReadButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        #if targetEnvironment(simulator)
-        #else
+        switch (Config.appConfiguration) {
+        case .Debug:
+            markAllAsReadButton.isHidden = false
+            addNotificationButton.isHidden = false
+        case .TestFlight:
+            markAllAsReadButton.isHidden = false
+            addNotificationButton.isHidden = false
+        case .AppStore:
+            markAllAsReadButton.isHidden = true
             addNotificationButton.isHidden = true
-        #endif
+        }
         updateFooter()
     }
     

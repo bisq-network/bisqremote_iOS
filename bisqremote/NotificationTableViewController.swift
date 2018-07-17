@@ -53,7 +53,12 @@ class NotificationTableViewController: UITableViewController {
         if NotificationArray.shared.countAll > 0 {
             notification = NotificationArray.shared.at(n:indexPath.row)
             cell.comment.text = "\(notification.title)"
-            cell.timeEvent.text = String(notification.sentDate)
+            let date = Date(timeIntervalSince1970: Double(notification.sentDate))
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeZone = NSTimeZone() as TimeZone?
+            dateFormatter.locale = NSLocale.current
+            dateFormatter.dateFormat =  "yyyy-MM-dd HH:mm" // MMM dd, yyyy HH:mm"
+            cell.timeEvent.text = dateFormatter.string(from: date)
             cell.iconLabel.isHidden = false
         } else {
             notification = Notification()

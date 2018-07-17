@@ -437,6 +437,7 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                     <connections>
                         <outlet property="addNotificationButton" destination="NPP-5f-SLY" id="Vq3-3s-9QJ"/>
                         <outlet property="keyLabel" destination="9I6-Nn-yMF" id="pc4-AM-SUk"/>
+                        <outlet property="markAllAsReadButton" destination="JRw-Oc-zVD" id="DDd-JM-YcE"/>
                         <outlet property="tokenLabel" destination="uBP-eV-zO1" id="QzQ-Wt-uyM"/>
                         <outlet property="versionLabel" destination="vNc-hD-HJV" id="ahp-G5-vnt"/>
                     </connections>
@@ -461,9 +462,9 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K96-6P-egi" userLabel="timeEvent">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K96-6P-egi" userLabel="timeEvent">
                                             <rect key="frame" x="48" y="41.5" width="311" height="14.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
