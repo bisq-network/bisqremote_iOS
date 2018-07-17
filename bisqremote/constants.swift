@@ -32,3 +32,9 @@ let BISQ_MESSAGE_SEPARATOR = "|" // must be a single character
 
 let TINTCOLOR_GREEN = UIColor(red: 37.0/255.0, green: 177.0/255.0, blue: 53.0/255.0, alpha: 1.0)
 let TINTCOLOR_BLUE = UIColor(red: 15.0/255.0, green: 134.0/255.0, blue: 195.0/255.0, alpha: 1.0)
+
+let ICON_TRADE   = "\u{f362}"
+let ICON_OFFER   = "\u{f00c}"
+let ICON_DISPUTE = "\u{f0e3}"
+let ICON_PRICE   = "\u{f0d6}"
+let ICON_MARKET  = "\u{f201}"

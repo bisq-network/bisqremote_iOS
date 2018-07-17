@@ -53,74 +53,77 @@ class NotificationTableViewController: UITableViewController {
         if NotificationArray.shared.countAll > 0 {
             notification = NotificationArray.shared.at(n:indexPath.row)
             cell.comment.text = "\(notification.title)"
+            #if targetEnvironment(simulator)
+            cell.comment.text = cell.comment.text! + " \(notification.type)"
+            #endif
             cell.timeEvent.text = String(notification.sentDate)
+            cell.iconLabel.isHidden = false
         } else {
             notification = Notification()
             notification.type = NotificationType.PLACEHOLDER.rawValue
-            cell.placeholder()
         }
         switch notification.type {
         case NotificationType.TRADE.rawValue:
             if notification.read {
-                cell.comment.font = UIFont.systemFont(ofSize: 16.0)
                 cell.comment.textColor = UIColor.gray
-                cell.okImage.image = UIImage(named: "TRADE")
+                cell.iconLabel.textColor = UIColor.gray
+                cell.iconLabel.text = ICON_TRADE
             } else {
-                cell.comment.font = UIFont.boldSystemFont(ofSize: 16.0)
                 cell.comment.textColor = UIColor.black
-                cell.okImage.image = UIImage(named: "TRADE")
+                cell.iconLabel.textColor = UIColor.black
+                cell.iconLabel.text = ICON_TRADE
             }
         case NotificationType.OFFER.rawValue:
             if notification.read {
-                cell.comment.font = UIFont.systemFont(ofSize: 16.0)
                 cell.comment.textColor = UIColor.gray
-                cell.okImage.image = UIImage(named: "OFFER")
+                cell.iconLabel.textColor = UIColor.gray
+                cell.iconLabel.text = ICON_OFFER
             } else {
-                cell.comment.font = UIFont.boldSystemFont(ofSize: 16.0)
                 cell.comment.textColor = UIColor.black
-                cell.okImage.image = UIImage(named: "OFFER")
+                cell.iconLabel.textColor = UIColor.black
+                cell.iconLabel.text = ICON_OFFER
             }
         case NotificationType.DISPUTE.rawValue:
             if notification.read {
-                cell.comment.font = UIFont.systemFont(ofSize: 16.0)
                 cell.comment.textColor = UIColor.gray
-                cell.okImage.image = UIImage(named: "DISPUTE")
+                cell.iconLabel.textColor = UIColor.gray
+                cell.iconLabel.text = ICON_DISPUTE
             } else {
-                cell.comment.font = UIFont.boldSystemFont(ofSize: 16.0)
                 cell.comment.textColor = UIColor.black
-                cell.okImage.image = UIImage(named: "DISPUTE")
+                cell.iconLabel.textColor = UIColor.black
+                cell.iconLabel.text = ICON_DISPUTE
             }
         case NotificationType.PRICE.rawValue:
             if notification.read {
-                cell.comment.font = UIFont.systemFont(ofSize: 16.0)
                 cell.comment.textColor = UIColor.gray
-                cell.okImage.image = UIImage(named: "PRICE")
+                cell.iconLabel.textColor = UIColor.gray
+                cell.iconLabel.text = ICON_PRICE
             } else {
-                cell.comment.font = UIFont.boldSystemFont(ofSize: 16.0)
                 cell.comment.textColor = UIColor.black
-                cell.okImage.image = UIImage(named: "PRICE")
+                cell.iconLabel.textColor = UIColor.black
+                cell.iconLabel.text = ICON_PRICE
             }
         case NotificationType.MARKET.rawValue:
             if notification.read {
-                cell.comment.font = UIFont.systemFont(ofSize: 16.0)
                 cell.comment.textColor = UIColor.gray
-                cell.okImage.image = UIImage(named: "MARKET")
+                cell.iconLabel.textColor = UIColor.gray
+                cell.iconLabel.text = ICON_MARKET
             } else {
-                cell.comment.font = UIFont.boldSystemFont(ofSize: 16.0)
                 cell.comment.textColor = UIColor.black
-                cell.okImage.image = UIImage(named: "MARKET")
+                cell.iconLabel.textColor = UIColor.black
+                cell.iconLabel.text = ICON_MARKET
             }
         case NotificationType.PLACEHOLDER.rawValue:
-            cell.comment.font = UIFont.italicSystemFont(ofSize: 16.0)
             cell.comment.textColor = UIColor.gray
+            cell.comment.text = "No notifications yet"
+            cell.comment.textAlignment = .center
+            // cell.comment.backgroundColor = UIColor.yellow
+            cell.timeEvent.text = ""
+            cell.selectionStyle = .none
+            cell.titleLeadingConstraint.constant = -40
+            cell.iconLabel.isHidden = true
         default:
-            if notification.read {
-                cell.comment.font = UIFont.systemFont(ofSize: 16.0)
-                cell.okImage.image = UIImage(named: "action.png_read.png")
-            } else {
-                cell.comment.font = UIFont.boldSystemFont(ofSize: 16.0)
-                cell.okImage.image = UIImage(named: "action.png")
-            }
+            cell.iconLabel.isHidden = true
         }
         return cell
     }

@@ -20,8 +20,8 @@ import UIKit
 
 class NotificationTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var iconLabel: UILabel!
     @IBOutlet weak var titleLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var okImage: UIImageView!
     @IBOutlet weak var timeEvent: UILabel!
     @IBOutlet weak var comment: UILabel!
     
@@ -33,17 +33,9 @@ class NotificationTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         comment.textAlignment = .left
         timeEvent.isHidden = false
-        titleLeadingConstraint.constant = 60
+        titleLeadingConstraint.constant = 2
     }
     
-    func placeholder() {
-        comment.text = "No notifications yet"
-        comment.textAlignment = .center
-        timeEvent.isHidden = true
-        selectionStyle = .none
-        titleLeadingConstraint.constant = 0
-        okImage.image = nil
-    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

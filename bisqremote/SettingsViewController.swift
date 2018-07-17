@@ -23,9 +23,14 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var keyLabel: UILabel!
     @IBOutlet weak var tokenLabel: UILabel!
     @IBOutlet weak var versionLabel: UILabel!
+    @IBOutlet weak var addNotificationButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        #if targetEnvironment(simulator)
+        #else
+            addNotificationButton.isHidden = true
+        #endif
         updateFooter()
     }
     
@@ -66,9 +71,15 @@ class SettingsViewController: UIViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "welcomeScreen")
         navigationController?.setViewControllers([vc], animated: true)
     }
-    
+    static var typeIndex = 0
     @IBAction func addNotificationPressed(_ sender: Any) {
         let x = Notification(raw: NotificationArray.exampleRawNotification())
+        if (SettingsViewController.typeIndex % 5) == 0 { x.type = "TRADE"}
+        if (SettingsViewController.typeIndex % 5) == 1 { x.type = "OFFER"}
+        if (SettingsViewController.typeIndex % 5) == 2 { x.type = "DISPUTE"}
+        if (SettingsViewController.typeIndex % 5) == 3 { x.type = "PRICE"}
+        if (SettingsViewController.typeIndex % 5) == 4 { x.type = "MARKET"}
+        SettingsViewController.typeIndex += 1
         NotificationArray.shared.addNotification(new: x)
     }
     

@@ -11,6 +11,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="FontAwesome.otf">
+            <string>FontAwesome5FreeSolid</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Welcome-->
         <scene sceneID="tne-QT-ifu">
@@ -22,7 +27,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now you can receive notifications about your Bisq trades." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CvA-ME-CKY">
                                 <rect key="frame" x="40" y="375" width="295" height="148.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="FontAwesome5FreeSolid" family="Font Awesome 5 Free" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -90,6 +95,7 @@
                     <navigationItem key="navigationItem" id="Z7T-Wj-Kux"/>
                     <connections>
                         <outlet property="registerButton" destination="6hg-Ed-oEU" id="dMU-eO-6sk"/>
+                        <outlet property="welcomeText" destination="CvA-ME-CKY" id="YL9-eK-GsK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -394,9 +400,17 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPP-5f-SLY">
+                                <rect key="frame" x="20" y="254" width="335" height="30"/>
+                                <state key="normal" title="Add notification"/>
+                                <connections>
+                                    <action selector="addNotificationPressed:" destination="wPz-Zx-mjx" eventType="touchUpInside" id="vb8-Kb-vLx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="NPP-5f-SLY" firstAttribute="leading" secondItem="za7-eY-kow" secondAttribute="leading" constant="20" id="18R-Gy-qmj"/>
                             <constraint firstItem="za7-eY-kow" firstAttribute="trailing" secondItem="9I6-Nn-yMF" secondAttribute="trailing" constant="20" id="2eP-Qm-mCp"/>
                             <constraint firstItem="uBP-eV-zO1" firstAttribute="top" secondItem="9I6-Nn-yMF" secondAttribute="bottom" constant="10" id="3dt-ad-NOs"/>
                             <constraint firstItem="za7-eY-kow" firstAttribute="trailing" secondItem="40K-Mw-FC7" secondAttribute="trailing" constant="20" id="6Ou-em-nZL"/>
@@ -404,6 +418,7 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                             <constraint firstItem="za7-eY-kow" firstAttribute="trailing" secondItem="uBP-eV-zO1" secondAttribute="trailing" constant="20" id="Ex4-kB-JmK"/>
                             <constraint firstItem="JRw-Oc-zVD" firstAttribute="top" secondItem="40K-Mw-FC7" secondAttribute="bottom" constant="20" id="IZ6-RU-3ma"/>
                             <constraint firstItem="JUM-Ya-Cot" firstAttribute="top" secondItem="za7-eY-kow" secondAttribute="top" constant="40" id="OCI-hZ-A9s"/>
+                            <constraint firstItem="za7-eY-kow" firstAttribute="trailing" secondItem="NPP-5f-SLY" secondAttribute="trailing" constant="20" id="PT4-bD-BXX"/>
                             <constraint firstItem="40K-Mw-FC7" firstAttribute="top" secondItem="JUM-Ya-Cot" secondAttribute="bottom" constant="20" id="UVd-WF-gli"/>
                             <constraint firstItem="9I6-Nn-yMF" firstAttribute="leading" secondItem="za7-eY-kow" secondAttribute="leading" constant="20" id="eCn-6B-nTI"/>
                             <constraint firstItem="vNc-hD-HJV" firstAttribute="leading" secondItem="za7-eY-kow" secondAttribute="leading" constant="20" id="erW-u5-Yzb"/>
@@ -411,6 +426,7 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                             <constraint firstItem="uBP-eV-zO1" firstAttribute="leading" secondItem="za7-eY-kow" secondAttribute="leading" constant="20" id="igK-UB-Vb0"/>
                             <constraint firstItem="40K-Mw-FC7" firstAttribute="leading" secondItem="za7-eY-kow" secondAttribute="leading" constant="20" id="o1W-Ra-aAb"/>
                             <constraint firstItem="vNc-hD-HJV" firstAttribute="top" secondItem="uBP-eV-zO1" secondAttribute="bottom" constant="10" id="oGl-7e-az3"/>
+                            <constraint firstItem="NPP-5f-SLY" firstAttribute="top" secondItem="JRw-Oc-zVD" secondAttribute="bottom" constant="20" id="owb-Ew-9IH"/>
                             <constraint firstItem="za7-eY-kow" firstAttribute="bottom" secondItem="vNc-hD-HJV" secondAttribute="bottom" constant="20" id="qzj-xt-HyB"/>
                             <constraint firstItem="JUM-Ya-Cot" firstAttribute="leading" secondItem="za7-eY-kow" secondAttribute="leading" constant="20" id="rqd-kh-8DI"/>
                             <constraint firstItem="za7-eY-kow" firstAttribute="trailing" secondItem="JRw-Oc-zVD" secondAttribute="trailing" constant="20" id="vjc-e9-BpS"/>
@@ -419,6 +435,7 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                         <viewLayoutGuide key="safeArea" id="za7-eY-kow"/>
                     </view>
                     <connections>
+                        <outlet property="addNotificationButton" destination="NPP-5f-SLY" id="Vq3-3s-9QJ"/>
                         <outlet property="keyLabel" destination="9I6-Nn-yMF" id="pc4-AM-SUk"/>
                         <outlet property="tokenLabel" destination="uBP-eV-zO1" id="QzQ-Wt-uyM"/>
                         <outlet property="versionLabel" destination="vNc-hD-HJV" id="ahp-G5-vnt"/>
@@ -445,7 +462,7 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kq5-Zy-mjn" userLabel="comment">
-                                            <rect key="frame" x="76" y="31" width="283" height="21"/>
+                                            <rect key="frame" x="64.5" y="31" width="294.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="VB2-bU-yiT"/>
                                             </constraints>
@@ -454,40 +471,38 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K96-6P-egi" userLabel="timeEvent">
-                                            <rect key="frame" x="76" y="61.5" width="283" height="14.5"/>
+                                            <rect key="frame" x="64.5" y="61.5" width="294.5" height="14.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2gF-jD-Yei">
-                                            <rect key="frame" x="16" y="23" width="48" height="48"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ok" translatesAutoresizingMaskIntoConstraints="NO" id="3xY-fy-kl5">
-                                                    <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
-                                                </imageView>
-                                            </subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNz-2I-0pD">
+                                            <rect key="frame" x="16" y="21" width="38.5" height="48"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="48" id="fyC-is-F2b"/>
-                                                <constraint firstAttribute="height" constant="48" id="nNk-Db-A9a"/>
+                                                <constraint firstAttribute="width" secondItem="GNz-2I-0pD" secondAttribute="height" multiplier="4:5" id="ZtW-hR-hGe"/>
                                             </constraints>
-                                        </stackView>
+                                            <fontDescription key="fontDescription" name="FontAwesome5FreeSolid" family="Font Awesome 5 Free" pointSize="24"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="2gF-jD-Yei" firstAttribute="top" secondItem="ckV-oX-QoS" secondAttribute="topMargin" constant="12" id="40h-7O-7d8"/>
+                                        <constraint firstItem="GNz-2I-0pD" firstAttribute="leading" secondItem="ckV-oX-QoS" secondAttribute="leadingMargin" id="GCu-Jw-wKq"/>
                                         <constraint firstItem="K96-6P-egi" firstAttribute="leading" secondItem="Kq5-Zy-mjn" secondAttribute="leading" id="Hdq-Ls-rlp"/>
-                                        <constraint firstItem="Kq5-Zy-mjn" firstAttribute="leading" secondItem="ckV-oX-QoS" secondAttribute="leadingMargin" constant="60" id="KO7-La-3k5"/>
                                         <constraint firstItem="Kq5-Zy-mjn" firstAttribute="top" secondItem="ckV-oX-QoS" secondAttribute="topMargin" constant="20" id="KeS-F9-XUY"/>
                                         <constraint firstItem="K96-6P-egi" firstAttribute="trailing" secondItem="Kq5-Zy-mjn" secondAttribute="trailing" id="OGF-yX-wTB"/>
+                                        <constraint firstItem="Kq5-Zy-mjn" firstAttribute="leading" secondItem="GNz-2I-0pD" secondAttribute="trailing" constant="10" id="P0M-3a-38x"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Kq5-Zy-mjn" secondAttribute="trailing" id="ZAP-s2-6FD"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="GNz-2I-0pD" secondAttribute="bottom" constant="10" id="ZL8-2I-1qT"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="K96-6P-egi" secondAttribute="bottom" constant="3" id="eTW-j9-Wdy"/>
-                                        <constraint firstItem="2gF-jD-Yei" firstAttribute="leading" secondItem="ckV-oX-QoS" secondAttribute="leadingMargin" id="xbI-dk-XGQ"/>
+                                        <constraint firstItem="GNz-2I-0pD" firstAttribute="top" secondItem="ckV-oX-QoS" secondAttribute="topMargin" constant="10" id="hol-L8-TO6"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="comment" destination="Kq5-Zy-mjn" id="RK4-3X-9nK"/>
-                                    <outlet property="okImage" destination="3xY-fy-kl5" id="8ah-C1-W68"/>
+                                    <outlet property="iconLabel" destination="GNz-2I-0pD" id="xW0-MI-yfd"/>
                                     <outlet property="timeEvent" destination="K96-6P-egi" id="8Qx-n4-lcn"/>
-                                    <outlet property="titleLeadingConstraint" destination="KO7-La-3k5" id="fNn-DV-hYn"/>
+                                    <outlet property="titleLeadingConstraint" destination="P0M-3a-38x" id="PAY-4q-01Q"/>
                                     <segue destination="NLY-kU-KyA" kind="show" identifier="showDetail" id="oAM-Bn-D2a"/>
                                 </connections>
                             </tableViewCell>
@@ -534,7 +549,6 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
     <resources>
         <image name="iTunesArtwork" width="512" height="512"/>
         <image name="missingQR" width="382" height="286"/>
-        <image name="ok" width="243" height="189"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="WNW-kD-TTe"/>

@@ -21,11 +21,12 @@ import UserNotifications
 
 class WelcomViewController: UIViewController {
 
+    @IBOutlet weak var welcomeText: UILabel!
     @IBOutlet weak var registerButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        welcomeText.text = "\u{f030}"
         registerButton.isEnabled = false
         
         #if targetEnvironment(simulator)
