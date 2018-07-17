@@ -24,7 +24,7 @@ class NotificationTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dateformatterShort.dateFormat = "yyyy-MM-dd HH:mm"
+        dateformatterShort.dateFormat = BISQ_DATE_FORMAT
     }
 
     func reload() {
@@ -57,7 +57,7 @@ class NotificationTableViewController: UITableViewController {
             let dateFormatter = DateFormatter()
             dateFormatter.timeZone = NSTimeZone() as TimeZone?
             dateFormatter.locale = NSLocale.current
-            dateFormatter.dateFormat =  "yyyy-MM-dd HH:mm" // MMM dd, yyyy HH:mm"
+            dateFormatter.dateFormat = BISQ_DATE_FORMAT
             cell.timeEvent.text = dateFormatter.string(from: date)
             cell.iconLabel.isHidden = false
         } else {

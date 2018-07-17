@@ -34,6 +34,8 @@ let TINTCOLOR_GREEN = UIColor(red: 37.0/255.0, green: 177.0/255.0, blue: 53.0/25
 let TINTCOLOR_BLUE = UIColor(red: 15.0/255.0, green: 134.0/255.0, blue: 195.0/255.0, alpha: 1.0)
 let TINTCOLOR_BLUE_DISABLED = UIColor(red: 127.0/255.0, green: 181.0/255.0, blue: 213.0/255.0, alpha: 1.0)
 
+let BISQ_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss"
+
 let ICON_TRADE   = "\u{f362}"
 let ICON_OFFER   = "\u{f00c}"
 let ICON_DISPUTE = "\u{f0e3}"

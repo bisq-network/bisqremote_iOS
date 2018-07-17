@@ -34,7 +34,7 @@ class NotificationDetailViewController: UIViewController {
         title = "" // empty navigationBar
         actionTextview.layer.cornerRadius = 7
         messageTextView.layer.cornerRadius = 7
-        dateformatterShort.dateFormat = "yyyy-MM-dd HH:mm"
+        dateformatterShort.dateFormat = BISQ_DATE_FORMAT
         if let n = notification {
             titleLabel.text = n.title
             if n.message.count > 0 {
@@ -46,7 +46,8 @@ class NotificationDetailViewController: UIViewController {
             }
 
             messageTextView.text = n.message
-            eventTimeLabel.text   = "event:    "+String(n.sentDate)
+            let date = Date(timeIntervalSince1970: Double(n.sentDate))
+            eventTimeLabel.text   = "event:    "+dateformatterShort.string(from: date)
             receiveTimelabel.text = "received: "+dateformatterShort.string(from: n.timestampReceived)
             transactionID.text = "transaction ID: "+n.txId
             if n.actionRequired.count > 0 {

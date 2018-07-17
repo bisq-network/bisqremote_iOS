@@ -191,7 +191,7 @@ class NotificationArray {
     private let encoder = JSONEncoder()
     private init() {
         // set date format to the javascript standard
-        dateformatterLong.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateformatterLong.dateFormat = BISQ_DATE_FORMAT
         decoder.dateDecodingStrategy = .formatted(dateformatterLong)
         encoder.dateEncodingStrategy = .formatted(dateformatterLong)
         encoder.outputFormatting = .prettyPrinted
