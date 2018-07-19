@@ -37,20 +37,19 @@ class NotificationDetailViewController: UIViewController {
         dateformatterShort.dateFormat = BISQ_DATE_FORMAT
         if let n = notification {
             titleLabel.text = n.title
-            if n.message.count > 0 {
-                messageTextView.isHidden = false
-                messageTextView.text = n.message
-                messageTextView.layoutIfNeeded()
-            } else {
-                messageTextView.isHidden = true
-            }
+            messageTextView.isHidden = false
+            messageTextView.text = n.message
+            messageTextView.layoutIfNeeded()
 
             messageTextView.text = n.message
-            let date = Date(timeIntervalSince1970: Double(n.sentDate))
-            eventTimeLabel.text   = "event:    "+dateformatterShort.string(from: date)
+            if n.sentDate != nil {
+                eventTimeLabel.text   = "event:    "+dateformatterShort.string(from: n.sentDate!)
+            }
             receiveTimelabel.text = "received: "+dateformatterShort.string(from: n.timestampReceived)
-            transactionID.text = "transaction ID: "+n.txId
-            if n.actionRequired.count > 0 {
+            if n.txId != nil {
+                transactionID.text = "transaction ID: "+n.txId!
+            }
+            if n.actionRequired != nil {
                 actionTextview.isHidden = false
                 actionTextview.text = n.actionRequired
                 actionTextview.layoutIfNeeded()

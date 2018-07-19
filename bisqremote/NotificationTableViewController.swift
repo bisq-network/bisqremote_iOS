@@ -20,10 +20,21 @@ import UIKit
 
 class NotificationTableViewController: UITableViewController {
     let dateformatterShort = DateFormatter()
-
+    var noContentView: UIView = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        noContentView.frame = self.view.frame
+        noContentView.backgroundColor = self.view.backgroundColor
+        noContentView.isHidden = true
+        let placeholder = UILabel()
+        placeholder.text = "No notifications yet"
+        placeholder.textAlignment = .center
+        placeholder.font = UIFont.italicSystemFont(ofSize: 17)
+        placeholder.textColor = UIColor.gray
+        placeholder.frame = CGRect(x: 0, y: 0, width: noContentView.frame.width, height: 80)
+        noContentView.addSubview(placeholder)
+        self.view.addSubview(noContentView)
         dateformatterShort.dateFormat = BISQ_DATE_FORMAT
     }
 
@@ -39,9 +50,12 @@ class NotificationTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var n = NotificationArray.shared.countAll
-        if n == 0 { n = 1 } // show placeholder
-        return n
+        if NotificationArray.shared.countAll == 0 {
+            noContentView.isHidden = false
+        } else {
+            noContentView.isHidden = true
+        }
+        return NotificationArray.shared.countAll
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,20 +64,12 @@ class NotificationTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of NotificationTableViewCell.")
         }
         var notification: Notification
-        if NotificationArray.shared.countAll > 0 {
-            notification = NotificationArray.shared.at(n:indexPath.row)
-            cell.comment.text = "\(notification.title)"
-            let date = Date(timeIntervalSince1970: Double(notification.sentDate))
-            let dateFormatter = DateFormatter()
-            dateFormatter.timeZone = NSTimeZone() as TimeZone?
-            dateFormatter.locale = NSLocale.current
-            dateFormatter.dateFormat = BISQ_DATE_FORMAT
-            cell.timeEvent.text = dateFormatter.string(from: date)
-            cell.iconLabel.isHidden = false
-        } else {
-            notification = Notification()
-            notification.type = NotificationType.PLACEHOLDER.rawValue
+        notification = NotificationArray.shared.at(n:indexPath.row)
+        cell.comment.text = notification.title
+        if notification.sentDate != nil {
+            cell.timeEvent.text = dateformatterShort.string(from: notification.sentDate!)
         }
+        cell.iconLabel.isHidden = false
         
         if notification.read {
             cell.comment.textColor = UIColor.gray
@@ -83,29 +89,12 @@ class NotificationTableViewController: UITableViewController {
             cell.iconLabel.text = ICON_PRICE
         case NotificationType.MARKET.rawValue:
             cell.iconLabel.text = ICON_MARKET
-        case NotificationType.PLACEHOLDER.rawValue:
-            cell.comment.textColor = UIColor.gray
-            cell.comment.text = "No notifications yet"
-            cell.comment.textAlignment = .center
-            // cell.comment.backgroundColor = UIColor.yellow
-            cell.timeEvent.text = ""
-            cell.selectionStyle = .none
-            cell.titleLeadingConstraint.constant = -40
-            cell.iconLabel.isHidden = true
         default:
             cell.iconLabel.isHidden = true
         }
         return cell
     }
- 
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
 
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -113,23 +102,8 @@ class NotificationTableViewController: UITableViewController {
             // Delete the row from the data source
             NotificationArray.shared.remove(n: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-//        } else if editingStyle == .insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         switch(identifier) {

@@ -26,7 +26,6 @@ class WelcomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        welcomeText.text = "\u{f030}"
         registerButton.isEnabled = false
         
         #if targetEnvironment(simulator)

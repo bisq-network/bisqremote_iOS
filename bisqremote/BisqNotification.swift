@@ -21,7 +21,7 @@ import UIKit // for setting the badge number
 import AVFoundation // for sound
 
 enum NotificationType: String {
-    case SETUP_CONFIRMATION, ERASE, OFFER, TRADE, DISPUTE, PRICE, MARKET, ERROR, PLACEHOLDER
+    case SETUP_CONFIRMATION, ERASE, OFFER, TRADE, DISPUTE, PRICE, MARKET, ERROR
 }
 
 // Datastructure as sent from the Bisq notification server
@@ -29,21 +29,15 @@ enum NotificationType: String {
 // We need a class and custom encoder and decoder because we will inherit from this class
 class RawNotification: Codable {
     var version: Int
-    var type: String
-    var title: String
-    var message: String
-    var actionRequired: String
-    var txId: String
-    var sentDate: Int
+    var type: String? = nil
+    var title: String? = nil
+    var message: String? = nil
+    var actionRequired: String? = nil
+    var txId: String? = nil
+    var sentDate: Date? = nil
 
     init() {
         version = 0
-        type = ""
-        title = ""
-        message = ""
-        actionRequired = ""
-        txId = ""
-        sentDate = 1 // 1970
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -58,12 +52,6 @@ class RawNotification: Codable {
     
     required init(from decoder: Decoder) throws {
         version = 0
-        type = "unknown"
-        title = ""
-        message = ""
-        actionRequired = ""
-        txId = ""
-        sentDate = 1
         let container: KeyedDecodingContainer<RawNotification.CodingKeys>
         do {
             container = try decoder.container(keyedBy: CodingKeys.self)
@@ -73,7 +61,7 @@ class RawNotification: Codable {
             message = try container.decode(String.self, forKey: .message)
             actionRequired = try container.decode(String.self, forKey: .actionRequired)
             txId = try container.decode(String.self, forKey: .txId)
-            sentDate = try container.decode(Int.self, forKey: .sentDate)
+            sentDate = try container.decode(Date.self, forKey: .sentDate)
         } catch {
             message = "could not decode json message"
             "could not decode".bisqLog()
@@ -83,7 +71,7 @@ class RawNotification: Codable {
         let navigationController = UIApplication.shared.windows[0].rootViewController as? UINavigationController
         let visibleController = navigationController?.visibleViewController
 
-        
+        guard type != nil else { return }
         switch type {
         case NotificationType.SETUP_CONFIRMATION.rawValue:
             AudioServicesPlaySystemSound(1007) // see https://github.com/TUNER88/iOSSystemSoundsLibrary
@@ -114,11 +102,10 @@ class RawNotification: Codable {
              NotificationType.DISPUTE.rawValue,
              NotificationType.PRICE.rawValue,
              NotificationType.MARKET.rawValue,
-             NotificationType.ERROR.rawValue,
-             NotificationType.PLACEHOLDER.rawValue:
+             NotificationType.ERROR.rawValue:
             break
         default:
-            print("unknown notificationType \(type)")
+            print("unknown notificationType \(type!)")
         }
     }
     
@@ -232,7 +219,7 @@ class NotificationArray {
         r.message = "message"
         r.actionRequired = ""
         r.txId = "293842038402983"
-        r.sentDate = 1531659268 // July 2018
+        r.sentDate = Date()
         return r
     }
     
