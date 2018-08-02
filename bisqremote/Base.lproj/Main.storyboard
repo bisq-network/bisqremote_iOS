@@ -383,19 +383,19 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9I6-Nn-yMF">
-                                <rect key="frame" x="20" y="541" width="335" height="14"/>
+                                <rect key="frame" x="20" y="517" width="335" height="14"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="token" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBP-eV-zO1">
-                                <rect key="frame" x="20" y="565" width="335" height="14"/>
+                                <rect key="frame" x="20" y="541" width="335" height="14"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="version and model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNc-hD-HJV">
-                                <rect key="frame" x="20" y="589" width="335" height="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNc-hD-HJV">
+                                <rect key="frame" x="20" y="565" width="335" height="14"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -407,27 +407,36 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                                     <action selector="addNotificationPressed:" destination="wPz-Zx-mjx" eventType="touchUpInside" id="vb8-Kb-vLx"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Platform" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAR-Gh-dcS">
+                                <rect key="frame" x="20" y="589" width="335" height="14"/>
+                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NPP-5f-SLY" firstAttribute="leading" secondItem="za7-eY-kow" secondAttribute="leading" constant="20" id="18R-Gy-qmj"/>
+                            <constraint firstItem="cAR-Gh-dcS" firstAttribute="top" secondItem="vNc-hD-HJV" secondAttribute="bottom" constant="10" id="28t-Tc-3bh"/>
                             <constraint firstItem="za7-eY-kow" firstAttribute="trailing" secondItem="9I6-Nn-yMF" secondAttribute="trailing" constant="20" id="2eP-Qm-mCp"/>
                             <constraint firstItem="uBP-eV-zO1" firstAttribute="top" secondItem="9I6-Nn-yMF" secondAttribute="bottom" constant="10" id="3dt-ad-NOs"/>
                             <constraint firstItem="za7-eY-kow" firstAttribute="trailing" secondItem="40K-Mw-FC7" secondAttribute="trailing" constant="20" id="6Ou-em-nZL"/>
                             <constraint firstItem="za7-eY-kow" firstAttribute="trailing" secondItem="vNc-hD-HJV" secondAttribute="trailing" constant="20" id="7Br-eF-cer"/>
+                            <constraint firstItem="za7-eY-kow" firstAttribute="bottom" secondItem="cAR-Gh-dcS" secondAttribute="bottom" constant="20" id="Bym-vc-W1F"/>
                             <constraint firstItem="za7-eY-kow" firstAttribute="trailing" secondItem="uBP-eV-zO1" secondAttribute="trailing" constant="20" id="Ex4-kB-JmK"/>
                             <constraint firstItem="JRw-Oc-zVD" firstAttribute="top" secondItem="40K-Mw-FC7" secondAttribute="bottom" constant="20" id="IZ6-RU-3ma"/>
                             <constraint firstItem="JUM-Ya-Cot" firstAttribute="top" secondItem="za7-eY-kow" secondAttribute="top" constant="40" id="OCI-hZ-A9s"/>
                             <constraint firstItem="za7-eY-kow" firstAttribute="trailing" secondItem="NPP-5f-SLY" secondAttribute="trailing" constant="20" id="PT4-bD-BXX"/>
                             <constraint firstItem="40K-Mw-FC7" firstAttribute="top" secondItem="JUM-Ya-Cot" secondAttribute="bottom" constant="20" id="UVd-WF-gli"/>
+                            <constraint firstItem="za7-eY-kow" firstAttribute="trailing" secondItem="cAR-Gh-dcS" secondAttribute="trailing" constant="20" id="Vwb-dN-gOL"/>
                             <constraint firstItem="9I6-Nn-yMF" firstAttribute="leading" secondItem="za7-eY-kow" secondAttribute="leading" constant="20" id="eCn-6B-nTI"/>
                             <constraint firstItem="vNc-hD-HJV" firstAttribute="leading" secondItem="za7-eY-kow" secondAttribute="leading" constant="20" id="erW-u5-Yzb"/>
+                            <constraint firstItem="cAR-Gh-dcS" firstAttribute="leading" secondItem="za7-eY-kow" secondAttribute="leading" constant="20" id="faT-es-rvm"/>
                             <constraint firstItem="JRw-Oc-zVD" firstAttribute="leading" secondItem="za7-eY-kow" secondAttribute="leading" constant="20" id="gEl-yy-CgX"/>
                             <constraint firstItem="uBP-eV-zO1" firstAttribute="leading" secondItem="za7-eY-kow" secondAttribute="leading" constant="20" id="igK-UB-Vb0"/>
                             <constraint firstItem="40K-Mw-FC7" firstAttribute="leading" secondItem="za7-eY-kow" secondAttribute="leading" constant="20" id="o1W-Ra-aAb"/>
                             <constraint firstItem="vNc-hD-HJV" firstAttribute="top" secondItem="uBP-eV-zO1" secondAttribute="bottom" constant="10" id="oGl-7e-az3"/>
                             <constraint firstItem="NPP-5f-SLY" firstAttribute="top" secondItem="JRw-Oc-zVD" secondAttribute="bottom" constant="20" id="owb-Ew-9IH"/>
-                            <constraint firstItem="za7-eY-kow" firstAttribute="bottom" secondItem="vNc-hD-HJV" secondAttribute="bottom" constant="20" id="qzj-xt-HyB"/>
                             <constraint firstItem="JUM-Ya-Cot" firstAttribute="leading" secondItem="za7-eY-kow" secondAttribute="leading" constant="20" id="rqd-kh-8DI"/>
                             <constraint firstItem="za7-eY-kow" firstAttribute="trailing" secondItem="JRw-Oc-zVD" secondAttribute="trailing" constant="20" id="vjc-e9-BpS"/>
                             <constraint firstItem="za7-eY-kow" firstAttribute="trailing" secondItem="JUM-Ya-Cot" secondAttribute="trailing" constant="20" id="yOu-az-bkl"/>
@@ -438,6 +447,7 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                         <outlet property="addNotificationButton" destination="NPP-5f-SLY" id="Vq3-3s-9QJ"/>
                         <outlet property="keyLabel" destination="9I6-Nn-yMF" id="pc4-AM-SUk"/>
                         <outlet property="markAllAsReadButton" destination="JRw-Oc-zVD" id="DDd-JM-YcE"/>
+                        <outlet property="platformLabel" destination="cAR-Gh-dcS" id="zXb-xd-bpQ"/>
                         <outlet property="tokenLabel" destination="uBP-eV-zO1" id="QzQ-Wt-uyM"/>
                         <outlet property="versionLabel" destination="vNc-hD-HJV" id="ahp-G5-vnt"/>
                     </connections>
