@@ -23,6 +23,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var keyLabel: UILabel!
     @IBOutlet weak var tokenLabel: UILabel!
     @IBOutlet weak var versionLabel: UILabel!
+    @IBOutlet weak var platformLabel: UILabel!
     @IBOutlet weak var addNotificationButton: UIButton!
     @IBOutlet weak var markAllAsReadButton: UIButton!
     
@@ -45,13 +46,13 @@ class SettingsViewController: UIViewController {
     func updateFooter() {
         var s = ""
         if let k = Phone.instance.key {
-            s = k.prefix(8)+"..."
+            s = k.prefix(10)+"..."
         }
         keyLabel.text   = "key   "+s
 
         s = ""
         if let t = Phone.instance.token {
-            s = t.prefix(8)+"..."
+            s = t.prefix(10)+"..."
         }
         tokenLabel.text = "token "+s
         
@@ -59,15 +60,16 @@ class SettingsViewController: UIViewController {
         let version = dictionary["CFBundleShortVersionString"] as! String
         let build = dictionary["CFBundleVersion"] as! String
         var configuration: String
+        versionLabel.text = "Version \(version) (\(build))"
         switch (Config.appConfiguration) {
         case .Debug:
-            configuration = "Xcode "
+            configuration = ": Xcode "
         case .TestFlight:
-            configuration = "TestFlight "
+            configuration = ": TestFlight "
         case .AppStore:
             configuration = ""
         }
-        versionLabel.text = "Version \(version) (\(build)) \(configuration+Phone.instance.descriptor)"
+        platformLabel.text = Phone.instance.descriptor+configuration
     }
     
     @IBAction func rerunSetupPressed(_ sender: Any) {
@@ -95,6 +97,7 @@ class SettingsViewController: UIViewController {
         if (SettingsViewController.typeIndex % 5) == 2 {
             new.type = "DISPUTE"
             new.title = "Dispute message"
+            new.actionRequired = "Please contact the arbitrator"
             new.message = "You received a dispute message for trade with ID 34059340"
         }
         if (SettingsViewController.typeIndex % 5) == 3 {
