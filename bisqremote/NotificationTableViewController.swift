@@ -24,6 +24,8 @@ class NotificationTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.setHidesBackButton(true, animated:true);
         noContentView.frame = self.view.frame
         noContentView.backgroundColor = self.view.backgroundColor
         noContentView.isHidden = true
@@ -36,12 +38,17 @@ class NotificationTableViewController: UITableViewController {
         noContentView.addSubview(placeholder)
         self.view.addSubview(noContentView)
         dateformatterShort.dateFormat = BISQ_DATE_FORMAT
+        reload()
     }
 
     func reload() {
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
+    
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         reload()
     }
     
@@ -59,15 +66,13 @@ class NotificationTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "NotificationTableViewCell"
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? NotificationTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of NotificationTableViewCell.")
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationTableViewCell", for: indexPath) as! NotificationTableViewCell
         var notification: Notification
         notification = NotificationArray.shared.at(n:indexPath.row)
         cell.comment.text = notification.title
         if notification.sentDate != nil {
-            cell.timeEvent.text = dateformatterShort.string(from: notification.sentDate!)
+            let date = Date(timeIntervalSince1970: notification.sentDate!)
+            cell.timeEvent.text = dateformatterShort.string(from: date)
         }
         cell.iconLabel.isHidden = false
         
@@ -102,6 +107,7 @@ class NotificationTableViewController: UITableViewController {
             // Delete the row from the data source
             NotificationArray.shared.remove(n: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            self.tableView.reloadData()
         }
     }
 
