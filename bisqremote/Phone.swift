@@ -40,7 +40,7 @@ class Phone {
         // try reading from UserDefaults
         if let s = UserDefaults.standard.string(forKey: userDefaultKeyPairingToken) {
             let a = s.split(separator: Character(BISQ_MESSAGE_SEPARATOR))
-            guard a.count == 3 else { return }
+            guard a.count == 4 else { return }
             guard a[0] == Phone.magic() else { return }
             guard a[2].count == 32 else { return }
             guard a[3].count == 64 else { return }
