@@ -43,19 +43,21 @@ class NotificationDetailViewController: UIViewController {
 
             messageTextView.text = n.message
             if n.sentDate != nil {
-                eventTimeLabel.text   = "event:    "+dateformatterShort.string(from: n.sentDate!)
+                let date = Date(timeIntervalSince1970: n.sentDate!)
+                eventTimeLabel.text   = "event:    "+dateformatterShort.string(from: date)
             }
             receiveTimelabel.text = "received: "+dateformatterShort.string(from: n.timestampReceived)
             if n.txId != nil {
                 transactionID.text = "transaction ID: "+n.txId!
             }
+            actionTextview.isHidden = true
             if n.actionRequired != nil {
-                actionTextview.isHidden = false
-                actionTextview.text = n.actionRequired
-                actionTextview.layoutIfNeeded()
-                actionTextview.backgroundColor = UIColor(red: 255.0/255.0, green: 126.0/255.0, blue: 121.0/255.0, alpha: 0.5)
-            } else {
-                actionTextview.isHidden = true
+                if n.actionRequired!.count > 0 {
+                    actionTextview.isHidden = false
+                    actionTextview.text = n.actionRequired
+                    actionTextview.layoutIfNeeded()
+                    actionTextview.backgroundColor = UIColor(red: 255.0/255.0, green: 126.0/255.0, blue: 121.0/255.0, alpha: 0.5)
+                }
             }
         }
     }

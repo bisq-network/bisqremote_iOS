@@ -34,7 +34,7 @@ class RawNotification: Codable {
     var message: String? = nil
     var actionRequired: String? = nil
     var txId: String? = nil
-    var sentDate: Date? = nil
+    var sentDate: Double? = nil
 
     init() {
         version = 0
@@ -61,7 +61,7 @@ class RawNotification: Codable {
             message = try container.decode(String.self, forKey: .message)
             actionRequired = try container.decode(String.self, forKey: .actionRequired)
             txId = try container.decode(String.self, forKey: .txId)
-            sentDate = try container.decode(Date.self, forKey: .sentDate)
+            sentDate = try container.decode(Double.self, forKey: .sentDate)
         } catch {
             message = "could not decode json message"
             "could not decode".bisqLog()
@@ -219,7 +219,7 @@ class NotificationArray {
         r.message = "message"
         r.actionRequired = ""
         r.txId = "293842038402983"
-        r.sentDate = Date()
+        r.sentDate = 1533218519
         return r
     }
     
