@@ -163,7 +163,23 @@ class Notification: RawNotification {
         let superdecoder = container.superEncoder()
         try super.encode(to: superdecoder)
     }
+    
 }
+
+extension Notification: Equatable {
+    static func ==(l: Notification, r: Notification) -> Bool {
+        var equal = true
+        if l.title != r.title { equal = false }
+        if l.type != r.type { equal = false }
+        if l.message != r.message { equal = false }
+        if l.actionRequired != r.actionRequired { equal = false }
+        if l.txId != r.txId { equal = false }
+        if l.sentDate != r.sentDate { equal = false }
+        if l.txId != r.txId { equal = false }
+        return equal
+    }
+}
+
 
 // Singleton with the array of notifications
 class NotificationArray {
@@ -343,5 +359,16 @@ class NotificationArray {
         array.remove(at: n)
         save()
     }
+
+    func removeNotification(toBeDeleted: Notification) {
+        var pos = 0
+        for n in array {
+            if n == toBeDeleted {
+                remove(n: pos)
+            }
+            pos += 1
+        }
+    }
+
 }
 
