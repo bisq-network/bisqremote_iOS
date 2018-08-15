@@ -61,8 +61,8 @@ class Phone {
         UserDefaults.standard.removeObject(forKey: userDefaultKeyPairingToken)
         UserDefaults.standard.removeObject(forKey: userDefaultKeyNotifications)
         NotificationArray.shared.deleteAll()
-        key = ""
-        token = ""
+        key = nil
+        token = nil
         confirmed = false
     }
     

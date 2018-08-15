@@ -68,12 +68,12 @@ class WelcomViewController: UIViewController {
         navigationController?.navigationBar.backgroundColor = view.backgroundColor
         
         #if !targetEnvironment(simulator)
-        if Phone.instance.token != nil {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 4, execute: {
+        if Phone.instance.token == nil {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                 self.checkForToken()
             })
         } else {
-            self.registerButton.isEnabled = true
+            self.registerButton.isEnabled = false
         }
         #endif
 
@@ -82,12 +82,14 @@ class WelcomViewController: UIViewController {
     @objc func checkForToken() {
         if Phone.instance.token == nil {
             UIApplication.shared.registerForRemoteNotifications()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                self.registerButton.isEnabled = false
-                let x = UIAlertController(title: "Error", message: "Could not fetch the Apple notification token. Make sure you are connected to the internet.", preferredStyle: .actionSheet)
-                x.addAction(UIAlertAction(title: "Try again", style: .default, handler: self.retry))
-                x.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-                self.present(x, animated: true) {}
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                if Phone.instance.token == nil {
+                    self.registerButton.isEnabled = false
+                    let x = UIAlertController(title: "Error", message: "Could not fetch the Apple notification token. Make sure you are connected to the internet.", preferredStyle: .actionSheet)
+                    x.addAction(UIAlertAction(title: "Try again", style: .default, handler: self.retry))
+                    x.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+                    self.present(x, animated: true) {}
+                }
             })
         } else {
             self.registerButton.isEnabled = true
@@ -110,7 +112,7 @@ class WelcomViewController: UIViewController {
     }
 
     func bisqMobileWebPagePressed(alert: UIAlertAction!) {
-        if let url = NSURL(string: "https://bisq.network/bisqmobile"){
+        if let url = NSURL(string: "https://bisq.network/mobile-notifications"){
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
     }
@@ -118,7 +120,7 @@ class WelcomViewController: UIViewController {
     @IBAction func helpPressed(_ sender: Any) {
         let x = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         x.addAction(UIAlertAction(title: "About Bisq", style: .default, handler: bisqWebPagePressed))
-        x.addAction(UIAlertAction(title: "About Bisq mobile", style: .default, handler: bisqMobileWebPagePressed))
+        x.addAction(UIAlertAction(title: "About mobile notifications", style: .default, handler: bisqMobileWebPagePressed))
         x.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(x, animated: true) {}
     }
