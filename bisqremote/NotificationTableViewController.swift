@@ -71,7 +71,7 @@ class NotificationTableViewController: UITableViewController {
         notification = NotificationArray.shared.at(n:indexPath.row)
         cell.comment.text = notification.title
         if notification.sentDate != nil {
-            let date = Date(timeIntervalSince1970: notification.sentDate!)
+            let date = Date(timeIntervalSince1970: notification.sentDate!*0.001)
             cell.timeEvent.text = dateformatterShort.string(from: date)
         }
         cell.iconLabel.isHidden = false

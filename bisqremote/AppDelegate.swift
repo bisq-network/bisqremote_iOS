@@ -38,6 +38,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Check if launched from a notification
         if let message = launchOptions?[.remoteNotification] as? [String: AnyObject] {
+            if UserDefaults.standard.bool(forKey: "showRawNotifications") {
+                let alert = UIAlertController(title: "Bisq notificaton", message: "message received while not in foreground", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
+                self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+            }
+
             processNotification(application: application, n: message)
             ("launchOptions "+message.description).bisqLog()
         }
@@ -66,6 +72,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        if UserDefaults.standard.bool(forKey: "showRawNotifications") {
+            let alert = UIAlertController(title: "Bisq notificaton", message: "Token received from Apple", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
+            self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        }
         let token = deviceToken.hexDescription
         Phone.instance.newToken(t: token)
         if let welcomeVC = navigationController?.topViewController as? WelcomViewController {
@@ -75,10 +86,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        failAltert()
+        failedToRegisterAltert()
     }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        if UserDefaults.standard.bool(forKey: "showRawNotifications") {
+            let alert = UIAlertController(title: "Bisq notificaton", message: "message received in foreground", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
+            self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        }
+
         ("didReceiveRemoteNotification "+userInfo.description).bisqLog()
         processNotification(application: application, n: userInfo)
 
@@ -97,25 +114,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController?.present(alert, animated: true, completion: nil)
     }
     
-    func failAltert() {
+    func failedToRegisterAltert() {
         let alert = UIAlertController(title: "Registration failed", message: "Cound not register with Apple Push notifications", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
         self.window?.rootViewController?.present(alert, animated: true, completion: nil)
     }
+    
     func rawNotificationAlert() {
         if UserDefaults.standard.bool(forKey: "showRawNotifications") {
-            if applicationCanShowAlert {
-                if rawNotification != nil {
-                    let paragraph = NSMutableParagraphStyle()
-                    paragraph.alignment = .left
-                    let attributedMessage = NSAttributedString(string: rawNotification!,
-                                                               attributes: [.paragraphStyle: paragraph])
-                    let alert = UIAlertController(title: "raw notificaton", message: "", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.setValue(attributedMessage, forKey: "attributedMessage")
-                    alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
-                    self.window?.rootViewController?.present(alert, animated: true, completion: nil)
-                    rawNotification = nil
-                }
+            if rawNotification != nil {
+                let paragraph = NSMutableParagraphStyle()
+                paragraph.alignment = .left
+                let attributedMessage = NSAttributedString(string: rawNotification!,
+                                                           attributes: [.paragraphStyle: paragraph])
+                let alert = UIAlertController(title: "raw notificaton", message: "", preferredStyle: UIAlertControllerStyle.alert)
+                alert.setValue(attributedMessage, forKey: "attributedMessage")
+                alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
+                self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+                rawNotification = nil
             }
         }
     }
@@ -129,13 +145,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if appIsStarting {"appIsStarting = true".bisqLog()}
         if !appIsStarting {"appIsStarting = false".bisqLog()}
 
+        rawNotification = n.description
+        rawNotificationAlert()
+
         if state == UIApplicationState.inactive && appIsStarting {
             "--> processNotification RETURN".bisqLog()
             return
         }
 
         ("processNotification "+n.description).bisqLog()
-        rawNotification = n.description
         if let message = n as? [String: AnyObject] {
             if let encrypted = message["encrypted"] as? String {
                 let x = encrypted.split(separator: Character(BISQ_MESSAGE_SEPARATOR))
@@ -152,10 +170,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         print("decrypted json: "+success!)
                         ("processNotification_decrypted "+success!).bisqLog()
                         NotificationArray.shared.addFromString(new: success!)
-                        rawNotification! += "\n\n\nDecrypted:\n"+success!
                     } else {
-                        print("decrypted json: COULD NOT DECRYPT")
-                        rawNotification! += "\n\n\nDecrypted:\nCOULD NOT DECRYPT"
+                        let alert = UIAlertController(title: "ERROR", message: "COULD NOT DECRYPT", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
+                        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
                     }
                     let navigationController = application.windows[0].rootViewController as! UINavigationController
                     if let topController = navigationController.topViewController {
@@ -166,7 +184,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-        rawNotificationAlert()
     }
 
     

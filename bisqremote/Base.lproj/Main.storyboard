@@ -300,7 +300,7 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="message" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATy-Bu-hqK">
                                 <rect key="frame" x="16" y="131" width="339" height="36.5"/>
-                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="oJp-uT-Gwv"/>
                                 </constraints>

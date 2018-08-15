@@ -36,28 +36,39 @@ class NotificationDetailViewController: UIViewController {
         messageTextView.layer.cornerRadius = 7
         dateformatterShort.dateFormat = BISQ_DATE_FORMAT
         if let n = notification {
-            titleLabel.text = n.title
-            messageTextView.isHidden = false
-            messageTextView.text = n.message
-            messageTextView.layoutIfNeeded()
-
-            messageTextView.text = n.message
+            if n.title != nil && n.title!.count > 0 {
+                titleLabel.text = n.title
+                titleLabel.isHidden = false
+            } else {
+                titleLabel.isHidden = true
+            }
+            if n.message != nil && n.message!.count > 0 {
+                messageTextView.text = n.message
+                messageTextView.isHidden = false
+            } else {
+                messageTextView.isHidden = true
+            }
             if n.sentDate != nil {
-                let date = Date(timeIntervalSince1970: n.sentDate!)
+                let date = Date(timeIntervalSince1970: n.sentDate!*0.001)
                 eventTimeLabel.text   = "event:    "+dateformatterShort.string(from: date)
+                eventTimeLabel.isHidden = false
+            } else {
+                eventTimeLabel.isHidden = true
             }
             receiveTimelabel.text = "received: "+dateformatterShort.string(from: n.timestampReceived)
             if n.txId != nil {
                 transactionID.text = "transaction ID: "+n.txId!
+                transactionID.isHidden = false
+            } else {
+                transactionID.isHidden = true
             }
-            actionTextview.isHidden = true
-            if n.actionRequired != nil {
-                if n.actionRequired!.count > 0 {
-                    actionTextview.isHidden = false
-                    actionTextview.text = n.actionRequired
-                    actionTextview.layoutIfNeeded()
-                    actionTextview.backgroundColor = UIColor(red: 255.0/255.0, green: 126.0/255.0, blue: 121.0/255.0, alpha: 0.5)
-                }
+            if n.actionRequired != nil && n.actionRequired!.count > 0 {
+                actionTextview.isHidden = false
+                actionTextview.text = n.actionRequired
+                actionTextview.layoutIfNeeded()
+                actionTextview.backgroundColor = UIColor(red: 255.0/255.0, green: 126.0/255.0, blue: 121.0/255.0, alpha: 0.5)
+            } else {
+                actionTextview.isHidden = true
             }
         }
     }

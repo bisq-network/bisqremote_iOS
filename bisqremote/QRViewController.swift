@@ -31,14 +31,6 @@ class QRViewController: UIViewController {
         }
     }
     
-    func confirmed() {
-        if Phone.instance.confirmed {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "congratulationsScreen")
-            self.navigationController?.setViewControllers([vc], animated: true)
-        }
-    }
-    
     @IBAction func emailPressed(_ sender: Any) {
     }
     

@@ -81,12 +81,9 @@ class RawNotification: Codable {
             UserDefaults.standard.set(Phone.instance.pairingToken(), forKey: userDefaultKeyPairingToken)
             UserDefaults.standard.synchronize()
             
-            if let qr = visibleController as? QRViewController {
-                qr.confirmed()
-            }
-            if let email = visibleController as? EmailViewController {
-                email.confirmed()
-            }
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "congratulationsScreen")
+            navigationController?.setViewControllers([vc], animated: true)
             break
         case NotificationType.ERASE.rawValue:
             Phone.instance.reset()
@@ -217,9 +214,9 @@ class NotificationArray {
         r.type = NotificationType.TRADE.rawValue
         r.title = "title"
         r.message = "message"
-        r.actionRequired = ""
+        r.actionRequired = nil
         r.txId = "293842038402983"
-        r.sentDate = 1533218519
+        r.sentDate = 1533218519000
         return r
     }
     
@@ -285,6 +282,7 @@ class NotificationArray {
             do {
                 let raw = try decoder.decode(RawNotification.self, from:data)
                 if raw.version >= 1 {
+                    let newNotification = Notification(raw: raw)
                     switch raw.type {
                     case NotificationType.SETUP_CONFIRMATION.rawValue,
                          NotificationType.ERASE.rawValue:
@@ -292,7 +290,7 @@ class NotificationArray {
                     default:
                         break
                     }
-                    addNotification(new: Notification(raw: raw))
+                    addNotification(new: newNotification)
                 }
             } catch {
                 addError(title: "Could not decrypt", message: "Sorry\n\nSomething went wrong when decrypting this notification. You could try to delete the app and install it again.")

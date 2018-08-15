@@ -25,27 +25,8 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
     @IBOutlet weak var instructionsLabel: UILabel!
     @IBOutlet weak var resendEmailButton: UIButton!
     
-//    func delay(_ delay:Double, closure:@escaping ()->()) {
-//        let when = DispatchTime.now() + delay
-//        DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
-//    }
-    
     override func viewWillAppear(_ animated: Bool) {
-        update()
         instructionsLabel.highlightedTextColor = UIColor.green
-    }
-    
-    func confirmed() {
-        update()
-    }
-
-    func update() {
-        if Phone.instance.confirmed {
-            instructionsLabel.text = "Congratulations, you are all set."
-            instructionsLabel.textAlignment = .center
-            instructionsLabel.isHidden = false
-            resendEmailButton.setTitle("Show notifications", for: .normal)
-        }
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
