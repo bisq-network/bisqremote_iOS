@@ -67,7 +67,12 @@ class WelcomViewController: UIViewController {
 
         navigationController?.navigationBar.backgroundColor = view.backgroundColor
         
-        #if !targetEnvironment(simulator)
+        #if targetEnvironment(simulator)
+//        Phone.instance.key = "A4C595428CAA4C768F60AE7EBFF85852"
+//        Phone.instance.token = "d45161df3d172837f1b83bb3e411d5a63120de6b435ff9235adb70d619d162a1"
+//        Phone.instance.confirmed = true
+//        self.registerButton.isEnabled = false
+         #else
         if Phone.instance.token == nil {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                 self.checkForToken()
