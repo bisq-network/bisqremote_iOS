@@ -40,7 +40,7 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
                 mail.mailComposeDelegate = self
                 mail.setSubject("Bisq Pairing token")
                 mail.title = "Send mail to yourself"
-                var messageBody = "Please copy this Pairing token into the field \"Pairing token\" in the Bisq App:\n\n"
+                var messageBody = "Please open the Bisq desktop app on your computer and go to Account -> Notifications. Then copy this Pairing token into the field \"Pairing token\":\n\n"
                 messageBody += phoneDescription+"\n\n"
                 messageBody += "The Pairing token contains your excryption key (AES/CBC/NOPadding with initialization vector) which is used by Bisq to encrypt the notifications for you and a token from Apple that identifies this instance of the Bisq remote app."
                 mail.setMessageBody(messageBody, isHTML: false)
