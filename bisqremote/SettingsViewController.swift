@@ -118,8 +118,21 @@ class SettingsViewController: UIViewController {
         NotificationArray.shared.markAllAsRead()
         navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func deleteAllPressed(_ sender: Any) {
         NotificationArray.shared.deleteAll()
         navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func aboutBisqPressed(_ sender: Any) {
+        if let url = NSURL(string: "https://bisq.network"){
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        }
+    }
+    
+    @IBAction func aboutMobileNotificationsPressed(_ sender: Any) {
+        if let url = NSURL(string: "https://bisq.network/mobile-notifications"){
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        }
     }
 }

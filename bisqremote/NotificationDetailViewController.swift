@@ -73,7 +73,7 @@ class NotificationDetailViewController: UIViewController {
         }
     }
     @IBAction func deletePressed(_ sender: Any) {
-        NotificationArray.shared.remove(n: index)
+        NotificationArray.shared.removeNotification(toBeDeleted: notification!)
         navigationController?.popViewController(animated: true)
     }
     
