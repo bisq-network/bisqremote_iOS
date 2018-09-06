@@ -230,7 +230,7 @@ class NotificationArray {
         r.type = NotificationType.TRADE.rawValue
         r.title = "title"
         r.message = "message"
-        r.actionRequired = nil
+        r.actionRequired = ""
         r.txId = "293842038402983"
         r.sentDate = 1533218519000
         return r

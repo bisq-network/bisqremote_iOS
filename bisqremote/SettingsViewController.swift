@@ -87,28 +87,28 @@ class SettingsViewController: UIViewController {
         if (SettingsViewController.typeIndex % 5) == 0 {
             new.type = "TRADE"
             new.title = "(example) Trade confirmed"
-            new.message = "(example) The trade with ID 38765384 is confirmed."
+            new.message = "The trade with ID 38765384 is confirmed."
         }
         if (SettingsViewController.typeIndex % 5) == 1 {
             new.type = "OFFER"
             new.title = "(example) Offer taken"
-            new.message = "(example) Your offer with ID 39847534 was taken"
+            new.message = "Your offer with ID 39847534 was taken"
         }
         if (SettingsViewController.typeIndex % 5) == 2 {
             new.type = "DISPUTE"
             new.title = "(example) Dispute message"
-            new.actionRequired = "(example) Please contact the arbitrator"
-            new.message = "(example) You received a dispute message for trade with ID 34059340"
+            new.actionRequired = "Please contact the arbitrator"
+            new.message = "You received a dispute message for trade with ID 34059340"
         }
         if (SettingsViewController.typeIndex % 5) == 3 {
             new.type = "PRICE"
             new.title = "(example) Price below 5000 Euro"
-            new.message = "(example) Your price alert got triggered. The current Euro price is below 5000"
+            new.message = "Your price alert got triggered. The current Euro price is below 5000"
         }
         if (SettingsViewController.typeIndex % 5) == 4 {
             new.type = "MARKET"
             new.title = "(example) New offer"
-            new.message = "(example) A new offer offer with price 5600 Euro (5% below market price) and payment method SEPA was published to the Bisq offerbook.\nThe offer ID is 34534"
+            new.message = "A new offer offer with price 5600 Euro (5% below market price) and payment method SEPA was published to the Bisq offerbook.\nThe offer ID is 34534"
         }
         SettingsViewController.typeIndex += 1
         NotificationArray.shared.addNotification(new: new)

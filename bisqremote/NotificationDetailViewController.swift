@@ -27,15 +27,28 @@ class NotificationDetailViewController: UIViewController {
     @IBOutlet weak var receiveTimelabel: UILabel!
     @IBOutlet weak var transactionID: UILabel!
     @IBOutlet weak var messageTextView: UITextView!
+    @IBOutlet weak var priceInfoTextView: UITextView!
     @IBOutlet weak var actionTextview: UITextView!
 
+    let BITCOINAVERAGE_URL = "https://apiv2.bitcoinaverage.com/indices/global/ticker/BTCEUR"
+    var priceString = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         title = "" // empty navigationBar
         actionTextview.layer.cornerRadius = 7
         messageTextView.layer.cornerRadius = 7
+        priceInfoTextView.layer.cornerRadius = 7
         dateformatterShort.dateFormat = BISQ_DATE_FORMAT
         if let n = notification {
+            if n.type == NotificationType.MARKET.rawValue {
+                priceInfoTextView.isHidden = false
+                priceInfoTextView.text = "fetching..."
+                getAveragePrice();
+            } else {
+                priceInfoTextView.isHidden = true
+            }
             if n.title != nil && n.title!.count > 0 {
                 titleLabel.text = n.title
                 titleLabel.isHidden = false
@@ -72,6 +85,26 @@ class NotificationDetailViewController: UIViewController {
             }
         }
     }
+    
+    func getAveragePrice(){
+        let url = NSURL(string: BITCOINAVERAGE_URL)
+        URLSession.shared.dataTask(with: (url as URL?)!, completionHandler: {(data, response, error) -> Void in
+            if let jsonObj = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary {
+                print(jsonObj!.value(forKey: "last")!)
+                if let lastPrice = jsonObj!.value(forKey: "last") {
+                    self.priceString = "Info: the current bitcoin average price is \(lastPrice) USD"
+                }
+                OperationQueue.main.addOperation({
+                    self.showPrice()
+                })
+            }
+        }).resume()
+    }
+    
+    func showPrice(){
+        self.priceInfoTextView.text = priceString
+    }
+    
     @IBAction func deletePressed(_ sender: Any) {
         NotificationArray.shared.removeNotification(toBeDeleted: notification!)
         navigationController?.popViewController(animated: true)
