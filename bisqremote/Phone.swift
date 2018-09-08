@@ -52,10 +52,28 @@ class Phone {
     
     func newToken(t: String) {
         token = t
-        key = UUID().uuidString.replacingOccurrences(of: "-", with: "")
+        let uuid1 = UUID().uuidString.replacingOccurrences(of: "-", with: "")
+        let uuid2 = UUID().uuidString.replacingOccurrences(of: "-", with: "")
+        let data = dataWithHexString(hex: uuid1+uuid2)
+        let key_long = data.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
+        key = key_long.trunc(length: 32, trailing:"")
         confirmed = false
     }
-    
+
+    func dataWithHexString(hex: String) -> Data {
+        var hex = hex
+        var data = Data()
+        while(hex.count > 0) {
+            let subIndex = hex.index(hex.startIndex, offsetBy: 2)
+            let c = String(hex[..<subIndex])
+            hex = String(hex[subIndex...])
+            var ch: UInt32 = 0
+            Scanner(string: c).scanHexInt32(&ch)
+            var char = UInt8(ch)
+            data.append(&char, count: 1)
+        }
+        return data
+    }
     
     func reset() {
         UserDefaults.standard.removeObject(forKey: userDefaultKeyPairingToken)
@@ -146,3 +164,17 @@ public extension UIDevice {
     }()
     
 }
+
+extension String {
+    /*
+     Truncates the string to the specified length number of characters and appends an optional trailing string if longer.
+     - Parameter length: Desired maximum lengths of a string
+     - Parameter trailing: A 'String' that will be appended after the truncation.
+     
+     - Returns: 'String' object.
+     */
+    func trunc(length: Int, trailing: String = "…") -> String {
+        return (self.count > length) ? self.prefix(length) + trailing : self
+    }
+}
+
