@@ -37,8 +37,8 @@ class SettingsViewController: UIViewController {
             markAllAsReadButton.isHidden = false
             addNotificationButton.isHidden = false
         case .AppStore:
-            markAllAsReadButton.isHidden = true
-            addNotificationButton.isHidden = true
+            markAllAsReadButton.isHidden = false
+            addNotificationButton.isHidden = false
         }
         updateFooter()
     }
