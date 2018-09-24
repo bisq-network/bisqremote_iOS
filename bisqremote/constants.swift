@@ -30,9 +30,10 @@ let BISQ_MESSAGE_IOS_MAGIC:     String = "BisqMessageiOS"
 
 let BISQ_MESSAGE_SEPARATOR = "|" // must be a single character
 
-let TINTCOLOR_GREEN = UIColor(red: 37.0/255.0, green: 177.0/255.0, blue: 53.0/255.0, alpha: 1.0)
-let TINTCOLOR_BLUE = UIColor(red: 15.0/255.0, green: 134.0/255.0, blue: 195.0/255.0, alpha: 1.0)
-let TINTCOLOR_BLUE_DISABLED = UIColor(red: 127.0/255.0, green: 181.0/255.0, blue: 213.0/255.0, alpha: 1.0)
+let TINTCOLOR_GREEN =          UIColor(red:  37.0/255.0,  green: 177.0/255.0, blue:  53.0/255.0, alpha: 1.0)
+let TINTCOLOR_GREEN_DISABLED = UIColor(red: 162.0/255.0,  green: 218.0/255.0, blue: 141.0/255.0, alpha: 1.0)
+//let TINTCOLOR_BLUE =           UIColor(red:  15.0/255.0,  green: 134.0/255.0, blue: 195.0/255.0, alpha: 1.0)
+//let TINTCOLOR_BLUE_DISABLED =  UIColor(red: 127.0/255.0,  green: 181.0/255.0, blue: 213.0/255.0, alpha: 1.0)
 
 let BISQ_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss"
 

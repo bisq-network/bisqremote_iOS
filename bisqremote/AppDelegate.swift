@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         navigationController = application.windows[0].rootViewController as? UINavigationController
 
-        window?.tintColor =  TINTCOLOR_BLUE
+        window?.tintColor =  TINTCOLOR_GREEN
 
         // Check if launched from a notification
         if let message = launchOptions?[.remoteNotification] as? [String: AnyObject] {

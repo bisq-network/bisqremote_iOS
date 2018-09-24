@@ -78,10 +78,10 @@ class NotificationTableViewController: UITableViewController {
         
         if notification.read {
             cell.comment.textColor = UIColor.gray
-            cell.iconLabel.textColor = TINTCOLOR_BLUE_DISABLED
+            cell.iconLabel.textColor = TINTCOLOR_GREEN_DISABLED
         } else {
             cell.comment.textColor = UIColor.black
-            cell.iconLabel.textColor = TINTCOLOR_BLUE
+            cell.iconLabel.textColor = TINTCOLOR_GREEN
         }
         switch notification.type {
         case NotificationType.TRADE.rawValue:

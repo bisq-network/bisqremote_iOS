@@ -38,7 +38,9 @@
                                     <constraint firstAttribute="height" constant="30" id="nrE-oK-vOe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Learn more"/>
+                                <state key="normal" title="Learn more">
+                                    <color key="titleColor" red="0.1450980392" green="0.69411764710000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="helpPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jub-Ce-XAy"/>
                                 </connections>
@@ -49,7 +51,9 @@
                                     <constraint firstAttribute="height" constant="30" id="NuK-BN-7et"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Pair"/>
+                                <state key="normal" title="Pair">
+                                    <color key="titleColor" red="0.14509803921568626" green="0.69411764705882351" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="cUX-nQ-faw" kind="show" identifier="PairSegue" id="BQU-da-3PA"/>
                                 </connections>
@@ -127,7 +131,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="E3K-DT-j13"/>
                                 </constraints>
-                                <state key="normal" title="Send token to myself"/>
+                                <state key="normal" title="Send token to myself">
+                                    <color key="titleColor" red="0.1450980392" green="0.69411764710000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="emailPressed:" destination="cUX-nQ-faw" eventType="touchUpInside" id="ubl-fF-Ulv"/>
                                     <segue destination="T7q-Gp-CGR" kind="show" identifier="emailSeque" id="v02-AC-a8V"/>
@@ -178,7 +184,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="53D-Ov-0Yz">
                                 <rect key="frame" x="108.5" y="475" width="103" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Resend email"/>
+                                <state key="normal" title="Resend email">
+                                    <color key="titleColor" red="0.1450980392" green="0.69411764710000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="emailButtonPressed:" destination="cUX-nQ-faw" eventType="touchUpInside" id="Gl0-xU-ew1"/>
                                     <action selector="emailButtonPressed:" destination="T7q-Gp-CGR" eventType="touchUpInside" id="VZd-pG-AG3"/>
@@ -238,7 +246,9 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDw-e2-Taq">
                                 <rect key="frame" x="89.5" y="505" width="141" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Show notifications"/>
+                                <state key="normal" title="Show notifications">
+                                    <color key="titleColor" red="0.1450980392" green="0.69411764710000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="emailButtonPressed:" destination="cUX-nQ-faw" eventType="touchUpInside" id="AR6-OA-nhp"/>
                                     <action selector="emailButtonPressed:" destination="T7q-Gp-CGR" eventType="touchUpInside" id="cXg-bS-Xfr"/>
@@ -599,5 +609,5 @@ Then open the email and paste the Pairing token into the Bisq.  Your phone w
     <inferredMetricsTieBreakers>
         <segue reference="WNW-kD-TTe"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.058823529411764705" green="0.52549019607843139" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.1450980392" green="0.69411764710000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>
