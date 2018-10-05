@@ -18,7 +18,6 @@
 		BE303D8220FCA96000226F7C /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303D7E20FCA95F00226F7C /* QRViewController.swift */; };
 		BE303D8320FCA96000226F7C /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303D7F20FCA95F00226F7C /* EmailViewController.swift */; };
 		BE31BFC820C44A8D008F79C6 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE31BFC720C44A8D008F79C6 /* NotificationTableViewCell.swift */; };
-		BE899FBE20F3E8450027D35B /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEE7F4EE20F3E589003B0CC9 /* CryptoSwift.framework */; };
 		BE899FBF20F3E8450027D35B /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BEE7F4EE20F3E589003B0CC9 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE92215020C49B9B00F8EB93 /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92214F20C49B9B00F8EB93 /* NotificationTableViewController.swift */; };
 		BE92215420C49C6F00F8EB93 /* BisqNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92215320C49C6F00F8EB93 /* BisqNotification.swift */; };
@@ -75,7 +74,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEE7F4EF20F3E589003B0CC9 /* CryptoSwift.framework in Frameworks */,
-				BE899FBE20F3E8450027D35B /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,7 +169,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "joachim Neumann";
 				TargetAttributes = {
 					BEFB45E520C34BC10052C91A = {
