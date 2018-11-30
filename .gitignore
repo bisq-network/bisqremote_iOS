@@ -1,5 +1,6 @@
 # Xcode
 .DS_Store
+bisqremote.xcworkspace
 */build/*
 *.pbxuser
 !default.pbxuser
