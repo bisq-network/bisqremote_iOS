@@ -34,7 +34,7 @@ class WelcomViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(checkForToken),
-                                               name: NSNotification.Name.UIApplicationWillEnterForeground,
+                                               name: UIApplication.willEnterForegroundNotification,
                                                object: nil)
         
         Phone.instance.reset()
