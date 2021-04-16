@@ -45,6 +45,13 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
                 messageBody += "The Pairing token contains your encryption key (AES/CBC/NOPadding with initialization vector) which is used by Bisq to encrypt the notifications for you and a token from Apple that identifies this instance of the Bisq remote app."
                 mail.setMessageBody(messageBody, isHTML: false)
                 present(mail, animated: true)
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Unable to send email. The default mail app may not be configured.", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Copy Token to Clipboard", style: .default, handler{ action in
+                    UIPasteboard.general.string = phoneDescription
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+                present(alert, animated: true)
             }
         }
     }
