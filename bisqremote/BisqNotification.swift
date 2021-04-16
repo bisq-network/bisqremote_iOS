@@ -300,11 +300,10 @@ class NotificationArray {
                 if raw.version >= 1 {
                     let newNotification = Notification(raw: raw)
                     switch raw.type {
-                    case NotificationType.SETUP_CONFIRMATION.rawValue,
-                         NotificationType.ERASE.rawValue:
-                        return // no need to add to array
-                    default:
-                        break
+                        case NotificationType.SETUP_CONFIRMATION.rawValue, NotificationType.ERASE.rawValue:
+                            return // no need to add to array
+                        default:
+                            break
                     }
                     addNotification(new: newNotification)
                 }
