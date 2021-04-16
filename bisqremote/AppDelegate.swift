@@ -110,13 +110,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if appIsStarting {b = "true"}
         let m = "I have received something, state="+sateString+" appIsStarting="+b
         let alert = UIAlertController(title: "Notification", message: m, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "ok", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.window?.rootViewController?.present(alert, animated: true, completion: nil)
     }
     
     func failedToRegisterAltert() {
-        let alert = UIAlertController(title: "Registration failed", message: "Cound not register with Apple Push notifications", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "ok", style: UIAlertAction.Style.default, handler: nil))
+        let alert = UIAlertController(title: "Registration failed", message: "Could not register with Apple Push notifications", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.window?.rootViewController?.present(alert, animated: true, completion: nil)
     }
     
@@ -172,7 +172,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         NotificationArray.shared.addFromString(new: success!)
                     } else {
                         let alert = UIAlertController(title: "ERROR", message: "COULD NOT DECRYPT", preferredStyle: UIAlertController.Style.alert)
-                        alert.addAction(UIAlertAction(title: "ok", style: UIAlertAction.Style.default, handler: nil))
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                         self.window?.rootViewController?.present(alert, animated: true, completion: nil)
                     }
                     let navigationController = application.windows[0].rootViewController as! UINavigationController
