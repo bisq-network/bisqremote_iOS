@@ -172,7 +172,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 1000;
-				ORGANIZATIONNAME = "joachim Neumann";
+				ORGANIZATIONNAME = "Devin Bileck";
 				TargetAttributes = {
 					BEFB45E520C34BC10052C91A = {
 						CreatedOnToolsVersion = 9.4;
@@ -408,7 +408,8 @@
 				CODE_SIGN_ENTITLEMENTS = bisqremote/bisqremote.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8A4DL788W9;
+				CURRENT_PROJECT_VERSION = 66;
+				DEVELOPMENT_TEAM = 9NCG2D47WB;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -441,7 +442,8 @@
 				CODE_SIGN_ENTITLEMENTS = bisqremote/bisqremote.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8A4DL788W9;
+				CURRENT_PROJECT_VERSION = 66;
+				DEVELOPMENT_TEAM = 9NCG2D47WB;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
