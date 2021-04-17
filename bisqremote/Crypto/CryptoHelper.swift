@@ -26,7 +26,6 @@ class CryptoHelper{
         } catch {
             fatalError("could not encrypt")
         }
-        return nil
     }
     
     public static func decrypt(input:String)->String?{
@@ -49,6 +48,5 @@ class CryptoHelper{
         } catch {
             print("could not decrypt "+input)
         }
-        return nil
     }
 }
