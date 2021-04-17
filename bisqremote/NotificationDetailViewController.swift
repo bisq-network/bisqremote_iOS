@@ -89,7 +89,7 @@ class NotificationDetailViewController: UIViewController {
     func getAveragePrice(){
         let url = NSURL(string: BITCOINAVERAGE_URL)
         URLSession.shared.dataTask(with: (url as URL?)!, completionHandler: {(data, response, error) -> Void in
-            if let jsonObj = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary {
+            if let jsonObj = ((try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary) as NSDictionary??) {
                 print(jsonObj!.value(forKey: "last")!)
                 if let lastPrice = jsonObj!.value(forKey: "last") {
                     self.priceString = "Info: the current bitcoin average price is \(lastPrice) USD"

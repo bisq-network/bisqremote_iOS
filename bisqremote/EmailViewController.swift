@@ -46,8 +46,8 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
                 mail.setMessageBody(messageBody, isHTML: false)
                 present(mail, animated: true)
             } else {
-                let alert = UIAlertController(title: "Error", message: "Unable to send email. The default mail app may not be configured.", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Copy Token to Clipboard", style: .default, handler{ action in
+                let alert = UIAlertController(title: "Error", message: "Unable to send email. The default mail app may not be configured.", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Copy Token to Clipboard", style: .default, handler: { action in
                     UIPasteboard.general.string = phoneDescription
                 }))
                 alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
