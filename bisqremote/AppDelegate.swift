@@ -86,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        failedToRegisterAltert()
+        failedToRegisterAlert()
     }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
@@ -114,7 +114,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController?.present(alert, animated: true, completion: nil)
     }
     
-    func failedToRegisterAltert() {
+    func failedToRegisterAlert() {
         let alert = UIAlertController(title: "Registration failed", message: "Could not register with Apple Push notifications", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.window?.rootViewController?.present(alert, animated: true, completion: nil)
