@@ -46,7 +46,7 @@ class CryptoHelper{
             let decryptedString = String(data: Data(decrypted), encoding: .utf8)
             return decryptedString
         } catch {
-            print("could not decrypt "+input)
+            fatalError("could not decrypt "+input)
         }
     }
 }
