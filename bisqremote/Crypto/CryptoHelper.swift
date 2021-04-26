@@ -26,7 +26,6 @@ class CryptoHelper{
         } catch {
             fatalError("could not encrypt")
         }
-        return nil
     }
     
     public static func decrypt(input:String)->String?{
@@ -47,8 +46,7 @@ class CryptoHelper{
             let decryptedString = String(data: Data(decrypted), encoding: .utf8)
             return decryptedString
         } catch {
-            print("could not decrypt "+input)
+            fatalError("could not decrypt "+input)
         }
-        return nil
     }
 }

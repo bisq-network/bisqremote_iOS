@@ -42,9 +42,16 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
                 mail.title = "Send mail to yourself"
                 var messageBody = "Please open the Bisq desktop app on your computer and go to Account -> Notifications. Then copy this Pairing token into the field \"Pairing token\":\n\n"
                 messageBody += phoneDescription+"\n\n"
-                messageBody += "The Pairing token contains your excryption key (AES/CBC/NOPadding with initialization vector) which is used by Bisq to encrypt the notifications for you and a token from Apple that identifies this instance of the Bisq remote app."
+                messageBody += "The Pairing token contains your encryption key (AES/CBC/NOPadding with initialization vector) which is used by Bisq to encrypt the notifications for you and a token from Apple that identifies this instance of the Bisq remote app."
                 mail.setMessageBody(messageBody, isHTML: false)
                 present(mail, animated: true)
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Unable to send email. The default mail app may not be configured.", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Copy Token to Clipboard", style: .default, handler: { action in
+                    UIPasteboard.general.string = phoneDescription
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+                present(alert, animated: true)
             }
         }
     }
