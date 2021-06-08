@@ -1,4 +1,3 @@
-//
 /*
  * This file is part of Bisq.
  *
@@ -112,7 +111,7 @@ class WelcomViewController: UIViewController {
     @IBAction func helpPressed(_ sender: Any) {
         let x = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         x.addAction(UIAlertAction(title: "About Bisq", style: .default, handler: bisqWebPagePressed))
-        x.addAction(UIAlertAction(title: "About mobile notifications", style: .default, handler: bisqMobileWebPagePressed))
+        x.addAction(UIAlertAction(title: "About this application", style: .default, handler: bisqMobileWebPagePressed))
         x.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(x, animated: true) {}
     }
