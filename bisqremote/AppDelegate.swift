@@ -35,7 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationController = application.windows[0].rootViewController as? UINavigationController
 
         window?.tintColor =  TINTCOLOR_GREEN
-
+        
+        if #available(iOS 13.0, *) {
+            window!.overrideUserInterfaceStyle = .light
+        }
+        
         // Check if launched from a notification
         if let message = launchOptions?[.remoteNotification] as? [String: AnyObject] {
             if UserDefaults.standard.bool(forKey: "showRawNotifications") {
