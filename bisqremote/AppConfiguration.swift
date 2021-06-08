@@ -1,4 +1,3 @@
-//
 /*
  * This file is part of Bisq.
  *
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with Bisq. If not, see <http://www.gnu.org/licenses/>.
  */
-
 
 // based on https://stackoverflow.com/questions/26081543/how-to-tell-at-runtime-whether-an-ios-app-is-running-through-a-testflight-beta-i
 

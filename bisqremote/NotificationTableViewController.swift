@@ -1,4 +1,3 @@
-//
 /*
  * This file is part of Bisq.
  *
@@ -100,7 +99,6 @@ class NotificationTableViewController: UITableViewController {
         return cell
     }
 
-
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -147,7 +145,6 @@ class NotificationTableViewController: UITableViewController {
     }
     
 }
-
 
 extension Dictionary {
     var prettyPrintedJSON: String {

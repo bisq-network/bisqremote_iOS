@@ -1,4 +1,3 @@
-//
 /*
  * This file is part of Bisq.
  *
@@ -86,7 +85,7 @@ class NotificationDetailViewController: UIViewController {
         }
     }
     
-    func getAveragePrice(){
+    func getAveragePrice() {
         let url = NSURL(string: BITCOINAVERAGE_URL)
         URLSession.shared.dataTask(with: (url as URL?)!, completionHandler: {(data, response, error) -> Void in
             if let jsonObj = ((try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary) as NSDictionary??) {
@@ -101,7 +100,7 @@ class NotificationDetailViewController: UIViewController {
         }).resume()
     }
     
-    func showPrice(){
+    func showPrice() {
         self.priceInfoTextView.text = priceString
     }
     

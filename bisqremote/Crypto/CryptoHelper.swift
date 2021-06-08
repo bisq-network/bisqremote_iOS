@@ -8,12 +8,12 @@
 import Foundation
 import CryptoSwift
 
-class CryptoHelper{
+class CryptoHelper {
     
     public static var iv: String = ""
     public static var key = ""
     
-    public static func encrypt(input:String)->String?{
+    public static func encrypt(input:String) -> String? {
         do {
             if iv.count != 16 {
                 fatalError("iv not 16 characters")
@@ -28,7 +28,7 @@ class CryptoHelper{
         }
     }
     
-    public static func decrypt(input:String)->String?{
+    public static func decrypt(input:String) -> String? {
         do {
             if iv.count != 16 {
                 fatalError("iv not 16 characters")
@@ -46,7 +46,7 @@ class CryptoHelper{
             let decryptedString = String(data: Data(decrypted), encoding: .utf8)
             return decryptedString
         } catch {
-            fatalError("could not decrypt "+input)
+            fatalError("Could not decrypt "+input)
         }
     }
 }

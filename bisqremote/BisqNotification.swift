@@ -1,4 +1,3 @@
-//
 /*
  * This file is part of Bisq.
  *
@@ -102,7 +101,7 @@ class RawNotification: Codable {
              NotificationType.ERROR.rawValue:
             break
         default:
-            print("unknown notificationType \(type!)")
+            print("Unknown notificationType \(type!)")
         }
     }
     
@@ -370,4 +369,3 @@ class NotificationArray {
     }
 
 }
-

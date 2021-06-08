@@ -1,4 +1,3 @@
-//
 /*
  * This file is part of Bisq.
  *
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with Bisq. If not, see <http://www.gnu.org/licenses/>.
  */
-
 
 import UIKit
 import MessageUI
