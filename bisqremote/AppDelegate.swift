@@ -54,14 +54,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             processNotification(application: application, n: message)
             ("launchOptions " + message.description).bisqLog()
         }
-
-        #if targetEnvironment(simulator)
-        Phone.instance.key = "A4C595428CAA4C768F60AE7EBFF85852"
-        Phone.instance.token = "d45161df3d172837f1b83bb3e411d5a63120de6b435ff9235adb70d619d162a1"
-        Phone.instance.confirmed = true
-        let vc = storyboard.instantiateViewController(withIdentifier: "listScreen") as! NotificationTableViewController
-        navigationController?.setViewControllers([vc], animated: false)
-        #endif
         
         // No Setup needed? --> List of Notifications
         if UserDefaults.standard.string(forKey: userDefaultKeyPairingToken) != nil {
