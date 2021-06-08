@@ -18,7 +18,7 @@
 import UIKit
 import UserNotifications
 
-class WelcomViewController: UIViewController {
+class WelcomeViewController: UIViewController {
 
     @IBOutlet weak var welcomeText: UILabel!
     @IBOutlet weak var registerButton: UIButton!

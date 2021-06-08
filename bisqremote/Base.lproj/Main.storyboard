@@ -20,7 +20,7 @@
         <!--Welcome-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="welcomeScreen" title="Welcome" id="BYZ-38-t0r" customClass="WelcomViewController" customModule="bisqremote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="welcomeScreen" title="Welcome" id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="bisqremote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
