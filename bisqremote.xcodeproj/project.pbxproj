@@ -18,7 +18,7 @@
 		BE303D8020FCA96000226F7C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303D7C20FCA95F00226F7C /* WelcomeViewController.swift */; };
 		BE303D8120FCA96000226F7C /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303D7D20FCA95F00226F7C /* AppConfiguration.swift */; };
 		BE303D8220FCA96000226F7C /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303D7E20FCA95F00226F7C /* QRViewController.swift */; };
-		BE303D8320FCA96000226F7C /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303D7F20FCA95F00226F7C /* EmailViewController.swift */; };
+		BE303D8320FCA96000226F7C /* SendTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303D7F20FCA95F00226F7C /* SendTokenViewController.swift */; };
 		BE31BFC820C44A8D008F79C6 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE31BFC720C44A8D008F79C6 /* NotificationTableViewCell.swift */; };
 		BE92215020C49B9B00F8EB93 /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92214F20C49B9B00F8EB93 /* NotificationTableViewController.swift */; };
 		BE92215420C49C6F00F8EB93 /* BisqNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92215320C49C6F00F8EB93 /* BisqNotification.swift */; };
@@ -54,7 +54,7 @@
 		BE303D7C20FCA95F00226F7C /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		BE303D7D20FCA95F00226F7C /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		BE303D7E20FCA95F00226F7C /* QRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
-		BE303D7F20FCA95F00226F7C /* EmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
+		BE303D7F20FCA95F00226F7C /* SendTokenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendTokenViewController.swift; sourceTree = "<group>"; };
 		BE31BFC720C44A8D008F79C6 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		BE92214F20C49B9B00F8EB93 /* NotificationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewController.swift; sourceTree = "<group>"; };
 		BE92215320C49C6F00F8EB93 /* BisqNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BisqNotification.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 			children = (
 				AA4447BC20FDB2780071DA70 /* FontAwesome.otf */,
 				BE303D7D20FCA95F00226F7C /* AppConfiguration.swift */,
-				BE303D7F20FCA95F00226F7C /* EmailViewController.swift */,
+				BE303D7F20FCA95F00226F7C /* SendTokenViewController.swift */,
 				BE303D7E20FCA95F00226F7C /* QRViewController.swift */,
 				BE303D7C20FCA95F00226F7C /* WelcomeViewController.swift */,
 				AAECD59E20D3098300F80E3A /* Crypto */,
@@ -253,7 +253,7 @@
 				AABC359B20DCD3C5008DDD26 /* Phone.swift in Sources */,
 				AA811D8B20D2ABBC00F7CFBA /* constants.swift in Sources */,
 				BE303D8120FCA96000226F7C /* AppConfiguration.swift in Sources */,
-				BE303D8320FCA96000226F7C /* EmailViewController.swift in Sources */,
+				BE303D8320FCA96000226F7C /* SendTokenViewController.swift in Sources */,
 				BE92215620C4AC0700F8EB93 /* NotificationDetailViewController.swift in Sources */,
 				BE92215020C49B9B00F8EB93 /* NotificationTableViewController.swift in Sources */,
 				AAF7B46920DAFD8A008237EA /* CryptoHelper.swift in Sources */,

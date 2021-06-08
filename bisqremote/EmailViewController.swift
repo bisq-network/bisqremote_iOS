@@ -18,7 +18,7 @@
 import UIKit
 import MessageUI
 
-class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class SendTokenViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var instructionsLabel: UILabel!
     @IBOutlet weak var resendEmailButton: UIButton!
@@ -27,7 +27,8 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
         instructionsLabel.highlightedTextColor = UIColor.green
     }
     
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true)
     }
     
@@ -36,8 +37,8 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
             if MFMailComposeViewController.canSendMail() {
                 let mail = MFMailComposeViewController()
                 mail.mailComposeDelegate = self
-                mail.setSubject("Bisq Pairing token")
-                mail.title = "Send mail to yourself"
+                mail.setSubject("Bisq Pairing Token")
+                mail.title = "Send email to yourself"
                 var messageBody = "Please open the Bisq desktop app on your computer and go to Account -> Notifications. Then copy this Pairing token into the field \"Pairing token\":\n\n"
                 messageBody += phoneDescription+"\n\n"
                 messageBody += "The Pairing token contains your encryption key (AES/CBC/NOPadding with initialization vector) which is used by Bisq to encrypt the notifications for you and a token from Apple that identifies this instance of the Bisq remote app."
@@ -63,5 +64,21 @@ class EmailViewController: UIViewController, MFMailComposeViewControllerDelegate
         } else {
             sendEmail()
         }
+    }
+    
+    @IBAction func shareButtonPressed(_ sender: UIButton) {
+        // text to share
+        let text = Phone.instance.pairingToken()
+    
+        // set up activity view controller
+        let textToShare = [ text ]
+        let activityViewController = UIActivityViewController(activityItems: textToShare as [Any], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+    
+        // exclude some activity types from the list (optional)
+        activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+    
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
     }
 }
