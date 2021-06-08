@@ -34,10 +34,10 @@ class SettingsViewController: UIViewController {
             addNotificationButton.isHidden = false
         case .TestFlight:
             markAllAsReadButton.isHidden = false
-            addNotificationButton.isHidden = false
+            addNotificationButton.isHidden = true
         case .AppStore:
             markAllAsReadButton.isHidden = false
-            addNotificationButton.isHidden = false
+            addNotificationButton.isHidden = true
         }
         updateFooter()
     }
