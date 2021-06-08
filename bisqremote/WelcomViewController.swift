@@ -26,11 +26,6 @@ class WelcomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerButton.isEnabled = false
-        
-        #if targetEnvironment(simulator)
-        registerButton.isEnabled = true
-        #endif
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(checkForToken),
