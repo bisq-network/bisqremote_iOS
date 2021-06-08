@@ -68,7 +68,6 @@ class RawNotification: Codable {
         }
 
         let navigationController = UIApplication.shared.windows[0].rootViewController as? UINavigationController
-        let visibleController = navigationController?.visibleViewController
 
         guard type != nil else { return }
         switch type {
@@ -86,12 +85,9 @@ class RawNotification: Codable {
             break
         case NotificationType.ERASE.rawValue:
             Phone.instance.reset()
-            if let vc = visibleController as? NotificationTableViewController {
-                vc.reload()
-            }
-            if let _ = visibleController as? NotificationDetailViewController {
-                navigationController?.popViewController(animated: true)
-            }
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "welcomeScreen")
+            navigationController?.setViewControllers([vc], animated: true)
             break
         case NotificationType.OFFER.rawValue,
              NotificationType.TRADE.rawValue,
