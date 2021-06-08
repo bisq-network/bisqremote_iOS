@@ -27,6 +27,15 @@ class QRViewController: UIViewController {
             qrImage.contentMode = .scaleAspectFit
             qrImage.image = generateQRCode(from: d)
         }
+        #if targetEnvironment(simulator)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+            UserDefaults.standard.set(Phone.instance.pairingToken(), forKey: userDefaultKeyPairingToken)
+            UserDefaults.standard.synchronize()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "congratulationsScreen")
+            self.navigationController?.setViewControllers([vc], animated: true)
+        })
+        #endif
     }
     
     private func generateQRCode(from string: String) -> UIImage? {
