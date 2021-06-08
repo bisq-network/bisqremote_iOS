@@ -80,9 +80,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         let token = deviceToken.hexDescription
         Phone.instance.newToken(t: token)
-        if let welcomeVC = navigationController?.topViewController as? WelcomViewController {
-            welcomeVC.checkForToken()
-        }
     }
     
     func application(_ application: UIApplication,

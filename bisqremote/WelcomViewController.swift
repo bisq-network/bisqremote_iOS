@@ -36,8 +36,6 @@ class WelcomViewController: UIViewController {
                                                selector: #selector(checkForToken),
                                                name: UIApplication.willEnterForegroundNotification,
                                                object: nil)
-        
-        Phone.instance.reset()
         registerForPushNotifications()
     }
     
@@ -56,53 +54,47 @@ class WelcomViewController: UIViewController {
             UNUserNotificationCenter.current().getNotificationSettings { (settings) in
                 print("Notification settings: \(settings)")
                 guard settings.authorizationStatus == .authorized else { return }
-                DispatchQueue.main.async {
-                    UIApplication.shared.registerForRemoteNotifications()
+                if Phone.instance.token == nil {
+                    DispatchQueue.main.async {
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
                 }
             }
         }
     }
 
     override func viewWillAppear(_ animated: Bool) {
-
         navigationController?.navigationBar.backgroundColor = view.backgroundColor
-        
         #if targetEnvironment(simulator)
-//        Phone.instance.key = "A4C595428CAA4C768F60AE7EBFF85852"
-//        Phone.instance.token = "d45161df3d172837f1b83bb3e411d5a63120de6b435ff9235adb70d619d162a1"
-//        Phone.instance.confirmed = true
-//        self.registerButton.isEnabled = false
-         #else
-        if Phone.instance.token == nil {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-                self.checkForToken()
-            })
-        } else {
-            self.registerButton.isEnabled = false
-        }
+        Phone.instance.key = "A4C595428CAA4C768F60AE7EBFF85852"
+        Phone.instance.token = "d45161df3d172837f1b83bb3e411d5a63120de6b435ff9235adb70d619d162a1"
+        Phone.instance.confirmed = true
+        #else
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.checkForToken()
+        })
         #endif
-
     }
 
     @objc func checkForToken() {
-        if Phone.instance.token == nil {
-            UIApplication.shared.registerForRemoteNotifications()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-                if Phone.instance.token == nil {
-                    self.registerButton.isEnabled = false
-                    let x = UIAlertController(title: "Error", message: "Could not fetch the Apple notification token. Make sure you are connected to the internet.", preferredStyle: .actionSheet)
-                    x.addAction(UIAlertAction(title: "Try again", style: .default, handler: self.retry))
-                    x.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-                    self.present(x, animated: true) {}
-                }
-            })
-        } else {
-            self.registerButton.isEnabled = true
-        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+            if Phone.instance.token == nil {
+                self.registerButton.isEnabled = false
+                let x = UIAlertController(title: "Error", message: "Could not fetch the Apple notification token. Make sure you are connected to the internet.", preferredStyle: .actionSheet)
+                x.addAction(UIAlertAction(title: "Try again", style: .default, handler: self.retry))
+                x.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+                self.present(x, animated: true) {}
+            } else {
+                self.registerButton.isEnabled = true
+            }
+        })
     }
 
     func retry(alert: UIAlertAction!) {
-        checkForToken()
+        UIApplication.shared.registerForRemoteNotifications()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.checkForToken()
+        })
     }
     
     override func didReceiveMemoryWarning() {
