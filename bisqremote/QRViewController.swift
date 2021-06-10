@@ -1,4 +1,3 @@
-//
 /*
  * This file is part of Bisq.
  *
@@ -21,7 +20,6 @@ import UIKit
 class QRViewController: UIViewController {
 
     @IBOutlet weak var qrImage: UIImageView!
-    @IBOutlet weak var emailButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,18 +27,22 @@ class QRViewController: UIViewController {
             qrImage.contentMode = .scaleAspectFit
             qrImage.image = generateQRCode(from: d)
         }
-    }
-    
-    @IBAction func emailPressed(_ sender: Any) {
+        #if targetEnvironment(simulator)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+            UserDefaults.standard.set(Phone.instance.pairingToken(), forKey: userDefaultKeyPairingToken)
+            UserDefaults.standard.synchronize()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "congratulationsScreen")
+            self.navigationController?.setViewControllers([vc], animated: true)
+        })
+        #endif
     }
     
     private func generateQRCode(from string: String) -> UIImage? {
         let data = string.data(using: String.Encoding.ascii)
-        
         if let filter = CIFilter(name: "CIQRCodeGenerator") {
             filter.setValue(data, forKey: "inputMessage")
             let transform = CGAffineTransform(scaleX: 3, y: 3)
-            
             if let output = filter.outputImage?.transformed(by: transform) {
                 let i = UIImage(ciImage: output)
                 return i
@@ -48,15 +50,4 @@ class QRViewController: UIViewController {
         }
         return nil
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "emailSeque" {
-            guard let emailViewController = segue.destination as? EmailViewController else {
-                fatalError("Unexpected destination: \(segue.destination)")
-            }
-            emailViewController.sendEmail()
-        }
-    }
-
-
 }

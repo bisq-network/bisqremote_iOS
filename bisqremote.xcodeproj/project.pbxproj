@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,10 +15,10 @@
 		AABC359B20DCD3C5008DDD26 /* Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC359A20DCD3C5008DDD26 /* Phone.swift */; };
 		AAD6FA1620F8BA7300B35D86 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AAD6FA1520F8BA7200B35D86 /* Settings.bundle */; };
 		AAF7B46920DAFD8A008237EA /* CryptoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF7B46820DAFD8A008237EA /* CryptoHelper.swift */; };
-		BE303D8020FCA96000226F7C /* WelcomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303D7C20FCA95F00226F7C /* WelcomViewController.swift */; };
+		BE303D8020FCA96000226F7C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303D7C20FCA95F00226F7C /* WelcomeViewController.swift */; };
 		BE303D8120FCA96000226F7C /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303D7D20FCA95F00226F7C /* AppConfiguration.swift */; };
 		BE303D8220FCA96000226F7C /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303D7E20FCA95F00226F7C /* QRViewController.swift */; };
-		BE303D8320FCA96000226F7C /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303D7F20FCA95F00226F7C /* EmailViewController.swift */; };
+		BE303D8320FCA96000226F7C /* SendTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE303D7F20FCA95F00226F7C /* SendTokenViewController.swift */; };
 		BE31BFC820C44A8D008F79C6 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE31BFC720C44A8D008F79C6 /* NotificationTableViewCell.swift */; };
 		BE92215020C49B9B00F8EB93 /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92214F20C49B9B00F8EB93 /* NotificationTableViewController.swift */; };
 		BE92215420C49C6F00F8EB93 /* BisqNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92215320C49C6F00F8EB93 /* BisqNotification.swift */; };
@@ -51,10 +51,10 @@
 		AABC359A20DCD3C5008DDD26 /* Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone.swift; sourceTree = "<group>"; };
 		AAD6FA1520F8BA7200B35D86 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = bisqremote/Settings.bundle; sourceTree = SOURCE_ROOT; };
 		AAF7B46820DAFD8A008237EA /* CryptoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoHelper.swift; sourceTree = "<group>"; };
-		BE303D7C20FCA95F00226F7C /* WelcomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomViewController.swift; sourceTree = "<group>"; };
+		BE303D7C20FCA95F00226F7C /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		BE303D7D20FCA95F00226F7C /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		BE303D7E20FCA95F00226F7C /* QRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
-		BE303D7F20FCA95F00226F7C /* EmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
+		BE303D7F20FCA95F00226F7C /* SendTokenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendTokenViewController.swift; sourceTree = "<group>"; };
 		BE31BFC720C44A8D008F79C6 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		BE92214F20C49B9B00F8EB93 /* NotificationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewController.swift; sourceTree = "<group>"; };
 		BE92215320C49C6F00F8EB93 /* BisqNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BisqNotification.swift; sourceTree = "<group>"; };
@@ -120,9 +120,9 @@
 			children = (
 				AA4447BC20FDB2780071DA70 /* FontAwesome.otf */,
 				BE303D7D20FCA95F00226F7C /* AppConfiguration.swift */,
-				BE303D7F20FCA95F00226F7C /* EmailViewController.swift */,
+				BE303D7F20FCA95F00226F7C /* SendTokenViewController.swift */,
 				BE303D7E20FCA95F00226F7C /* QRViewController.swift */,
-				BE303D7C20FCA95F00226F7C /* WelcomViewController.swift */,
+				BE303D7C20FCA95F00226F7C /* WelcomeViewController.swift */,
 				AAECD59E20D3098300F80E3A /* Crypto */,
 				BEFB45ED20C34BC10052C91A /* Main.storyboard */,
 				BEFB45E920C34BC10052C91A /* AppDelegate.swift */,
@@ -192,7 +192,7 @@
 				};
 			};
 			buildConfigurationList = BEFB45E120C34BC10052C91A /* Build configuration list for PBXProject "bisqremote" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -253,12 +253,12 @@
 				AABC359B20DCD3C5008DDD26 /* Phone.swift in Sources */,
 				AA811D8B20D2ABBC00F7CFBA /* constants.swift in Sources */,
 				BE303D8120FCA96000226F7C /* AppConfiguration.swift in Sources */,
-				BE303D8320FCA96000226F7C /* EmailViewController.swift in Sources */,
+				BE303D8320FCA96000226F7C /* SendTokenViewController.swift in Sources */,
 				BE92215620C4AC0700F8EB93 /* NotificationDetailViewController.swift in Sources */,
 				BE92215020C49B9B00F8EB93 /* NotificationTableViewController.swift in Sources */,
 				AAF7B46920DAFD8A008237EA /* CryptoHelper.swift in Sources */,
 				BEFB45EA20C34BC10052C91A /* AppDelegate.swift in Sources */,
-				BE303D8020FCA96000226F7C /* WelcomViewController.swift in Sources */,
+				BE303D8020FCA96000226F7C /* WelcomeViewController.swift in Sources */,
 				BE303D8220FCA96000226F7C /* QRViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,7 +337,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -392,7 +392,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -409,7 +409,7 @@
 				CODE_SIGN_ENTITLEMENTS = bisqremote/bisqremote.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 67;
+				CURRENT_PROJECT_VERSION = 68;
 				DEVELOPMENT_TEAM = 9NCG2D47WB;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -418,12 +418,13 @@
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = bisqremote/Ibisqremotefo.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = bisqremote.joachimneumann.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -443,7 +444,7 @@
 				CODE_SIGN_ENTITLEMENTS = bisqremote/bisqremote.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 67;
+				CURRENT_PROJECT_VERSION = 68;
 				DEVELOPMENT_TEAM = 9NCG2D47WB;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -452,12 +453,12 @@
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = bisqremote/Ibisqremotefo.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = bisqremote.joachimneumann.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
