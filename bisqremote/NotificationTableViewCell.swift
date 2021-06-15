@@ -23,11 +23,6 @@ class NotificationTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var timeEvent: UILabel!
     @IBOutlet weak var comment: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
     override func prepareForReuse() {
         comment.textAlignment = .left

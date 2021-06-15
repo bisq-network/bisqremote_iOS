@@ -83,18 +83,18 @@ class NotificationTableViewController: UITableViewController {
             cell.iconLabel.textColor = TINTCOLOR_GREEN
         }
         switch notification.type {
-        case NotificationType.TRADE.rawValue:
-            cell.iconLabel.text = ICON_TRADE
-        case NotificationType.OFFER.rawValue:
-            cell.iconLabel.text = ICON_OFFER
-        case NotificationType.DISPUTE.rawValue:
-            cell.iconLabel.text = ICON_DISPUTE
-        case NotificationType.PRICE.rawValue:
-            cell.iconLabel.text = ICON_PRICE
-        case NotificationType.MARKET.rawValue:
-            cell.iconLabel.text = ICON_MARKET
-        default:
-            cell.iconLabel.isHidden = true
+            case NotificationType.TRADE.rawValue:
+                cell.iconLabel.text = ICON_TRADE
+            case NotificationType.OFFER.rawValue:
+                cell.iconLabel.text = ICON_OFFER
+            case NotificationType.DISPUTE.rawValue:
+                cell.iconLabel.text = ICON_DISPUTE
+            case NotificationType.PRICE.rawValue:
+                cell.iconLabel.text = ICON_PRICE
+            case NotificationType.MARKET.rawValue:
+                cell.iconLabel.text = ICON_MARKET
+            default:
+                cell.iconLabel.isHidden = true
         }
         return cell
     }
@@ -111,10 +111,10 @@ class NotificationTableViewController: UITableViewController {
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         switch(identifier) {
-        case "showDetail":
-            return NotificationArray.shared.countAll > 0
-        default:
-            return true
+            case "showDetail":
+                return NotificationArray.shared.countAll > 0
+            default:
+                return true
         }
     }
     
@@ -122,25 +122,25 @@ class NotificationTableViewController: UITableViewController {
         super.prepare(for: segue, sender: sender)
 
         switch(segue.identifier ?? "") {
-        case "showDetail":
-            guard let detailViewController = segue.destination as? NotificationDetailViewController else {
-                fatalError("Unexpected destination: \(segue.destination)")
-            }
-            guard let selectedNotificationTableViewCell = sender as? NotificationTableViewCell else {
-                fatalError("Unexpected sender: \(sender ?? "missing sender")")
-            }
-            guard let indexPath = tableView.indexPath(for: selectedNotificationTableViewCell) else {
-                fatalError("the selected cell is not being displayed in the table")
-            }
-            let selectedNotification = NotificationArray.shared.at(n: indexPath.row)
-            detailViewController.notification = selectedNotification
-            detailViewController.index = indexPath.row
-            selectedNotification.read = true
-            NotificationArray.shared.save()
+            case "showDetail":
+                guard let detailViewController = segue.destination as? NotificationDetailViewController else {
+                    fatalError("Unexpected destination: \(segue.destination)")
+                }
+                guard let selectedNotificationTableViewCell = sender as? NotificationTableViewCell else {
+                    fatalError("Unexpected sender: \(sender ?? "missing sender")")
+                }
+                guard let indexPath = tableView.indexPath(for: selectedNotificationTableViewCell) else {
+                    fatalError("The selected cell is not being displayed in the table")
+                }
+                let selectedNotification = NotificationArray.shared.at(n: indexPath.row)
+                detailViewController.notification = selectedNotification
+                detailViewController.index = indexPath.row
+                selectedNotification.read = true
+                NotificationArray.shared.save()
             
-            tableView.reloadRows(at: [indexPath], with: .top)
-        default:
-            break
+                tableView.reloadRows(at: [indexPath], with: .top)
+            default:
+                break
         }
     }
     

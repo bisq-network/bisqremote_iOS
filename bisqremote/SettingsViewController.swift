@@ -29,15 +29,12 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         switch (Config.appConfiguration) {
-        case .Debug:
-            markAllAsReadButton.isHidden = false
-            addNotificationButton.isHidden = false
-        case .TestFlight:
-            markAllAsReadButton.isHidden = false
-            addNotificationButton.isHidden = true
-        case .AppStore:
-            markAllAsReadButton.isHidden = false
-            addNotificationButton.isHidden = true
+            case .Debug:
+                addNotificationsButton.isHidden = false
+            case .TestFlight:
+                addNotificationsButton.isHidden = true
+            case .AppStore:
+                addNotificationsButton.isHidden = true
         }
         updateFooter()
     }
@@ -47,13 +44,13 @@ class SettingsViewController: UIViewController {
         if let k = Phone.instance.key {
             s = k.prefix(10)+"..."
         }
-        keyLabel.text   = "key   "+s
+        keyLabel.text = "Key   "+s
 
         s = ""
         if let t = Phone.instance.token {
             s = t.prefix(10)+"..."
         }
-        tokenLabel.text = "token "+s
+        tokenLabel.text = "Token "+s
         
         let dictionary = Bundle.main.infoDictionary!
         let version = dictionary["CFBundleShortVersionString"] as! String
@@ -61,12 +58,12 @@ class SettingsViewController: UIViewController {
         var configuration: String
         versionLabel.text = "Version \(version) (\(build))"
         switch (Config.appConfiguration) {
-        case .Debug:
-            configuration = ": Xcode "
-        case .TestFlight:
-            configuration = ": TestFlight "
-        case .AppStore:
-            configuration = ""
+            case .Debug:
+                configuration = ": Xcode "
+            case .TestFlight:
+                configuration = ": TestFlight "
+            case .AppStore:
+                configuration = ""
         }
         platformLabel.text = Phone.instance.descriptor+configuration
     }
