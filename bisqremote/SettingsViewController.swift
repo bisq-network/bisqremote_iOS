@@ -123,14 +123,32 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func aboutBisqPressed(_ sender: Any) {
-        if let url = NSURL(string: "https://bisq.network"){
-            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        let alertController = UIAlertController(title: "Warning", message: "This will load https://bisq.network. Do you want to proceed?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {_ in
+            if let url = NSURL(string: "https://bisq.network"){
+                UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+            }
         }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) {_ in
+            
+        }
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func aboutMobileNotificationsPressed(_ sender: Any) {
-        if let url = NSURL(string: "https://bisq.network/mobile-notifications"){
-            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        let alertController = UIAlertController(title: "Warning", message: "This will load https://bisq.network/mobile-notifications. Do you want to proceed?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {_ in
+            if let url = NSURL(string: "https://bisq.network/mobile-notifications"){
+                UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+            }
         }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) {_ in
+            
+        }
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
