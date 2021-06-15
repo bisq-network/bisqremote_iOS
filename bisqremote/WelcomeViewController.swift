@@ -36,17 +36,17 @@ class WelcomeViewController: UIViewController {
     func registerForPushNotifications() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
             (granted, error) in
-            print("iOS Notification: permission granted: \(granted)")
+            "iOS Notification: permission granted: \(granted)".bisqLog()
             
             guard granted else {
                 if error != nil {
-                    print("iOS Notification: permission not granted: \(error.debugDescription)")
+                    "iOS Notification: permission not granted: \(error.debugDescription)".bisqLog()
                 }
                 return
             }
             
             UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-                print("Notification settings: \(settings)")
+                "Notification settings: \(settings)".bisqLog()
                 guard settings.authorizationStatus == .authorized else { return }
                 if Phone.instance.token == nil {
                     DispatchQueue.main.async {

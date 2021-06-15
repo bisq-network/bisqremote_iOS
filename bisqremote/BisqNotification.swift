@@ -62,8 +62,8 @@ class RawNotification: Codable {
             txId = try container.decode(String.self, forKey: .txId)
             sentDate = try container.decode(Double.self, forKey: .sentDate)
         } catch {
-            message = "could not decode json message"
-            "could not decode".bisqLog()
+            message = "Could not decode JSON message"
+            "ERROR: Could not decode JSON message".bisqLog()
             return
         }
 
@@ -97,7 +97,7 @@ class RawNotification: Codable {
              NotificationType.ERROR.rawValue:
             break
         default:
-            print("Unknown notificationType \(type!)")
+            "Unknown notificationType \(type!)".bisqLog()
         }
     }
     
@@ -261,7 +261,7 @@ class NotificationArray {
             UserDefaults.standard.synchronize()
             UIApplication.shared.applicationIconBadgeNumber = countUnread
         } catch {
-            print("/n###/n### save failed/n###/n")
+            "/n###/n### save failed/n###/n".bisqLog()
         }
     }
     
@@ -326,10 +326,10 @@ class NotificationArray {
                     addNotification(new: Notification(raw: raw))
                 }
             } catch {
-                print("could not add notification")
+                "could not add notification".bisqLog()
             }
         } else {
-            print("missing object bisqNotification")
+            "missing object bisqNotification".bisqLog()
         }
     }
 

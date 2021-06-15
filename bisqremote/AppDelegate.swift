@@ -51,8 +51,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.window?.rootViewController?.present(alert, animated: true, completion: nil)
             }
 
-            processNotification(application: application, n: message)
             ("launchOptions " + message.description).bisqLog()
+            processNotification(application: application, n: message)
         }
         
         // No Setup needed? --> List of Notifications
@@ -164,7 +164,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let enc = String(x[2])
                     success = CryptoHelper.decrypt(input:enc);
                     if success != nil {
-                        print("decrypted json: "+success!)
                         ("processNotification_decrypted "+success!).bisqLog()
                         NotificationArray.shared.addFromString(new: success!)
                     } else {
@@ -226,6 +225,7 @@ extension String {
 //            new = self
 //        }
 //        UserDefaults.standard.set(new, forKey: "logging")
+        print(self)
     }
 }
 
