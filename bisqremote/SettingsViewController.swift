@@ -23,7 +23,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var tokenLabel: UILabel!
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var platformLabel: UILabel!
-    @IBOutlet weak var addNotificationButton: UIButton!
+    @IBOutlet weak var addNotificationsButton: UIButton!
     @IBOutlet weak var markAllAsReadButton: UIButton!
     
     override func viewDidLoad() {
@@ -77,37 +77,39 @@ class SettingsViewController: UIViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "welcomeScreen")
         navigationController?.setViewControllers([vc], animated: true)
     }
-    static var typeIndex = 0
-    @IBAction func addNotificationPressed(_ sender: Any) {
-        let new = Notification(raw: NotificationArray.exampleRawNotification())
-        if (SettingsViewController.typeIndex % 5) == 0 {
-            new.type = "TRADE"
-            new.title = "(example) Trade confirmed"
-            new.message = "The trade with ID 38765384 is confirmed."
+
+    @IBAction func addNotificationsPressed(_ sender: Any) {
+        for n in 0...4 {
+            let new = Notification(raw: NotificationArray.exampleRawNotification())
+            if (n % 5) == 0 {
+                new.type = "TRADE"
+                new.title = "(example) Trade confirmed"
+                new.message = "The trade with ID 38765384 is confirmed."
+            }
+            if (n % 5) == 1 {
+                new.type = "OFFER"
+                new.title = "(example) Offer taken"
+                new.message = "Your offer with ID 39847534 was taken"
+            }
+            if (n % 5) == 2 {
+                new.type = "DISPUTE"
+                new.title = "(example) Dispute message"
+                new.actionRequired = "Please contact the arbitrator"
+                new.message = "You received a dispute message for trade with ID 34059340"
+            }
+            if (n % 5) == 3 {
+                new.type = "PRICE"
+                new.title = "(example) Price below 5000 Euro"
+                new.message = "Your price alert got triggered. The current Euro price is below 5000"
+            }
+            if (n % 5) == 4 {
+                new.type = "MARKET"
+                new.title = "(example) New offer"
+                new.message = "A new offer offer with price 5600 Euro (5% below market price) and payment method SEPA was published to the Bisq offerbook.\nThe offer ID is 34534"
+            }
+            NotificationArray.shared.addNotification(new: new)
         }
-        if (SettingsViewController.typeIndex % 5) == 1 {
-            new.type = "OFFER"
-            new.title = "(example) Offer taken"
-            new.message = "Your offer with ID 39847534 was taken"
-        }
-        if (SettingsViewController.typeIndex % 5) == 2 {
-            new.type = "DISPUTE"
-            new.title = "(example) Dispute message"
-            new.actionRequired = "Please contact the arbitrator"
-            new.message = "You received a dispute message for trade with ID 34059340"
-        }
-        if (SettingsViewController.typeIndex % 5) == 3 {
-            new.type = "PRICE"
-            new.title = "(example) Price below 5000 Euro"
-            new.message = "Your price alert got triggered. The current Euro price is below 5000"
-        }
-        if (SettingsViewController.typeIndex % 5) == 4 {
-            new.type = "MARKET"
-            new.title = "(example) New offer"
-            new.message = "A new offer offer with price 5600 Euro (5% below market price) and payment method SEPA was published to the Bisq offerbook.\nThe offer ID is 34534"
-        }
-        SettingsViewController.typeIndex += 1
-        NotificationArray.shared.addNotification(new: new)
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func markAllAsReadPressed(_ sender: Any) {
