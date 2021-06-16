@@ -80,6 +80,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         let token = deviceToken.hexDescription
         Phone.instance.newToken(t: token)
+        ("Token received from Apple: "+token).bisqLog()
+        ("Generated pairingToken: "+Phone.instance.pairingToken()!).bisqLog()
     }
     
     func application(_ application: UIApplication,
