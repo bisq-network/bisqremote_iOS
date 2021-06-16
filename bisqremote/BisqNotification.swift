@@ -361,6 +361,7 @@ class NotificationArray {
         for n in array {
             if n == toBeDeleted {
                 remove(n: pos)
+                break
             }
             pos += 1
         }
