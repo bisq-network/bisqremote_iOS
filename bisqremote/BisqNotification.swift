@@ -334,8 +334,10 @@ class NotificationArray {
     }
 
     func addNotification(new: Notification) {
-        array.insert(new, at: 0)
-        save()
+        if array.contains(new) == false {
+            array.insert(new, at: 0)
+            save()
+        }
     }
     
     func deleteAll() {
