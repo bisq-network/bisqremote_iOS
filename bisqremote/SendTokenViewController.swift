@@ -26,6 +26,19 @@ class SendTokenViewController: UIViewController, MFMailComposeViewControllerDele
         instructionsLabel.highlightedTextColor = UIColor.green
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        #if targetEnvironment(simulator)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10, execute: {
+            UserDefaults.standard.set(Phone.instance.pairingToken(), forKey: userDefaultKeyPairingToken)
+            UserDefaults.standard.synchronize()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "congratulationsScreen")
+            self.navigationController?.setViewControllers([vc], animated: true)
+        })
+        #endif
+    }
+    
     @IBAction func sendButtonPressed(_ sender: UIButton) {
         if let phoneDescription = Phone.instance.pairingToken() {
             let text = phoneDescription

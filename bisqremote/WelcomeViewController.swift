@@ -36,17 +36,17 @@ class WelcomeViewController: UIViewController {
     func registerForPushNotifications() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
             (granted, error) in
-            print("iOS Notification: permission granted: \(granted)")
+            "iOS Notification: permission granted: \(granted)".bisqLog()
             
             guard granted else {
                 if error != nil {
-                    print("iOS Notification: permission not granted: \(error.debugDescription)")
+                    "iOS Notification: permission not granted: \(error.debugDescription)".bisqLog()
                 }
                 return
             }
             
             UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-                print("Notification settings: \(settings)")
+                "Notification settings: \(settings)".bisqLog()
                 guard settings.authorizationStatus == .authorized else { return }
                 if Phone.instance.token == nil {
                     DispatchQueue.main.async {
@@ -97,15 +97,33 @@ class WelcomeViewController: UIViewController {
     }
     
     func bisqWebPagePressed(alert: UIAlertAction!) {
-        if let url = NSURL(string: "https://bisq.network"){
-            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        let alertController = UIAlertController(title: "Warning", message: "This will load https://bisq.network. Do you want to proceed?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {_ in
+            if let url = NSURL(string: "https://bisq.network"){
+                UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+            }
         }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) {_ in
+            
+        }
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 
     func bisqMobileWebPagePressed(alert: UIAlertAction!) {
-        if let url = NSURL(string: "https://bisq.network/mobile-notifications"){
-            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        let alertController = UIAlertController(title: "Warning", message: "This will load https://bisq.network/mobile-notifications. Do you want to proceed?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {_ in
+            if let url = NSURL(string: "https://bisq.network/mobile-notifications"){
+                UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+            }
         }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) {_ in
+            
+        }
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 
     @IBAction func helpPressed(_ sender: Any) {
