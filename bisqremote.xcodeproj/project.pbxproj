@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3705CE082803EE6F0045AA0D /* CryptoSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03209E1B25EEE74900869E44 /* CryptoSwift.xcframework */; };
-		3705CE092803EE6F0045AA0D /* CryptoSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03209E1B25EEE74900869E44 /* CryptoSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		37A7D1AA2811E4150005A0B9 /* CryptoSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03209E1B25EEE74900869E44 /* CryptoSwift.xcframework */; };
+		37A7D1AB2811E4150005A0B9 /* CryptoSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03209E1B25EEE74900869E44 /* CryptoSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA4447BD20FDB2790071DA70 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = AA4447BC20FDB2780071DA70 /* FontAwesome.otf */; };
 		AA811D8920D284B100F7CFBA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA811D8820D284B100F7CFBA /* SettingsViewController.swift */; };
 		AA811D8B20D2ABBC00F7CFBA /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA811D8A20D2ABBC00F7CFBA /* constants.swift */; };
@@ -30,13 +30,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		03209E2725EEE78300869E44 /* Embed Frameworks */ = {
+		37A7D1AC2811E4150005A0B9 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3705CE092803EE6F0045AA0D /* CryptoSwift.xcframework in Embed Frameworks */,
+				37A7D1AB2811E4150005A0B9 /* CryptoSwift.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3705CE082803EE6F0045AA0D /* CryptoSwift.xcframework in Frameworks */,
+				37A7D1AA2811E4150005A0B9 /* CryptoSwift.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,7 +151,7 @@
 				BEFB45E320C34BC10052C91A /* Frameworks */,
 				BEFB45E420C34BC10052C91A /* Resources */,
 				BEE7F4F020F3E5AC003B0CC9 /* ShellScript */,
-				03209E2725EEE78300869E44 /* Embed Frameworks */,
+				37A7D1AC2811E4150005A0B9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
