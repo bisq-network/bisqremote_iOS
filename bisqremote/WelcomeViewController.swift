@@ -74,7 +74,11 @@ class WelcomeViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
             if Phone.instance.token == nil {
                 self.registerButton.isEnabled = false
-                let x = UIAlertController(title: "Error", message: "Could not fetch the Apple notification token. Make sure you are connected to the internet.", preferredStyle: .actionSheet)
+                var alertStyle = UIAlertController.Style.actionSheet
+                if (UIDevice.current.userInterfaceIdiom == .pad) {
+                  alertStyle = UIAlertController.Style.alert
+                }
+                let x = UIAlertController(title: "Error", message: "Could not fetch the Apple notification token. Make sure you are connected to the internet.", preferredStyle: alertStyle)
                 x.addAction(UIAlertAction(title: "Try again", style: .default, handler: self.retry))
                 x.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
                 self.present(x, animated: true) {}
@@ -127,11 +131,15 @@ class WelcomeViewController: UIViewController {
     }
 
     @IBAction func helpPressed(_ sender: Any) {
-        let x = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        var alertStyle = UIAlertController.Style.actionSheet
+        if (UIDevice.current.userInterfaceIdiom == .pad) {
+          alertStyle = UIAlertController.Style.alert
+        }
+        let x = UIAlertController(title: nil, message: nil, preferredStyle: alertStyle)
         x.addAction(UIAlertAction(title: "About Bisq", style: .default, handler: bisqWebPagePressed))
         x.addAction(UIAlertAction(title: "About this application", style: .default, handler: bisqMobileWebPagePressed))
         x.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(x, animated: true) {}
+        self.present(x, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

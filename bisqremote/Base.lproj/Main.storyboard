@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GPC-bu-xRV">
-    <device id="retina6_7" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GPC-bu-xRV">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,36 +20,33 @@
             <objects>
                 <viewController storyboardIdentifier="welcomeScreen" title="Welcome" id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="bisqremote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="838"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="Qr7-hG-Z7N">
-                                <rect key="frame" x="10" y="10" width="408" height="784"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Qr7-hG-Z7N">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pN2-3s-nUv">
-                                        <rect key="frame" x="0.0" y="0.0" width="408" height="175"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="218"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="QUx-Sa-keS" userLabel="Bisq Logo">
-                                                <rect key="frame" x="51.666666666666657" y="0.0" width="304.66666666666674" height="169"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="QUx-Sa-keS" secondAttribute="height" multiplier="101:56" id="nNi-GH-dtP"/>
-                                                </constraints>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="218"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="QUx-Sa-keS" firstAttribute="centerX" secondItem="pN2-3s-nUv" secondAttribute="centerX" id="Q29-FB-m7R"/>
-                                            <constraint firstAttribute="bottom" secondItem="QUx-Sa-keS" secondAttribute="bottom" constant="6" id="bQm-eL-UWg"/>
-                                            <constraint firstItem="QUx-Sa-keS" firstAttribute="top" secondItem="pN2-3s-nUv" secondAttribute="top" id="him-b4-f1y"/>
-                                            <constraint firstAttribute="height" constant="175" id="u81-oK-rRA"/>
+                                            <constraint firstItem="QUx-Sa-keS" firstAttribute="top" secondItem="pN2-3s-nUv" secondAttribute="top" id="9BW-UC-c2o"/>
+                                            <constraint firstAttribute="trailing" secondItem="QUx-Sa-keS" secondAttribute="trailing" id="BcK-bw-86a"/>
+                                            <constraint firstItem="QUx-Sa-keS" firstAttribute="leading" secondItem="pN2-3s-nUv" secondAttribute="leading" id="FlZ-pf-4Mm"/>
+                                            <constraint firstAttribute="bottom" secondItem="QUx-Sa-keS" secondAttribute="bottom" id="spI-bA-eLm"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1Q-jI-DoG">
-                                        <rect key="frame" x="0.0" y="196" width="408" height="264"/>
+                                        <rect key="frame" x="0.0" y="225" width="375" height="218"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CvA-ME-CKY">
-                                                <rect key="frame" x="10" y="0.0" width="388" height="264"/>
-                                                <string key="text">Bisq is a decentralized bitcoin exchange network that provides a secure, private and censorship-resistant way of exchanging bitcoin for national currencies and other cryptocurrencies over the internet.  Since Bisq is a desktop-based application, this app enables you to receive important notifications such as trade updates and offer alerts when you are not near your computer.  The first step is to pair this app to your Bisq desktop application...</string>
+                                                <rect key="frame" x="15" y="0.0" width="345" height="218"/>
+                                                <string key="text">Since Bisq is a desktop-based application, this app enables you to receive important notifications such as trade updates and offer alerts when you are not near your computer.  The first step is to pair this app to your Bisq desktop application...</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -56,24 +54,21 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="CvA-ME-CKY" secondAttribute="bottom" id="2kM-tY-s9C"/>
-                                            <constraint firstAttribute="bottom" secondItem="CvA-ME-CKY" secondAttribute="bottom" id="2oC-xn-vXJ"/>
-                                            <constraint firstAttribute="trailing" secondItem="CvA-ME-CKY" secondAttribute="trailing" constant="10" id="MHY-DO-fhu"/>
-                                            <constraint firstItem="CvA-ME-CKY" firstAttribute="leading" secondItem="L1Q-jI-DoG" secondAttribute="leading" constant="10" id="WXi-63-pYI"/>
-                                            <constraint firstItem="CvA-ME-CKY" firstAttribute="top" secondItem="L1Q-jI-DoG" secondAttribute="top" id="XGV-T3-77H"/>
-                                            <constraint firstItem="CvA-ME-CKY" firstAttribute="top" secondItem="L1Q-jI-DoG" secondAttribute="top" id="gU6-NB-zvo"/>
-                                            <constraint firstItem="CvA-ME-CKY" firstAttribute="centerY" secondItem="L1Q-jI-DoG" secondAttribute="centerY" id="pcq-lf-igP"/>
-                                            <constraint firstItem="CvA-ME-CKY" firstAttribute="centerY" secondItem="L1Q-jI-DoG" secondAttribute="centerY" id="t0q-Ka-OCi"/>
+                                            <constraint firstItem="CvA-ME-CKY" firstAttribute="top" secondItem="L1Q-jI-DoG" secondAttribute="top" id="WYe-5K-1MZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="CvA-ME-CKY" secondAttribute="trailing" constant="15" id="Wlj-UH-bmf"/>
+                                            <constraint firstItem="CvA-ME-CKY" firstAttribute="leading" secondItem="L1Q-jI-DoG" secondAttribute="leading" constant="15" id="b5I-BD-W0J"/>
+                                            <constraint firstAttribute="bottom" secondItem="CvA-ME-CKY" secondAttribute="bottom" id="zlL-5s-8NS"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eho-ql-dIO">
-                                        <rect key="frame" x="0.0" y="481" width="408" height="252"/>
+                                        <rect key="frame" x="0.0" y="450" width="375" height="93.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hg-Ed-oEU" userLabel="Pair Button">
-                                                <rect key="frame" x="177.66666666666666" y="114" width="52.666666666666657" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="Pair" image="arrow.right.circle.fill" catalog="system">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="93.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <state key="normal" title="Pair">
                                                     <color key="titleColor" red="0.14509803921568626" green="0.69411764705882351" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <imageReference key="image" image="arrow.right.circle.fill" catalog="system" symbolScale="large"/>
                                                 </state>
                                                 <connections>
                                                     <segue destination="cUX-nQ-faw" kind="show" identifier="PairSegue" id="BQU-da-3PA"/>
@@ -82,15 +77,17 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="6hg-Ed-oEU" firstAttribute="centerX" secondItem="Eho-ql-dIO" secondAttribute="centerX" id="U4d-ll-icK"/>
-                                            <constraint firstItem="6hg-Ed-oEU" firstAttribute="centerY" secondItem="Eho-ql-dIO" secondAttribute="centerY" id="fQD-Zg-e1N"/>
+                                            <constraint firstItem="6hg-Ed-oEU" firstAttribute="top" secondItem="Eho-ql-dIO" secondAttribute="top" id="Ehg-MR-UTb"/>
+                                            <constraint firstItem="6hg-Ed-oEU" firstAttribute="leading" secondItem="Eho-ql-dIO" secondAttribute="leading" id="EiE-K8-aZv"/>
+                                            <constraint firstAttribute="trailing" secondItem="6hg-Ed-oEU" secondAttribute="trailing" id="V5u-db-oqf"/>
+                                            <constraint firstAttribute="bottom" secondItem="6hg-Ed-oEU" secondAttribute="bottom" id="tCG-iA-ZpR"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKK-fa-AIG">
-                                        <rect key="frame" x="0.0" y="754" width="408" height="30"/>
+                                        <rect key="frame" x="0.0" y="550.5" width="375" height="72.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vj0-WG-iDU" userLabel="Learn More Button">
-                                                <rect key="frame" x="311" y="-1.3333333333333712" width="87" height="33"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vj0-WG-iDU" userLabel="Learn More Button">
+                                                <rect key="frame" x="20" y="0.0" width="335" height="72.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Learn more">
                                                     <color key="titleColor" red="0.1450980392" green="0.69411764710000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -102,21 +99,27 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="Vj0-WG-iDU" firstAttribute="centerY" secondItem="wKK-fa-AIG" secondAttribute="centerY" id="SZG-tn-sr8"/>
-                                            <constraint firstAttribute="height" constant="30" id="ebx-WI-sxk"/>
-                                            <constraint firstAttribute="trailing" secondItem="Vj0-WG-iDU" secondAttribute="trailing" constant="10" id="gP8-WJ-WV0"/>
+                                            <constraint firstAttribute="bottom" secondItem="Vj0-WG-iDU" secondAttribute="bottom" id="4Rv-nS-DbI"/>
+                                            <constraint firstItem="Vj0-WG-iDU" firstAttribute="top" secondItem="wKK-fa-AIG" secondAttribute="top" id="RSL-ip-N9k"/>
+                                            <constraint firstAttribute="trailing" secondItem="Vj0-WG-iDU" secondAttribute="trailing" constant="20" id="Zg3-cg-wNz"/>
+                                            <constraint firstItem="Vj0-WG-iDU" firstAttribute="leading" secondItem="wKK-fa-AIG" secondAttribute="leading" constant="20" id="nel-eQ-mda"/>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="L1Q-jI-DoG" firstAttribute="height" secondItem="Qr7-hG-Z7N" secondAttribute="height" multiplier="0.35" id="Eej-It-CgG"/>
+                                    <constraint firstItem="pN2-3s-nUv" firstAttribute="height" secondItem="Qr7-hG-Z7N" secondAttribute="height" multiplier="0.35" id="RPf-Wk-oFG"/>
+                                    <constraint firstItem="Eho-ql-dIO" firstAttribute="height" secondItem="Qr7-hG-Z7N" secondAttribute="height" multiplier="0.15" id="a2k-Y8-Aiy"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fUB-4o-6UK"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="fUB-4o-6UK" firstAttribute="bottom" secondItem="Qr7-hG-Z7N" secondAttribute="bottom" constant="10" id="2DW-M5-4Yq"/>
-                            <constraint firstItem="Qr7-hG-Z7N" firstAttribute="top" secondItem="fUB-4o-6UK" secondAttribute="top" constant="10" id="6BC-o1-VaY"/>
-                            <constraint firstItem="Qr7-hG-Z7N" firstAttribute="leading" secondItem="fUB-4o-6UK" secondAttribute="leading" constant="10" id="Kci-6R-bD4"/>
-                            <constraint firstItem="fUB-4o-6UK" firstAttribute="trailing" secondItem="Qr7-hG-Z7N" secondAttribute="trailing" constant="10" id="twh-Cx-jTE"/>
+                            <constraint firstItem="Qr7-hG-Z7N" firstAttribute="leading" secondItem="fUB-4o-6UK" secondAttribute="leading" id="4Kw-XS-ceE"/>
+                            <constraint firstItem="Qr7-hG-Z7N" firstAttribute="bottom" secondItem="fUB-4o-6UK" secondAttribute="bottom" id="5fO-Vr-VMm"/>
+                            <constraint firstItem="Qr7-hG-Z7N" firstAttribute="top" secondItem="fUB-4o-6UK" secondAttribute="top" id="JF2-Rn-Xg4"/>
+                            <constraint firstItem="fUB-4o-6UK" firstAttribute="trailing" secondItem="Qr7-hG-Z7N" secondAttribute="trailing" id="Uo9-2k-g0O"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
@@ -128,31 +131,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1872.8" y="-653.52323838080963"/>
+            <point key="canvasLocation" x="-1876" y="-655.32233883058473"/>
         </scene>
         <!--Pairing-->
         <scene sceneID="cJi-lD-tH9">
             <objects>
                 <viewController storyboardIdentifier="QRViewController" id="cUX-nQ-faw" customClass="QRViewController" customModule="bisqremote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PRd-Dk-E6X">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Jbt-TL-gHP">
-                                <rect key="frame" x="20" y="108" width="388" height="764"/>
+                                <rect key="frame" x="20" y="64" width="335" height="583"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" ambiguous="YES" image="missingQR" translatesAutoresizingMaskIntoConstraints="NO" id="ALl-Ci-drK" userLabel="QR Image">
-                                        <rect key="frame" x="0.0" y="0.0" width="388" height="551.66666666666663"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="missingQR" translatesAutoresizingMaskIntoConstraints="NO" id="ALl-Ci-drK" userLabel="QR Image">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="370.5"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woN-3y-ho2" userLabel="Pairing Text">
-                                        <rect key="frame" x="0.0" y="571.66666666666663" width="388" height="142.33333333333337"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woN-3y-ho2" userLabel="Pairing Text">
+                                        <rect key="frame" x="0.0" y="390.5" width="335" height="142.5"/>
                                         <string key="text">In order to pair this app, you need to scan the above QR code, which contains your pairing token, from your Bisq desktop application using a webcam.  In Bisq, select Account -&gt; Notifications and press "Scan QR code".</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z09-Jp-Svw">
-                                        <rect key="frame" x="289" y="734" width="99" height="30"/>
+                                        <rect key="frame" x="236" y="553" width="99" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="zda-4x-ie9"/>
                                         </constraints>
@@ -199,36 +202,95 @@
             <objects>
                 <viewController storyboardIdentifier="EmailViewController" id="T7q-Gp-CGR" customClass="SendTokenViewController" customModule="bisqremote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tKR-bo-YWd" userLabel="view">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CR7-f9-aEL">
-                                <rect key="frame" x="40" y="128.00000000000003" width="348" height="324.66666666666674"/>
-                                <string key="text">If you are unable to scan the QR code, you can instead send the pairing token to yourself (e.g. via email).  Make sure to keep the pairing token private. It contains your encryption key (AES/CBC/NOPadding with initialization vector) which is used by Bisq to encrypt the notifications and a token from Apple that identifies this instance of the Bisq Notifications app.  Once you have the token, open the Bisq desktop application and go to Account -&gt; Notifications. Then paste/enter the token into the pairing token field. This app will then be paired and take you to the success screen.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhi-6a-BJ4">
-                                <rect key="frame" x="40" y="748" width="348" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Send Pairing Token" image="square.and.arrow.up" catalog="system">
-                                    <color key="titleColor" systemColor="systemGreenColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendButtonPressed:" destination="T7q-Gp-CGR" eventType="touchUpInside" id="SuZ-mE-Nxp"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8vR-2a-Ad1">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p2k-oJ-QuT">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="498.5"/>
+                                        <subviews>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="XoR-sS-3hd">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="498.5"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emz-zR-yMm">
+                                                        <rect key="frame" x="0.0" y="35" width="375" height="397"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CR7-f9-aEL">
+                                                                <rect key="frame" x="20" y="0.0" width="335" height="345"/>
+                                                                <string key="text">If you are unable to scan the QR code, you can instead send the pairing token to yourself (e.g. via email).  Make sure to keep the pairing token private. It contains your encryption key (AES/CBC/NOPadding with initialization vector) which is used by Bisq to encrypt the notifications and a token from Apple that identifies this instance of the Bisq Notifications app.  Once you have the token, open the Bisq desktop application and go to Account -&gt; Notifications. Then paste/enter the token into the pairing token field. This app will then be paired and take you to the success screen.</string>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="CR7-f9-aEL" secondAttribute="trailing" constant="20" id="0qx-8M-ViX"/>
+                                                            <constraint firstItem="CR7-f9-aEL" firstAttribute="leading" secondItem="emz-zR-yMm" secondAttribute="leading" constant="20" id="85Y-XE-3k1"/>
+                                                            <constraint firstAttribute="height" constant="397" id="Sod-5a-4nO"/>
+                                                            <constraint firstItem="CR7-f9-aEL" firstAttribute="top" secondItem="emz-zR-yMm" secondAttribute="top" id="Xyb-Yt-cNM"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="emz-zR-yMm" firstAttribute="leading" secondItem="XoR-sS-3hd" secondAttribute="leading" id="HBd-UJ-YRB"/>
+                                                    <constraint firstAttribute="bottom" secondItem="emz-zR-yMm" secondAttribute="bottom" id="QC8-9V-W9J"/>
+                                                    <constraint firstAttribute="trailing" secondItem="emz-zR-yMm" secondAttribute="trailing" id="pES-HF-Ise"/>
+                                                    <constraint firstItem="emz-zR-yMm" firstAttribute="top" secondItem="XoR-sS-3hd" secondAttribute="top" constant="35" id="rZX-k7-FBJ"/>
+                                                    <constraint firstItem="emz-zR-yMm" firstAttribute="centerX" secondItem="XoR-sS-3hd" secondAttribute="centerX" id="uqt-1f-GTM"/>
+                                                </constraints>
+                                            </scrollView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="XoR-sS-3hd" firstAttribute="leading" secondItem="p2k-oJ-QuT" secondAttribute="leading" id="3fN-wr-ZWD"/>
+                                            <constraint firstItem="XoR-sS-3hd" firstAttribute="top" secondItem="p2k-oJ-QuT" secondAttribute="top" id="FNg-Qf-cOD"/>
+                                            <constraint firstAttribute="bottom" secondItem="XoR-sS-3hd" secondAttribute="bottom" id="csC-Sa-4Ar"/>
+                                            <constraint firstAttribute="trailing" secondItem="XoR-sS-3hd" secondAttribute="trailing" id="faR-3B-tm5"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7e-vp-3jb">
+                                        <rect key="frame" x="0.0" y="498.5" width="375" height="124.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhi-6a-BJ4">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <state key="normal" title="Send Pairing Token">
+                                                    <color key="titleColor" systemColor="systemGreenColor"/>
+                                                    <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="sendButtonPressed:" destination="T7q-Gp-CGR" eventType="touchUpInside" id="SuZ-mE-Nxp"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Uhi-6a-BJ4" secondAttribute="bottom" id="59G-0H-iKV"/>
+                                            <constraint firstItem="Uhi-6a-BJ4" firstAttribute="leading" secondItem="I7e-vp-3jb" secondAttribute="leading" id="ZqK-UO-0j9"/>
+                                            <constraint firstItem="Uhi-6a-BJ4" firstAttribute="top" secondItem="I7e-vp-3jb" secondAttribute="top" id="aha-b2-QgY"/>
+                                            <constraint firstAttribute="trailing" secondItem="Uhi-6a-BJ4" secondAttribute="trailing" id="kd7-Jz-cxj"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="I7e-vp-3jb" secondAttribute="trailing" id="AM6-1n-u3s"/>
+                                    <constraint firstAttribute="trailing" secondItem="p2k-oJ-QuT" secondAttribute="trailing" id="B9v-ae-wIV"/>
+                                    <constraint firstItem="p2k-oJ-QuT" firstAttribute="leading" secondItem="8vR-2a-Ad1" secondAttribute="leading" id="DLS-gf-ZBC"/>
+                                    <constraint firstItem="I7e-vp-3jb" firstAttribute="leading" secondItem="8vR-2a-Ad1" secondAttribute="leading" id="acO-OC-Xez"/>
+                                    <constraint firstItem="p2k-oJ-QuT" firstAttribute="height" secondItem="8vR-2a-Ad1" secondAttribute="height" multiplier="0.8" id="mVf-kl-Txh"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cCL-Ey-XlJ"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="cCL-Ey-XlJ" firstAttribute="bottom" secondItem="Uhi-6a-BJ4" secondAttribute="bottom" constant="120" id="5GX-Hf-CjH"/>
-                            <constraint firstItem="CR7-f9-aEL" firstAttribute="top" secondItem="cCL-Ey-XlJ" secondAttribute="top" constant="40" id="6Ad-uY-l5n"/>
-                            <constraint firstItem="CR7-f9-aEL" firstAttribute="leading" secondItem="cCL-Ey-XlJ" secondAttribute="leading" constant="40" id="A1M-nV-9MV"/>
-                            <constraint firstItem="Uhi-6a-BJ4" firstAttribute="leading" secondItem="cCL-Ey-XlJ" secondAttribute="leading" constant="40" id="dkJ-Da-wQG"/>
-                            <constraint firstItem="cCL-Ey-XlJ" firstAttribute="trailing" secondItem="CR7-f9-aEL" secondAttribute="trailing" constant="40" id="lH1-vD-krJ"/>
-                            <constraint firstItem="cCL-Ey-XlJ" firstAttribute="trailing" secondItem="Uhi-6a-BJ4" secondAttribute="trailing" constant="40" id="xcB-kG-oFO"/>
+                            <constraint firstItem="8vR-2a-Ad1" firstAttribute="trailing" secondItem="cCL-Ey-XlJ" secondAttribute="trailing" id="AJT-Vz-n1u"/>
+                            <constraint firstItem="8vR-2a-Ad1" firstAttribute="top" secondItem="cCL-Ey-XlJ" secondAttribute="top" id="W1o-ob-Lib"/>
+                            <constraint firstItem="8vR-2a-Ad1" firstAttribute="leading" secondItem="cCL-Ey-XlJ" secondAttribute="leading" id="XVA-iJ-OZM"/>
+                            <constraint firstItem="cCL-Ey-XlJ" firstAttribute="bottom" secondItem="8vR-2a-Ad1" secondAttribute="bottom" id="nNv-H3-qV3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Send Token" id="PPB-5x-lqs"/>
@@ -239,34 +301,34 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKs-dg-rRg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1397.1014492753625" y="254.46428571428569"/>
+            <point key="canvasLocation" x="-1402.4000000000001" y="251.42428785607197"/>
         </scene>
         <!--Success-->
         <scene sceneID="crn-SH-4f4">
             <objects>
                 <viewController storyboardIdentifier="congratulationsScreen" id="gG1-uL-Fgi" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zGb-K0-RwZ">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ppx-Bh-cnV">
-                                <rect key="frame" x="10" y="98" width="408" height="784"/>
+                                <rect key="frame" x="10" y="54" width="355" height="603"/>
                                 <subviews>
                                     <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="ytq-MT-Dna">
-                                        <rect key="frame" x="0.0" y="0.0" width="408" height="242"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="242"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="checkmark.circle.fill" catalog="system" id="oRI-SY-xeJ">
-                                                <rect key="frame" x="110" y="45" width="188" height="152"/>
+                                                <rect key="frame" x="110" y="45" width="135" height="152"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bpr-oE-wgk">
-                                        <rect key="frame" x="0.0" y="249.99999999999997" width="408" height="101.66666666666666"/>
+                                        <rect key="frame" x="0.0" y="250" width="355" height="101.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Success!  This app is now paired to your Bisq desktop application." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="S0I-sW-1ui" userLabel="Success Text">
-                                                <rect key="frame" x="0.0" y="10" width="408" height="81.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="10" width="355" height="81.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -282,13 +344,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lN8-T5-XGw">
-                                        <rect key="frame" x="0.0" y="359.66666666666674" width="408" height="424.33333333333326"/>
+                                        <rect key="frame" x="0.0" y="359.5" width="355" height="243.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDw-e2-Taq" userLabel="Show Notifications Button">
-                                                <rect key="frame" x="113.66666666666667" y="199.99999999999994" width="180.66666666666663" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="Show notifications" image="arrow.right.circle.fill" catalog="system">
+                                                <rect key="frame" x="69" y="107" width="217" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <state key="normal" title="Show notifications">
                                                     <color key="titleColor" red="0.1450980392" green="0.69411764710000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <imageReference key="image" image="arrow.right.circle.fill" catalog="system" symbolScale="large"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="emailButtonPressed:" destination="cUX-nQ-faw" eventType="touchUpInside" id="AR6-OA-nhp"/>
@@ -328,14 +391,14 @@
             <objects>
                 <viewController id="NLY-kU-KyA" customClass="NotificationDetailViewController" customModule="bisqremote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="upf-5O-NMz">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vxt-42-ffC">
-                                <rect key="frame" x="20" y="107.99999999999999" width="388" height="242.66666666666663"/>
+                                <rect key="frame" x="20" y="64" width="335" height="243"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geA-pf-XsK">
-                                        <rect key="frame" x="0.0" y="0.0" width="388" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="QMG-Ej-w2r"/>
                                         </constraints>
@@ -344,7 +407,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" scrollEnabled="NO" editable="NO" text="Action description" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKp-PA-fy8">
-                                        <rect key="frame" x="0.0" y="46" width="388" height="36.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="46" width="335" height="36.5"/>
                                         <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="XTT-gg-3f6"/>
@@ -353,7 +416,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Message" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0P-Dz-of5">
-                                        <rect key="frame" x="0.0" y="98.333333333333343" width="388" height="36.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="98.5" width="335" height="36.5"/>
                                         <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="lPO-Lc-1ig"/>
@@ -362,7 +425,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="Event time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3t0-Gv-2ua">
-                                        <rect key="frame" x="0.0" y="150.66666666666669" width="388" height="20"/>
+                                        <rect key="frame" x="0.0" y="151" width="335" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="G2q-we-LIx"/>
                                         </constraints>
@@ -370,7 +433,7 @@
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Received time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meb-g0-7et" userLabel="Receive Time Label">
-                                        <rect key="frame" x="0.0" y="186.66666666666669" width="388" height="20"/>
+                                        <rect key="frame" x="0.0" y="187" width="335" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="XBZ-nU-flu"/>
                                         </constraints>
@@ -378,7 +441,7 @@
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Offer ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdd-8y-ixK">
-                                        <rect key="frame" x="0.0" y="222.66666666666669" width="388" height="20"/>
+                                        <rect key="frame" x="0.0" y="223" width="335" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="eA0-HI-Lbb"/>
                                         </constraints>
@@ -423,70 +486,70 @@
             <objects>
                 <viewController id="wPz-Zx-mjx" customClass="SettingsViewController" customModule="bisqremote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TGc-Zw-hLf">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUM-Ya-Cot">
-                                <rect key="frame" x="20" y="118" width="388" height="30"/>
+                                <rect key="frame" x="20" y="74" width="335" height="30"/>
                                 <state key="normal" title="Reset and pair again"/>
                                 <connections>
                                     <action selector="rerunSetupPressed:" destination="wPz-Zx-mjx" eventType="touchUpInside" id="UT5-3S-7pF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRw-Oc-zVD">
-                                <rect key="frame" x="20" y="208" width="388" height="30"/>
+                                <rect key="frame" x="20" y="164" width="335" height="30"/>
                                 <state key="normal" title="Mark all as read"/>
                                 <connections>
                                     <action selector="markAllAsReadPressed:" destination="wPz-Zx-mjx" eventType="touchUpInside" id="5Gz-PS-RfH"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9I6-Nn-yMF">
-                                <rect key="frame" x="20" y="785" width="388" height="14"/>
+                                <rect key="frame" x="20" y="560" width="335" height="14"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Token" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBP-eV-zO1">
-                                <rect key="frame" x="20" y="809" width="388" height="14"/>
+                                <rect key="frame" x="20" y="584" width="335" height="14"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNc-hD-HJV">
-                                <rect key="frame" x="20" y="737" width="388" height="14"/>
+                                <rect key="frame" x="20" y="512" width="335" height="14"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPP-5f-SLY">
-                                <rect key="frame" x="20" y="253" width="388" height="30"/>
+                                <rect key="frame" x="20" y="209" width="335" height="30"/>
                                 <state key="normal" title="Add example notifications"/>
                                 <connections>
                                     <action selector="addNotificationsPressed:" destination="wPz-Zx-mjx" eventType="touchUpInside" id="vb8-Kb-vLx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Platform" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAR-Gh-dcS">
-                                <rect key="frame" x="20" y="761" width="388" height="14"/>
+                                <rect key="frame" x="20" y="536" width="335" height="14"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="14"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Y1-ri-iPr">
-                                <rect key="frame" x="20" y="612" width="388" height="30"/>
+                                <rect key="frame" x="20" y="387" width="335" height="30"/>
                                 <state key="normal" title="About Bisq"/>
                                 <connections>
                                     <action selector="aboutBisqPressed:" destination="wPz-Zx-mjx" eventType="touchUpInside" id="pDX-Hw-GGu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTc-CH-BS7">
-                                <rect key="frame" x="20" y="657" width="388" height="30"/>
+                                <rect key="frame" x="20" y="432" width="335" height="30"/>
                                 <state key="normal" title="About this application"/>
                                 <connections>
                                     <action selector="aboutMobileNotificationsPressed:" destination="wPz-Zx-mjx" eventType="touchUpInside" id="DIY-Zd-J81"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40K-Mw-FC7">
-                                <rect key="frame" x="20" y="163" width="388" height="30"/>
+                                <rect key="frame" x="20" y="119" width="335" height="30"/>
                                 <state key="normal" title="Delete all notifications"/>
                                 <connections>
                                     <action selector="deleteAllPressed:" destination="wPz-Zx-mjx" eventType="touchUpInside" id="lAM-c6-UEJ"/>
@@ -547,25 +610,25 @@
             <objects>
                 <tableViewController storyboardIdentifier="listScreen" title="Bisq" id="edC-1E-qDP" customClass="NotificationTableViewController" customModule="bisqremote" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3on-RQ-wxT">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotificationTableViewCell" rowHeight="70" id="aZz-hT-NOV" customClass="NotificationTableViewCell" customModule="bisqremote" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="428" height="70"/>
+                                <rect key="frame" x="0.0" y="44.5" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aZz-hT-NOV" id="ckV-oX-QoS">
-                                    <rect key="frame" x="0.0" y="0.0" width="428" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K96-6P-egi" userLabel="timeEvent">
-                                            <rect key="frame" x="52.333333333333343" y="41.666666666666664" width="355.66666666666663" height="14.333333333333336"/>
+                                            <rect key="frame" x="48.5" y="41.5" width="310.5" height="14.5"/>
                                             <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNz-2I-0pD">
-                                            <rect key="frame" x="20" y="21" width="22.333333333333329" height="28"/>
+                                            <rect key="frame" x="16" y="21" width="22.5" height="28"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="GNz-2I-0pD" secondAttribute="height" multiplier="4:5" id="ZtW-hR-hGe"/>
                                             </constraints>
@@ -574,7 +637,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kq5-Zy-mjn" userLabel="comment">
-                                            <rect key="frame" x="52.333333333333343" y="10.666666666666664" width="355.66666666666663" height="21"/>
+                                            <rect key="frame" x="48.5" y="10.5" width="310.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="VB2-bU-yiT"/>
                                             </constraints>
@@ -633,7 +696,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GPC-bu-xRV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KED-7G-ZDK">
-                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -647,7 +710,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="WNW-kD-TTe"/>
+        <segue reference="gJ4-0y-dvU"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.1450980392" green="0.69411764710000001" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
